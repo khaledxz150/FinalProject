@@ -145,3 +145,4 @@ LMS.Tahaluf/obj/project.nuget.cache
 LMS.Tahaluf.Infra/obj/Debug/netcoreapp3.1/LMS.Tahaluf.Infra.GeneratedMSBuildEditorConfig.editorconfig
 LMS.Tahaluf.Core/obj/Debug/netcoreapp3.1/LMS.Tahaluf.Core.GeneratedMSBuildEditorConfig.editorconfig
 LMS.Tahaluf/obj/Debug/netcoreapp3.1/LMS.Tahaluf.GeneratedMSBuildEditorConfig.editorconfig
+LMS.Tahaluf.Core/bin/Debug/netcoreapp3.1/LMS.Tahaluf.Core.deps.json
