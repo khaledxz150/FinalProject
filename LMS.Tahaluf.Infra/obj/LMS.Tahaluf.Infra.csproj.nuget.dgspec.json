@@ -1,33 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jasse\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Infra\\LMS.Tahaluf.Infra.csproj": {}
+    "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Infra\\LMS.Tahaluf.Infra.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jasse\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Core\\LMS.Tahaluf.Core.csproj": {
+    "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Core\\LMS.Tahaluf.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jasse\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Core\\LMS.Tahaluf.Core.csproj",
+        "projectUniqueName": "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Core\\LMS.Tahaluf.Core.csproj",
         "projectName": "LMS.Tahaluf.Core",
-        "projectPath": "C:\\Users\\jasse\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Core\\LMS.Tahaluf.Core.csproj",
-        "packagesPath": "C:\\Users\\jasse\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jasse\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Core\\obj\\",
+        "projectPath": "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Core\\LMS.Tahaluf.Core.csproj",
+        "packagesPath": "C:\\Users\\khale\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Core\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\jasse\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\khale\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -60,42 +54,36 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-rc.1.21463.6\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\jasse\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Infra\\LMS.Tahaluf.Infra.csproj": {
+    "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Infra\\LMS.Tahaluf.Infra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jasse\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Infra\\LMS.Tahaluf.Infra.csproj",
+        "projectUniqueName": "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Infra\\LMS.Tahaluf.Infra.csproj",
         "projectName": "LMS.Tahaluf.Infra",
-        "projectPath": "C:\\Users\\jasse\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Infra\\LMS.Tahaluf.Infra.csproj",
-        "packagesPath": "C:\\Users\\jasse\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jasse\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Infra\\obj\\",
+        "projectPath": "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Infra\\LMS.Tahaluf.Infra.csproj",
+        "packagesPath": "C:\\Users\\khale\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Infra\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\jasse\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\khale\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\jasse\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Core\\LMS.Tahaluf.Core.csproj": {
-                "projectPath": "C:\\Users\\jasse\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Core\\LMS.Tahaluf.Core.csproj"
+              "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Core\\LMS.Tahaluf.Core.csproj": {
+                "projectPath": "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Core\\LMS.Tahaluf.Core.csproj"
               }
             }
           }
@@ -138,7 +126,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-rc.1.21463.6\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
