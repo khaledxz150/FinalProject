@@ -14,7 +14,7 @@ namespace LMS.Tahaluf.Infra.Repository
     {
         private readonly IDbContext dBContext;
 
-        public BookRepository(IDbContext dBContext)
+        public BookRepository(IDbContext dBContext )
         {
             this.dBContext = dBContext;
         }
