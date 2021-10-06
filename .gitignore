@@ -5,3 +5,7 @@ LMS.Tahaluf.Core/obj/Debug/netcoreapp3.1/LMS.Tahaluf.Core.assets.cache
 *.cache
 *.cache
 *.editorconfig
+LMS.Tahaluf.Infra/obj/Debug/netcoreapp3.1/LMS.Tahaluf.Infra.GeneratedMSBuildEditorConfig.editorconfig
+LMS.Tahaluf.Infra/obj/Debug/netcoreapp3.1/LMS.Tahaluf.Infra.csproj.AssemblyReference.cache
+LMS.Tahaluf/obj/Debug/netcoreapp3.1/LMS.Tahaluf.csproj.AssemblyReference.cache
+LMS.Tahaluf/obj/Debug/netcoreapp3.1/LMS.Tahaluf.GeneratedMSBuildEditorConfig.editorconfig
