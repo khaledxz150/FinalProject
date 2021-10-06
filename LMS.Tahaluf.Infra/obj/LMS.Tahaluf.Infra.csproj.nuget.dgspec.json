@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\khale\\source\\repos\\LMS.Tahaluf.Infra\\LMS.Tahaluf.Infra.csproj": {}
+    "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Infra\\LMS.Tahaluf.Infra.csproj": {}
   },
   "projects": {
-    "C:\\Users\\khale\\source\\repos\\LMS.Tahaluf.Core\\LMS.Tahaluf.Core.csproj": {
+    "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Core\\LMS.Tahaluf.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\khale\\source\\repos\\LMS.Tahaluf.Core\\LMS.Tahaluf.Core.csproj",
+        "projectUniqueName": "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Core\\LMS.Tahaluf.Core.csproj",
         "projectName": "LMS.Tahaluf.Core",
-        "projectPath": "C:\\Users\\khale\\source\\repos\\LMS.Tahaluf.Core\\LMS.Tahaluf.Core.csproj",
+        "projectPath": "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Core\\LMS.Tahaluf.Core.csproj",
         "packagesPath": "C:\\Users\\khale\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\khale\\source\\repos\\LMS.Tahaluf.Core\\obj\\",
+        "outputPath": "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\khale\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,20 +39,6 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "dependencies": {
-            "Microsoft.AspNetCore.Authentication": {
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
-            "Microsoft.AspNetCore.Authentication.JwtBearer": {
-              "target": "Package",
-              "version": "[3.1.19, )"
-            },
-            "Microsoft.IdentityModel.Tokens": {
-              "target": "Package",
-              "version": "[6.12.2, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -72,14 +58,14 @@
         }
       }
     },
-    "C:\\Users\\khale\\source\\repos\\LMS.Tahaluf.Infra\\LMS.Tahaluf.Infra.csproj": {
+    "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Infra\\LMS.Tahaluf.Infra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\khale\\source\\repos\\LMS.Tahaluf.Infra\\LMS.Tahaluf.Infra.csproj",
+        "projectUniqueName": "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Infra\\LMS.Tahaluf.Infra.csproj",
         "projectName": "LMS.Tahaluf.Infra",
-        "projectPath": "C:\\Users\\khale\\source\\repos\\LMS.Tahaluf.Infra\\LMS.Tahaluf.Infra.csproj",
+        "projectPath": "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Infra\\LMS.Tahaluf.Infra.csproj",
         "packagesPath": "C:\\Users\\khale\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\khale\\source\\repos\\LMS.Tahaluf.Infra\\obj\\",
+        "outputPath": "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Infra\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\khale\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -96,8 +82,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\khale\\source\\repos\\LMS.Tahaluf.Core\\LMS.Tahaluf.Core.csproj": {
-                "projectPath": "C:\\Users\\khale\\source\\repos\\LMS.Tahaluf.Core\\LMS.Tahaluf.Core.csproj"
+              "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Core\\LMS.Tahaluf.Core.csproj": {
+                "projectPath": "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS.Tahaluf.Core\\LMS.Tahaluf.Core.csproj"
               }
             }
           }
@@ -116,14 +102,6 @@
               "target": "Package",
               "version": "[2.0.90, )"
             },
-            "Microsoft.AspNetCore.Authentication": {
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
-            "Microsoft.AspNetCore.Authentication.JwtBearer": {
-              "target": "Package",
-              "version": "[3.1.19, )"
-            },
             "Microsoft.Data.SqlClient": {
               "target": "Package",
               "version": "[3.0.0, )"
@@ -131,10 +109,6 @@
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
               "version": "[5.0.0, )"
-            },
-            "Microsoft.IdentityModel.Tokens": {
-              "target": "Package",
-              "version": "[6.12.2, )"
             }
           },
           "imports": [
