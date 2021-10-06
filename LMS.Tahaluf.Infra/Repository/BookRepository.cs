@@ -19,9 +19,26 @@ namespace LMS.Tahaluf.Infra.Repository
             this.dBContext = dBContext;
         }
 
-        public List<Book> GetAllBook()
+        public List<Book> GetAllBooks()
         {
             IEnumerable<Book> result = dBContext.Connection.Query<Book>("GetAllBook", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public List<Book> GetBookByName(String bookName)
+        {
+            var p = new DynamicParameters();
+            p.Add("@bookName", bookName, dbType: DbType.String, direction: ParameterDirection.Input);
+            IEnumerable<Book> result = dBContext.Connection.Query<Book>("getBookByName", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+           
+        }
+
+        public List<Book> GetBookByPrice(double price)
+        {
+            var p = new DynamicParameters();
+            p.Add("@bookPrice", price, dbType: DbType.Double, direction: ParameterDirection.Input);
+            IEnumerable<Book> result = dBContext.Connection.Query<Book>("getBookByPrice", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
     }

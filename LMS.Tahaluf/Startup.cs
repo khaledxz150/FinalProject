@@ -34,10 +34,15 @@ namespace LMS.Tahaluf
             services.AddScoped<IDbContext, DbContext>();
             services.AddScoped<ICourseRepository, CourseRepository>();
             services.AddScoped<IBookRepository, BookRepository>();
-            services.AddScoped<ICourseService, CourseService>();
             services.AddScoped<IBookService, BookService>();
-            services.AddScoped<ISCTService, SCTService>();
-            services.AddScoped<ISCTRepository, SCTRepository>();
+            services.AddScoped<ITeacherRepository, TeacherRepository>();
+            services.AddScoped<IStudentRepository, StudentRepository>();
+            services.AddScoped<ITeacherService, TeacherService>();
+            services.AddScoped<IStudentService, StudentService>();
+            services.AddScoped<ICourseServices, CourseService>();
+            services.AddScoped<IEnrollmentRepositiory, EnrollmentRepositiory>();
+            services.AddScoped<IEnrollmentService, EnrollmentService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

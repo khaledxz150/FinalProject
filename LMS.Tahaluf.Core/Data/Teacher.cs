@@ -7,8 +7,9 @@ using System.Text;
 namespace LMS.Tahaluf.Core.Data
 {
    public class Teacher
-    {[Key]
-        public int TeacherId { get; set; }
+    {
+        [Key]
+        public int ID { get; set; }
         public string TeacherName { get; set; }
         public string Email { get; set; }
         public float Salary { get; set; }

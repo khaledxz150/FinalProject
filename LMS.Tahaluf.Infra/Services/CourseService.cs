@@ -1,5 +1,4 @@
 ﻿using LMS.Tahaluf.Core.Data;
-using LMS.Tahaluf.Core.DTO;
 using LMS.Tahaluf.Core.Repository;
 using LMS.Tahaluf.Core.Services;
 using System;
@@ -8,7 +7,7 @@ using System.Text;
 
 namespace LMS.Tahaluf.Infra.Services
 {
-   public class CourseService : ICourseService
+    public class CourseService: ICourseServices
     {
         private readonly ICourseRepository _courseRepository;
 
@@ -17,20 +16,24 @@ namespace LMS.Tahaluf.Infra.Services
             _courseRepository = courseRepository;
         }
 
-        
-        public List<Course> GetAllCourse()
-        {
-            return _courseRepository.GetAllCourse();
-        }
-
         public bool CreateCourse(Course course)
         {
             return _courseRepository.CreateCourse(course);
         }
 
-        public List<Course> GetByCourseName(String courseName)
+        public bool DeleteCourse(int id)
         {
-            return _courseRepository.GetByCourseName(courseName);
+            return _courseRepository.DeleteCourse(id);
+        }
+
+        public List<Course> GetAllCourse()
+        {
+           return _courseRepository.GetAllCourse();
+        }
+
+        public List<Course> GetByCourseName(string courseName)
+        {
+           return  _courseRepository.GetByCourseName(courseName);
         }
 
         public List<Course> GetByCourseName(Course course)
@@ -38,24 +41,24 @@ namespace LMS.Tahaluf.Infra.Services
             return _courseRepository.GetByCourseName(course);
         }
 
+        public List<Course> GetChepasetCourse()
+        {
+            return _courseRepository.GetChepasetCourse();
+        }
+
+        public List<Course> GetCourseByPrice(double price)
+        {
+            return _courseRepository.GetCourseByPrice(price);
+        }
+
+        public List<Course> GetCourseByStartDate(DateTime startdate)
+        {
+            return _courseRepository.GetCourseByStartDate(startdate);
+        }
 
         public void UpdateCourse(Course course)
         {
-            _courseRepository.UpdateCourse(course);
-        }
-        public bool DeleteCourse(int id)
-        {
-            return _courseRepository.DeleteCourse(id);
-        }
-
-        public List<Course> GetByCoursePrice(double price)
-        {
-            return _courseRepository.GetByCoursePrice(price);
-        }
-
-        public List<Course> GetCourseBetweenDate(SearchBetweenates dates)
-        {
-            return _courseRepository.GetCourseBetweenDate(dates);
+            _courseRepository.UpdateCourse   (course);
         }
     }
 }

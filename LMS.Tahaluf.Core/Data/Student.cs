@@ -4,11 +4,15 @@ using System.Text;
 
 namespace LMS.Tahaluf.Core.Data
 {
-   public class Student
+    public class Student
     {
-        public int stdid { get; set; }
-        public string fname { get; set; }
-        public DateTime dateofbirth { get; set; }
-        public int mark { get; set; }
+        public int ID {  get; set; }
+        public string NAME {  get; set; }
+            
+        public DateTime? BIRTHDATE {  get; set; }
+
+        public double? MARK { get; set; }
+
+        public ICollection<StudentCourse> studentCourses {  get; set; }
     }
 }

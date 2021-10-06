@@ -9,7 +9,7 @@ namespace LMS.Tahaluf.Core.Data
     {
         [Key]
         public int CourseId { get; set; }
-   
+        [Required]
         public string CourseName { get; set; }
         public float? Price { get; set; }
         public DateTime? StartDate { get; set; }

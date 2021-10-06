@@ -8,8 +8,8 @@ namespace LMS.Tahaluf.Core.Data
 {
    public class Book
     {[Key]
-        public int BookId { get; set; }
-        public string BookName { get; set; }
+        public int  ID{ get; set; }
+        public string NAME { get; set; }
         public float? Price { get; set; }
         public DateTime? PublishedDate { get; set; }
         public DateTime? EndDate { get; set; }

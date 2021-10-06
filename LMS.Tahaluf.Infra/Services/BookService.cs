@@ -7,18 +7,26 @@ using System.Text;
 
 namespace LMS.Tahaluf.Infra.Services
 {
-   public class BookService : IBookService
+    public class BookService : IBookService
     {
-        private readonly IBookRepository _bookRepository;
+        private readonly IBookRepository _bookrepos;
 
-        public BookService(IBookRepository bookRepository)
+        public BookService(IBookRepository book)
         {
-            _bookRepository = bookRepository;
+            _bookrepos=book;
+        }
+        public List<Book> GetAllBooks()
+        {
+            return _bookrepos.GetAllBooks();
+        }
+        public List<Book> GetBookByName(String bookName)
+        {
+            return _bookrepos.GetBookByName(bookName);
         }
 
-        public List<Book> GetAllBook()
+        public List<Book> GetBookByPrice(double price)
         {
-            return _bookRepository.GetAllBook();
+            return _bookrepos.GetBookByPrice(price);
         }
 
     }

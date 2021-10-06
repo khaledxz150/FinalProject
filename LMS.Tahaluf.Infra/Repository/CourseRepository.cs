@@ -1,7 +1,6 @@
 ﻿using Dapper;
 using LMS.Tahaluf.Core.Common;
 using LMS.Tahaluf.Core.Data;
-using LMS.Tahaluf.Core.DTO;
 using LMS.Tahaluf.Core.Repository;
 using System;
 using System.Collections.Generic;
@@ -55,13 +54,7 @@ namespace LMS.Tahaluf.Infra.Repository
             return result.ToList();
         }
 
-        public List<Course> GetByCoursePrice(double price)
-        {
-            var p = new DynamicParameters();
-            p.Add("@Price", price, dbType: DbType.Double, direction: ParameterDirection.Input);
-            IEnumerable<Course> result = dBContext.Connection.Query<Course>("GetByCoursePrice", p, commandType: CommandType.StoredProcedure);
-            return result.ToList();
-        }
+
 
         public void UpdateCourse(Course course)
         {
@@ -80,13 +73,25 @@ namespace LMS.Tahaluf.Infra.Repository
             var result = dBContext.Connection.ExecuteAsync("DeleteCourse", p, commandType: CommandType.StoredProcedure);
             return true;
         }
-
-        public List<Course> GetCourseBetweenDate(SearchBetweenates dates)
+        public List<Course>GetCourseByPrice(double price)
         {
-            var p = new DynamicParameters();
-            p.Add("@DateFrom", dates.dateFrom, dbType: DbType.DateTime, direction: ParameterDirection.Input);
-            p.Add("@DateTo", dates.dateTo, dbType: DbType.DateTime, direction: ParameterDirection.Input);
-            IEnumerable<Course> result = dBContext.Connection.Query<Course>("GetCourseBetweenDate", p, commandType: CommandType.StoredProcedure);
+
+            var parameters = new DynamicParameters();
+            parameters.Add("@price", price, dbType: DbType.Double, direction: ParameterDirection.Input);
+            IEnumerable<Course> result = dBContext.Connection.Query<Course>("getCourseByPrice", parameters, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+
+        }
+        public List<Course> GetCourseByStartDate(DateTime startdate)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@dateStart", startdate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            IEnumerable<Course> result = dBContext.Connection.Query<Course>("getCourseByStartDate", parameters, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+        public List<Course> GetChepasetCourse()
+        {
+            IEnumerable<Course> result = dBContext.Connection.Query<Course>("GetCheapestCourse", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
     }

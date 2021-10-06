@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "fa06c9b1-1bef-407d-bc05-468e3ea2fd41": {
+      "ProjectGuid": "fa06c9b1-1bef-407d-bc05-468e3ea2fd41",
+      "DisplayName": "LMS.Tahaluf",
+      "ColorIndex": 0
+    },
+    "6b0d4dbe-0d35-4bff-ac6a-215e122c1bfa": {
+      "ProjectGuid": "6b0d4dbe-0d35-4bff-ac6a-215e122c1bfa",
+      "DisplayName": "LMS.Tahaluf.Infra",
+      "ColorIndex": 1
+    },
+    "7cc26662-3d4a-4906-89c7-6809d4f6f6d3": {
+      "ProjectGuid": "7cc26662-3d4a-4906-89c7-6809d4f6f6d3",
+      "DisplayName": "LMS.Tahaluf.Core",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
