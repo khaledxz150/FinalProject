@@ -108,3 +108,10 @@ LMS.Tahaluf/obj/LMS.Tahaluf.csproj.nuget.g.props
 LMS.Tahaluf/obj/LMS.Tahaluf.csproj.nuget.g.targets
 LMS.Tahaluf/obj/project.assets.json
 LMS.Tahaluf/obj/project.nuget.cache
+LMS.Tahaluf.Core/obj/Debug/netcoreapp3.1/LMS.Tahaluf.Core.csproj.AssemblyReference.cache
+LMS.Tahaluf.Core/obj/Debug/netcoreapp3.1/LMS.Tahaluf.Core.csproj.FileListAbsolute.txt
+LMS.Tahaluf.Infra/obj/Debug/netcoreapp3.1/LMS.Tahaluf.Infra.csproj.AssemblyReference.cache
+LMS.Tahaluf/.vs/LMS.Tahaluf/v16/.suo
+LMS.Tahaluf/obj/Debug/netcoreapp3.1/LMS.Tahaluf.csproj.AssemblyReference.cache
+*.cache
+*.txt
