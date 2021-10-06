@@ -20,7 +20,6 @@ C:\Users\khale\source\repos\LMS.Tahaluf.Core\obj\Debug\netcoreapp3.1\LMS.Tahaluf
 C:\Users\jasse\Documents\GitHub\FinalProject\LMS.Tahaluf.Core\bin\Debug\netcoreapp3.1\LMS.Tahaluf.Core.deps.json
 C:\Users\jasse\Documents\GitHub\FinalProject\LMS.Tahaluf.Core\bin\Debug\netcoreapp3.1\LMS.Tahaluf.Core.dll
 C:\Users\jasse\Documents\GitHub\FinalProject\LMS.Tahaluf.Core\bin\Debug\netcoreapp3.1\LMS.Tahaluf.Core.pdb
-C:\Users\jasse\Documents\GitHub\FinalProject\LMS.Tahaluf.Core\obj\Debug\netcoreapp3.1\LMS.Tahaluf.Core.csproj.AssemblyReference.cache
 C:\Users\jasse\Documents\GitHub\FinalProject\LMS.Tahaluf.Core\obj\Debug\netcoreapp3.1\LMS.Tahaluf.Core.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\jasse\Documents\GitHub\FinalProject\LMS.Tahaluf.Core\obj\Debug\netcoreapp3.1\LMS.Tahaluf.Core.AssemblyInfoInputs.cache
 C:\Users\jasse\Documents\GitHub\FinalProject\LMS.Tahaluf.Core\obj\Debug\netcoreapp3.1\LMS.Tahaluf.Core.AssemblyInfo.cs
