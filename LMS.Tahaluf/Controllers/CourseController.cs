@@ -58,7 +58,7 @@ namespace LMS.Tahaluf.Controllers
         }
 
         [HttpGet]
-        [Route("GetByCourseName")]
+        [Route("[action]")]
         [ProducesResponseType(typeof(List<Course>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public List<Course> GetByCourseName(String courseName)
