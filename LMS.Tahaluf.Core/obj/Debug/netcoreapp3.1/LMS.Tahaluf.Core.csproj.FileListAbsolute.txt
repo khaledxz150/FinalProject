@@ -35,3 +35,4 @@ C:\Users\khale\Documents\GitHub\FinalProject\LMS.Tahaluf.Core\obj\Debug\netcorea
 C:\Users\khale\Documents\GitHub\FinalProject\LMS.Tahaluf.Core\obj\Debug\netcoreapp3.1\LMS.Tahaluf.Core.csproj.CoreCompileInputs.cache
 C:\Users\khale\Documents\GitHub\FinalProject\LMS.Tahaluf.Core\obj\Debug\netcoreapp3.1\LMS.Tahaluf.Core.dll
 C:\Users\khale\Documents\GitHub\FinalProject\LMS.Tahaluf.Core\obj\Debug\netcoreapp3.1\LMS.Tahaluf.Core.pdb
+C:\Users\khale\Documents\GitHub\FinalProject\LMS.Tahaluf.Core\obj\Debug\netcoreapp3.1\LMS.Tahaluf.Core.csproj.AssemblyReference.cache
