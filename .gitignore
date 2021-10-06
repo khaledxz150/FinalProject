@@ -142,3 +142,6 @@ LMS.Tahaluf/obj/project.nuget.cache
 *.pdb
 *.cache
 *.editorconfig
+LMS.Tahaluf.Infra/obj/Debug/netcoreapp3.1/LMS.Tahaluf.Infra.GeneratedMSBuildEditorConfig.editorconfig
+LMS.Tahaluf.Core/obj/Debug/netcoreapp3.1/LMS.Tahaluf.Core.GeneratedMSBuildEditorConfig.editorconfig
+LMS.Tahaluf/obj/Debug/netcoreapp3.1/LMS.Tahaluf.GeneratedMSBuildEditorConfig.editorconfig
