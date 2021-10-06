@@ -36,3 +36,16 @@ C:\Users\jasse\Documents\GitHub\FinalProject\LMS.Tahaluf.Infra\obj\Debug\netcore
 C:\Users\jasse\Documents\GitHub\FinalProject\LMS.Tahaluf.Infra\obj\Debug\netcoreapp3.1\LMS.Tahaluf.Infra.csproj.CopyComplete
 C:\Users\jasse\Documents\GitHub\FinalProject\LMS.Tahaluf.Infra\obj\Debug\netcoreapp3.1\LMS.Tahaluf.Infra.dll
 C:\Users\jasse\Documents\GitHub\FinalProject\LMS.Tahaluf.Infra\obj\Debug\netcoreapp3.1\LMS.Tahaluf.Infra.pdb
+C:\Users\khale\Documents\GitHub\FinalProject\LMS.Tahaluf.Infra\bin\Debug\netcoreapp3.1\LMS.Tahaluf.Infra.deps.json
+C:\Users\khale\Documents\GitHub\FinalProject\LMS.Tahaluf.Infra\bin\Debug\netcoreapp3.1\LMS.Tahaluf.Infra.dll
+C:\Users\khale\Documents\GitHub\FinalProject\LMS.Tahaluf.Infra\bin\Debug\netcoreapp3.1\LMS.Tahaluf.Infra.pdb
+C:\Users\khale\Documents\GitHub\FinalProject\LMS.Tahaluf.Infra\bin\Debug\netcoreapp3.1\LMS.Tahaluf.Core.dll
+C:\Users\khale\Documents\GitHub\FinalProject\LMS.Tahaluf.Infra\bin\Debug\netcoreapp3.1\LMS.Tahaluf.Core.pdb
+C:\Users\khale\Documents\GitHub\FinalProject\LMS.Tahaluf.Infra\obj\Debug\netcoreapp3.1\LMS.Tahaluf.Infra.csproj.AssemblyReference.cache
+C:\Users\khale\Documents\GitHub\FinalProject\LMS.Tahaluf.Infra\obj\Debug\netcoreapp3.1\LMS.Tahaluf.Infra.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\khale\Documents\GitHub\FinalProject\LMS.Tahaluf.Infra\obj\Debug\netcoreapp3.1\LMS.Tahaluf.Infra.AssemblyInfoInputs.cache
+C:\Users\khale\Documents\GitHub\FinalProject\LMS.Tahaluf.Infra\obj\Debug\netcoreapp3.1\LMS.Tahaluf.Infra.AssemblyInfo.cs
+C:\Users\khale\Documents\GitHub\FinalProject\LMS.Tahaluf.Infra\obj\Debug\netcoreapp3.1\LMS.Tahaluf.Infra.csproj.CoreCompileInputs.cache
+C:\Users\khale\Documents\GitHub\FinalProject\LMS.Tahaluf.Infra\obj\Debug\netcoreapp3.1\LMS.Tahaluf.Infra.csproj.CopyComplete
+C:\Users\khale\Documents\GitHub\FinalProject\LMS.Tahaluf.Infra\obj\Debug\netcoreapp3.1\LMS.Tahaluf.Infra.dll
+C:\Users\khale\Documents\GitHub\FinalProject\LMS.Tahaluf.Infra\obj\Debug\netcoreapp3.1\LMS.Tahaluf.Infra.pdb
