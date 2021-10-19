@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\khale\\source\\repos\\LMS\\LMS.Core\\LMS.Core.csproj",
+      "projectUniqueName": "C:\\Github\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj",
       "projectName": "LMS.Core",
-      "projectPath": "C:\\Users\\khale\\source\\repos\\LMS\\LMS.Core\\LMS.Core.csproj",
+      "projectPath": "C:\\Github\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj",
       "packagesPath": "C:\\Users\\khale\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\khale\\source\\repos\\LMS\\LMS.Core\\obj\\",
+      "outputPath": "C:\\Github\\FinalProject\\LMS\\LMS.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\khale\\AppData\\Roaming\\NuGet\\NuGet.Config",
