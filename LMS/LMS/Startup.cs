@@ -1,5 +1,9 @@
 using First.Core.Common;
 using First.Infra.Common;
+using LMS.Core.Repository;
+using LMS.Core.Services;
+using LMS.Infra.Repository;
+using LMS.Infra.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -30,6 +34,22 @@ namespace LMS
 
             services.AddControllers();
             services.AddScoped<IDbContext, DbContext>();
+            services.AddScoped<IExamRepository, ExamRepository>();
+            services.AddScoped<IExamService, ExamService>();
+            services.AddScoped<ILectureRepository, LectureRepository>();
+            services.AddScoped<ILectureService, LectureService>();
+            services.AddScoped<ILevelRepository, LevelRepository>();
+            services.AddScoped<ILevelService, LevelService>(); 
+            services.AddScoped<IOffLineLectureRepository, OffLineLectureRepository>();
+            services.AddScoped<IOffLineLectureService, OffLineLectureService>();
+            services.AddScoped<IExamOptionRepository, ExamOptionRepository>();
+            services.AddScoped<IExamOptionService, ExamOptionService>();
+            services.AddScoped<IExamQuestionRepository, ExamQuestionRepository>();
+            services.AddScoped<IExamQuestionService, ExamQuestionService>();
+            services.AddScoped<IRefundReasonRepository, RefundReasonRepository>();
+            services.AddScoped<IRefundReasonService, RefundReasonService>();
+            services.AddScoped<IContactUsRepository, ContactUsRepository>();
+            services.AddScoped<IContactUsService, ContactUsService>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "LMS", Version = "v1" });
