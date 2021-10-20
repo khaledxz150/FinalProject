@@ -11,7 +11,7 @@ namespace LMS.Data
         {
             Carts = new HashSet<Cart>();
             Comments = new HashSet<Comment>();
-            ContactUs = new HashSet<ContactU>();
+            ContactUs = new HashSet<ContactUs>();
             CourseRatings = new HashSet<CourseRating>();
             EvaluationFormsAnswers = new HashSet<EvaluationFormsAnswer>();
             Logins = new HashSet<Login>();
@@ -34,7 +34,7 @@ namespace LMS.Data
         public virtual Employee CreatedByNavigation { get; set; }
         public virtual ICollection<Cart> Carts { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
-        public virtual ICollection<ContactU> ContactUs { get; set; }
+        public virtual ICollection<ContactUs> ContactUs { get; set; }
         public virtual ICollection<CourseRating> CourseRatings { get; set; }
         public virtual ICollection<EvaluationFormsAnswer> EvaluationFormsAnswers { get; set; }
         public virtual ICollection<Login> Logins { get; set; }
