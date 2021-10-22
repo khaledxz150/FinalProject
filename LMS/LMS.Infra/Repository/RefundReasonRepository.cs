@@ -18,7 +18,6 @@ namespace LMS.Infra.Repository
         {
             this.dBContext = dBContext;
         }
-
         public bool DeleteRefundReason(int reasonId)
         {
             var parm = new DynamicParameters();
@@ -31,7 +30,6 @@ namespace LMS.Infra.Repository
         {
             var parameters = new DynamicParameters();
             parameters.Add("@ReasonDescription", refundReason.ReasonDescription, dbType: DbType.String, direction: ParameterDirection.Input);
-
             var result = dBContext.Connection.ExecuteAsync("InsertRefundReason", parameters, commandType: CommandType.StoredProcedure);
             return true;
         }

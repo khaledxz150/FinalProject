@@ -13,5 +13,15 @@ namespace LMS.Core.Repository
         public bool InsertExam(Exam exam);
         public bool UpdateExam(Exam exam);
         public bool DeleteExam(int examId);
+
+
+
+        public List<TraineeSectionExam> AddTraineeSectionExam(TraineeSectionExam traineeSectionExam);
+        public bool DeleteTraineeSectionExam(int traineeSectionExamId);
+        public List<TraineeSectionExam> ReturnTraineeSectionExam();
+        public List<TraineeSectionExam> UpdateTraineeSectionExam(TraineeSectionExam traineeSectionExam);
+
+
+
     }
 }

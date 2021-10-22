@@ -61,5 +61,43 @@ namespace LMS.Infra.Repository
             var result = dBContext.Connection.ExecuteAsync("UpdateExam", parameters, commandType: CommandType.StoredProcedure);
             return true;
         }
+
+        public List<TraineeSectionExam> AddTraineeSectionExam(TraineeSectionExam traineeSectionExam)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@P_TraineeSectionId", traineeSectionExam.TraineeSectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@P_ExamId", traineeSectionExam.ExamId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@P_Mark", traineeSectionExam.ExamId, dbType: DbType.Decimal, direction: ParameterDirection.Input);
+            parm.Add("@CreatedBy", traineeSectionExam.CreatedBy, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+           IEnumerable<TraineeSectionExam> result = dBContext.Connection.Query<TraineeSectionExam>("ReturnExam", parm, commandType: CommandType.StoredProcedure);           
+        return result.ToList();
+        }
+
+        public bool DeleteTraineeSectionExam(int traineeSectionExamId) {
+            var parm = new DynamicParameters();
+            parm.Add("@P_TraineeSectionExamId", traineeSectionExamId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = dBContext.Connection.ExecuteAsync("DeleteTraineeSectionExam", parm, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        public List<TraineeSectionExam> ReturnTraineeSectionExam()
+        {
+            IEnumerable<TraineeSectionExam> result = dBContext.Connection.Query<TraineeSectionExam>("ReturnTraineeSectionExam", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+
+        public List<TraineeSectionExam> UpdateTraineeSectionExam(TraineeSectionExam traineeSectionExam)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@P_TraineeSectionId", traineeSectionExam.TraineeSectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@P_ExamId", traineeSectionExam.ExamId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@P_Mark", traineeSectionExam.ExamId, dbType: DbType.Decimal, direction: ParameterDirection.Input);
+            IEnumerable<TraineeSectionExam> result = dBContext.Connection.Query<TraineeSectionExam>("UpdateTraineeSectionExam", parm, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+
     }
 }

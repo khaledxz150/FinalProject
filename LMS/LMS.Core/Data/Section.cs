@@ -7,21 +7,12 @@ namespace LMS.Data
 {
     public partial class Section
     {
-        public Section()
-        {
-            Comments = new HashSet<Comment>();
-            CourseRatings = new HashSet<CourseRating>();
-            Evaluations = new HashSet<Evaluation>();
-            Exams = new HashSet<Exam>();
-            Lectures = new HashSet<Lecture>();
-            TraineeSections = new HashSet<TraineeSection>();
-            Units = new HashSet<Unit>();
-        }
+     
 
         public int SectionId { get; set; }
         public int CourseId { get; set; }
         public TimeSpan SectionTimeStart { get; set; }
-        public TimeSpan? SectionTimeEnd { get; set; }
+        public TimeSpan SectionTimeEnd { get; set; }
         public int SectionCapacity { get; set; }
         public int NoLecture { get; set; }
         public string Status { get; set; }

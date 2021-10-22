@@ -49,5 +49,22 @@ namespace LMS.Controllers
         {
             return examService.DeleteExam(examId);
         }
+
+        [HttpPost]
+        [Route("[action]")]
+        public List<TraineeSectionExam> AddTraineeSectionExam(TraineeSectionExam traineeSectionExam)
+        {
+            return examService.AddTraineeSectionExam(traineeSectionExam);
+        }
+
+
+        [HttpDelete]
+        [Route("[action]/{examId}")]
+        public bool DeleteTraineeSectionExam(int traineeSectionExamId) {
+
+        return examService.DeleteTraineeSectionExam(traineeSectionExamId);
+
+        }
+
     }
 }

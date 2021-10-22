@@ -50,6 +50,9 @@ namespace LMS
             services.AddScoped<IRefundReasonService, RefundReasonService>();
             services.AddScoped<IContactUsRepository, ContactUsRepository>();
             services.AddScoped<IContactUsService, ContactUsService>();
+            services.AddScoped<ITaskService, SectionRepository>();
+            services.AddScoped<ISectionService, SectionService>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "LMS", Version = "v1" });

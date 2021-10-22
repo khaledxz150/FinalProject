@@ -17,10 +17,14 @@ namespace LMS.Infra.Services
         {
             this.examRepository = examRepository;
         }
+
+     
         public bool DeleteExam(int examId)
         {
             return examRepository.DeleteExam(examId);
         }
+
+   
 
         public bool InsertExam(Exam exam)
         {
@@ -36,5 +40,31 @@ namespace LMS.Infra.Services
         {
             return examRepository.UpdateExam(exam);
         }
+
+      
+        public List<TraineeSectionExam> AddTraineeSectionExam(TraineeSectionExam traineeSectionExam)
+        {
+            return examRepository.AddTraineeSectionExam(traineeSectionExam);
+        }
+
+    
+        public bool DeleteTraineeSectionExam(int traineeSectionExamId)
+        {
+            return examRepository.DeleteTraineeSectionExam(traineeSectionExamId);
+        }
+
+
+        public List<TraineeSectionExam> ReturnTraineeSectionExam() {
+
+            return examRepository.ReturnTraineeSectionExam();
+
+
+        }
+
+        public List<TraineeSectionExam> UpdateTraineeSectionExam(TraineeSectionExam traineeSectionExam)
+        {
+            return examRepository.UpdateTraineeSectionExam(traineeSectionExam);
+        }
+
     }
 }
