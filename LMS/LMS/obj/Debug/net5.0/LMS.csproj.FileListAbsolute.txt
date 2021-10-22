@@ -133,7 +133,6 @@ C:\Github\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.GeneratedMSBuildEditorConfig
 C:\Github\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.AssemblyInfoInputs.cache
 C:\Github\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.AssemblyInfo.cs
 C:\Github\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.csproj.CoreCompileInputs.cache
-C:\Github\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.MvcApplicationPartsAssemblyInfo.cs
 C:\Github\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.MvcApplicationPartsAssemblyInfo.cache
 C:\Github\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.dll
 C:\Github\FinalProject\LMS\LMS\obj\Debug\net5.0\ref\LMS.dll

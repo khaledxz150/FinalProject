@@ -22,7 +22,7 @@ namespace LMS.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public List<Section> AddSection(Section section)
+        public Section AddSection(Section section)
         {
             return sectionService.AddSection(section);
         }
@@ -45,7 +45,7 @@ namespace LMS.Controllers
         [Route("[action]")]
         public List<Section> UpdateSection(Section section)
         {
-            return sectionService.AddSection(section);
+            return sectionService.UpdateSection(section);
         }
         /// TraineeSection
         /// Start

@@ -10,7 +10,7 @@ namespace LMS.Core.Services
     public interface ISectionService
     {
         public List<Section> ReturnAllSection();
-        public List<Section> AddSection(Section section);
+        public Section AddSection(Section section);
         public List<Section> UpdateSection(Section section);
         public bool DeleteSection(int SectionId);
 

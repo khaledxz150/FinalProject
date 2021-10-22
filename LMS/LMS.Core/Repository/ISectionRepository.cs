@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace LMS.Core.Repository
 {
-    public interface ITaskService
+    public interface ISectionRepository
     {
-        public List<Section> AddSection(Section section);
+        public Section AddSection(Section section);
         public List<Section> UpdateSection(Section section);
         public List<Section> ReturnAllSection();
         

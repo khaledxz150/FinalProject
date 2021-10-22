@@ -11,14 +11,14 @@ using System.Threading.Tasks;
 
 namespace LMS.Infra.Repository
 {
-   public class SectionRepository : ITaskService
-    {
+   public class SectionRepository : ISectionRepository
+    {      
         private IDbContext dBContext;
         public SectionRepository(IDbContext dBContext)
         {
             this.dBContext = dBContext;
         }
-        public List<Section> AddSection(Section section)
+        public Section AddSection(Section section)
         {
             var parm = new DynamicParameters();
             parm.Add("@P_CourseId", section.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
@@ -29,7 +29,7 @@ namespace LMS.Infra.Repository
             parm.Add("@P_Status", section.Status, dbType: DbType.String, direction: ParameterDirection.Input);
             parm.Add("@P_CreatedBy", section.CreatedBy, dbType: DbType.String, direction: ParameterDirection.Input);
             IEnumerable<Section> result = dBContext.Connection.Query<Section>("AddSection", parm, commandType: CommandType.StoredProcedure);
-            return result.ToList();
+            return ReturnAllSection().OrderByDescending(x => x.SectionId).FirstOrDefault();
         }
 
         public bool DeleteSection(int SectionId)
@@ -86,7 +86,9 @@ namespace LMS.Infra.Repository
             return result.ToList();
         }
 
-       
-
+        public List<TraineeSection> UpdateTraineeSection(TraineeSection traineeSection)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
