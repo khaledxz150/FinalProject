@@ -9,7 +9,7 @@ namespace LMS.Data
     {
         public Coupon()
         {
-            TraineeBuyCourses = new HashSet<TraineeBuyCourse>();
+            TraineeBuyCourses = new HashSet<Checkout>();
         }
 
         public int CouponId { get; set; }
@@ -25,6 +25,6 @@ namespace LMS.Data
 
         public virtual Course Course { get; set; }
         public virtual Employee CreatedByNavigation { get; set; }
-        public virtual ICollection<TraineeBuyCourse> TraineeBuyCourses { get; set; }
+        public virtual ICollection<Checkout> TraineeBuyCourses { get; set; }
     }
 }

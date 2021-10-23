@@ -18,6 +18,6 @@ namespace LMS.Data
 
         public virtual Employee ApprovedEmployee { get; set; }
         public virtual RefundReason RefundsReasons { get; set; }
-        public virtual TraineeBuyCourse TraineeByCourse { get; set; }
+        public virtual Checkout TraineeByCourse { get; set; }
     }
 }

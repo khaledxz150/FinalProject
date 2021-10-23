@@ -66,5 +66,49 @@ namespace LMS.Infra.Services
             return examRepository.UpdateTraineeSectionExam(traineeSectionExam);
         }
 
+        //ExamQuestion
+
+        public bool DeleteExamQuestion(int questionId)
+        {
+            return examRepository.DeleteExamQuestion(questionId);
+        }
+
+        public bool InsertExamQuestion(ExamQuestion examQuestion)
+        {
+            return examRepository.InsertExamQuestion(examQuestion);
+        }
+
+        public List<ExamQuestion> ReturnExamQuestion(int queryCode)
+        {
+            return examRepository.ReturnExamQuestion(queryCode);
+        }
+
+        public bool UpdateExamQuestion(ExamQuestion examQuestion)
+        {
+            return examRepository.UpdateExamQuestion(examQuestion);
+        }
+
+        //ExamOption
+
+
+        public bool DeleteExamOption(int optionId)
+        {
+            return examRepository.DeleteExamOption(optionId);
+        }
+
+        public bool InsertExamOption(ExamOption examOption)
+        {
+            return examRepository.InsertExamOption(examOption);
+        }
+
+        public List<ExamOption> ReturnExamOption(int queryCode)
+        {
+            return examRepository.ReturnExamOption(queryCode);
+        }
+
+        public bool UpdateExamOption(ExamOption examOption)
+        {
+            return examRepository.UpdateExamOption(examOption);
+        }
     }
 }

@@ -66,5 +66,65 @@ namespace LMS.Controllers
 
         }
 
+
+        //ExamOption
+
+        [HttpPost]
+        [Route("[action]/{queryCode}")]
+        public List<ExamOption> ReturnExamOption(int queryCode)
+        {
+            return examService.ReturnExamOption(queryCode);
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        public bool InsertExamOption([FromBody] ExamOption examOption)
+        {
+            return examService.InsertExamOption(examOption);
+        }
+
+        [HttpPut]
+        [Route("[action]")]
+        public bool UpdateExamOption([FromBody] ExamOption examOption)
+        {
+            return examService.UpdateExamOption(examOption);
+        }
+
+        [HttpDelete]
+        [Route("[action]/{optionId}")]
+        public bool DeleteExamOption(int optionId)
+        {
+            return examService.DeleteExamOption(optionId);
+        }
+
+        //ExamQuestion
+
+        [HttpPost]
+        [Route("[action]/{queryCode}")]
+        public List<ExamQuestion> ReturnExamQuestion(int queryCode)
+        {
+            return examService.ReturnExamQuestion(queryCode);
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        public bool InsertExamQuestion([FromBody] ExamQuestion examQuestion)
+        {
+            return examService.InsertExamQuestion(examQuestion);
+        }
+
+        [HttpPut]
+        [Route("[action]")]
+        public bool UpdateExamQuestion([FromBody] ExamQuestion examQuestion)
+        {
+            return examService.UpdateExamQuestion(examQuestion);
+        }
+
+        [HttpDelete]
+        [Route("[action]/{questionId}")]
+        public bool DeleteExamQuestion(int questionId)
+        {
+            return examService.DeleteExamQuestion(questionId);
+        }
     }
 }
