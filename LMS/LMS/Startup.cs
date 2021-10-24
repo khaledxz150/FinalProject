@@ -4,6 +4,7 @@ using LMS.Core.Repository;
 using LMS.Core.Services;
 using LMS.Infra.Repository;
 using LMS.Infra.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -11,10 +12,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace LMS
@@ -42,21 +45,42 @@ namespace LMS
             services.AddScoped<ILevelService, LevelService>(); 
             services.AddScoped<IOffLineLectureRepository, OffLineLectureRepository>();
             services.AddScoped<IOffLineLectureService, OffLineLectureService>();
-            services.AddScoped<IExamOptionRepository, ExamOptionRepository>();
-            services.AddScoped<IExamOptionService, ExamOptionService>();
-            services.AddScoped<IExamQuestionRepository, ExamQuestionRepository>();
-            services.AddScoped<IExamQuestionService, ExamQuestionService>();
             services.AddScoped<IRefundReasonRepository, RefundReasonRepository>();
             services.AddScoped<IRefundReasonService, RefundReasonService>();
             services.AddScoped<IContactUsRepository, ContactUsRepository>();
             services.AddScoped<IContactUsService, ContactUsService>();
             services.AddScoped<ISectionRepository, SectionRepository>();
             services.AddScoped<ISectionService, SectionService>();
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "LMS", Version = "v1" });
             });
+
+            /**Token**/
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme =
+                JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme =
+                JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(y =>
+            {
+                y.RequireHttpsMetadata = false;
+                y.SaveToken = true;
+                y.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("[SECRET USED TO SIGN AND VERIFY JWT TOKENS, IT CAN BE ANY STRING]")),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
+            /****/
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

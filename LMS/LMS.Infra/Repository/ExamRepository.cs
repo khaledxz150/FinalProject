@@ -99,5 +99,91 @@ namespace LMS.Infra.Repository
         }
 
 
+        //ExamQuestion
+
+        public bool DeleteExamQuestion(int questionId)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@QuestionId", questionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = dBContext.Connection.ExecuteAsync("DeleteExamQuestion", parm, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        public bool InsertExamQuestion(ExamQuestion examQuestion)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@Description", examQuestion.Description, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameters.Add("@ImageName", examQuestion.ImageName, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameters.Add("@CourseId", examQuestion.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parameters.Add("@CreatedBy", examQuestion.CreatedBy, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            var result = dBContext.Connection.ExecuteAsync("InsertExamQuestion", parameters, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        public List<ExamQuestion> ReturnExamQuestion(int queryCode)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@P_CODE", queryCode, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            IEnumerable<ExamQuestion> result = dBContext.Connection.Query<ExamQuestion>("ReturnExamQuestion", parm, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public bool UpdateExamQuestion(ExamQuestion examQuestion)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@QuestionId", examQuestion.QuestionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parameters.Add("@Description", examQuestion.Description, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameters.Add("@ImageName", examQuestion.ImageName, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameters.Add("@CourseId", examQuestion.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            var result = dBContext.Connection.ExecuteAsync("UpdateExamQuestion", parameters, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+
+        //ExamOption
+
+        public bool DeleteExamOption(int optionId)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@OptionId", optionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = dBContext.Connection.ExecuteAsync("DeleteExamOption", parm, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        public bool InsertExamOption(ExamOption examOption)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@Description", examOption.Description, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameters.Add("@IsCorrect", examOption.IsCorrect, dbType: DbType.Boolean, direction: ParameterDirection.Input);
+            parameters.Add("@QuestionId", examOption.QuestionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parameters.Add("@CreatedBy", examOption.CreatedBy, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            var result = dBContext.Connection.ExecuteAsync("InsertExamOption", parameters, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        public List<ExamOption> ReturnExamOption(int queryCode)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@P_CODE", queryCode, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            IEnumerable<ExamOption> result = dBContext.Connection.Query<ExamOption>("ReturnExamOption", parm, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public bool UpdateExamOption(ExamOption examOption)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@OptionId", examOption.OptionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parameters.Add("@Description", examOption.Description, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameters.Add("@IsCorrect", examOption.IsCorrect, dbType: DbType.Boolean, direction: ParameterDirection.Input);
+            parameters.Add("@QuestionId", examOption.QuestionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            var result = dBContext.Connection.ExecuteAsync("UpdateExamOption", parameters, commandType: CommandType.StoredProcedure);
+            return true;
+        }
     }
 }

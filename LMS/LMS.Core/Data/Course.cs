@@ -15,7 +15,7 @@ namespace LMS.Data
             ExamQuestions = new HashSet<ExamQuestion>();
             OffLineLectures = new HashSet<OffLineLecture>();
             Topics = new HashSet<Topic>();
-            TraineeBuyCourses = new HashSet<TraineeBuyCourse>();
+            TraineeBuyCourses = new HashSet<Checkout>();
             WishListItems = new HashSet<WishListItem>();
         }
 
@@ -45,7 +45,7 @@ namespace LMS.Data
         public virtual ICollection<ExamQuestion> ExamQuestions { get; set; }
         public virtual ICollection<OffLineLecture> OffLineLectures { get; set; }
         public virtual ICollection<Topic> Topics { get; set; }
-        public virtual ICollection<TraineeBuyCourse> TraineeBuyCourses { get; set; }
+        public virtual ICollection<Checkout> TraineeBuyCourses { get; set; }
         public virtual ICollection<WishListItem> WishListItems { get; set; }
     }
 }
