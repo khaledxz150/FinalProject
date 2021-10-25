@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LMS.Core.Repository
 {
-    public interface ISectionRepository
+    public interface ISectionRepository          
     {
         public Section AddSection(Section section);
         public List<Section> UpdateSection(Section section);
@@ -17,7 +17,7 @@ namespace LMS.Core.Repository
 
 
 
-        public List<TraineeSection> AddTraineeSection(TraineeSection traineeSection);
+        public TraineeSection AddTraineeSection(TraineeSection traineeSection);
         public bool DeleteTraineeSection(int traineeSectionId);
         public List<TraineeSection> ReturnTraineeSection();
         public List<TraineeSection> UpdateTraineeSection(TraineeSection traineeSection);

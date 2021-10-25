@@ -11,7 +11,6 @@ namespace LMS.Core.Repository
     {
         public List<Login> ReturnLogin();
         public bool Register(Login login);
-        //public bool UpdateLogin(Login login);
         public bool DeleteLogin(int loginId);
         public Login Authentiaction(Login login);
 

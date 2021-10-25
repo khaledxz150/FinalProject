@@ -18,15 +18,14 @@ namespace LMS.Infra.Services
             this.contactUsRepository = contactUsRepository;
         }
 
-        public bool DeleteMessage(int messageId)
-        {
-            return contactUsRepository.DeleteMessage(messageId);
-        }
+        
 
         public bool InsertMessage(ContactUs contactUs)
         {
             return contactUsRepository.InsertMessage(contactUs);
         }
+
+      
 
         public List<ContactUs> ReturnMessage(int queryCode)
         {
@@ -36,6 +35,20 @@ namespace LMS.Infra.Services
         public bool UpdateMessage(ContactUs contactUs)
         {
             return contactUsRepository.UpdateMessage(contactUs);
+        }
+        
+        
+        public bool DeleteMessage(int messageId)
+        {
+            return contactUsRepository.DeleteMessage(messageId);
+        }
+        public Testimonial AddTestMonial(Testimonial testimonial)
+        {
+            return contactUsRepository.AddTestMonial(testimonial);
+        }
+  public List<Testimonial> ReturnAllTestMonial()
+        {
+            return contactUsRepository.ReturnAllTestMonial();
         }
     }
 }

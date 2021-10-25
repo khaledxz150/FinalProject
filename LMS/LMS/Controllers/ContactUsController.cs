@@ -49,5 +49,13 @@ namespace LMS.Controllers
         {
             return contactUsService.DeleteMessage(messageId);
         }
+
+        public Testimonial AddTestMonial(Testimonial testimonial) {
+            return contactUsService.AddTestMonial(testimonial);
+        }
+        public List<Testimonial> ReturnAllTestMonial() {
+            return contactUsService.ReturnAllTestMonial();
+
+        }
     }
 }

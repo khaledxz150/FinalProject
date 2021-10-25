@@ -13,5 +13,13 @@ namespace LMS.Core.Repository
         public bool InsertMessage(ContactUs contactUs);
         public bool UpdateMessage(ContactUs contactUs);
         public bool DeleteMessage(int messageId);
+
+
+
+
+        public Testimonial AddTestMonial(Testimonial testimonial);
+        public List<Testimonial> ReturnAllTestMonial();
+
+
     }
 }

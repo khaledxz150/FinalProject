@@ -11,9 +11,9 @@ namespace LMS.Infra.Services
 {
     public class SectionService: ISectionService
     {
-        private readonly ISectionRepository sectionRepository;
+        private readonly ISectionService sectionRepository;
 
-        public SectionService(ISectionRepository sectionRepository)
+        public SectionService(ISectionService sectionRepository)
         {
             this.sectionRepository = sectionRepository;
         }
@@ -48,7 +48,7 @@ namespace LMS.Infra.Services
 
       //// TraineeSection
       ///Start
-        public List<TraineeSection> AddTraineeSection(TraineeSection traineeSection)
+        public TraineeSection AddTraineeSection(TraineeSection traineeSection)
         {
             return sectionRepository.AddTraineeSection(traineeSection);
         }
