@@ -12,13 +12,11 @@ namespace LMS.Core.Repository
         //Cart
 
         public List<Cart> ReturnCart(int queryCode);
-
         public Task<Cart> AddNewCart(Cart cart);
         public bool DeleteCart(int cartId);
 
         //CartItem
 
-        //public List<CartItem> ReturnCartItem(int queryCode);
         public bool AddNewCartItem(CartItem cartItem);
         public bool DeleteCartItem(int cartItemId);
 
@@ -26,6 +24,17 @@ namespace LMS.Core.Repository
         public List<Checkout> ReturnCheckout();
         public bool InsertCheckout(Checkout checkout);
         //public bool DeleteCheckout(int checkoutId);
+
+        //WishList
+
+        public List<WishList> ReturnWishList();
+        public Task<WishList> InsertWishList(WishList wishList);
+        public bool DeleteWishList(int wishListId);
+
+        //WithListItem
+
+        public bool InsertWishListItem(WishListItem wishListItem);
+        public bool DeleteWishListItem(int wishListItemId);
     }
 
 }

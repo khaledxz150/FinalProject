@@ -78,6 +78,48 @@ namespace LMS.Infra.Repository
             IEnumerable<Checkout> result = dBContext.Connection.Query<Checkout>("ReturnCheckout", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+        //WishList
+
+        public List<WishList> ReturnWishList()
+        {
+
+
+            IEnumerable<WishList> result = dBContext.Connection.Query<WishList>("ReturnAllWhihlist", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+        public bool InsertWishList(WishList wishList)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@P_TraineeId",wishList.TraineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = dBContext.Connection.ExecuteAsync("InsertWishlist", parameters, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+        public bool DeleteWishList(int wishListId)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@P_WishListId", wishListId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = dBContext.Connection.ExecuteAsync("DeleteWishlist", parameters, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        //WithListItem
+
+        public bool InsertWishListItem(WishListItem wishListItem)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@P_WishListId",wishListItem.WishListId , dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parameters.Add("@P_CourseId", wishListItem.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parameters.Add("@P_CreatedBy", wishListItem.CreatedBy, dbType: DbType.String, direction: ParameterDirection.Input);
+            var result = dBContext.Connection.ExecuteAsync("InsertWishlistItem", parameters, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+        public bool DeleteWishListItem(int wishListItemId)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@P_WishListItemId", wishListItemId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = dBContext.Connection.ExecuteAsync("DeleteWishlistItem", parameters, commandType: CommandType.StoredProcedure);
+            return true;
+        }
     }
 
 }

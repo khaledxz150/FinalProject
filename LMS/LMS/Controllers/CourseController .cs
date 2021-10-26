@@ -19,6 +19,7 @@ namespace LMS.Controllers
         //**********************************************<-- Insert -->*******************************************
         [HttpPost]
         [Route("[action]")]
+<<<<<<< Updated upstream
         public bool InsertCategory([FromBody] Category category)
         {
             return _courseService.InsertCategory(category);
@@ -43,6 +44,38 @@ namespace LMS.Controllers
         }
         [HttpPost]
         [Route("[action]")]
+=======
+        public bool AddType([FromBody] Data.Type type)
+        {
+            return _courseService.AddType(type);
+        }
+        [HttpPost]
+        [Route("[action]")]
+        public bool InsertCategory([FromBody] Category category)
+        {
+            return _courseService.InsertCategory(category);
+        }
+        [HttpPost]
+        [Route("[action]")]
+        public bool InsertComment([FromBody] Comment comment)
+        {
+            return _courseService.InsertComment(comment);
+        }
+        [HttpPost]
+        [Route("[action]")]
+        public bool InsertCourse([FromBody] Course course)
+        {
+            return _courseService.InsertCourse(course);
+        }
+        [HttpPost]
+        [Route("[action]")]
+        public bool InsertTopic([FromBody] Topic topic)
+        {
+            return _courseService.InsertTopic(topic);
+        }
+        [HttpPost]
+        [Route("[action]")]
+>>>>>>> Stashed changes
         public bool InsertCoupon([FromBody] Coupon coupon)
         {
             return _courseService.InsertCoupon(coupon);
@@ -90,6 +123,15 @@ namespace LMS.Controllers
         {
             return _courseService.DeleteCoupon(couponId);
         }
+<<<<<<< Updated upstream
+=======
+        [HttpPut]
+        [Route("[action]/{typeId}")]
+        public bool DeleteType(int typeId)
+        {
+            return _courseService.DeleteType(typeId);   
+        }
+>>>>>>> Stashed changes
         //**********************************************<-- Get/Return All -->*******************************************
         [HttpPut]
         [Route("[action]/{queryCode}")]
@@ -121,6 +163,15 @@ namespace LMS.Controllers
         {
             return _courseService.GetCourseTopic();
         }
+<<<<<<< Updated upstream
+=======
+        [HttpGet]
+        [Route("[action]")]
+        public List<Data.Type> GetAllType()
+        {
+            return _courseService.GetAllType();
+        }
+>>>>>>> Stashed changes
         //**********************************************<-- Update -->*******************************************
         [HttpPut]
         [Route("[action]")]
@@ -161,3 +212,6 @@ namespace LMS.Controllers
         //**********************************************<-- DTO -->*******************************************
     }
 }
+
+
+

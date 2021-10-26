@@ -47,9 +47,21 @@ namespace LMS.Core.Repository
         //Course Rating 
         public bool InsertCourseRate(CourseRating courseRating);
         public bool UpdateCourseRating(CourseRating courseRating);
+<<<<<<< Updated upstream
         //public bool DeleteCourseRating(int courseRatingId); --> no need for this feature 
 
 
+=======
+
+        // Type 
+        public bool AddType(Data.Type type);
+        public bool DeleteType(int typeId);
+
+        public List<Data.Type> GetAllType();
+
+
+        
+>>>>>>> Stashed changes
 
 
 
