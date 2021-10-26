@@ -187,9 +187,9 @@ C:\Github\FinalProject\LMS\LMS\bin\Debug\net5.0\LMS.Infra.dll
 C:\Github\FinalProject\LMS\LMS\bin\Debug\net5.0\LMS.Core.pdb
 C:\Github\FinalProject\LMS\LMS\bin\Debug\net5.0\LMS.Infra.pdb
 C:\Github\FinalProject\LMS\LMS\obj\Debug\net5.0\staticwebassets\LMS.StaticWebAssets.Manifest.cache
-C:\Github\FinalProject\LMS\LMS\obj\Debug\net5.0\staticwebassets\LMS.StaticWebAssets.xml
 C:\Github\FinalProject\LMS\LMS\obj\Debug\net5.0\scopedcss\bundle\LMS.styles.css
 C:\Github\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.RazorTargetAssemblyInfo.cache
-C:\Github\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.csproj.CopyComplete
 C:\Github\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.genruntimeconfig.cache
 C:\GitHub\FinalProject\FinalProject\LMS\LMS\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.MvcApplicationPartsAssemblyInfo.cs
