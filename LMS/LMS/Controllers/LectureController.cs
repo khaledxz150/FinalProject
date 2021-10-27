@@ -48,5 +48,15 @@ namespace LMS.Controllers
         {
             return lectureService.DeleteLecture(lectureId);
         }
+
+
+
+        //ReturnLectureBySectionId
+        [HttpPost]
+        [Route("[action]/{sectionId}")]
+        public List<Lecture> ReturnLectureBySectionId(int sectionId)
+        {
+            return lectureService.ReturnLectureBySectionId(sectionId);
+        }
     }
 }

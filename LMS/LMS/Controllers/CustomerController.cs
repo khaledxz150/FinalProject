@@ -1,4 +1,5 @@
-﻿using LMS.Core.Services;
+﻿using LMS.Core.DTO;
+using LMS.Core.Services;
 using LMS.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -113,6 +114,49 @@ namespace LMS.Controllers
         {
             return customerService.DeleteWishListItem(wishListItemId);
         }
+
+
+
+
+        //ReturnAllCartItem
+
+        [HttpPost]
+        [Route("[action]/{traineeId}")]
+        public List<CartItemDTO> ReturnAllCartItem(int traineeId)
+        {
+            return customerService.ReturnAllCartItem(traineeId);
+        }
+
+        //ReturnWishListItem
+        [HttpPost]
+        [Route("[action]/{traineeId}")]
+        public List<WishListItemDTO> ReturnWishListItem(int traineeId)
+        {
+            return customerService.ReturnWishListItem(traineeId);
+        }
+
+        //ReturnAllCoupon
+        [HttpPost]
+        [Route("[action]/{queryCode}")]
+        public List<CouponDTO> ReturnAllCoupon(int queryCode)
+        {
+            return customerService.ReturnAllCoupon(queryCode);
+        }
+
+
+        //ReturnSoldCourses
+        [HttpGet]
+        [Route("[action]")]
+        public List<SoldCourseDTO> ReturnSoldCourses()
+        {
+            return customerService.ReturnSoldCourses();
+        }
+
+
+
+
+
+
     }
 
 }

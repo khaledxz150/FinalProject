@@ -33,6 +33,11 @@ namespace LMS.Infra.Services
             return lectureRepository.ReturnLecture(queryCode);
         }
 
+        public List<Lecture> ReturnLectureBySectionId(int sectionId)
+        {
+            return lectureRepository.ReturnLectureBySectionId(sectionId);
+        }
+
         public bool UpdateLecture(Lecture lecture)
         {
             return lectureRepository.UpdateLecture(lecture);

@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using First.Core.Common;
+using LMS.Core.DTO;
 using LMS.Core.Repository;
 using LMS.Data;
 using System;
@@ -99,6 +100,15 @@ namespace LMS.Infra.Repository
             var queryParameters = new DynamicParameters();
             queryParameters.Add("@P_CODE", queryCode, dbType: DbType.Int32, direction: ParameterDirection.Input);
             IEnumerable<RoleType> result = _dbContext.Connection.Query<RoleType>("ReturnRoleType", queryParameters, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public List<EmployeeInfoDTO> ReturnEmployeeInfo(int employeeId)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@EmployeeId", employeeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            IEnumerable<EmployeeInfoDTO> result = _dbContext.Connection.Query<EmployeeInfoDTO>("ReturnEmployeeInfo", parm, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
     }

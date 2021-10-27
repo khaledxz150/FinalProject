@@ -1,4 +1,5 @@
-﻿using LMS.Data;
+﻿using LMS.Core.DTO;
+using LMS.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,5 +21,10 @@ namespace LMS.Core.Services
         public bool AddRoleType(RoleType roleType);
         public bool DeleteRoleType(int roleTypeId);
         public List<RoleType> GetRoleTypes(int queryCode);
+
+
+
+        //ReturnEmployeeInfo
+        public List<EmployeeInfoDTO> ReturnEmployeeInfo(int employeeId);
     }
 }

@@ -48,6 +48,15 @@ namespace LMS.Infra.Repository
             return result.ToList();
         }
 
+        public List<Lecture> ReturnLectureBySectionId(int sectionId)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@SectionId", sectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            IEnumerable<Lecture> result = dBContext.Connection.Query<Lecture>("ReturnLectureBySectionId", parm, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
         public bool UpdateLecture(Lecture lecture)
         {
             var parameters = new DynamicParameters();

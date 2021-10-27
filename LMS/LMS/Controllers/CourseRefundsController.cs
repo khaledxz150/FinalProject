@@ -17,15 +17,22 @@ namespace LMS.Controllers
             _courseRefundsService=courseRefundsService;
         }
 
-
+        [HttpPost]
+        [Route("[action]")]
         public bool InsertCourseRefunds(CourseRefund courseRefund)
         {
             return _courseRefundsService.InsertCourseRefunds(courseRefund);
         }
+
+        [HttpPut]
+        [Route("[action]")]
         public bool UpdateCourseRefunds(CourseRefund courseRefund)
         {
             return _courseRefundsService.UpdateCourseRefunds(courseRefund);
         }
+
+        [HttpPut]
+        [Route("[action]/{courseRefundId}")]
         public bool DeleteCourseRefunds(int courseRefundId)
         {
             return _courseRefundsService.DeleteCourseRefunds(courseRefundId);

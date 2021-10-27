@@ -1,4 +1,5 @@
-﻿using LMS.Core.Repository;
+﻿using LMS.Core.DTO;
+using LMS.Core.Repository;
 using LMS.Core.Services;
 using LMS.Data;
 using System;
@@ -78,6 +79,26 @@ namespace LMS.Infra.Services
         public bool DeleteWishListItem(int wishListItemId)
         {
             return customerRepository.DeleteWishListItem(wishListItemId);   
+        }
+
+        public List<SoldCourseDTO> ReturnSoldCourses()
+        {
+            return customerRepository.ReturnSoldCourses();
+        }
+
+        public List<CartItemDTO> ReturnAllCartItem(int traineeId)
+        {
+            return customerRepository.ReturnAllCartItem(traineeId);
+        }
+
+        public List<WishListItemDTO> ReturnWishListItem(int traineeId)
+        {
+            return customerRepository.ReturnWishListItem(traineeId);
+        }
+
+        public List<CouponDTO> ReturnAllCoupon(int queryCode)
+        {
+            return customerRepository.ReturnAllCoupon(queryCode);
         }
     }
 

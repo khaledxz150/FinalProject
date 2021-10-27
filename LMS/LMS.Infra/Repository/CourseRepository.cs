@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using First.Core.Common;
+using LMS.Core.DTO;
 using LMS.Core.Repository;
 using LMS.Data;
 using System;
@@ -305,6 +306,23 @@ namespace LMS.Infra.Repository
 
             IEnumerable<Data.Type> result = _dbContext.Connection.Query<Data.Type>("ReturnAllType", commandType: CommandType.StoredProcedure);
             return result.ToList();
-        } 
+        }
+
+        public List<CourseRatingDTO> ReturnAllCourseRating(int sectionId)
+        {
+            var Parameter = new DynamicParameters();
+            Parameter.Add("@SectionId", sectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<CourseRatingDTO> result = _dbContext.Connection.Query<CourseRatingDTO>("ReturnAllCourseRating", Parameter, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+
+        }
+
+        public List<CourseDTO> ReturnAllCourses(int queryCode)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@P_CODE", queryCode, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<CourseDTO> result = _dbContext.Connection.Query<CourseDTO>("ReturnAllCourses", parm, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }

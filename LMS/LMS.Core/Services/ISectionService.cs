@@ -1,4 +1,5 @@
-﻿using LMS.Data;
+﻿using LMS.Core.DTO;
+using LMS.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace LMS.Core.Services
         public bool DeleteSection(int SectionId);
 
         //Trainee Section
-        public List<TraineeSection> AddTraineeSection(TraineeSection traineeSection);
+        public TraineeSection AddTraineeSection(TraineeSection traineeSection);
         public bool DeleteTraineeSection(int traineeSectionId);
         public List<TraineeSection> ReturnTraineeSection();
         public List<TraineeSection> UpdateTraineeSection(TraineeSection traineeSection);
@@ -38,6 +39,22 @@ namespace LMS.Core.Services
         public bool UpdateStatus(Status status);
         public bool DeleteStatus(int statusId);
         public Status GetSectionStatus(int sectionId);
+
+
+        //ReturnAllTrainerSections
+        public List<TrainerSectionDTO> ReturnAllTrainerSections(int trainerId);
+
+        //ReturnSectionByCourseId
+        public List<SectionByCourseDTO> ReturnSectionByCourseId(int courseId);
+
+        //ReturnSectionOfTrainee
+        public List<SectionOfTraineeDTO> ReturnSectionOfTrainee(int traineeId, int sectionId);
+
+        //ReturnAllComments
+        public List<CommentDTO> ReturnAllComments(int sectionId);
+
+        //ReturnUnitBySectionId
+        public List<Unit> ReturnUnitBySectionId(int sectionId);
 
     }
 }

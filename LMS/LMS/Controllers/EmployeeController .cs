@@ -1,4 +1,5 @@
-﻿using LMS.Core.Services;
+﻿using LMS.Core.DTO;
+using LMS.Core.Services;
 using LMS.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -66,5 +67,16 @@ namespace LMS.Controllers
         {
             return _employeeService.GetRoleTypes(queryCode);
         }
+
+        //ReturnEmployeeInfo
+        [HttpPost]
+        [Route("[action]/{employeeId}")]
+        public List<EmployeeInfoDTO> ReturnEmployeeInfo(int employeeId)
+        {
+            return _employeeService.ReturnEmployeeInfo(employeeId);
+        }
+
+
+
     }
 }

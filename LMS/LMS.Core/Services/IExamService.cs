@@ -34,5 +34,8 @@ namespace LMS.Core.Services
         public bool UpdateExamOption(ExamOption examOption);
         public bool DeleteExamOption(int optionId);
 
+        //ReturnExamBySectionId
+        public List<Exam> ReturnExamBySectionId(int sectionId);
+
     }
 }

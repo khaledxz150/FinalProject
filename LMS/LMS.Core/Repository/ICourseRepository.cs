@@ -1,4 +1,5 @@
-﻿using LMS.Data;
+﻿using LMS.Core.DTO;
+using LMS.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,10 +56,14 @@ namespace LMS.Core.Repository
         public List<Data.Type> GetAllType();
 
 
-        
+
+        //ReturnAllCourseRating
+        public List<CourseRatingDTO> ReturnAllCourseRating(int sectionId);
 
 
 
+        //ReturnCourses
+        public List<CourseDTO> ReturnAllCourses(int queryCode);
 
     }
 }

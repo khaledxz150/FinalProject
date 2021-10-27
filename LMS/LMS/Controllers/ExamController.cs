@@ -52,7 +52,7 @@ namespace LMS.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public List<TraineeSectionExam> AddTraineeSectionExam(TraineeSectionExam traineeSectionExam)
+        public TraineeSectionExam AddTraineeSectionExam(TraineeSectionExam traineeSectionExam)
         {
             return examService.AddTraineeSectionExam(traineeSectionExam);
         }
@@ -126,5 +126,15 @@ namespace LMS.Controllers
         {
             return examService.DeleteExamQuestion(questionId);
         }
+
+        //ReturnExamBySectionId
+
+        [HttpPost]
+        [Route("[action]/{questionId}")]
+        public List<Exam> ReturnExamBySectionId(int sectionId)
+        {
+            return examService.ReturnExamBySectionId(sectionId);
+        }
+
     }
 }
