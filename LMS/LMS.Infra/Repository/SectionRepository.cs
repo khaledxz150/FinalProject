@@ -60,7 +60,7 @@ namespace LMS.Infra.Repository
         }
 
 
-        public List<TraineeSection> AddTraineeSection(TraineeSection traineeSection){
+        public TraineeSection AddTraineeSection(TraineeSection traineeSection){
 
             var parm = new DynamicParameters();
             parm.Add("@P_SectionId", traineeSection.SectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
@@ -68,7 +68,7 @@ namespace LMS.Infra.Repository
             parm.Add("@P_TotalMark", traineeSection.TotalMark, dbType: DbType.Double, direction: ParameterDirection.Input);
             parm.Add("@P_CreatedBy", traineeSection.TotalMark, dbType: DbType.String, direction: ParameterDirection.Input);      
             IEnumerable<TraineeSection> result = dBContext.Connection.Query<TraineeSection>("AddTraineeSection", parm, commandType: CommandType.StoredProcedure);
-            return result.ToList();
+            return ReturnTraineeSection().OrderByDescending(x => x.SectionId).FirstOrDefault();
         }
 
         public bool DeleteTraineeSection(int traineeSectionId) {

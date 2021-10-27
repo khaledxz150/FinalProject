@@ -42,7 +42,7 @@ namespace LMS.Infra.Services
         }
 
       
-        public List<TraineeSectionExam> AddTraineeSectionExam(TraineeSectionExam traineeSectionExam)
+        public TraineeSectionExam AddTraineeSectionExam(TraineeSectionExam traineeSectionExam)
         {
             return examRepository.AddTraineeSectionExam(traineeSectionExam);
         }

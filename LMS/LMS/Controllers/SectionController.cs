@@ -51,7 +51,7 @@ namespace LMS.Controllers
         /// Start
         [HttpPost]
         [Route("[action]")]
-        public List<TraineeSection> AddTraineeSection(TraineeSection AddTraineeSection)
+        public TraineeSection AddTraineeSection(TraineeSection AddTraineeSection)
         {
             return sectionService.AddTraineeSection(AddTraineeSection);
         }
