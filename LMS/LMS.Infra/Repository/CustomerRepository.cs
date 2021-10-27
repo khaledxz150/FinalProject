@@ -120,6 +120,8 @@ namespace LMS.Infra.Repository
             var result = dBContext.Connection.ExecuteAsync("DeleteWishlistItem", parameters, commandType: CommandType.StoredProcedure);
             return true;
         }
+
+
     }
 
 }

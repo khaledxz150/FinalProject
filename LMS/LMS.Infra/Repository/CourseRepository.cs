@@ -75,7 +75,6 @@ namespace LMS.Infra.Repository
         public bool InsertCoupon(Coupon coupon)
         {
             var queryParameters = new DynamicParameters();
-<<<<<<< Updated upstream
             queryParameters.Add("@Code",coupon.Code, dbType: DbType.String, direction: ParameterDirection.Input);
             queryParameters.Add("@StartDate",coupon.StartDate , dbType: DbType.DateTime, direction: ParameterDirection.Input);
             queryParameters.Add("@EndDate", coupon.EndDate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
@@ -83,15 +82,7 @@ namespace LMS.Infra.Repository
             queryParameters.Add("@Discount",coupon.Discount , dbType: DbType.Double, direction: ParameterDirection.Input);
             queryParameters.Add("@courseId",coupon.CourseId , dbType: DbType.Int32, direction: ParameterDirection.Input);
             queryParameters.Add("@employeeId",coupon.CreatedBy , dbType: DbType.Int64, direction: ParameterDirection.Input);
-=======
-            queryParameters.Add("@Code", coupon.Code, dbType: DbType.String, direction: ParameterDirection.Input);
-            queryParameters.Add("@StartDate", coupon.StartDate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
-            queryParameters.Add("@EndDate", coupon.EndDate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
-            queryParameters.Add("@Redemption", coupon.Redemption, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            queryParameters.Add("@Discount", coupon.Discount, dbType: DbType.Double, direction: ParameterDirection.Input);
-            queryParameters.Add("@courseId", coupon.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            queryParameters.Add("@employeeId", coupon.CreatedBy, dbType: DbType.Int64, direction: ParameterDirection.Input);
->>>>>>> Stashed changes
+
             //execute proc
             var result = _dbContext.Connection.ExecuteAsync("InsertCoupon", queryParameters, commandType: CommandType.StoredProcedure);
             return true;
@@ -100,17 +91,11 @@ namespace LMS.Infra.Repository
         public bool InsertCourseRate(CourseRating courseRating)
         {
             var queryParameters = new DynamicParameters();
-<<<<<<< Updated upstream
-            queryParameters.Add("@star",courseRating.NoOfStar , dbType: DbType.Int32, direction: ParameterDirection.Input);
-            queryParameters.Add("@notes",courseRating.RateNote , dbType: DbType.String, direction: ParameterDirection.Input);
-            queryParameters.Add("@sectionId", courseRating.SectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            queryParameters.Add("@TraineeId",courseRating.TraineeId , dbType: DbType.Int32, direction: ParameterDirection.Input);
-=======
+
             queryParameters.Add("@star", courseRating.NoOfStar, dbType: DbType.Int32, direction: ParameterDirection.Input);
             queryParameters.Add("@notes", courseRating.RateNote, dbType: DbType.String, direction: ParameterDirection.Input);
             queryParameters.Add("@sectionId", courseRating.SectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             queryParameters.Add("@TraineeId", courseRating.TraineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
->>>>>>> Stashed changes
             //execute proc
             var result = _dbContext.Connection.ExecuteAsync("InsertCourseRating", queryParameters, commandType: CommandType.StoredProcedure);
             return true;
@@ -245,11 +230,7 @@ namespace LMS.Infra.Repository
             queryParameters.Add("@Redemption", coupon.Redemption, dbType: DbType.Int32, direction: ParameterDirection.Input);
             queryParameters.Add("@Discount", coupon.Discount, dbType: DbType.Double, direction: ParameterDirection.Input);
             queryParameters.Add("@courseId", coupon.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-<<<<<<< Updated upstream
-         
-=======
 
->>>>>>> Stashed changes
             //execute proc
             var result = _dbContext.Connection.ExecuteAsync("UpdateCoupon", queryParameters, commandType: CommandType.StoredProcedure);
             return true;

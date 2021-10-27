@@ -15,5 +15,10 @@ namespace LMS.Core.Services
         public bool AddNewEmployee(Employee employee);
         public bool UpdateEmployee(Employee employee);
         public Employee DeleteEmployee(Int64 employeeId);
+        //Role Type
+
+        public bool AddRoleType(RoleType roleType);
+        public bool DeleteRoleType(int roleTypeId);
+        public List<RoleType> GetRoleTypes(int queryCode);
     }
 }

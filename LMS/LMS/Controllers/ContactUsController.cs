@@ -49,5 +49,26 @@ namespace LMS.Controllers
         {
             return contactUsService.DeleteMessage(messageId);
         }
+
+        // Testimonails 
+        [HttpPost]
+        [Route("[action]")]
+        public bool InsertTestimonials(Testimonial testimonial)
+        {
+            return contactUsService.InsertTestimonials(testimonial);
+        }
+        [HttpPut]
+        [Route("[action]")]
+        public bool UpdateTestimonial(Testimonial testimonial)
+        {
+            return contactUsService.UpdateTestimonial   (testimonial);
+        }
+
+        [HttpDelete]
+        [Route("[action]/{testimonialId}")]
+        public bool DeleteTestimonial(int testimonialId)
+        {
+            return contactUsService.DeleteTestimonial(testimonialId);
+        }
     }
 }

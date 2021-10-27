@@ -41,14 +41,11 @@ namespace LMS.Core.Services
         //Course Rating 
         public bool InsertCourseRate(CourseRating courseRating);
         public bool UpdateCourseRating(CourseRating courseRating);
-<<<<<<< Updated upstream
-=======
 
         //Type 
         public bool AddType(Data.Type type);
         public bool DeleteType(int typeId);
 
         public List<Data.Type> GetAllType();
->>>>>>> Stashed changes
     }
 }

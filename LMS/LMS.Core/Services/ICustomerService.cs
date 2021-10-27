@@ -29,7 +29,7 @@ namespace LMS.Core.Services
         //WishList
 
         public List<WishList> ReturnWishList();
-        public Task<WishList> InsertWishList(WishList wishList);
+        public bool InsertWishList(WishList wishList);
         public bool DeleteWishList(int wishListId);
 
         //WithListItem

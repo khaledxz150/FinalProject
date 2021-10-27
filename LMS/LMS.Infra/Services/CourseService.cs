@@ -148,5 +148,10 @@ namespace LMS.Infra.Services
         {
             return _courseRepository.GetAllType();
         }
+
+        public List<Data.Type> GetAllType()
+        {
+           return _courseRepository.GetAllType();   
+        }
     }
 }

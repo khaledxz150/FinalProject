@@ -60,7 +60,7 @@ namespace LMS.Infra.Services
         {
             return customerRepository.ReturnWishList();
         }
-        public Task<WishList> InsertWishList(WishList wishList)
+        public bool InsertWishList(WishList wishList)
         {
             return customerRepository.InsertWishList(wishList);
         }

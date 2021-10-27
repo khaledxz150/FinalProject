@@ -89,7 +89,7 @@ namespace LMS.Controllers
         }
         [HttpPost]
         [Route("[action]")]
-        public Task<WishList> InsertWishList([FromBody]  WishList wishList)
+        public bool InsertWishList([FromBody]  WishList wishList)
         {
             return customerService.InsertWishList(wishList);
         }

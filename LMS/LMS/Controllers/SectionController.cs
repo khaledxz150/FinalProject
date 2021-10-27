@@ -80,6 +80,73 @@ namespace LMS.Controllers
         }
 
 
+        //Trainee Section Task 
+        [HttpPost]
+        [Route("[action]")]
+        public bool InsertTraineeTask([FromBody] TraineeSectionTask traineeSectionTask)
+        {
+            return sectionService.InsertTraineeTask (traineeSectionTask);   
+        }
+        [HttpPost]
+        [Route("[action]")]
+        public bool UpdateTraineeTask([FromBody] TraineeSectionTask traineeSectionTask)
+        {
+            return sectionService.UpdateTraineeTask (traineeSectionTask);
+        }
+        [HttpDelete]
+        [Route("[action]/{traineeSectionTaskId}")]
+        public bool DeleteTraineeSectionTask(int traineeSectionTaskId)
+        {
+            return sectionService.DeleteTraineeSectionTask(traineeSectionTaskId);
+        }
+
+        //Unit 
+        [HttpPost]
+        [Route("[action]")]
+        public bool InsertUnit(Unit unit)
+        {
+            return sectionService.InsertUnit(unit);
+        }
+        [HttpDelete]
+        [Route("[action]/{unitId}")]
+        public bool DeleteUnit(int unitId)
+        {
+            return sectionService.DeleteUnit(unitId);
+        }
+        [HttpPost]
+        [Route("[action]/{courseId}")]
+        public List<Unit> ReturnSectionUnits(int courseId)
+        {
+            return sectionService.ReturnSectionUnits(courseId);
+        }
+
+        //Status 
+        [HttpPost]
+        [Route("[action]")]
+        public bool InsertStatus(Status status)
+        {
+            return sectionService.InsertStatus(status); 
+        }
+        [HttpPost]
+        [Route("[action]")]
+        public bool UpdateStatus(Status status)
+        {
+            return sectionService.UpdateStatus (status);    
+        }
+        [HttpPost]
+        [Route("[action]/{statusId}")]
+        public bool DeleteStatus(int statusId)
+        {
+            return sectionService.DeleteStatus(statusId);
+        }
+        [HttpPost]
+        [Route("[action]/{sectionId}")]
+        public Status GetSectionStatus(int sectionId)
+        {
+            return sectionService.GetSectionStatus(sectionId);
+        }
+
+
 
     }
 }

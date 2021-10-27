@@ -37,5 +37,19 @@ namespace LMS.Infra.Services
         {
             return contactUsRepository.UpdateMessage(contactUs);
         }
+
+        // Testimonails 
+        public bool InsertTestimonials(Testimonial testimonial)
+        {
+            return contactUsRepository.InsertTestimonials   (testimonial);
+        }
+        public bool UpdateTestimonial(Testimonial testimonial)
+        {
+            return contactUsRepository.UpdateTestimonial(testimonial);
+        }
+        public bool DeleteTestimonial(int testimonialId)
+        {
+            return contactUsRepository.DeleteTestimonial(testimonialId);
+        }
     }
 }
