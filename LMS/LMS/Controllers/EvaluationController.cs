@@ -16,6 +16,7 @@ namespace LMS.Controllers
         {
             _evaluationService = evaluationService;
         }
+       /*
         // Evaluation 
         public bool InsertEvaluation(Evaluation evaluation)
         {
@@ -89,6 +90,6 @@ namespace LMS.Controllers
         public List<EvaluationFormsQuestion> ReturnEvaluationFormsAnswerForOneTrainee(int traineeId)
         {
             return _evaluationService.ReturnEvaluationFormsAnswerForOneTrainee(traineeId);
-        }
+        }*/
     }
 }
