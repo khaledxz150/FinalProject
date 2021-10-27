@@ -74,6 +74,53 @@ namespace LMS.Infra.Services
 
         //// TraineeSection
         ///End
+        ///
+
+        //Trainee Section Task 
+        public bool InsertTraineeTask(TraineeSectionTask traineeSectionTask)
+        {
+            return sectionRepository.InsertTraineeTask(traineeSectionTask);
+        }
+        public bool UpdateTraineeTask(TraineeSectionTask traineeSectionTask)
+        {
+            return sectionRepository.UpdateTraineeTask  (traineeSectionTask);
+        }
+        public bool DeleteTraineeSectionTask(int traineeSectionTaskId)
+        {
+            return sectionRepository.DeleteTraineeSectionTask(traineeSectionTaskId);
+        }
+        //Unit 
+        public bool InsertUnit(Unit unit)
+        {
+            return sectionRepository.InsertUnit(unit);
+        }
+        public bool DeleteUnit(int unitId)
+        {
+            return sectionRepository.DeleteUnit(unitId);
+        }
+
+        public List<Unit> ReturnSectionUnits(int courseId) { 
+            return sectionRepository.ReturnSectionUnits(courseId);
+         
+        }
+
+        //Status 
+        public bool InsertStatus(Status status)
+        {
+            return sectionRepository.InsertStatus(status);
+        }
+        public bool UpdateStatus(Status status)
+        {
+            return sectionRepository.UpdateStatus   (status);
+        }
+        public bool DeleteStatus(int statusId)
+        {
+            return sectionRepository.DeleteStatus(statusId);
+        }
+        public Status GetSectionStatus(int sectionId)
+        {
+            return sectionRepository.GetSectionStatus(sectionId);
+        }
 
     }
 }

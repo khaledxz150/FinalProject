@@ -50,12 +50,25 @@ namespace LMS.Controllers
             return contactUsService.DeleteMessage(messageId);
         }
 
-        public Testimonial AddTestMonial(Testimonial testimonial) {
-            return contactUsService.AddTestMonial(testimonial);
+        // Testimonails 
+        [HttpPost]
+        [Route("[action]")]
+        public bool InsertTestimonials(Testimonial testimonial)
+        {
+            return contactUsService.InsertTestimonials(testimonial);
         }
-        public List<Testimonial> ReturnAllTestMonial() {
-            return contactUsService.ReturnAllTestMonial();
+        [HttpPut]
+        [Route("[action]")]
+        public bool UpdateTestimonial(Testimonial testimonial)
+        {
+            return contactUsService.UpdateTestimonial   (testimonial);
+        }
 
+        [HttpDelete]
+        [Route("[action]/{testimonialId}")]
+        public bool DeleteTestimonial(int testimonialId)
+        {
+            return contactUsService.DeleteTestimonial(testimonialId);
         }
     }
 }

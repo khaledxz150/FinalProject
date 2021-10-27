@@ -13,11 +13,9 @@ namespace LMS.Core.Services
         public bool InsertMessage(ContactUs contactUs);
         public bool UpdateMessage(ContactUs contactUs);
         public bool DeleteMessage(int messageId);
-
-
-
-        public Testimonial AddTestMonial(Testimonial testimonial);
-        public List<Testimonial> ReturnAllTestMonial();
-
+        // Testimonails 
+        public bool InsertTestimonials(Testimonial testimonial);
+        public bool UpdateTestimonial(Testimonial testimonial);
+        public bool DeleteTestimonial(int testimonialId);
     }
 }

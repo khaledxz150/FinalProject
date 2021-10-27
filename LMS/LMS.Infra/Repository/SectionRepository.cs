@@ -31,7 +31,6 @@ namespace LMS.Infra.Repository
             IEnumerable<Section> result = dBContext.Connection.Query<Section>("AddSection", parm, commandType: CommandType.StoredProcedure);
             return ReturnAllSection().OrderByDescending(x => x.SectionId).FirstOrDefault();
         }
-
         public bool DeleteSection(int SectionId)
         {
             var parm = new DynamicParameters();
@@ -87,6 +86,82 @@ namespace LMS.Infra.Repository
         }
 
         public List<TraineeSection> UpdateTraineeSection(TraineeSection traineeSection)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool InsertTraineeTask(TraineeSectionTask traineeSectionTask)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@P_TraineeSectionId",traineeSectionTask.TraineeSectionId , dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@P_TaskId",traineeSectionTask.TaskId , dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@P_Note",traineeSectionTask.Note , dbType: DbType.String, direction: ParameterDirection.Input);
+            parm.Add("@P_FileUrl", traineeSectionTask.FileUrl, dbType: DbType.String, direction: ParameterDirection.Input);
+            parm.Add("@P_Mark",traineeSectionTask.Mark , dbType: DbType.Double, direction: ParameterDirection.Input);
+            parm.Add("@P_TrainerNote",traineeSectionTask.TrainerNote , dbType: DbType.String, direction: ParameterDirection.Input);
+            parm.Add("@P_CreatedBy",traineeSectionTask.CreatedBy , dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = dBContext.Connection.ExecuteAsync("AddTraineeSectionTask", parm, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+        public bool UpdateTraineeTask(TraineeSectionTask traineeSectionTask)
+        {
+            var parm = new DynamicParameters();
+
+            parm.Add("@P_TraineeSectionId", traineeSectionTask.TraineeSectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@P_TaskId", traineeSectionTask.TaskId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@P_Note", traineeSectionTask.Note, dbType: DbType.String, direction: ParameterDirection.Input);
+            parm.Add("@P_FileUrl", traineeSectionTask.FileUrl, dbType: DbType.String, direction: ParameterDirection.Input);
+            parm.Add("@P_Mark", traineeSectionTask.Mark, dbType: DbType.Double, direction: ParameterDirection.Input);
+            parm.Add("@P_TrainerNote", traineeSectionTask.TrainerNote, dbType: DbType.String, direction: ParameterDirection.Input);
+            parm.Add("@P_TraineeSectionTaskId", traineeSectionTask.TraineeSectionTaskId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = dBContext.Connection.ExecuteAsync("UpdateTraineeSectionTask", parm, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+        public bool DeleteTraineeSectionTask(int traineeSectionTaskId)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@P_TraineeSectionTaskId", traineeSectionTaskId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = dBContext.Connection.ExecuteAsync("DeleteTraineeSectionTask", parm, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        //Unit 
+        public bool InsertUnit(Unit unit)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@P_SectionId",unit.SectionId , dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@P_FilePath", unit.FilePath, dbType: DbType.String, direction: ParameterDirection.Input);
+            parm.Add("@P_CreatedBy",unit.CreatedBy , dbType: DbType.Int64, direction: ParameterDirection.Input);
+            var result = dBContext.Connection.ExecuteAsync("InsertUnit", parm, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+        public bool DeleteUnit(int unitId)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@P_Id", unitId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = dBContext.Connection.ExecuteAsync("DeleteUnit", parm, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        public List<Unit> ReturnSectionUnits(int courseId)
+        {
+            throw new NotImplementedException();
+        }
+
+        //Status 
+        public bool InsertStatus(Status status)
+        {
+            throw new NotImplementedException();
+        }
+        public bool UpdateStatus(Status status)
+        {
+            throw new NotImplementedException();
+        }
+        public bool DeleteStatus(int statusId)
+        {
+            throw new NotImplementedException();
+        }
+        public Status GetSectionStatus(int sectionId)
         {
             throw new NotImplementedException();
         }

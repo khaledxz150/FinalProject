@@ -42,5 +42,19 @@ namespace LMS.Infra.Services
         {
             return _employeeRepository.UpdateEmployee(employee);
         }
+        //Role Type
+
+        public bool AddRoleType(RoleType roleType)
+        {
+            return _employeeRepository.AddRoleType(roleType);
+        }
+        public bool DeleteRoleType(int roleTypeId)
+        {
+            return _employeeRepository.DeleteRoleType(roleTypeId);
+        }
+        public List<RoleType> GetRoleTypes(int queryCode)
+        {
+            return _employeeRepository.GetRoleTypes(queryCode);
+        }
     }
 }

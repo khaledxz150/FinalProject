@@ -76,5 +76,30 @@ namespace LMS.Infra.Repository
             var result = _dbContext.Connection.ExecuteAsync("UpdateEmployee", queryParameters, commandType: CommandType.StoredProcedure);
             return true;
         }
+
+        //Role Type
+
+        public bool AddRoleType(RoleType roleType)
+        {
+
+            var queryParameters = new DynamicParameters();
+            queryParameters.Add("@RoleName",roleType.RoleName,dbType: DbType.String, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.ExecuteAsync("InsertRoleType", queryParameters, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+        public bool DeleteRoleType(int roleTypeId)
+        {
+            var queryParameters = new DynamicParameters();
+            queryParameters.Add("@RoleId", roleTypeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.ExecuteAsync("DeleteRoleType", queryParameters, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+        public List<RoleType> GetRoleTypes(int queryCode)
+        {
+            var queryParameters = new DynamicParameters();
+            queryParameters.Add("@P_CODE", queryCode, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<RoleType> result = _dbContext.Connection.Query<RoleType>("ReturnRoleType", queryParameters, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }

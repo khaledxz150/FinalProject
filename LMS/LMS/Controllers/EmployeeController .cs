@@ -47,5 +47,24 @@ namespace LMS.Controllers
         {
             return _employeeService.UpdateEmployee(employee);
         }
+        //************************************* <Role Type> **************************************************************
+        [HttpPost]
+        [Route("[action]")]
+        public bool AddRoleType(RoleType roleType)
+        {
+            return _employeeService.AddRoleType(roleType);
+        }
+        [HttpPut]
+        [Route("[action]/{roleTypeId}")]
+        public bool DeleteRoleType(int roleTypeId)
+        {
+            return _employeeService.DeleteRoleType(roleTypeId);
+        }
+        [HttpPost]
+        [Route("[action]/{queryCode}")]
+        public List<RoleType> GetRoleTypes(int queryCode)
+        {
+            return _employeeService.GetRoleTypes(queryCode);
+        }
     }
 }

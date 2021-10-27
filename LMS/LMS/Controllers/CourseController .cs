@@ -16,30 +16,50 @@ namespace LMS.Controllers
         {
             _courseService = courseService;
         }
+        //**********************************************<-- Insert -->*******************************************
         [HttpPost]
         [Route("[action]")]
-        public bool AddNewCategory([FromBody] Category category)
+
+        public bool InsertCategory([FromBody] Category category)
         {
-            return _courseService.AddNewCategory(category);
+            return _courseService.InsertCategory(category);
         }
         [HttpPost]
         [Route("[action]")]
-        public bool AddNewComment([FromBody] Comment comment)
+        public bool InsertComment([FromBody] Comment comment)
         {
-            return _courseService.AddNewComment(comment);
+            return _courseService.InsertComment(comment);
         }
         [HttpPost]
         [Route("[action]")]
-        public bool AddNewCourse([FromBody] Course course)
+        public bool InsertCourse([FromBody] Course course)
         {
-            return _courseService.AddNewCourse(course);
+            return _courseService.InsertCourse(course);
         }
         [HttpPost]
         [Route("[action]")]
-        public bool AddNewTopic([FromBody] Topic topic)
+        public bool InsertTopic([FromBody] Topic topic)
         {
-            return _courseService.AddNewTopic(topic);
+            return _courseService.InsertTopic(topic);
         }
+        [HttpPost]
+        [Route("[action]")]
+        public bool AddType([FromBody] Data.Type type)
+        {
+            return _courseService.AddType(type);
+        }
+
+        public bool InsertCoupon([FromBody] Coupon coupon)
+        {
+            return _courseService.InsertCoupon(coupon);
+        }
+        [HttpPost]
+        [Route("[action]")]
+        public bool InsertCourseRate([FromBody] CourseRating courseRating)
+        {
+            return _courseService.InsertCourseRate(courseRating);
+        }
+        //**********************************************<-- Delete -->*******************************************
         [HttpPut]
         [Route("[action]/{categoryId}")]
         public bool DeleteCategory(int categoryId)
@@ -71,6 +91,20 @@ namespace LMS.Controllers
             return _courseService.DeleteTopic(topicId);
         }
         [HttpPut]
+        [Route("[action]/{couponId}")]
+        public bool DeleteCoupon(int couponId)
+        {
+            return _courseService.DeleteCoupon(couponId);
+        }
+
+        [HttpPut]
+        [Route("[action]/{typeId}")]
+        public bool DeleteType(int typeId)
+        {
+            return _courseService.DeleteType(typeId);   
+        }
+        //**********************************************<-- Get/Return All -->*******************************************
+        [HttpPut]
         [Route("[action]/{queryCode}")]
         public List<Category> GetAllCategories(int queryCode)
         {
@@ -100,11 +134,30 @@ namespace LMS.Controllers
         {
             return _courseService.GetCourseTopic();
         }
+        [HttpGet]
+        [Route("[action]")]
+        public List<Data.Type> GetAllType()
+        {
+            return _courseService.GetAllType();
+        }
+        //**********************************************<-- Update -->*******************************************
         [HttpPut]
         [Route("[action]")]
         public bool UpdateCategory([FromBody] Category category)
         {
             return _courseService.UpdateCategory(category);
+        }
+        [HttpPut]
+        [Route("[action]")]
+        public bool UpdateCoupon([FromBody] Coupon coupon)
+        {
+            return _courseService.UpdateCoupon(coupon);
+        }
+        [HttpPut]
+        [Route("[action]")]
+        public bool UpdateCourseRating([FromBody] CourseRating courseRating)
+        {
+            return _courseService.UpdateCourseRating(courseRating);
         }
         [HttpPut]
         [Route("[action]")]
@@ -124,5 +177,9 @@ namespace LMS.Controllers
         {
             return _courseService.UpdateTopic(topic);
         }
+        //**********************************************<-- DTO -->*******************************************
     }
 }
+
+
+

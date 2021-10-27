@@ -19,7 +19,7 @@ namespace LMS.Infra.Repository
             _dbContext = dbContext;
         }
 
-        public bool AddNewCategory(Category category)
+        public bool InsertCategory(Category category)
         {
             var queryParameters = new DynamicParameters();
             queryParameters.Add("@Name", category.Name, dbType: DbType.String, direction: ParameterDirection.Input);
@@ -29,7 +29,7 @@ namespace LMS.Infra.Repository
             return true;
         }
 
-        public bool AddNewComment(Comment comment)
+        public bool InsertComment(Comment comment)
         {
             var queryParameters = new DynamicParameters();
             queryParameters.Add("@Description", comment.Description, dbType: DbType.String, direction: ParameterDirection.Input);
@@ -41,7 +41,7 @@ namespace LMS.Infra.Repository
             return true;
         }
 
-        public bool AddNewCourse(Course course)
+        public bool InsertCourse(Course course)
         {
             var queryParameters = new DynamicParameters();
             queryParameters.Add("@CourseName", course.Name, dbType: DbType.String, direction: ParameterDirection.Input);
@@ -60,7 +60,7 @@ namespace LMS.Infra.Repository
             return true;
         }
 
-        public bool AddNewTopic(Topic topic)
+        public bool InsertTopic(Topic topic)
         {
 
             var queryParameters = new DynamicParameters();
@@ -70,6 +70,34 @@ namespace LMS.Infra.Repository
             queryParameters.Add("@P_CreatedBy", topic.CreatedBy, dbType: DbType.Int64, direction: ParameterDirection.Input);
             //execute proc
             var result = _dbContext.Connection.ExecuteAsync("AddTopic", queryParameters, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+        public bool InsertCoupon(Coupon coupon)
+        {
+            var queryParameters = new DynamicParameters();
+            queryParameters.Add("@Code",coupon.Code, dbType: DbType.String, direction: ParameterDirection.Input);
+            queryParameters.Add("@StartDate",coupon.StartDate , dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            queryParameters.Add("@EndDate", coupon.EndDate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            queryParameters.Add("@Redemption",coupon.Redemption , dbType: DbType.Int32, direction: ParameterDirection.Input);
+            queryParameters.Add("@Discount",coupon.Discount , dbType: DbType.Double, direction: ParameterDirection.Input);
+            queryParameters.Add("@courseId",coupon.CourseId , dbType: DbType.Int32, direction: ParameterDirection.Input);
+            queryParameters.Add("@employeeId",coupon.CreatedBy , dbType: DbType.Int64, direction: ParameterDirection.Input);
+
+            //execute proc
+            var result = _dbContext.Connection.ExecuteAsync("InsertCoupon", queryParameters, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        public bool InsertCourseRate(CourseRating courseRating)
+        {
+            var queryParameters = new DynamicParameters();
+
+            queryParameters.Add("@star", courseRating.NoOfStar, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            queryParameters.Add("@notes", courseRating.RateNote, dbType: DbType.String, direction: ParameterDirection.Input);
+            queryParameters.Add("@sectionId", courseRating.SectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            queryParameters.Add("@TraineeId", courseRating.TraineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            //execute proc
+            var result = _dbContext.Connection.ExecuteAsync("InsertCourseRating", queryParameters, commandType: CommandType.StoredProcedure);
             return true;
         }
 
@@ -92,6 +120,15 @@ namespace LMS.Infra.Repository
             return true;
         }
 
+        public bool DeleteCoupon(int couponId)
+        {
+            var queryParameters = new DynamicParameters();
+            queryParameters.Add("@recordId", couponId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            //execute proc
+            var result = _dbContext.Connection.ExecuteAsync("DeleteCoupon", queryParameters, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
         public bool DeleteCourse(int courseId)
         {
             var queryParameters = new DynamicParameters();
@@ -100,7 +137,6 @@ namespace LMS.Infra.Repository
             var result = _dbContext.Connection.ExecuteAsync("DisActivateCourse", queryParameters, commandType: CommandType.StoredProcedure);
             return true;
         }
-
         public bool DeleteTag(int tagId)
         {
             var queryParameters = new DynamicParameters();
@@ -145,16 +181,16 @@ namespace LMS.Infra.Repository
             IEnumerable<Course> result = _dbContext.Connection.Query<Course>("ReturnCourse", queryParameters, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
-
+        //need edit
         public List<Tag> GetAllTags()
         {
             IEnumerable<Tag> result = _dbContext.Connection.Query<Tag>("ReturnAllTag", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
-
+        //need edit
         public List<Topic> GetCourseTopic()
         {
-            IEnumerable<Topic> result = _dbContext.Connection.Query<Topic>("ReturnAllTopic", commandType: CommandType.StoredProcedure);
+            IEnumerable<Topic> result = _dbContext.Connection.Query<Topic>("ReturnAllTopicForCourse", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 
@@ -184,6 +220,22 @@ namespace LMS.Infra.Repository
             return true;
         }
 
+        public bool UpdateCoupon(Coupon coupon)
+        {
+            var queryParameters = new DynamicParameters();
+            queryParameters.Add("@couponId", coupon.CouponId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            queryParameters.Add("@Code", coupon.Code, dbType: DbType.String, direction: ParameterDirection.Input);
+            queryParameters.Add("@StartDate", coupon.StartDate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            queryParameters.Add("@EndDate", coupon.EndDate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            queryParameters.Add("@Redemption", coupon.Redemption, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            queryParameters.Add("@Discount", coupon.Discount, dbType: DbType.Double, direction: ParameterDirection.Input);
+            queryParameters.Add("@courseId", coupon.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            //execute proc
+            var result = _dbContext.Connection.ExecuteAsync("UpdateCoupon", queryParameters, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
         public bool UpdateCourse(Course course)
         {
             var queryParameters = new DynamicParameters();
@@ -204,6 +256,17 @@ namespace LMS.Infra.Repository
             return true;
         }
 
+        public bool UpdateCourseRating(CourseRating courseRating)
+        {
+            var queryParameters = new DynamicParameters();
+            queryParameters.Add("@star", courseRating.NoOfStar, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            queryParameters.Add("@notes", courseRating.RateNote, dbType: DbType.String, direction: ParameterDirection.Input);
+            queryParameters.Add("@CourseRatingId", courseRating.CourseRatingId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            //execute proc
+            var result = _dbContext.Connection.ExecuteAsync("UpdateCourseRating", queryParameters, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
         public bool UpdateTopic(Topic topic)
         {
             var queryParameters = new DynamicParameters();
@@ -216,5 +279,32 @@ namespace LMS.Infra.Repository
             var result = _dbContext.Connection.ExecuteAsync("UpdateTopic", queryParameters, commandType: CommandType.StoredProcedure);
             return true;
         }
+
+        public bool AddType(Data.Type type)
+        {
+            var queryParameters = new DynamicParameters();
+            queryParameters.Add("@p_TypeName", type.TypeName, dbType: DbType.String, direction: ParameterDirection.Input);
+            queryParameters.Add("@p_CreatedBy",type.CreatedBy , dbType: DbType.Int64, direction: ParameterDirection.Input);
+           
+
+            //execute proc
+            var result = _dbContext.Connection.ExecuteAsync("InsertType", queryParameters, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+        public bool DeleteType(int typeId)
+        {
+            var queryParameters = new DynamicParameters();
+            queryParameters.Add("@P_TypeId", typeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            //execute proc
+            var result = _dbContext.Connection.ExecuteAsync("DeleteType", queryParameters, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        public List<Data.Type> GetAllType()
+        {
+
+            IEnumerable<Data.Type> result = _dbContext.Connection.Query<Data.Type>("ReturnAllType", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        } 
     }
 }

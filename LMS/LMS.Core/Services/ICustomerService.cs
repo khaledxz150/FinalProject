@@ -25,6 +25,17 @@ namespace LMS.Core.Services
         public List<Checkout> ReturnCheckout();
         public bool InsertCheckout(Checkout checkout);
         //public bool DeleteCheckout(int checkoutId);
+
+        //WishList
+
+        public List<WishList> ReturnWishList();
+        public bool InsertWishList(WishList wishList);
+        public bool DeleteWishList(int wishListId);
+
+        //WithListItem
+
+        public bool InsertWishListItem(WishListItem wishListItem);
+        public bool DeleteWishListItem(int wishListItemId);
     }
 
 }

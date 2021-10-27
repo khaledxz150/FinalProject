@@ -9,11 +9,18 @@ namespace LMS.Core.Repository
 {
     public interface IEmployeeRepository
     {
+        // Employee
         public List<Employee> GetAllEmployess(int queryCode);
 
         public Employee GetEmployee(Int64 employeeId);
         public bool AddNewEmployee(Employee employee);
         public bool UpdateEmployee(Employee employee);
         public Employee DeleteEmployee(Int64 employeeId);
+
+        //Role Type
+
+        public bool AddRoleType(RoleType roleType);
+        public bool DeleteRoleType(int roleTypeId);
+        public List<RoleType> GetRoleTypes(int queryCode);
     }
 }

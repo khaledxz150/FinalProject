@@ -79,6 +79,40 @@ namespace LMS.Controllers
         {
             return customerService.InsertCheckout(checkout);
         }
+
+        //WishList
+        [HttpPost]
+        [Route("[action]")]
+        public List<WishList> ReturnWishList()
+        {
+            return customerService.ReturnWishList();
+        }
+        [HttpPost]
+        [Route("[action]")]
+        public bool InsertWishList([FromBody]  WishList wishList)
+        {
+            return customerService.InsertWishList(wishList);
+        }
+        [HttpDelete]
+        [Route("[action]/{wishListId}")]
+        public bool DeleteWishList(int wishListId)
+        {
+            return customerService.DeleteWishList(wishListId);
+        }
+
+        //WithListItem
+        [HttpPost]
+        [Route("[action]")]
+        public bool InsertWishListItem([FromBody]  WishListItem wishListItem)
+        {
+            return customerService.InsertWishListItem(wishListItem);
+        }
+        [HttpDelete]
+        [Route("[action]/{wishListItemId}")]
+        public bool DeleteWishListItem(int wishListItemId)
+        {
+            return customerService.DeleteWishListItem(wishListItemId);
+        }
     }
 
 }

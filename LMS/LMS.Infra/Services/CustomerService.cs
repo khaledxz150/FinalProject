@@ -53,6 +53,32 @@ namespace LMS.Infra.Services
         {
             return customerRepository.ReturnCheckout();
         }
+
+        //WishList
+
+        public List<WishList> ReturnWishList()
+        {
+            return customerRepository.ReturnWishList();
+        }
+        public bool InsertWishList(WishList wishList)
+        {
+            return customerRepository.InsertWishList(wishList);
+        }
+        public bool DeleteWishList(int wishListId)
+        {
+            return customerRepository.DeleteWishList(wishListId);
+        }
+
+        //WithListItem
+
+        public bool InsertWishListItem(WishListItem wishListItem)
+        {
+            return customerRepository.InsertWishListItem(wishListItem);
+        }
+        public bool DeleteWishListItem(int wishListItemId)
+        {
+            return customerRepository.DeleteWishListItem(wishListItemId);   
+        }
     }
 
 }
