@@ -1,4 +1,5 @@
-﻿using LMS.Data;
+﻿using LMS.Core.DTO;
+using LMS.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,9 @@ namespace LMS.Core.Repository
         public bool InsertCheckout(Checkout checkout);
         //public bool DeleteCheckout(int checkoutId);
 
+        //ReturnSoldCourses
+        public List<SoldCourseDTO> ReturnSoldCourses();
+
         //WishList
 
         public List<WishList> ReturnWishList();
@@ -35,6 +39,17 @@ namespace LMS.Core.Repository
 
         public bool InsertWishListItem(WishListItem wishListItem);
         public bool DeleteWishListItem(int wishListItemId);
+
+
+        //ReturnAllCartItem
+        public List<CartItemDTO> ReturnAllCartItem(int traineeId);
+
+
+        //ReturnWishListItem
+        public List<WishListItemDTO> ReturnWishListItem(int traineeId);
+
+        //ReturnAllCoupon
+        public List<CouponDTO> ReturnAllCoupon(int queryCode);
     }
 
 }

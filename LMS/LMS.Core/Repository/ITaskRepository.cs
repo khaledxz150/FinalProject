@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using LMS.Core.DTO;
 using LMS.Data;
 
 namespace LMS.Core.Repository
@@ -21,6 +22,12 @@ namespace LMS.Core.Repository
         public TraineeSectionTask UpdateTraineeSectionTaskId(TraineeSectionTask traineeSectionTask);
 
 
+        //ReturnTasksOfSection
+        public List<Task> ReturnTasksOfSection(int sectionTrainerId);
+
+
+        //ReturnSolutionOfTask
+        public List<TaskSolutionDTO> ReturnSolutionOfTask(int taskId, int sectionId);
 
     }
 }

@@ -34,5 +34,9 @@ namespace LMS.Core.Repository
         public bool InsertExamOption(ExamOption examOption);
         public bool UpdateExamOption(ExamOption examOption);
         public bool DeleteExamOption(int optionId);
+
+        //ReturnExamBySectionId
+        public List<Exam> ReturnExamBySectionId(int sectionId);
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using LMS.Core.Services;
+﻿using LMS.Core.DTO;
+using LMS.Core.Services;
 using LMS.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -49,10 +50,13 @@ namespace LMS.Controllers
             return _courseService.AddType(type);
         }
 
+        [HttpPost]
+        [Route("[action]")]
         public bool InsertCoupon([FromBody] Coupon coupon)
         {
             return _courseService.InsertCoupon(coupon);
         }
+
         [HttpPost]
         [Route("[action]")]
         public bool InsertCourseRate([FromBody] CourseRating courseRating)
@@ -66,6 +70,7 @@ namespace LMS.Controllers
         {
             return _courseService.DeleteCategory(categoryId);
         }
+
         [HttpPut]
         [Route("[action]/{commentId}")]
         public bool DeleteComment(int commentId)
@@ -178,6 +183,25 @@ namespace LMS.Controllers
             return _courseService.UpdateTopic(topic);
         }
         //**********************************************<-- DTO -->*******************************************
+
+        //ReturnAllCourseRating
+        [HttpPost]
+        [Route("[action]/{sectionId}")]
+        public List<CourseRatingDTO> ReturnAllCourseRating(int sectionId)
+        {
+            return _courseService.ReturnAllCourseRating(sectionId);
+        }
+
+
+        //ReturnAllCourses
+
+        [HttpPost]
+        [Route("[action]/{queryCode}")]
+        public List<CourseDTO> ReturnAllCourses(int queryCode)
+        {
+            return _courseService.ReturnAllCourses(queryCode);
+        }
+
     }
 }
 

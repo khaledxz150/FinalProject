@@ -1,4 +1,5 @@
-﻿using LMS.Core.Repository;
+﻿using LMS.Core.DTO;
+using LMS.Core.Repository;
 using LMS.Core.Services;
 using LMS.Data;
 using System;
@@ -11,9 +12,9 @@ namespace LMS.Infra.Services
 {
     public class SectionService: ISectionService
     {
-        private readonly ISectionService sectionRepository;
+        private readonly ISectionRepository sectionRepository;
 
-        public SectionService(ISectionService sectionRepository)
+        public SectionService(ISectionRepository sectionRepository)
         {
             this.sectionRepository = sectionRepository;
         }
@@ -122,5 +123,30 @@ namespace LMS.Infra.Services
             return sectionRepository.GetSectionStatus(sectionId);
         }
 
+        public List<TrainerSectionDTO> ReturnAllTrainerSections(int trainerId)
+        {
+            return sectionRepository.ReturnAllTrainerSections(trainerId);
+        }
+
+        public List<SectionByCourseDTO> ReturnSectionByCourseId(int courseId)
+        {
+            return sectionRepository.ReturnSectionByCourseId(courseId);
+
+        }
+
+        public List<SectionOfTraineeDTO> ReturnSectionOfTrainee(int traineeId, int sectionId)
+        {
+            return sectionRepository.ReturnSectionOfTrainee(traineeId, sectionId);
+        }
+
+        public List<CommentDTO> ReturnAllComments(int sectionId)
+        {
+            return sectionRepository.ReturnAllComments(sectionId);
+        }
+
+        public List<Unit> ReturnUnitBySectionId(int sectionId)
+        {
+            return sectionRepository.ReturnUnitBySectionId(sectionId);
+        }
     }
 }

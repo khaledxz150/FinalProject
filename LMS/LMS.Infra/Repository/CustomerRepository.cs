@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using First.Core.Common;
+using LMS.Core.DTO;
 using LMS.Core.Repository;
 using LMS.Data;
 using System;
@@ -121,7 +122,38 @@ namespace LMS.Infra.Repository
             return true;
         }
 
+        public List<SoldCourseDTO> ReturnSoldCourses()
+        {
+            IEnumerable<SoldCourseDTO> result = dBContext.Connection.Query<SoldCourseDTO>("ReturnSoldCourses", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
 
+        public List<CartItemDTO> ReturnAllCartItem(int traineeId)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@TraineeId", traineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            IEnumerable<CartItemDTO> result = dBContext.Connection.Query<CartItemDTO>("ReturnAllCartItem", parm, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public List<WishListItemDTO> ReturnWishListItem(int traineeId)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@TraineeId", traineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            IEnumerable<WishListItemDTO> result = dBContext.Connection.Query<WishListItemDTO>("ReturnWishListItem", parm, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public List<CouponDTO> ReturnAllCoupon(int queryCode)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@Query_CODE", queryCode, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            IEnumerable<CouponDTO> result = dBContext.Connection.Query<CouponDTO>("ReturnAllCoupon", parm, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 
 }

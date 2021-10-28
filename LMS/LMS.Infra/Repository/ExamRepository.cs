@@ -185,5 +185,14 @@ namespace LMS.Infra.Repository
             var result = dBContext.Connection.ExecuteAsync("UpdateExamOption", parameters, commandType: CommandType.StoredProcedure);
             return true;
         }
+
+        public List<Exam> ReturnExamBySectionId(int sectionId)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@SectionId", sectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            IEnumerable<Exam> result = dBContext.Connection.Query<Exam>("ReturnExamBySectionId", parm, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }

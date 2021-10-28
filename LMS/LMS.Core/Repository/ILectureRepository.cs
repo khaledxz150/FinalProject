@@ -13,5 +13,9 @@ namespace LMS.Core.Repository
         public bool InsertLecture(Lecture lecture);
         public bool UpdateLecture(Lecture lecture);
         public bool DeleteLecture(int lectureId);
+
+        //ReturnLectureBySectionId
+        public List<Lecture> ReturnLectureBySectionId(int sectionId);
+
     }
 }

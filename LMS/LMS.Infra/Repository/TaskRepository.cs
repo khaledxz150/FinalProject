@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using First.Core.Common;
+using LMS.Core.DTO;
 using LMS.Core.Repository;
 using LMS.Data;
 using System;
@@ -111,7 +112,22 @@ namespace LMS.Infra.Repository
             return result.ToList();
         }
 
+        public List<Task> ReturnTasksOfSection(int sectionTrainerId)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@SectionTrainerId", sectionTrainerId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<Task> result = dBContext.Connection.Query<Task>("ReturnTasksOfSection", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
 
+        public List<TaskSolutionDTO> ReturnSolutionOfTask(int taskId, int sectionId)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@TaskId", taskId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@SectionId", sectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<TaskSolutionDTO> result = dBContext.Connection.Query<TaskSolutionDTO>("ReturnSolutionOfTask", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 
 }

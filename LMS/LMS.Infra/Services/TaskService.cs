@@ -1,4 +1,5 @@
-﻿using LMS.Core.Repository;
+﻿using LMS.Core.DTO;
+using LMS.Core.Repository;
 using LMS.Core.Services;
 using LMS.Data;
 using System;
@@ -39,7 +40,7 @@ namespace LMS.Infra.Services
             return TaskRepository.AddTraineeSectionTaskId(traineeSectionTask);
         }
 
-        public TraineeSectionTask SelectTraineeSectionTaskId()
+        public List<TraineeSectionTask> SelectTraineeSectionTaskId()
         {
             return TaskRepository.SelectTraineeSectionTaskId();
         }
@@ -47,6 +48,16 @@ namespace LMS.Infra.Services
         public TraineeSectionTask UpdateTraineeSectionTaskId(TraineeSectionTask traineeSectionTask)
         {
             return TaskRepository.UpdateTraineeSectionTaskId(traineeSectionTask);
+        }
+
+        public List<Task> ReturnTasksOfSection(int sectionTrainerId)
+        {
+            return TaskRepository.ReturnTasksOfSection(sectionTrainerId);
+        }
+
+        public List<TaskSolutionDTO> ReturnSolutionOfTask(int taskId, int sectionId)
+        {
+            return TaskRepository.ReturnSolutionOfTask(taskId, sectionId);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using LMS.Core.Repository;
+﻿using LMS.Core.DTO;
+using LMS.Core.Repository;
 using LMS.Core.Services;
 using LMS.Data;
 using System;
@@ -152,6 +153,16 @@ namespace LMS.Infra.Services
         public List<Data.Type> GetAllType()
         {
            return _courseRepository.GetAllType();   
+        }
+
+        public List<CourseRatingDTO> ReturnAllCourseRating(int sectionId)
+        {
+            return _courseRepository.ReturnAllCourseRating(sectionId);
+        }
+
+        public List<CourseDTO> ReturnAllCourses(int queryCode)
+        {
+            return _courseRepository.ReturnAllCourses(queryCode);
         }
     }
 }

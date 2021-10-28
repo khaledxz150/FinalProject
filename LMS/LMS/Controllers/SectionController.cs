@@ -1,4 +1,5 @@
-﻿using LMS.Core.Services;
+﻿using LMS.Core.DTO;
+using LMS.Core.Services;
 using LMS.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -139,6 +140,7 @@ namespace LMS.Controllers
         {
             return sectionService.DeleteStatus(statusId);
         }
+
         [HttpPost]
         [Route("[action]/{sectionId}")]
         public Status GetSectionStatus(int sectionId)
@@ -147,6 +149,49 @@ namespace LMS.Controllers
         }
 
 
+        //ReturnAllTrainerSections
+        [HttpPost]
+        [Route("[action]/{trainerId}")]
+        public List<TrainerSectionDTO> ReturnAllTrainerSections(int trainerId)
+        {
+            return sectionService.ReturnAllTrainerSections(trainerId);
+        }
 
+        //ReturnSectionByCourseId
+
+        [HttpPost]
+        [Route("[action]/{courseId}")]
+        public List<SectionByCourseDTO> ReturnSectionByCourseId(int courseId)
+        {
+            return sectionService.ReturnSectionByCourseId(courseId);
+        }
+
+        //ReturnSectionOfTrainee
+
+        [HttpPost]
+        [Route("[action]/{traineeId}/{sectionId}")]
+        public List<SectionOfTraineeDTO> ReturnSectionOfTrainee(int traineeId, int sectionId)
+        {
+            return sectionService.ReturnSectionOfTrainee(traineeId, sectionId);
+        }
+
+        //ReturnAllComments
+
+        [HttpPost]
+        [Route("[action]/{sectionId}")]
+        public List<CommentDTO> ReturnAllComments(int sectionId)
+        {
+            return sectionService.ReturnAllComments(sectionId);
+        }
+
+
+        //ReturnUnitBySectionId
+
+        [HttpPost]
+        [Route("[action]/{sectionId}")]
+        public List<Unit> ReturnUnitBySectionId(int sectionId)
+        {
+            return sectionService.ReturnUnitBySectionId(sectionId);
+        }
     }
 }

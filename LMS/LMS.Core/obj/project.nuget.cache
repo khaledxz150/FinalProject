@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VzguMYJwSCsPjFeznh7dWrT+Ca2GA1DhKrL0rT25mToALGloZ9xjMdP+jY9liwwNi9ed4lOSpgO2PHpcesALKQ==",
+  "dgSpecHash": "/CqG+1K1771YI+G7804OT95eW8do3OxmD0N4Y8hacx1CperXRLXTtDUXIDqEU5yAVLSz7Hl6XWw65UDrO5bLmQ==",
   "success": true,
-  "projectFilePath": "C:\\Github\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj",
+  "projectFilePath": "C:\\GitHub\\FinalProject\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

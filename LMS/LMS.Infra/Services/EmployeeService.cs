@@ -1,4 +1,5 @@
-﻿using LMS.Core.Repository;
+﻿using LMS.Core.DTO;
+using LMS.Core.Repository;
 using LMS.Core.Services;
 using LMS.Data;
 using System;
@@ -55,6 +56,11 @@ namespace LMS.Infra.Services
         public List<RoleType> GetRoleTypes(int queryCode)
         {
             return _employeeRepository.GetRoleTypes(queryCode);
+        }
+
+        public List<EmployeeInfoDTO> ReturnEmployeeInfo(int employeeId)
+        {
+            return _employeeRepository.ReturnEmployeeInfo(employeeId);
         }
     }
 }

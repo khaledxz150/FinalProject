@@ -59,6 +59,8 @@ namespace LMS
             services.AddScoped<ICourseService, CourseService>();
             services.AddScoped<ICourseRepository, CourseRepository>();
             services.AddScoped<IEmployeeService, EmployeeService>();
+            services.AddScoped<ITraineeService, TraineeService>();
+            services.AddScoped<ITraineeRepository, TraineeRepository>();
 
             services.AddSwaggerGen(c =>
             {

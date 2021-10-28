@@ -110,5 +110,10 @@ namespace LMS.Infra.Services
         {
             return examRepository.UpdateExamOption(examOption);
         }
+
+        public List<Exam> ReturnExamBySectionId(int sectionId)
+        {
+            return examRepository.ReturnExamBySectionId(sectionId);
+        }
     }
 }

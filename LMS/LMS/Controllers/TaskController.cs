@@ -1,4 +1,5 @@
-﻿using LMS.Core.Services;
+﻿using LMS.Core.DTO;
+using LMS.Core.Services;
 using LMS.Data;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -51,7 +52,7 @@ namespace LMS.Controllers
 
         [HttpGet]
         [Route("[action]")]
-        public TraineeSectionTask SelectTraineeSectionTaskId()
+        public List<TraineeSectionTask> SelectTraineeSectionTaskId()
         {
             return TaskService.SelectTraineeSectionTaskId();
         }
@@ -64,5 +65,24 @@ namespace LMS.Controllers
         }
 
 
+
+        //ReturnTasksOfSection
+
+        [HttpPost]
+        [Route("[action]")]
+        public List<Task> ReturnTasksOfSection(int sectionTrainerId)
+        {
+            return TaskService.ReturnTasksOfSection(sectionTrainerId);
+        }
+
+
+
+        //ReturnSolutionOfTask
+        [HttpPost]
+        [Route("[action]/{sectionId}/{taskId}")]
+        public List<TaskSolutionDTO> ReturnSolutionOfTask(int taskId, int sectionId)
+        {
+            return TaskService.ReturnSolutionOfTask(taskId, sectionId);
+        }
     }
 }
