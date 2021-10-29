@@ -149,7 +149,7 @@ namespace LMS.Infra.Repository
         public List<CouponDTO> ReturnAllCoupon(int queryCode)
         {
             var parm = new DynamicParameters();
-            parm.Add("@Query_CODE", queryCode, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@P_CODE", queryCode, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             IEnumerable<CouponDTO> result = dBContext.Connection.Query<CouponDTO>("ReturnAllCoupon", parm, commandType: CommandType.StoredProcedure);
             return result.ToList();

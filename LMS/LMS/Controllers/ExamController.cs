@@ -43,7 +43,7 @@ namespace LMS.Controllers
             return examService.UpdateExam(exam);
         }
 
-        [HttpDelete]
+        [HttpPut]
         [Route("[action]/{examId}")]
         public bool DeleteExam(int examId)
         {
@@ -59,7 +59,7 @@ namespace LMS.Controllers
 
 
         [HttpDelete]
-        [Route("[action]/{examId}")]
+        [Route("[action]/{traineeSectionExamId}")]
         public bool DeleteTraineeSectionExam(int traineeSectionExamId) {
 
         return examService.DeleteTraineeSectionExam(traineeSectionExamId);
@@ -90,7 +90,7 @@ namespace LMS.Controllers
             return examService.UpdateExamOption(examOption);
         }
 
-        [HttpDelete]
+        [HttpPut]
         [Route("[action]/{optionId}")]
         public bool DeleteExamOption(int optionId)
         {
@@ -120,7 +120,7 @@ namespace LMS.Controllers
             return examService.UpdateExamQuestion(examQuestion);
         }
 
-        [HttpDelete]
+        [HttpPut]
         [Route("[action]/{questionId}")]
         public bool DeleteExamQuestion(int questionId)
         {
@@ -130,7 +130,7 @@ namespace LMS.Controllers
         //ReturnExamBySectionId
 
         [HttpPost]
-        [Route("[action]/{questionId}")]
+        [Route("[action]/{sectionId}")]
         public List<Exam> ReturnExamBySectionId(int sectionId)
         {
             return examService.ReturnExamBySectionId(sectionId);

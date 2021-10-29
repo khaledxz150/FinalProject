@@ -39,7 +39,7 @@ namespace LMS.Controllers
         }
 
 
-        [HttpDelete]
+        [HttpPut]
         [Route("[action]/{cartId}")]
         public bool DeleteCart(int cartId)
         {
@@ -57,7 +57,7 @@ namespace LMS.Controllers
         }
 
 
-        [HttpDelete]
+        [HttpPut]
         [Route("[action]/{cartItemId}")]
         public bool DeleteCartItem(int cartItemId)
         {
@@ -94,7 +94,7 @@ namespace LMS.Controllers
         {
             return customerService.InsertWishList(wishList);
         }
-        [HttpDelete]
+        [HttpPut]
         [Route("[action]/{wishListId}")]
         public bool DeleteWishList(int wishListId)
         {
@@ -108,7 +108,7 @@ namespace LMS.Controllers
         {
             return customerService.InsertWishListItem(wishListItem);
         }
-        [HttpDelete]
+        [HttpPut]
         [Route("[action]/{wishListItemId}")]
         public bool DeleteWishListItem(int wishListItemId)
         {

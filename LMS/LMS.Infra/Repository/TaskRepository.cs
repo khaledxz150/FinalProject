@@ -116,7 +116,7 @@ namespace LMS.Infra.Repository
         {
             var parm = new DynamicParameters();
             parm.Add("@SectionTrainerId", sectionTrainerId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            IEnumerable<Task> result = dBContext.Connection.Query<Task>("ReturnTasksOfSection", commandType: CommandType.StoredProcedure);
+            IEnumerable<Task> result = dBContext.Connection.Query<Task>("ReturnTasksOfSection", parm, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 
@@ -125,7 +125,7 @@ namespace LMS.Infra.Repository
             var parm = new DynamicParameters();
             parm.Add("@TaskId", taskId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parm.Add("@SectionId", sectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            IEnumerable<TaskSolutionDTO> result = dBContext.Connection.Query<TaskSolutionDTO>("ReturnSolutionOfTask", commandType: CommandType.StoredProcedure);
+            IEnumerable<TaskSolutionDTO> result = dBContext.Connection.Query<TaskSolutionDTO>("ReturnSolutionOfTask", parm, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
     }

@@ -43,7 +43,7 @@ namespace LMS.Controllers
             return refundReasonService.UpdateRefundReason(refundReason);
         }
 
-        [HttpDelete]
+        [HttpPut]
         [Route("[action]/{reasonId}")]
         public bool DeleteRefundReason(int reasonId)
         {

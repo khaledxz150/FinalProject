@@ -13,8 +13,8 @@ namespace LMS.Core.DTO
         public string FName { get; set; }
         public string LName { get; set; }
         public string Email { get; set; }
-        public string TrainerImage { get; set; }
-        public int PhoneNumber { get; set; }
+        public string EmployeeImage { get; set; }
+        public string PhoneNumber { get; set; }
         public double BasicSalary { get; set; }
         public string NationalSecurutiyNumber { get; set; }
     }

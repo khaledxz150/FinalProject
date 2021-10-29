@@ -69,7 +69,7 @@ namespace LMS.Controllers
         //ReturnTasksOfSection
 
         [HttpPost]
-        [Route("[action]")]
+        [Route("[action]/{sectionTrainerId}")]
         public List<Task> ReturnTasksOfSection(int sectionTrainerId)
         {
             return TaskService.ReturnTasksOfSection(sectionTrainerId);
