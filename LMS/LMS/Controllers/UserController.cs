@@ -36,7 +36,7 @@ namespace LMS.Controllers
             return userService.Register(login);
         }
 
-        [HttpDelete]
+        [HttpPut]
         [Route("[action]/{loginId}")]
         public bool DeleteLogin(int loginId)
         {

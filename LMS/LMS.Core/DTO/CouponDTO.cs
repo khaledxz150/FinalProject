@@ -10,8 +10,8 @@ namespace LMS.Core.DTO
     {
         public int CouponId { get; set; }
         public int CourseId { get; set; }
-        public decimal Discount { get; set; }
-        public int Redemption { get; set; }
+        public decimal? Discount { get; set; }
+        public int? Redemption { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string CourseName { get; set; }

@@ -19,7 +19,7 @@ namespace LMS.Core.DTO
         public string LevelName { get; set; }
         public string TypeName { get; set; }
         public string TrainerName { get; set; }
-        public decimal TotalMark { get; set; }
+        public decimal? TotalMark { get; set; }
     }
 
 }

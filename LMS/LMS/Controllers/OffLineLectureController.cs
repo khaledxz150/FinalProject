@@ -43,7 +43,7 @@ namespace LMS.Controllers
             return offLineLectureService.UpdateOffLineLecture(offLineLecture);
         }
 
-        [HttpDelete]
+        [HttpPut]
         [Route("[action]/{offLineLectureId}")]
         public bool DeleteOffLineLecture(int offLineLectureId)
         {

@@ -171,7 +171,7 @@ namespace LMS.Infra.Repository
         {
             var parm = new DynamicParameters();
             parm.Add("@TrainerId", trainerId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            IEnumerable<TrainerSectionDTO> result = dBContext.Connection.Query<TrainerSectionDTO>("ReturnAllTrainerSections", commandType: CommandType.StoredProcedure);
+            IEnumerable<TrainerSectionDTO> result = dBContext.Connection.Query<TrainerSectionDTO>("ReturnAllTrainerSections", parm, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 
@@ -179,7 +179,7 @@ namespace LMS.Infra.Repository
         {
             var parm = new DynamicParameters();
             parm.Add("@CourseId", courseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            IEnumerable<SectionByCourseDTO> result = dBContext.Connection.Query<SectionByCourseDTO>("ReturnSectionByCourseId", commandType: CommandType.StoredProcedure);
+            IEnumerable<SectionByCourseDTO> result = dBContext.Connection.Query<SectionByCourseDTO>("ReturnSectionByCourseId", parm, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 
@@ -188,7 +188,7 @@ namespace LMS.Infra.Repository
             var parm = new DynamicParameters();
             parm.Add("@TraineeId", traineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parm.Add("@SectionId", sectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            IEnumerable<SectionOfTraineeDTO> result = dBContext.Connection.Query<SectionOfTraineeDTO>("ReturnSectionOfTrainee", commandType: CommandType.StoredProcedure);
+            IEnumerable<SectionOfTraineeDTO> result = dBContext.Connection.Query<SectionOfTraineeDTO>("ReturnSectionOfTrainee", parm,commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 
@@ -196,7 +196,7 @@ namespace LMS.Infra.Repository
         {
             var parm = new DynamicParameters();
             parm.Add("@SectionId", sectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            IEnumerable<CommentDTO> result = dBContext.Connection.Query<CommentDTO>("ReturnAllComments", commandType: CommandType.StoredProcedure);
+            IEnumerable<CommentDTO> result = dBContext.Connection.Query<CommentDTO>("ReturnAllComments", parm, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 

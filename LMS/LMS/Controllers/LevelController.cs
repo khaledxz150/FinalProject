@@ -43,7 +43,7 @@ namespace LMS.Controllers
             return levelService.UpdateLevel(level);
         }
 
-        [HttpDelete]
+        [HttpPut]
         [Route("[action]/{levelId}")]
         public bool DeleteLevel(int levelId)
         {
