@@ -21,6 +21,8 @@ namespace LMS.Infra.Repository
 
         public bool DeleteEvaluation(int evaluationId)
         {
+            //define Parameter
+            //now
             var parm = new DynamicParameters();
             parm.Add("", evaluationId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = _dbContext.Connection.ExecuteAsync("", parm, commandType: CommandType.StoredProcedure);
