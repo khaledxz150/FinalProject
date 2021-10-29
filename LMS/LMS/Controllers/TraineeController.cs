@@ -1,5 +1,6 @@
 ﻿using LMS.Core.DTO;
 using LMS.Core.Services;
+using LMS.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -38,6 +39,31 @@ namespace LMS.Controllers
         {
             return traineeService.ReturnTraineeInfo(traineeId);
         }
+
+        [HttpPost]
+        [Route("[action]")]
+        // Add New Trainee 
+        public bool InsertTrainee([FromBody]Trainee trainee)
+        {
+            return traineeService.InsertTrainee(trainee);
+        }
+
+        [HttpPut]
+        [Route("[action]")]
+        //Update Trainee 
+        public bool UpdateTrainee([FromBody] Trainee trainee)
+        {
+            return traineeService.UpdateTrainee(trainee);
+        }
+
+        [HttpPut]
+        [Route("[action]/{traineeId}")]
+        //Delete Trainee
+        public bool DeleteTrainee(int traineeId)
+        {
+            return traineeService.DeleteTrainee(traineeId);
+        }
+
 
 
 

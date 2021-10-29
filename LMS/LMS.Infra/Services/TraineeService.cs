@@ -1,6 +1,7 @@
 ﻿using LMS.Core.DTO;
 using LMS.Core.Repository;
 using LMS.Core.Services;
+using LMS.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,23 @@ namespace LMS.Infra.Services
         public List<TraineeInfoDTO> ReturnTraineeInfo(int traineeId)
         {
             return traineeRepository.ReturnTraineeInfo(traineeId);
+        }
+
+        public bool InsertTrainee(Trainee trainee)
+        {
+            return traineeRepository.InsertTrainee(trainee);    
+        }
+
+        //Update Trainee 
+        public bool UpdateTrainee(Trainee trainee)
+        {
+            return traineeRepository.UpdateTrainee(trainee);
+        }
+
+        //Delete Trainee
+        public bool DeleteTrainee(int traineeId)
+        {
+            return traineeRepository.DeleteTrainee(traineeId);  
         }
     }
 

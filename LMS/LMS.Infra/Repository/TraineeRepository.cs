@@ -2,6 +2,7 @@
 using First.Core.Common;
 using LMS.Core.DTO;
 using LMS.Core.Repository;
+using LMS.Data;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -35,5 +36,46 @@ namespace LMS.Infra.Repository
             IEnumerable<TraineeInfoDTO> result = dBContext.Connection.Query<TraineeInfoDTO>("ReturnTraineeInfo", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
+
+        // Add New Trainee 
+        public bool InsertTrainee(Trainee trainee)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@P_FirstName", trainee.FirstName, dbType: DbType.String, direction: ParameterDirection.Input);
+            parm.Add("@P_LastName", trainee.LastName, dbType: DbType.String, direction: ParameterDirection.Input);
+            parm.Add("@P_PhoneNumber", trainee.PhoneNumber, dbType: DbType.String, direction: ParameterDirection.Input);
+            parm.Add("@P_Nationality", trainee.Nationality, dbType: DbType.String, direction: ParameterDirection.Input);
+            parm.Add("@P_Email", trainee.Email, dbType: DbType.String, direction: ParameterDirection.Input);
+            parm.Add("@P_ImageName", trainee.ImageName, dbType: DbType.String, direction: ParameterDirection.Input);
+            var result = dBContext.Connection.ExecuteAsync("AddTrainee", commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        //Update Trainee 
+        public bool UpdateTrainee(Trainee trainee)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@P_TraineeId", trainee.TraineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@P_FirstName", trainee.FirstName, dbType: DbType.String, direction: ParameterDirection.Input);
+            parm.Add("@P_LastName", trainee.LastName, dbType: DbType.String, direction: ParameterDirection.Input);
+            parm.Add("@P_PhoneNumber", trainee.PhoneNumber, dbType: DbType.String, direction: ParameterDirection.Input);
+            parm.Add("@P_Nationality", trainee.Nationality, dbType: DbType.String, direction: ParameterDirection.Input);
+            parm.Add("@P_Email", trainee.Email, dbType: DbType.String, direction: ParameterDirection.Input);
+            parm.Add("@P_ImageName", trainee.ImageName, dbType: DbType.String, direction: ParameterDirection.Input);
+            var result = dBContext.Connection.ExecuteAsync("UpdateTrainee", commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        //Delete Trainee
+        public bool DeleteTrainee(int traineeId)
+        {
+            var parm = new DynamicParameters();
+          
+            parm.Add("@P_TraineeId", traineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = dBContext.Connection.ExecuteAsync("DeleteTrainee", commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using LMS.Core.DTO;
+using LMS.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,13 @@ namespace LMS.Core.Services
 
         //ReturnTraineeInfo
         public List<TraineeInfoDTO> ReturnTraineeInfo(int traineeId);
+        public bool InsertTrainee(Trainee trainee);
 
+        //Update Trainee 
+        public bool UpdateTrainee(Trainee trainee);
+
+        //Delete Trainee
+        public bool DeleteTrainee(int traineeId);
 
     }
 }
