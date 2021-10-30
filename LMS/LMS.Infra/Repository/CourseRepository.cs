@@ -324,5 +324,43 @@ namespace LMS.Infra.Repository
             IEnumerable<CourseDTO> result = _dbContext.Connection.Query<CourseDTO>("ReturnAllCourses", parm, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
+        public bool DeleteLevel(int levelId)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@LevelId", levelId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.ExecuteAsync("DeleteLevel", parm, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        public bool InsertLevel(Level level)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@Name", level.Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameters.Add("@CreatedBy", level.CreatedBy, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            var result = _dbContext.Connection.ExecuteAsync("InsertLevel", parameters, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        public List<Level> ReturnLevel(int queryCode)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@P_CODE", queryCode, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            IEnumerable<Level> result = _dbContext.Connection.Query<Level>("ReturnLevel", parm, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public bool UpdateLevel(Level level)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@LevelId", level.LevelId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parameters.Add("@Name", level.Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameters.Add("@CreatedBy", level.CreatedBy, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            var result = _dbContext.Connection.ExecuteAsync("UpdateLevel", parameters, commandType: CommandType.StoredProcedure);
+            return true;
+        }
     }
 }

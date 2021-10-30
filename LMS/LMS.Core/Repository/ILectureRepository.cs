@@ -17,5 +17,10 @@ namespace LMS.Core.Repository
         //ReturnLectureBySectionId
         public List<Lecture> ReturnLectureBySectionId(int sectionId);
 
+        public List<OffLineLecture> ReturnOffLineLecture(int queryCode);
+        public bool InsertOffLineLecture(OffLineLecture offLineLecture);
+        public bool UpdateOffLineLecture(OffLineLecture offLineLecture);
+        public bool DeleteOffLineLecture(int offLineLectureId);
+
     }
 }

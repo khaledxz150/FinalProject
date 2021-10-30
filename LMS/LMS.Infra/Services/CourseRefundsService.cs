@@ -32,5 +32,25 @@ namespace LMS.Infra.Services
         {
             return _courseRefundsRepository.UpdateCourseRefunds(courseRefund);
         }
+
+        public bool DeleteRefundReason(int reasonId)
+        {
+            return _courseRefundsRepository.DeleteRefundReason(reasonId);
+        }
+
+        public bool InsertRefundReason(RefundReason refundReason)
+        {
+            return _courseRefundsRepository.InsertRefundReason(refundReason);
+        }
+
+        public List<RefundReason> ReturnRefundReason(int queryCode)
+        {
+            return _courseRefundsRepository.ReturnRefundReason(queryCode);
+        }
+
+        public bool UpdateRefundReason(RefundReason refundReason)
+        {
+            return _courseRefundsRepository.UpdateRefundReason(refundReason);
+        }
     }
 }

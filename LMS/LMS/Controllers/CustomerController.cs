@@ -154,6 +154,47 @@ namespace LMS.Controllers
 
 
 
+        //ReturnTraineeAttendance
+
+        [HttpPost]
+        [Route("[action]/{sectionId}/{lectureId}")]
+        public List<TraineeAttendanceDTO> ReturnTraineeAttendance(int sectionId, int lectureId)
+        {
+            return customerService.ReturnTraineeAttendance(sectionId, lectureId);
+        }
+
+
+        //ReturnTraineeInfo
+        [HttpPost]
+        [Route("[action]/{traineeId}")]
+        public List<TraineeInfoDTO> ReturnTraineeInfo(int traineeId)
+        {
+            return customerService.ReturnTraineeInfo(traineeId);
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        // Add New Trainee 
+        public bool InsertTrainee([FromBody] Trainee trainee)
+        {
+            return customerService.InsertTrainee(trainee);
+        }
+
+        [HttpPut]
+        [Route("[action]")]
+        //Update Trainee 
+        public bool UpdateTrainee([FromBody] Trainee trainee)
+        {
+            return customerService.UpdateTrainee(trainee);
+        }
+
+        [HttpPut]
+        [Route("[action]/{traineeId}")]
+        //Delete Trainee
+        public bool DeleteTrainee(int traineeId)
+        {
+            return customerService.DeleteTrainee(traineeId);
+        }
 
 
 

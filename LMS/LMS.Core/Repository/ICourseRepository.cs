@@ -65,5 +65,11 @@ namespace LMS.Core.Repository
         //ReturnCourses
         public List<CourseDTO> ReturnAllCourses(int queryCode);
 
+        // Level
+        public List<Level> ReturnLevel(int queryCode);
+        public bool InsertLevel(Level level);
+        public bool UpdateLevel(Level level);
+        public bool DeleteLevel(int levelId);
+
     }
 }

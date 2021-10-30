@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
 
 namespace LMS.Infra.Services
 {
@@ -147,6 +147,48 @@ namespace LMS.Infra.Services
         public List<Unit> ReturnUnitBySectionId(int sectionId)
         {
             return sectionRepository.ReturnUnitBySectionId(sectionId);
+        }
+
+        public Task AddTask(Task task)
+        {
+            return sectionRepository.AddTask(task);
+        }
+
+
+
+        public List<Task> ReturnAllTask()
+        {
+            return sectionRepository.ReturnAllTask();
+        }
+
+        public Task UpdateTask(Task task)
+        {
+            return sectionRepository.UpdateTask(task);
+        }
+
+        public TraineeSectionTask AddTraineeSectionTaskId(TraineeSectionTask traineeSectionTask)
+        {
+            return sectionRepository.AddTraineeSectionTaskId(traineeSectionTask);
+        }
+
+        public List<TraineeSectionTask> SelectTraineeSectionTaskId()
+        {
+            return sectionRepository.SelectTraineeSectionTaskId();
+        }
+
+        public TraineeSectionTask UpdateTraineeSectionTaskId(TraineeSectionTask traineeSectionTask)
+        {
+            return sectionRepository.UpdateTraineeSectionTaskId(traineeSectionTask);
+        }
+
+        public List<Task> ReturnTasksOfSection(int sectionTrainerId)
+        {
+            return sectionRepository.ReturnTasksOfSection(sectionTrainerId);
+        }
+
+        public List<TaskSolutionDTO> ReturnSolutionOfTask(int taskId, int sectionId)
+        {
+            return sectionRepository.ReturnSolutionOfTask(taskId, sectionId);
         }
     }
 }

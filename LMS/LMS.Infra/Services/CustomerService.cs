@@ -100,6 +100,33 @@ namespace LMS.Infra.Services
         {
             return customerRepository.ReturnAllCoupon(queryCode);
         }
+
+        public List<TraineeAttendanceDTO> ReturnTraineeAttendance(int sectionId, int lectureId)
+        {
+            return customerRepository.ReturnTraineeAttendance(sectionId, lectureId);
+        }
+
+        public List<TraineeInfoDTO> ReturnTraineeInfo(int traineeId)
+        {
+            return customerRepository.ReturnTraineeInfo(traineeId);
+        }
+
+        public bool InsertTrainee(Trainee trainee)
+        {
+            return customerRepository.InsertTrainee(trainee);
+        }
+
+        //Update Trainee 
+        public bool UpdateTrainee(Trainee trainee)
+        {
+            return customerRepository.UpdateTrainee(trainee);
+        }
+
+        //Delete Trainee
+        public bool DeleteTrainee(int traineeId)
+        {
+            return customerRepository.DeleteTrainee(traineeId);
+        }
     }
 
 }

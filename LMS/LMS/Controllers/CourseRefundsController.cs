@@ -2,6 +2,7 @@
 using LMS.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace LMS.Controllers
 {
@@ -36,6 +37,34 @@ namespace LMS.Controllers
         public bool DeleteCourseRefunds(int courseRefundId)
         {
             return _courseRefundsService.DeleteCourseRefunds(courseRefundId);
+        }
+
+        [HttpPost]
+        [Route("[action]/{queryCode}")]
+        public List<RefundReason> ReturnRefundReason(int queryCode)
+        {
+            return _courseRefundsService.ReturnRefundReason(queryCode);
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        public bool InsertRefundReason([FromBody] RefundReason refundReason)
+        {
+            return _courseRefundsService.InsertRefundReason(refundReason);
+        }
+
+        [HttpPut]
+        [Route("[action]")]
+        public bool UpdateRefundReason([FromBody] RefundReason refundReason)
+        {
+            return _courseRefundsService.UpdateRefundReason(refundReason);
+        }
+
+        [HttpDelete]
+        [Route("[action]/{reasonId}")]
+        public bool DeleteRefundReason(int reasonId)
+        {
+            return _courseRefundsService.DeleteRefundReason(reasonId);
         }
 
     }
