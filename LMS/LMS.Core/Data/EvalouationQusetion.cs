@@ -7,11 +7,6 @@ namespace LMS.Data
 {
     public partial class EvalouationQusetion
     {
-        public EvalouationQusetion()
-        {
-            EvalouationAnswers = new HashSet<EvalouationAnswer>();
-            EvaluationFormsQuestions = new HashSet<EvaluationFormsQuestion>();
-        }
 
         public int EvalouationQusetionId { get; set; }
         public string Descrition { get; set; }

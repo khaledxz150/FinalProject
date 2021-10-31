@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using First.Core.Common;
+using LMS.Core.Data;
 using LMS.Core.DTO;
 using LMS.Core.Repository;
 using LMS.Data;
@@ -211,6 +212,26 @@ namespace LMS.Infra.Repository
 
             parm.Add("@P_TraineeId", traineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = dBContext.Connection.ExecuteAsync("DeleteTrainee", commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        public bool InsertCertificate(Certificate certificate)
+        {
+            var parm = new DynamicParameters();
+           
+            parm.Add("@P_CertificatePath",certificate.CertificatePath , dbType: DbType.String, direction: ParameterDirection.Input);
+            parm.Add("@P_TraineeId", certificate.TraineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+           
+            var result = dBContext.Connection.ExecuteAsync("InsertCertificate", commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        public bool DeleteCertificate(int certificateId)
+        {
+            var parm = new DynamicParameters();
+
+            parm.Add("@P_CertificateId", certificateId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = dBContext.Connection.ExecuteAsync("DeleteCertificate", commandType: CommandType.StoredProcedure);
             return true;
         }
     }

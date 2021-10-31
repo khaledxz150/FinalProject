@@ -7,10 +7,6 @@ namespace LMS.Data
 {
     public partial class RefundReason
     {
-        public RefundReason()
-        {
-            CourseRefunds = new HashSet<CourseRefund>();
-        }
 
         public int ReasonId { get; set; }
         public string ReasonDescription { get; set; }

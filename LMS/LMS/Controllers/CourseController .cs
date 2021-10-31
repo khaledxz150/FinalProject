@@ -45,9 +45,9 @@ namespace LMS.Controllers
         }
         [HttpPost]
         [Route("[action]")]
-        public bool AddType([FromBody] Data.Type type)
+        public bool InsertType([FromBody] Data.Type type)
         {
-            return _courseService.AddType(type);
+            return _courseService.InsertType(type);
         }
 
         [HttpPost]

@@ -7,10 +7,6 @@ namespace LMS.Data
 {
     public partial class Tag
     {
-        public Tag()
-        {
-            Courses = new HashSet<Course>();
-        }
 
         public int TagId { get; set; }
         public string TagName { get; set; }

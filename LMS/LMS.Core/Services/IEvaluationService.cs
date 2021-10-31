@@ -26,7 +26,7 @@ namespace LMS.Core.Services
 
         public bool DeleteEvaluationAnswer(int evaluationAnswerId);
 
-        public List<EvalouationAnswer> GetEvalouationQusetionAnswers(int evaluationquestionId);
+        public List<EvalouationAnswer> GetEvalouationQusetionAnswers(int evaluationquestionId, int querycode);
 
         //EvaluationFormsQuestion
         public bool InsertEvaluationFormsQuestion(EvaluationFormsQuestion evaluationFormsQuestion);

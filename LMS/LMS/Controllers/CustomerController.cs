@@ -1,4 +1,5 @@
-﻿using LMS.Core.DTO;
+﻿using LMS.Core.Data;
+using LMS.Core.DTO;
 using LMS.Core.Services;
 using LMS.Data;
 using Microsoft.AspNetCore.Http;
@@ -195,8 +196,18 @@ namespace LMS.Controllers
         {
             return customerService.DeleteTrainee(traineeId);
         }
-
-
+        [HttpPost]
+        [Route("[action]")]
+        public bool InsertCertificate([FromBody] Certificate certificate)
+        {
+            return customerService.InsertCertificate(certificate);
+        }
+        [HttpPut]
+        [Route("[action]/{certificateId}")]
+        public bool DeleteCertificate(int certificateId)
+        {
+            return customerService.DeleteCertificate(certificateId);    
+        }
 
     }
 

@@ -7,10 +7,6 @@ namespace LMS.Data
 {
     public partial class Checkout
     {
-        public Checkout()
-        {
-            CourseRefunds = new HashSet<CourseRefund>();
-        }
 
         public int CheckoutId { get; set; }
         public int CartId { get; set; }

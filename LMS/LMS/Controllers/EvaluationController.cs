@@ -80,10 +80,10 @@ namespace LMS.Controllers
             return _evaluationService.DeleteEvaluationAnswer(evaluationAnswerId);
         }
         [HttpGet]
-        [Route("[action]/{evaluationquestionId}")]
-        public List<EvalouationAnswer> GetEvalouationQusetionAnswers(int evaluationquestionId)
+        [Route("[action]/{evaluationquestionId}/{querycode}")]
+        public List<EvalouationAnswer> GetEvalouationQusetionAnswers(int evaluationquestionId, int querycode)
         {
-            return _evaluationService.GetEvalouationQusetionAnswers(evaluationquestionId);
+            return _evaluationService.GetEvalouationQusetionAnswers(evaluationquestionId,querycode);
         }
         [HttpPost]
         [Route("[action]")]

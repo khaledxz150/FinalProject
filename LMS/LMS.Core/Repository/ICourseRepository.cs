@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace LMS.Core.Repository
 {
@@ -40,9 +39,6 @@ namespace LMS.Core.Repository
         public bool InsertCoupon(Coupon coupon);
         public bool UpdateCoupon(Coupon coupon);
         public bool DeleteCoupon(int couponId);
-        //public List<Coupon>ReuturnCoupons(int queryCode); --> back for it 
-        //public List<Coupon> ReturnCouponByCourseId(int courseId); --> backforit 
-        //public List<Coupon> GetSpecifin(int ) back for it --> Jasser Alshaer
 
 
         //Course Rating 
@@ -50,10 +46,10 @@ namespace LMS.Core.Repository
         public bool UpdateCourseRating(CourseRating courseRating);
 
         // Type 
-        public bool AddType(Data.Type type);
+        public bool InsertType(LMS.Data.Type type);
         public bool DeleteType(int typeId);
 
-        public List<Data.Type> GetAllType();
+        public List<LMS.Data.Type> GetAllType();
 
 
 

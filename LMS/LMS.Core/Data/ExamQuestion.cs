@@ -7,10 +7,6 @@ namespace LMS.Data
 {
     public partial class ExamQuestion
     {
-        public ExamQuestion()
-        {
-            ExamOptions = new HashSet<ExamOption>();
-        }
 
         public int QuestionId { get; set; }
         public string Description { get; set; }

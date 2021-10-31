@@ -44,10 +44,10 @@ namespace LMS.Core.Services
         public bool UpdateCourseRating(CourseRating courseRating);
 
         //Type 
-        public bool AddType(Data.Type type);
+        public bool InsertType(LMS.Data.Type type);
         public bool DeleteType(int typeId);
 
-        public List<Data.Type> GetAllType();
+        public List<LMS.Data.Type> GetAllType();
 
 
         //ReturnAllCourseRating

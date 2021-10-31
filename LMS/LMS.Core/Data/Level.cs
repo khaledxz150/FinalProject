@@ -7,10 +7,6 @@ namespace LMS.Data
 {
     public partial class Level
     {
-        public Level()
-        {
-            Courses = new HashSet<Course>();
-        }
 
         public int LevelId { get; set; }
         public string Name { get; set; }

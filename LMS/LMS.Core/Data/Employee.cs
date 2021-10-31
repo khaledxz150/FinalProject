@@ -7,37 +7,7 @@ namespace LMS.Data
 {
     public partial class Employee
     {
-        public Employee()
-        {
-            Categories = new HashSet<Category>();
-            Coupons = new HashSet<Coupon>();
-            CourseRefunds = new HashSet<CourseRefund>();
-            Courses = new HashSet<Course>();
-            EvalouationAnswers = new HashSet<EvalouationAnswer>();
-            EvalouationQusetions = new HashSet<EvalouationQusetion>();
-            EvaluationFormsQuestions = new HashSet<EvaluationFormsQuestion>();
-            Evaluations = new HashSet<Evaluation>();
-            ExamOptions = new HashSet<ExamOption>();
-            ExamQuestions = new HashSet<ExamQuestion>();
-            Exams = new HashSet<Exam>();
-            Lectures = new HashSet<Lecture>();
-            Levels = new HashSet<Level>();
-            Logins = new HashSet<Login>();
-            OffLineLectures = new HashSet<OffLineLecture>();
-            Tags = new HashSet<Tag>();
-            Tasks = new HashSet<Task>();
-            TestimonialApprovedEmployees = new HashSet<Testimonial>();
-            TestimonialCreatedByNavigations = new HashSet<Testimonial>();
-            Topics = new HashSet<Topic>();
-            TraineeAttendances = new HashSet<TraineeAttendance>();
-            TraineeSectionExams = new HashSet<TraineeSectionExam>();
-            TraineeSections = new HashSet<TraineeSection>();
-            Trainees = new HashSet<Trainee>();
-            TrainerSectionCreatedByNavigations = new HashSet<TrainerSection>();
-            TrainerSectionTrainers = new HashSet<TrainerSection>();
-            Types = new HashSet<Type>();
-            Units = new HashSet<Unit>();
-        }
+      
 
         public long EmployeeId { get; set; }
         public string NationalSecurutiyNumber { get; set; }

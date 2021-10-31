@@ -1,4 +1,5 @@
-﻿using LMS.Core.DTO;
+﻿using LMS.Core.Data;
+using LMS.Core.DTO;
 using LMS.Data;
 using System;
 using System.Collections.Generic;
@@ -65,6 +66,10 @@ namespace LMS.Core.Services
 
         //Delete Trainee
         public bool DeleteTrainee(int traineeId);
+
+        public bool InsertCertificate(Certificate certificate);
+
+        public bool DeleteCertificate(int certificateId);
     }
 
 }

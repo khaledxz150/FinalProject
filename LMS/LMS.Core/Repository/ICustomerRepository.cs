@@ -1,4 +1,5 @@
-﻿using LMS.Core.DTO;
+﻿using LMS.Core.Data;
+using LMS.Core.DTO;
 using LMS.Data;
 using System;
 using System.Collections.Generic;
@@ -68,7 +69,9 @@ namespace LMS.Core.Repository
 
         //Insert Certificate
 
-       // public bool InsertCertificate(Certificate certificate);
+        public bool InsertCertificate(Certificate certificate);
+
+        public bool DeleteCertificate(int certificateId);
     }
 
 }

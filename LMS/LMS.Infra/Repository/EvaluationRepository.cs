@@ -24,24 +24,35 @@ namespace LMS.Infra.Repository
             //define Parameter
             //now
             var parm = new DynamicParameters();
-            parm.Add("", evaluationId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            var result = _dbContext.Connection.ExecuteAsync("", parm, commandType: CommandType.StoredProcedure);
+            parm.Add("@recordId", evaluationId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.ExecuteAsync("DeleteEvaluation", parm, commandType: CommandType.StoredProcedure);
             return true;
         }
 
         public bool DeleteEvaluationAnswer(int evaluationAnswerId)
         {
-            throw new NotImplementedException();
+            var parm = new DynamicParameters();
+            parm.Add("@recordId", evaluationAnswerId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.ExecuteAsync("DeleteEvaluationAnswer", parm, commandType: CommandType.StoredProcedure);
+            return true;
         }
 
         public bool DeleteEvaluationQuestion(int evaluationQuestionId)
         {
-            throw new NotImplementedException();
+            var parm = new DynamicParameters();
+            parm.Add("@recordId", evaluationQuestionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.ExecuteAsync("DeleteEvaluationQuestion", parm, commandType: CommandType.StoredProcedure);
+            return true;
         }
 
-        public List<EvalouationAnswer> GetEvalouationQusetionAnswers(int evaluationquestionId)
+        public List<EvalouationAnswer> GetEvalouationQusetionAnswers(int evaluationquestionId,int querycode)
         {
-            throw new NotImplementedException();
+            
+            var parm = new DynamicParameters();
+            parm.Add("@Query_CODE", querycode, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@QuestionId", evaluationquestionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<EvalouationAnswer> result = _dbContext.Connection.Query<EvalouationAnswer>("ReturnEvaulationAnswer", parm, commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
 
         public bool InsertEvaluation(Evaluation evaluation)

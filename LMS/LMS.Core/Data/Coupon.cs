@@ -7,10 +7,6 @@ namespace LMS.Data
 {
     public partial class Coupon
     {
-        public Coupon()
-        {
-            TraineeBuyCourses = new HashSet<Checkout>();
-        }
 
         public int CouponId { get; set; }
         public string Code { get; set; }

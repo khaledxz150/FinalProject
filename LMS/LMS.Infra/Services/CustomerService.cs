@@ -1,4 +1,5 @@
-﻿using LMS.Core.DTO;
+﻿using LMS.Core.Data;
+using LMS.Core.DTO;
 using LMS.Core.Repository;
 using LMS.Core.Services;
 using LMS.Data;
@@ -126,6 +127,17 @@ namespace LMS.Infra.Services
         public bool DeleteTrainee(int traineeId)
         {
             return customerRepository.DeleteTrainee(traineeId);
+        }
+
+
+        public bool InsertCertificate(Certificate certificate)
+        {
+            return customerRepository.InsertCertificate(certificate);
+        }
+
+        public bool DeleteCertificate(int certificateId)
+        {
+            return customerRepository.DeleteCertificate(certificateId);
         }
     }
 

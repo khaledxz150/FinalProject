@@ -249,12 +249,6 @@ namespace LMS.Controllers
 
 
 
-        //ReturnSolutionOfTask
-        [HttpPost]
-        [Route("[action]/{sectionId}/{taskId}")]
-        public List<TaskSolutionDTO> ReturnSolutionOfTask(int taskId, int sectionId)
-        {
-            return sectionService.ReturnSolutionOfTask(taskId, sectionId);
-        }
+       
     }
 }

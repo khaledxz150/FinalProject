@@ -136,9 +136,9 @@ namespace LMS.Infra.Services
             return _courseRepository.UpdateTopic(topic);
         }
 
-        public bool AddType(Data.Type type)
+        public bool InsertType(Data.Type type)
         {
-            return _courseRepository.AddType(type);
+            return _courseRepository.InsertType(type);
         }
         public bool DeleteType(int typeId)
         {

@@ -28,7 +28,7 @@ namespace LMS.Infra.Repository
             parm.Add("@P_NoLecture", section.NoLecture, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parm.Add("@P_Status", section.Status, dbType: DbType.String, direction: ParameterDirection.Input);
             parm.Add("@P_CreatedBy", section.CreatedBy, dbType: DbType.String, direction: ParameterDirection.Input);
-            IEnumerable<Section> result = dBContext.Connection.Query<Section>("AddSection", parm, commandType: CommandType.StoredProcedure);
+            IEnumerable<Section> result = dBContext.Connection.Query<Section>("InsertSection", parm, commandType: CommandType.StoredProcedure);
             return ReturnAllSection().OrderByDescending(x => x.SectionId).FirstOrDefault();
         }
         public bool DeleteSection(int SectionId)
@@ -67,7 +67,7 @@ namespace LMS.Infra.Repository
             parm.Add("@P_TraineeId", traineeSection.TraineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parm.Add("@P_TotalMark", traineeSection.TotalMark, dbType: DbType.Double, direction: ParameterDirection.Input);
             parm.Add("@P_CreatedBy", traineeSection.TotalMark, dbType: DbType.String, direction: ParameterDirection.Input);      
-            IEnumerable<TraineeSection> result = dBContext.Connection.Query<TraineeSection>("AddTraineeSection", parm, commandType: CommandType.StoredProcedure);
+            IEnumerable<TraineeSection> result = dBContext.Connection.Query<TraineeSection>("InsertTraineeSection", parm, commandType: CommandType.StoredProcedure);
             return ReturnTraineeSection().OrderByDescending(x => x.SectionId).FirstOrDefault();
         }
 
@@ -100,7 +100,7 @@ namespace LMS.Infra.Repository
             parm.Add("@P_Mark",traineeSectionTask.Mark , dbType: DbType.Double, direction: ParameterDirection.Input);
             parm.Add("@P_TrainerNote",traineeSectionTask.TrainerNote , dbType: DbType.String, direction: ParameterDirection.Input);
             parm.Add("@P_CreatedBy",traineeSectionTask.CreatedBy , dbType: DbType.Int32, direction: ParameterDirection.Input);
-            var result = dBContext.Connection.ExecuteAsync("AddTraineeSectionTask", parm, commandType: CommandType.StoredProcedure);
+            var result = dBContext.Connection.ExecuteAsync("InsertTraineeSectionTask", parm, commandType: CommandType.StoredProcedure);
             return true;
         }
         public bool UpdateTraineeTask(TraineeSectionTask traineeSectionTask)
