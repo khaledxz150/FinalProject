@@ -20,30 +20,20 @@ namespace LMS.Infra.Repository
             this.dBContext = dBContext;
         }
 
-        public bool InsertCart(Cart cart)
+        public bool AddNewCart(Cart cart)
         {
             var parameters = new DynamicParameters();
             parameters.Add("@P_TraineeId", cart.TraineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            var result =  dBContext.Connection.ExecuteAsync("InsertCart", parameters, commandType: CommandType.StoredProcedure);
-            return true;
-        }
-        public List<Cart> ReturnCart(int queryCode,int trineeId)
-        {
-            var parm = new DynamicParameters();
-            
-            parm.Add("@Query_CODE", queryCode, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parm.Add("@P_TraineeId", trineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            IEnumerable<Cart> result = dBContext.Connection.Query<Cart>("ReturnCart", parm, commandType: CommandType.StoredProcedure);
-            return result.ToList();
-
+            var result = await dBContext.Connection.ExecuteAsync("InsertCart", parameters, commandType: CommandType.StoredProcedure);
+            return ReturnCart(1).OrderByDescending(x => x.CartId).FirstOrDefault();
         }
 
-        public bool InsertCartItem(CartItem cartItem)
+        public bool AddNewCartItem(CartItem cartItem)
         {
             var parameters = new DynamicParameters();
-            parameters.Add("@P_CartId", cartItem.CartId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parameters.Add("@P_CourseID", cartItem.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            var result = dBContext.Connection.ExecuteAsync("InsertCartItem", parameters, commandType: CommandType.StoredProcedure);
+            parameters.Add("@CartId", cartItem.CartId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parameters.Add("@CourseID", cartItem.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = dBContext.Connection.ExecuteAsync("AddNewCartItem", parameters, commandType: CommandType.StoredProcedure);
             return true;
         }
 
@@ -51,7 +41,7 @@ namespace LMS.Infra.Repository
         {
             var parm = new DynamicParameters();
             parm.Add("@recordId", cartId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            var result = dBContext.Connection.ExecuteAsync("DeleteCart", parm, commandType: CommandType.StoredProcedure);
+            var result = dBContext.Connection.ExecuteAsync("DisActivateCart", parm, commandType: CommandType.StoredProcedure);
             return true;
         }
 
@@ -59,7 +49,7 @@ namespace LMS.Infra.Repository
         {
             var parm = new DynamicParameters();
             parm.Add("@recordId", cartItemId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            var result = dBContext.Connection.ExecuteAsync("DeleteCartItem", parm, commandType: CommandType.StoredProcedure);
+            var result = dBContext.Connection.ExecuteAsync("DisActivateCartItem", parm, commandType: CommandType.StoredProcedure);
             return true;
         }
 
@@ -73,7 +63,15 @@ namespace LMS.Infra.Repository
             return true;
         }
 
+        public List<Cart> ReturnCart(int queryCode)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@Query_CODE", queryCode, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
+            IEnumerable<Cart> result = dBContext.Connection.Query<Cart>("ReturnCart", parm, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+
+        }
 
         public List<Checkout> ReturnCheckout()
         {
@@ -83,12 +81,11 @@ namespace LMS.Infra.Repository
         }
         //WishList
 
-        public List<WishList> ReturnWishList(int traineeId)
+        public List<WishList> ReturnWishList()
         {
-            
-            var parameters = new DynamicParameters();
-            parameters.Add("@P_TraineeId", traineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            IEnumerable<WishList> result = dBContext.Connection.Query<WishList>("ReturnAllWhihlist", parameters, commandType: CommandType.StoredProcedure);
+
+
+            IEnumerable<WishList> result = dBContext.Connection.Query<WishList>("ReturnAllWhihlist", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
         public bool InsertWishList(WishList wishList)
@@ -185,7 +182,7 @@ namespace LMS.Infra.Repository
             parm.Add("@P_Nationality", trainee.Nationality, dbType: DbType.String, direction: ParameterDirection.Input);
             parm.Add("@P_Email", trainee.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             parm.Add("@P_ImageName", trainee.ImageName, dbType: DbType.String, direction: ParameterDirection.Input);
-            var result = dBContext.Connection.ExecuteAsync("InsertTrainee", commandType: CommandType.StoredProcedure);
+            var result = dBContext.Connection.ExecuteAsync("AddTrainee", commandType: CommandType.StoredProcedure);
             return true;
         }
 

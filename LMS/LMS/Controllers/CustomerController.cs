@@ -25,17 +25,17 @@ namespace LMS.Controllers
         //Cart 
 
         [HttpPost]
-        [Route("[action]/{queryCode}")]
-        public List<Cart> ReturnCart(int queryCode)
+        [Route("[action]/{queryCode}/{trineeId}")]
+        public List<Cart> ReturnCart(int queryCode, int trineeId)
         {
-            return customerService.ReturnCart(queryCode);
+            return customerService.ReturnCart(queryCode,trineeId);
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("[action]")]
-        public Task<Cart> AddNewCart([FromBody] Cart cart)
+        public bool InsertCart([FromBody] Cart cart)
         {
-            return customerService.AddNewCart(cart);
+            return customerService.InsertCart(cart);
         }
 
 
@@ -51,9 +51,9 @@ namespace LMS.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public bool AddNewCartItem([FromBody] CartItem cartItem)
+        public bool InsertCartItem([FromBody] CartItem cartItem)
         {
-            return customerService.AddNewCartItem(cartItem);
+            return customerService.InsertCartItem(cartItem);
         }
 
 
@@ -83,10 +83,10 @@ namespace LMS.Controllers
 
         //WishList
         [HttpPost]
-        [Route("[action]")]
-        public List<WishList> ReturnWishList()
+        [Route("[action]/{traineeId}")]
+        public List<WishList> ReturnWishList(int traineeId)
         {
-            return customerService.ReturnWishList();
+            return customerService.ReturnWishList( traineeId);
         }
         [HttpPost]
         [Route("[action]")]

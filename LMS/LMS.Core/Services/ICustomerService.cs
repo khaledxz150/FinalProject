@@ -12,14 +12,14 @@ namespace LMS.Core.Services
     {
         //Cart
 
-        public List<Cart> ReturnCart(int queryCode);
-        public Task<Cart> AddNewCart(Cart cart);
+        public List<Cart> ReturnCart(int queryCode, int trineeId);
+        public bool InsertCart(Cart cart);
         public bool DeleteCart(int cartId);
 
         //CartItem
 
         //public List<CartItem> ReturnCartItem(int queryCode);
-        public bool AddNewCartItem(CartItem cartItem);
+        public bool InsertCartItem(CartItem cartItem);
         public bool DeleteCartItem(int cartItemId);
 
         //Checkout
@@ -33,7 +33,7 @@ namespace LMS.Core.Services
 
         //WishList
 
-        public List<WishList> ReturnWishList();
+        public List<WishList> ReturnWishList(int traineeId);
         public bool InsertWishList(WishList wishList);
         public bool DeleteWishList(int wishListId);
 

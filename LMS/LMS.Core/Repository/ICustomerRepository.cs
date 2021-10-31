@@ -12,13 +12,13 @@ namespace LMS.Core.Repository
     {
         //Cart
 
-        public List<Cart> ReturnCart(int queryCode);
-        public Task<Cart> AddNewCart(Cart cart);
+        public List<Cart> ReturnCart(int queryCode, int trineeId);
+        public bool InsertCart(Cart cart);
         public bool DeleteCart(int cartId);
 
         //CartItem
-
-        public bool AddNewCartItem(CartItem cartItem);
+        
+        public bool InsertCartItem(CartItem cartItem);
         public bool DeleteCartItem(int cartItemId);
 
         //Checkout
@@ -31,7 +31,7 @@ namespace LMS.Core.Repository
 
         //WishList
 
-        public List<WishList> ReturnWishList();
+        public List<WishList> ReturnWishList(int traineeId);
         public bool InsertWishList(WishList wishList);
         public bool DeleteWishList(int wishListId);
 
@@ -65,6 +65,10 @@ namespace LMS.Core.Repository
 
         //Delete Trainee
         public bool DeleteTrainee(int traineeId);
+
+        //Insert Certificate
+
+       // public bool InsertCertificate(Certificate certificate);
     }
 
 }

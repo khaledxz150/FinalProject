@@ -19,14 +19,14 @@ namespace LMS.Infra.Services
             this.customerRepository = customerRepository;
         }
 
-        public Task<Cart> AddNewCart(Cart cart)
+        public bool InsertCart(Cart cart)
         {
-            return customerRepository.AddNewCart(cart);
+            return customerRepository.InsertCart(cart);
         }
 
-        public bool AddNewCartItem(CartItem cartItem)
+        public bool InsertCartItem(CartItem cartItem)
         {
-            return customerRepository.AddNewCartItem(cartItem);
+            return customerRepository.InsertCartItem(cartItem);
         }
 
         public bool DeleteCart(int cartId)
@@ -44,9 +44,9 @@ namespace LMS.Infra.Services
             return customerRepository.InsertCheckout(checkout);
         }
 
-        public List<Cart> ReturnCart(int queryCode)
+        public List<Cart> ReturnCart(int queryCode, int trineeId)
         {
-            return customerRepository.ReturnCart(queryCode);
+            return customerRepository.ReturnCart(queryCode,trineeId);
         }
 
 
@@ -57,9 +57,9 @@ namespace LMS.Infra.Services
 
         //WishList
 
-        public List<WishList> ReturnWishList()
+        public List<WishList> ReturnWishList(int traineeId)
         {
-            return customerRepository.ReturnWishList();
+            return customerRepository.ReturnWishList(traineeId);
         }
         public bool InsertWishList(WishList wishList)
         {
