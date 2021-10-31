@@ -1,4 +1,5 @@
-﻿using LMS.Core.Services;
+﻿using LMS.Core.DTO;
+using LMS.Core.Services;
 using LMS.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -69,6 +70,12 @@ namespace LMS.Controllers
         public bool DeleteTestimonial(int testimonialId)
         {
             return contactUsService.DeleteTestimonial(testimonialId);
+        }
+        [HttpPost]
+        [Route("[action]/{queryID}")]
+        public List<UserTestimonailsDTO> GetUserTestimonails(int queryID)
+        {
+            return contactUsService.GetUserTestimonails(queryID);
         }
     }
 }

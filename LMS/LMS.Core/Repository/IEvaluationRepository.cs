@@ -11,7 +11,6 @@ namespace LMS.Core.Repository
     {
         // Evaluation 
         public bool InsertEvaluation(Evaluation evaluation);
-        public bool UpdateEvaluation(Evaluation evaluation);
         public bool DeleteEvaluation(int evaluationId);
 
         //Evaluation Question 
@@ -30,12 +29,12 @@ namespace LMS.Core.Repository
 
         //EvaluationFormsQuestion
         public bool InsertEvaluationFormsQuestion(EvaluationFormsQuestion evaluationFormsQuestion);
-        public List<EvaluationFormsQuestion> ReturnEvaluationFormsQuestion(int evaluationId);
+        //public List<EvaluationFormsQuestion> ReturnEvaluationFormsQuestion(int evaluationId);
 
         //EvaluationFormsAnswer
         public bool InsertEvaluationFormsAnswer(EvaluationFormsAnswer evaluationFormsAnswer);
-        public List<EvaluationFormsQuestion> ReturnEvaluationFormsAnswerForAllTrainee(int evaluationId);
+        //public List<EvaluationFormsQuestion> ReturnEvaluationFormsAnswerForAllTrainee(int evaluationId);
 
-        public List<EvaluationFormsQuestion> ReturnEvaluationFormsAnswerForOneTrainee(int traineeId);
+        //public List<EvaluationFormsQuestion> ReturnEvaluationFormsAnswerForOneTrainee(int traineeId);
     }
 }

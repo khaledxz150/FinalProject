@@ -1,4 +1,5 @@
-﻿using LMS.Core.Repository;
+﻿using LMS.Core.DTO;
+using LMS.Core.Repository;
 using LMS.Core.Services;
 using LMS.Data;
 using System;
@@ -50,6 +51,11 @@ namespace LMS.Infra.Services
         public bool DeleteTestimonial(int testimonialId)
         {
             return contactUsRepository.DeleteTestimonial(testimonialId);
+        }
+
+        public List<UserTestimonailsDTO> GetUserTestimonails(int queryID)
+        {
+            return contactUsRepository.GetUserTestimonails  (queryID);
         }
     }
 }

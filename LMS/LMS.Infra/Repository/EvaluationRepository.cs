@@ -57,57 +57,97 @@ namespace LMS.Infra.Repository
 
         public bool InsertEvaluation(Evaluation evaluation)
         {
-            throw new NotImplementedException();
+            var parm = new DynamicParameters();
+            parm.Add("@sectionId", evaluation.SectionId , dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@employeeId", evaluation.CreatedBy , dbType: DbType.Int64, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.ExecuteAsync("InsertEvaluation", parm, commandType: CommandType.StoredProcedure);
+            return true;
         }
 
         public bool InsertEvaluationAnswer(EvalouationAnswer evalouationAnswer)
         {
-            throw new NotImplementedException();
+            var parm = new DynamicParameters();
+            parm.Add("@employeeId", evalouationAnswer.CreatedBy , dbType: DbType.Int64, direction: ParameterDirection.Input);
+            parm.Add("@questionId", evalouationAnswer.EvalouationQuestionId , dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@description",evalouationAnswer.Description , dbType: DbType.String, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.ExecuteAsync("InsertEvaluationAnswer", parm, commandType: CommandType.StoredProcedure);
+            return true;
         }
 
         public bool InsertEvaluationFormsAnswer(EvaluationFormsAnswer evaluationFormsAnswer)
         {
-            throw new NotImplementedException();
+
+            var parm = new DynamicParameters();
+            parm.Add("@EvaluationId", evaluationFormsAnswer.EvaluationId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@answerId", evaluationFormsAnswer.EvaluationAnswerId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@traaineeId", evaluationFormsAnswer.TraineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.ExecuteAsync("InsertEvaluationFormsAnswer", parm, commandType: CommandType.StoredProcedure);
+            return true;
         }
 
         public bool InsertEvaluationFormsQuestion(EvaluationFormsQuestion evaluationFormsQuestion)
         {
-            throw new NotImplementedException();
+            var parm = new DynamicParameters();
+            parm.Add("@EvaluationId", evaluationFormsQuestion.EvaluationId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@questionId", evaluationFormsQuestion.QuestionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@employeeId", evaluationFormsQuestion.CreatedBy, dbType: DbType.Int64, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.ExecuteAsync("InsertEvaluationFormsQuestion", parm, commandType: CommandType.StoredProcedure);
+            return true;
         }
 
         public bool InsertEvaluationQuestion(EvalouationQusetion evalouationQusetion)
         {
-            throw new NotImplementedException();
+            var parm = new DynamicParameters();
+            parm.Add("@employeeId", evalouationQusetion.CreatedBy, dbType: DbType.Int64, direction: ParameterDirection.Input);
+            parm.Add("@description", evalouationQusetion.Descrition, dbType: DbType.String, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.ExecuteAsync("InsertEvaluationQuestion", parm, commandType: CommandType.StoredProcedure);
+            return true;
         }
 
-        public List<EvaluationFormsQuestion> ReturnEvaluationFormsAnswerForAllTrainee(int evaluationId)
+        /*public List<EvaluationFormsQuestion> ReturnEvaluationFormsAnswerForAllTrainee(int evaluationId)
         {
-            throw new NotImplementedException();
+            var parm = new DynamicParameters();
+
+            parm.Add("", , dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<> result = _dbContext.Connection.Query<>("", parm, commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
 
         public List<EvaluationFormsQuestion> ReturnEvaluationFormsAnswerForOneTrainee(int traineeId)
         {
-            throw new NotImplementedException();
+            var parm = new DynamicParameters();
+           
+            parm.Add("", , dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<> result = _dbContext.Connection.Query<>("", parm, commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
 
         public List<EvaluationFormsQuestion> ReturnEvaluationFormsQuestion(int evaluationId)
         {
-            throw new NotImplementedException();
-        }
+            var parm = new DynamicParameters();
 
-        public bool UpdateEvaluation(Evaluation evaluation)
-        {
-            throw new NotImplementedException();
-        }
+            parm.Add("", , dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<> result = _dbContext.Connection.Query<>("", parm, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }*/
 
         public bool UpdateEvaluationAnswer(EvalouationAnswer evalouationAnswer)
         {
-            throw new NotImplementedException();
+            var parm = new DynamicParameters();
+           
+            parm.Add("@EvalouationAnswerId",evalouationAnswer.EvalouationAnswerId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@Descrition", evalouationAnswer.Description, dbType: DbType.String, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.ExecuteAsync("UpdateEvaluationAnswer", parm, commandType: CommandType.StoredProcedure);
+            return true;
         }
 
         public bool UpdateEvaluationQuestion(EvalouationQusetion evalouationQusetion)
         {
-            throw new NotImplementedException();
+            var parm = new DynamicParameters();
+            parm.Add("@EvalouationQusetionId", evalouationQusetion.EvalouationQusetionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@Descrition", evalouationQusetion.Descrition, dbType: DbType.String, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.ExecuteAsync("UpdateEvaluationQuestion", parm, commandType: CommandType.StoredProcedure);
+            return true;
         }
     }
 }

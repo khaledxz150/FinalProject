@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using First.Core.Common;
+using LMS.Core.DTO;
 using LMS.Core.Repository;
 using LMS.Data;
 using System;
@@ -88,6 +89,13 @@ namespace LMS.Infra.Repository
             parm.Add("@P_TestimonialsId", testimonialId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = dBContext.Connection.ExecuteAsync("DeleteTestimonials", parm, commandType: CommandType.StoredProcedure);
             return true;
+        }
+        public List<UserTestimonailsDTO> GetUserTestimonails(int queryID)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@QueryCode", queryID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<UserTestimonailsDTO> result = dBContext.Connection.Query<UserTestimonailsDTO>("ReturnAllTestimonials", parm, commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
     }
 }
