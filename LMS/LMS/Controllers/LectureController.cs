@@ -58,5 +58,33 @@ namespace LMS.Controllers
         {
             return lectureService.ReturnLectureBySectionId(sectionId);
         }
+
+        [HttpPost]
+        [Route("[action]/{queryCode}")]
+        public List<OffLineLecture> ReturnOffLineLecture(int queryCode)
+        {
+            return lectureService.ReturnOffLineLecture(queryCode);
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        public bool InsertOffLineLecture([FromBody] OffLineLecture offLineLecture)
+        {
+            return lectureService.InsertOffLineLecture(offLineLecture);
+        }
+
+        [HttpPut]
+        [Route("[action]")]
+        public bool UpdateOffLineLecture([FromBody] OffLineLecture offLineLecture)
+        {
+            return lectureService.UpdateOffLineLecture(offLineLecture);
+        }
+
+        [HttpDelete]
+        [Route("[action]/{offLineLectureId}")]
+        public bool DeleteOffLineLecture(int offLineLectureId)
+        {
+            return lectureService.DeleteOffLineLecture(offLineLectureId);
+        }
     }
 }

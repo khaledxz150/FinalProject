@@ -7,10 +7,6 @@ namespace LMS.Data
 {
     public partial class Type
     {
-        public Type()
-        {
-            Courses = new HashSet<Course>();
-        }
 
         public int TypeId { get; set; }
         public string TypeName { get; set; }

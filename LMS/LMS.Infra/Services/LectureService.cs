@@ -42,5 +42,27 @@ namespace LMS.Infra.Services
         {
             return lectureRepository.UpdateLecture(lecture);
         }
+
+        public bool DeleteOffLineLecture(int offLineLectureId)
+        {
+            return lectureRepository.DeleteOffLineLecture(offLineLectureId);
+        }
+
+        public bool InsertOffLineLecture(OffLineLecture offLineLecture)
+        {
+            return lectureRepository.InsertOffLineLecture(offLineLecture);
+        }
+
+        public List<OffLineLecture> ReturnOffLineLecture(int queryCode)
+        {
+            return lectureRepository.ReturnOffLineLecture(queryCode);
+
+        }
+
+        public bool UpdateOffLineLecture(OffLineLecture offLineLecture)
+        {
+            return lectureRepository.UpdateOffLineLecture(offLineLecture);
+
+        }
     }
 }

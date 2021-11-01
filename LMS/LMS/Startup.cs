@@ -41,12 +41,6 @@ namespace LMS
             services.AddScoped<IExamService, ExamService>();
             services.AddScoped<ILectureRepository, LectureRepository>();
             services.AddScoped<ILectureService, LectureService>();
-            services.AddScoped<ILevelRepository, LevelRepository>();
-            services.AddScoped<ILevelService, LevelService>(); 
-            services.AddScoped<IOffLineLectureRepository, OffLineLectureRepository>();
-            services.AddScoped<IOffLineLectureService, OffLineLectureService>();
-            services.AddScoped<IRefundReasonRepository, RefundReasonRepository>();
-            services.AddScoped<IRefundReasonService, RefundReasonService>();
             services.AddScoped<IContactUsRepository, ContactUsRepository>();
             services.AddScoped<IContactUsService, ContactUsService>();
             services.AddScoped<ISectionRepository, SectionRepository>();
@@ -59,10 +53,8 @@ namespace LMS
             services.AddScoped<ICourseService, CourseService>();
             services.AddScoped<ICourseRepository, CourseRepository>();
             services.AddScoped<IEmployeeService, EmployeeService>();
-            services.AddScoped<ITraineeService, TraineeService>();
-            services.AddScoped<ITraineeRepository, TraineeRepository>();
-            services.AddScoped<ITaskService, TaskService>();
-            services.AddScoped<ITaskRepository, TaskRepository>();
+            services.AddScoped<IEvaluationRepository, EvaluationRepository>();
+            services.AddScoped<IEvaluationService, EvaluationService>();
 
             services.AddSwaggerGen(c =>
             {

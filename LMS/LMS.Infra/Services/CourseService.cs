@@ -136,9 +136,9 @@ namespace LMS.Infra.Services
             return _courseRepository.UpdateTopic(topic);
         }
 
-        public bool AddType(Data.Type type)
+        public bool InsertType(Data.Type type)
         {
-            return _courseRepository.AddType(type);
+            return _courseRepository.InsertType(type);
         }
         public bool DeleteType(int typeId)
         {
@@ -163,6 +163,27 @@ namespace LMS.Infra.Services
         public List<CourseDTO> ReturnAllCourses(int queryCode)
         {
             return _courseRepository.ReturnAllCourses(queryCode);
+        }
+
+        public bool DeleteLevel(int levelId)
+        {
+            return _courseRepository.DeleteLevel(levelId);
+        }
+
+        public bool InsertLevel(Level level)
+        {
+            return _courseRepository.InsertLevel(level);
+        }
+
+        public List<Level> ReturnLevel(int queryCode)
+        {
+            return _courseRepository.ReturnLevel(queryCode);
+
+        }
+
+        public bool UpdateLevel(Level level)
+        {
+            return _courseRepository.UpdateLevel(level);
         }
     }
 }

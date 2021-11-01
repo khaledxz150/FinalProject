@@ -7,18 +7,7 @@ namespace LMS.Data
 {
     public partial class Trainee
     {
-        public Trainee()
-        {
-            Carts = new HashSet<Cart>();
-            Comments = new HashSet<Comment>();
-            ContactUs = new HashSet<ContactUs>();
-            CourseRatings = new HashSet<CourseRating>();
-            EvaluationFormsAnswers = new HashSet<EvaluationFormsAnswer>();
-            Logins = new HashSet<Login>();
-            TraineeBuyCourses = new HashSet<Checkout>();
-            TraineeSections = new HashSet<TraineeSection>();
-            WishLists = new HashSet<WishList>();
-        }
+
 
         public int TraineeId { get; set; }
         public string FirstName { get; set; }

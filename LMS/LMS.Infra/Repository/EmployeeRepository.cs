@@ -32,7 +32,7 @@ namespace LMS.Infra.Repository
             queryParameters.Add("@role", employee.RoleTypeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             queryParameters.Add("@salary", employee.BasicSalary, dbType: DbType.Double, direction: ParameterDirection.Input);
             //execute proc
-            var result = _dbContext.Connection.ExecuteAsync("AddNewEmployee", queryParameters, commandType: CommandType.StoredProcedure);
+            var result = _dbContext.Connection.ExecuteAsync("InsertEmployee", queryParameters, commandType: CommandType.StoredProcedure);
             return true;
         }
 
@@ -40,7 +40,7 @@ namespace LMS.Infra.Repository
         {
             var queryParameters = new DynamicParameters();
             queryParameters.Add("@employeeId", employeeId, dbType: DbType.Int64, direction: ParameterDirection.Input);
-            var result = _dbContext.Connection.ExecuteAsync("DisActivateEmployee", queryParameters, commandType: CommandType.StoredProcedure);
+            var result = _dbContext.Connection.ExecuteAsync("DeleteEmployee", queryParameters, commandType: CommandType.StoredProcedure);
             return GetEmployee(employeeId);
         }
         public Employee GetEmployee(long employeeId)

@@ -26,7 +26,7 @@ namespace LMS.Infra.Repository
             queryParameters.Add("@Name", category.Name, dbType: DbType.String, direction: ParameterDirection.Input);
             queryParameters.Add("@employeeId", category.CreatedBy, dbType: DbType.Int64, direction: ParameterDirection.Input);
             //execute proc
-            var result = _dbContext.Connection.ExecuteAsync("AddNewCategoty", queryParameters, commandType: CommandType.StoredProcedure);
+            var result = _dbContext.Connection.ExecuteAsync("InsertCategoty", queryParameters, commandType: CommandType.StoredProcedure);
             return true;
         }
 
@@ -38,7 +38,7 @@ namespace LMS.Infra.Repository
             queryParameters.Add("@CourseId", comment.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             queryParameters.Add("@traineeId", comment.CreatedBy, dbType: DbType.Int32, direction: ParameterDirection.Input);
             //execute proc
-            var result = _dbContext.Connection.ExecuteAsync("AddNewComment", queryParameters, commandType: CommandType.StoredProcedure);
+            var result = _dbContext.Connection.ExecuteAsync("InsertComment", queryParameters, commandType: CommandType.StoredProcedure);
             return true;
         }
 
@@ -57,7 +57,7 @@ namespace LMS.Infra.Repository
             queryParameters.Add("@TagId", course.TagId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             queryParameters.Add("@employeeId", course.CreatedBy, dbType: DbType.Int64, direction: ParameterDirection.Input);
             //execute proc
-            var result = _dbContext.Connection.ExecuteAsync("AddNewCourse", queryParameters, commandType: CommandType.StoredProcedure);
+            var result = _dbContext.Connection.ExecuteAsync("InsertCourse", queryParameters, commandType: CommandType.StoredProcedure);
             return true;
         }
 
@@ -70,7 +70,7 @@ namespace LMS.Infra.Repository
             queryParameters.Add("@P_Description", topic.Description, dbType: DbType.String, direction: ParameterDirection.Input);
             queryParameters.Add("@P_CreatedBy", topic.CreatedBy, dbType: DbType.Int64, direction: ParameterDirection.Input);
             //execute proc
-            var result = _dbContext.Connection.ExecuteAsync("AddTopic", queryParameters, commandType: CommandType.StoredProcedure);
+            var result = _dbContext.Connection.ExecuteAsync("InsssertTopic", queryParameters, commandType: CommandType.StoredProcedure);
             return true;
         }
         public bool InsertCoupon(Coupon coupon)
@@ -108,7 +108,7 @@ namespace LMS.Infra.Repository
 
             queryParameters.Add("@recordId", categoryId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             //execute proc
-            var result = _dbContext.Connection.ExecuteAsync("DisActivateCategory", queryParameters, commandType: CommandType.StoredProcedure);
+            var result = _dbContext.Connection.ExecuteAsync("DeleteCategory", queryParameters, commandType: CommandType.StoredProcedure);
             return true;
         }
 
@@ -117,7 +117,7 @@ namespace LMS.Infra.Repository
             var queryParameters = new DynamicParameters();
             queryParameters.Add("@recordId", commentId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             //execute proc
-            var result = _dbContext.Connection.ExecuteAsync("DisActivateComment", queryParameters, commandType: CommandType.StoredProcedure);
+            var result = _dbContext.Connection.ExecuteAsync("DeleteComment", queryParameters, commandType: CommandType.StoredProcedure);
             return true;
         }
 
@@ -135,7 +135,7 @@ namespace LMS.Infra.Repository
             var queryParameters = new DynamicParameters();
             queryParameters.Add("@recordId", courseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             //execute proc
-            var result = _dbContext.Connection.ExecuteAsync("DisActivateCourse", queryParameters, commandType: CommandType.StoredProcedure);
+            var result = _dbContext.Connection.ExecuteAsync("DeleteCourse", queryParameters, commandType: CommandType.StoredProcedure);
             return true;
         }
         public bool DeleteTag(int tagId)
@@ -281,7 +281,7 @@ namespace LMS.Infra.Repository
             return true;
         }
 
-        public bool AddType(Data.Type type)
+        public bool InsertType(Data.Type type)
         {
             var queryParameters = new DynamicParameters();
             queryParameters.Add("@p_TypeName", type.TypeName, dbType: DbType.String, direction: ParameterDirection.Input);
@@ -323,6 +323,44 @@ namespace LMS.Infra.Repository
             parm.Add("@P_CODE", queryCode, dbType: DbType.Int32, direction: ParameterDirection.Input);
             IEnumerable<CourseDTO> result = _dbContext.Connection.Query<CourseDTO>("ReturnAllCourses", parm, commandType: CommandType.StoredProcedure);
             return result.ToList();
+        }
+
+        public bool DeleteLevel(int levelId)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@LevelId", levelId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.ExecuteAsync("DeleteLevel", parm, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        public bool InsertLevel(Level level)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@Name", level.Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameters.Add("@CreatedBy", level.CreatedBy, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            var result = _dbContext.Connection.ExecuteAsync("InsertLevel", parameters, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        public List<Level> ReturnLevel(int queryCode)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@P_CODE", queryCode, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            IEnumerable<Level> result = _dbContext.Connection.Query<Level>("ReturnLevel", parm, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public bool UpdateLevel(Level level)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@LevelId", level.LevelId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parameters.Add("@Name", level.Name, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameters.Add("@CreatedBy", level.CreatedBy, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            var result = _dbContext.Connection.ExecuteAsync("UpdateLevel", parameters, commandType: CommandType.StoredProcedure);
+            return true;
         }
     }
 }

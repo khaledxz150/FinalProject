@@ -33,9 +33,9 @@ namespace LMS.Infra.Services
             return _evaluationRepository.DeleteEvaluationQuestion(evaluationQuestionId);
         }
 
-        public List<EvalouationAnswer> GetEvalouationQusetionAnswers(int evaluationquestionId)
+        public List<EvalouationAnswer> GetEvalouationQusetionAnswers(int evaluationquestionId, int querycode)
         {
-            return _evaluationRepository.GetEvalouationQusetionAnswers (evaluationquestionId);
+            return _evaluationRepository.GetEvalouationQusetionAnswers (evaluationquestionId,querycode);
         }
 
         public bool InsertEvaluation(Evaluation evaluation)

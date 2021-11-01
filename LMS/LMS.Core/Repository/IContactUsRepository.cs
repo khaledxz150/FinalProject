@@ -1,4 +1,5 @@
-﻿using LMS.Data;
+﻿using LMS.Core.DTO;
+using LMS.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,5 +20,7 @@ namespace LMS.Core.Repository
         public bool InsertTestimonials(Testimonial testimonial);
         public bool UpdateTestimonial(Testimonial testimonial);
         public bool DeleteTestimonial(int testimonialId);
+
+        public List<UserTestimonailsDTO>GetUserTestimonails(int queryID);
     }
 }

@@ -45,9 +45,9 @@ namespace LMS.Controllers
         }
         [HttpPost]
         [Route("[action]")]
-        public bool AddType([FromBody] Data.Type type)
+        public bool InsertType([FromBody] Data.Type type)
         {
-            return _courseService.AddType(type);
+            return _courseService.InsertType(type);
         }
 
         [HttpPost]
@@ -201,6 +201,37 @@ namespace LMS.Controllers
         {
             return _courseService.ReturnAllCourses(queryCode);
         }
+
+
+        [HttpPost]
+        [Route("[action]/{queryCode}")]
+        public List<Level> ReturnLevel(int queryCode)
+        {
+            return _courseService.ReturnLevel(queryCode);
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        public bool InsertLevel([FromBody] Level level)
+        {
+            return _courseService.InsertLevel(level);
+        }
+
+        [HttpPut]
+        [Route("[action]")]
+        public bool UpdateLevel([FromBody] Level level)
+        {
+            return _courseService.UpdateLevel(level);
+        }
+
+        [HttpDelete]
+        [Route("[action]/{levelId}")]
+        public bool DeleteLevel(int levelId)
+        {
+            return _courseService.DeleteLevel(levelId);
+        }
+
+
 
     }
 }

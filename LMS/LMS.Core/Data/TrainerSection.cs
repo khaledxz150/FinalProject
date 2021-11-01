@@ -7,10 +7,7 @@ namespace LMS.Data
 {
     public partial class TrainerSection
     {
-        public TrainerSection()
-        {
-            Tasks = new HashSet<Task>();
-        }
+
 
         public int Id { get; set; }
         public long TrainerId { get; set; }

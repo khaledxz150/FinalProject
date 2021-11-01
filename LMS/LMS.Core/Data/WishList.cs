@@ -7,10 +7,7 @@ namespace LMS.Data
 {
     public partial class WishList
     {
-        public WishList()
-        {
-            WishListItems = new HashSet<WishListItem>();
-        }
+
 
         public int WishListId { get; set; }
         public int TraineeId { get; set; }

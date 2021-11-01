@@ -1,4 +1,5 @@
-﻿using LMS.Core.DTO;
+﻿using LMS.Core.Data;
+using LMS.Core.DTO;
 using LMS.Data;
 using System;
 using System.Collections.Generic;
@@ -12,13 +13,13 @@ namespace LMS.Core.Repository
     {
         //Cart
 
-        public List<Cart> ReturnCart(int queryCode);
-        public Task<Cart> AddNewCart(Cart cart);
+        public List<Cart> ReturnCart(int queryCode, int trineeId);
+        public bool InsertCart(Cart cart);
         public bool DeleteCart(int cartId);
 
         //CartItem
-
-        public bool AddNewCartItem(CartItem cartItem);
+        
+        public bool InsertCartItem(CartItem cartItem);
         public bool DeleteCartItem(int cartItemId);
 
         //Checkout
@@ -31,7 +32,7 @@ namespace LMS.Core.Repository
 
         //WishList
 
-        public List<WishList> ReturnWishList();
+        public List<WishList> ReturnWishList(int traineeId);
         public bool InsertWishList(WishList wishList);
         public bool DeleteWishList(int wishListId);
 
@@ -50,6 +51,27 @@ namespace LMS.Core.Repository
 
         //ReturnAllCoupon
         public List<CouponDTO> ReturnAllCoupon(int queryCode);
+
+        //ReturnTraineeAttendance
+        public List<TraineeAttendanceDTO> ReturnTraineeAttendance(int sectionId, int lectureId);
+
+        //ReturnTraineeInfo
+        public List<TraineeInfoDTO> ReturnTraineeInfo(int traineeId);
+
+        // Add New Trainee 
+        public bool InsertTrainee(Trainee trainee);
+
+        //Update Trainee 
+        public bool UpdateTrainee(Trainee trainee);
+
+        //Delete Trainee
+        public bool DeleteTrainee(int traineeId);
+
+        //Insert Certificate
+
+        public bool InsertCertificate(Certificate certificate);
+
+        public bool DeleteCertificate(int certificateId);
     }
 
 }

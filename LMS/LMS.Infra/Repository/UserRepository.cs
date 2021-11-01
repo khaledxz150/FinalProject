@@ -27,7 +27,7 @@ namespace LMS.Infra.Repository
             parameters.Add("@P_TraineeId", login.TraineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameters.Add("@P_EmployeeId", login.EmployeeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
-            var result = dBContext.Connection.ExecuteAsync("AddLogin", parameters, commandType: CommandType.StoredProcedure);
+            var result = dBContext.Connection.ExecuteAsync("InsertLogin", parameters, commandType: CommandType.StoredProcedure);
             return true;
         }
 
@@ -54,17 +54,6 @@ namespace LMS.Infra.Repository
             return result.FirstOrDefault();
         }
 
-        //public bool UpdateLogin(Login login)
-        //{
-        //    var parameters = new DynamicParameters();
-        //    parameters.Add("@username", login.Username, dbType: DbType.String, direction: ParameterDirection.Input);
-        //    parameters.Add("@pass", login.Password, dbType: DbType.String, direction: ParameterDirection.Input);
-        //    parameters.Add("@P_TraineeId", login.TraineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-        //    parameters.Add("@P_EmployeeId", login.EmployeeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-
-        //    var result = dBContext.Connection.ExecuteAsync("AddLogin", parameters, commandType: CommandType.StoredProcedure);
-        //    return true;
-        //}
     }
 
 }

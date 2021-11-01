@@ -53,5 +53,39 @@ namespace LMS.Infra.Repository
             var result = dbContext.Connection.ExecuteAsync("UpdateCourseRefunds", queryParameters, commandType: CommandType.StoredProcedure);
             return true;
         }
+        public bool DeleteRefundReason(int reasonId)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@ReasonId", reasonId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = dbContext.Connection.ExecuteAsync("DeleteRefundReason", parm, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        public bool InsertRefundReason(RefundReason refundReason)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@ReasonDescription", refundReason.ReasonDescription, dbType: DbType.String, direction: ParameterDirection.Input);
+            var result = dbContext.Connection.ExecuteAsync("InsertRefundReason", parameters, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        public List<RefundReason> ReturnRefundReason(int queryCode)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@P_CODE", queryCode, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            IEnumerable<RefundReason> result = dbContext.Connection.Query<RefundReason>("ReturnRefundReason", parm, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public bool UpdateRefundReason(RefundReason refundReason)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@ReasonId", refundReason.ReasonId, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameters.Add("@ReasonDescription", refundReason.ReasonDescription, dbType: DbType.String, direction: ParameterDirection.Input);
+
+            var result = dbContext.Connection.ExecuteAsync("UpdateRefundReason", parameters, commandType: CommandType.StoredProcedure);
+            return true;
+        }
     }
 }

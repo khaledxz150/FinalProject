@@ -7,11 +7,6 @@ namespace LMS.Data
 {
     public partial class Task
     {
-        public Task()
-        {
-            TraineeSectionTasks = new HashSet<TraineeSectionTask>();
-        }
-
         public int TaskId { get; set; }
         public string TaskTitle { get; set; }
         public decimal Mark { get; set; }

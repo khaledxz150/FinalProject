@@ -7,10 +7,6 @@ namespace LMS.Data
 {
     public partial class Cart
     {
-        public Cart()
-        {
-            CartItems = new HashSet<CartItem>();
-        }
 
         public int CartId { get; set; }
         public int TraineeId { get; set; }

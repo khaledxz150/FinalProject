@@ -7,10 +7,6 @@ namespace LMS.Data
 {
     public partial class RoleType
     {
-        public RoleType()
-        {
-            Employees = new HashSet<Employee>();
-        }
 
         public int RoleId { get; set; }
         public string RoleName { get; set; }

@@ -7,17 +7,7 @@ namespace LMS.Data
 {
     public partial class Course
     {
-        public Course()
-        {
-            CartItems = new HashSet<CartItem>();
-            Comments = new HashSet<Comment>();
-            Coupons = new HashSet<Coupon>();
-            ExamQuestions = new HashSet<ExamQuestion>();
-            OffLineLectures = new HashSet<OffLineLecture>();
-            Topics = new HashSet<Topic>();
-            TraineeBuyCourses = new HashSet<Checkout>();
-            WishListItems = new HashSet<WishListItem>();
-        }
+
 
         public int CourseId { get; set; }
         public string Name { get; set; }

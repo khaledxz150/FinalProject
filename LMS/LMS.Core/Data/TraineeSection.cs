@@ -7,12 +7,7 @@ namespace LMS.Data
 {
     public partial class TraineeSection
     {
-        public TraineeSection()
-        {
-            TraineeAttendances = new HashSet<TraineeAttendance>();
-            TraineeSectionExams = new HashSet<TraineeSectionExam>();
-            TraineeSectionTasks = new HashSet<TraineeSectionTask>();
-        }
+
 
         public int TraineeSectionId { get; set; }
         public int TraineeId { get; set; }

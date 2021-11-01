@@ -1,4 +1,5 @@
-﻿using LMS.Core.DTO;
+﻿using LMS.Core.Data;
+using LMS.Core.DTO;
 using LMS.Core.Repository;
 using LMS.Core.Services;
 using LMS.Data;
@@ -19,14 +20,14 @@ namespace LMS.Infra.Services
             this.customerRepository = customerRepository;
         }
 
-        public Task<Cart> AddNewCart(Cart cart)
+        public bool InsertCart(Cart cart)
         {
-            return customerRepository.AddNewCart(cart);
+            return customerRepository.InsertCart(cart);
         }
 
-        public bool AddNewCartItem(CartItem cartItem)
+        public bool InsertCartItem(CartItem cartItem)
         {
-            return customerRepository.AddNewCartItem(cartItem);
+            return customerRepository.InsertCartItem(cartItem);
         }
 
         public bool DeleteCart(int cartId)
@@ -44,9 +45,9 @@ namespace LMS.Infra.Services
             return customerRepository.InsertCheckout(checkout);
         }
 
-        public List<Cart> ReturnCart(int queryCode)
+        public List<Cart> ReturnCart(int queryCode, int trineeId)
         {
-            return customerRepository.ReturnCart(queryCode);
+            return customerRepository.ReturnCart(queryCode,trineeId);
         }
 
 
@@ -57,9 +58,9 @@ namespace LMS.Infra.Services
 
         //WishList
 
-        public List<WishList> ReturnWishList()
+        public List<WishList> ReturnWishList(int traineeId)
         {
-            return customerRepository.ReturnWishList();
+            return customerRepository.ReturnWishList(traineeId);
         }
         public bool InsertWishList(WishList wishList)
         {
@@ -99,6 +100,44 @@ namespace LMS.Infra.Services
         public List<CouponDTO> ReturnAllCoupon(int queryCode)
         {
             return customerRepository.ReturnAllCoupon(queryCode);
+        }
+
+        public List<TraineeAttendanceDTO> ReturnTraineeAttendance(int sectionId, int lectureId)
+        {
+            return customerRepository.ReturnTraineeAttendance(sectionId, lectureId);
+        }
+
+        public List<TraineeInfoDTO> ReturnTraineeInfo(int traineeId)
+        {
+            return customerRepository.ReturnTraineeInfo(traineeId);
+        }
+
+        public bool InsertTrainee(Trainee trainee)
+        {
+            return customerRepository.InsertTrainee(trainee);
+        }
+
+        //Update Trainee 
+        public bool UpdateTrainee(Trainee trainee)
+        {
+            return customerRepository.UpdateTrainee(trainee);
+        }
+
+        //Delete Trainee
+        public bool DeleteTrainee(int traineeId)
+        {
+            return customerRepository.DeleteTrainee(traineeId);
+        }
+
+
+        public bool InsertCertificate(Certificate certificate)
+        {
+            return customerRepository.InsertCertificate(certificate);
+        }
+
+        public bool DeleteCertificate(int certificateId)
+        {
+            return customerRepository.DeleteCertificate(certificateId);
         }
     }
 

@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace LMS.Controllers
 {
@@ -193,5 +192,63 @@ namespace LMS.Controllers
         {
             return sectionService.ReturnUnitBySectionId(sectionId);
         }
+
+        [HttpPost]
+        [Route("[action]")]
+        public Task AddTask(Task task)
+        {
+            return sectionService.AddTask(task);
+        }
+
+
+        [HttpGet]
+        [Route("[action]")]
+        public List<Task> ReturnAllTask()
+        {
+            return sectionService.ReturnAllTask();
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        public Task UpdateTask(Task task)
+        {
+            return sectionService.UpdateTask(task);
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        public TraineeSectionTask AddTraineeSectionTaskId(TraineeSectionTask traineeSectionTask)
+        {
+            return sectionService.AddTraineeSectionTaskId(traineeSectionTask);
+        }
+
+        [HttpGet]
+        [Route("[action]")]
+        public List<TraineeSectionTask> SelectTraineeSectionTaskId()
+        {
+            return sectionService.SelectTraineeSectionTaskId();
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        public TraineeSectionTask UpdateTraineeSectionTaskId(TraineeSectionTask traineeSectionTask)
+        {
+            return sectionService.UpdateTraineeSectionTaskId(traineeSectionTask);
+        }
+
+
+
+        //ReturnTasksOfSection
+
+        [HttpPost]
+        [Route("[action]")]
+        public List<Task> ReturnTasksOfSection(int sectionTrainerId)
+        {
+            return sectionService.ReturnTasksOfSection(sectionTrainerId);
+        }
+
+
+
+       
     }
 }
