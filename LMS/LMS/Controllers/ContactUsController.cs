@@ -44,7 +44,7 @@ namespace LMS.Controllers
             return contactUsService.UpdateMessage(contactUs);
         }
 
-        [HttpDelete]
+        [HttpPut]
         [Route("[action]/{messageId}")]
         public bool DeleteMessage(int messageId)
         {
@@ -65,7 +65,7 @@ namespace LMS.Controllers
             return contactUsService.UpdateTestimonial   (testimonial);
         }
 
-        [HttpDelete]
+        [HttpPut]
         [Route("[action]/{testimonialId}")]
         public bool DeleteTestimonial(int testimonialId)
         {

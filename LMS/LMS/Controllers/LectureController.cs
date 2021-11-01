@@ -42,7 +42,7 @@ namespace LMS.Controllers
             return lectureService.UpdateLecture(lecture);
         }
 
-        [HttpDelete]
+        [HttpPut]
         [Route("[action]/{lectureId}")]
         public bool DeleteLecture(int lectureId)
         {
