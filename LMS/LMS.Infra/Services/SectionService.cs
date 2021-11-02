@@ -139,9 +139,9 @@ namespace LMS.Infra.Services
             return sectionRepository.ReturnSectionOfTrainee(traineeId, sectionId);
         }
 
-        public List<CommentDTO> ReturnAllComments(int sectionId)
+        public List<CommentDTO> ReturnAllComments(int sectionId, int queryCode)
         {
-            return sectionRepository.ReturnAllComments(sectionId);
+            return sectionRepository.ReturnAllComments( sectionId,  queryCode);
         }
 
         public List<Unit> ReturnUnitBySectionId(int sectionId)

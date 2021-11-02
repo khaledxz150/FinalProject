@@ -10,8 +10,7 @@ namespace LMS.Data
 
         public int TagId { get; set; }
         public string TagName { get; set; }
-        public bool IsActive { get; set; }
-        public DateTime CreationDate { get; set; }
+       
         public long CreatedBy { get; set; }
 
         public virtual Employee CreatedByNavigation { get; set; }

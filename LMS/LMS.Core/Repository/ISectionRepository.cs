@@ -52,7 +52,7 @@ namespace LMS.Core.Repository
         public List<SectionOfTraineeDTO> ReturnSectionOfTrainee(int traineeId, int sectionId);
 
         //ReturnAllComments
-        public List<CommentDTO> ReturnAllComments(int sectionId);
+        public List<CommentDTO> ReturnAllComments(int sectionId, int queryCode);
 
         //ReturnUnitBySectionId
         public List<Unit> ReturnUnitBySectionId(int sectionId);

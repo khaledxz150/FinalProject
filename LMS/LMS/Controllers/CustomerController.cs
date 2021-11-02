@@ -136,13 +136,7 @@ namespace LMS.Controllers
             return customerService.ReturnWishListItem(traineeId);
         }
 
-        //ReturnAllCoupon
-        [HttpPost]
-        [Route("[action]/{queryCode}")]
-        public List<CouponDTO> ReturnAllCoupon(int queryCode)
-        {
-            return customerService.ReturnAllCoupon(queryCode);
-        }
+
 
 
         //ReturnSoldCourses

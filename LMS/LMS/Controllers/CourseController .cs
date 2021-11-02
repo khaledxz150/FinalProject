@@ -63,7 +63,13 @@ namespace LMS.Controllers
         {
             return _courseService.InsertCourseRate(courseRating);
         }
-        //**********************************************<-- Delete -->*******************************************
+        [HttpPost]
+        [Route("[action]")]
+        public bool InsertTag([FromBody] Tag tag)
+        {
+            return _courseService.InsertTag (tag);
+        }
+       //**********************************************<-- Delete -->*******************************************
         [HttpPut]
         [Route("[action]/{categoryId}")]
         public bool DeleteCategory(int categoryId)
@@ -109,19 +115,19 @@ namespace LMS.Controllers
             return _courseService.DeleteType(typeId);   
         }
         //**********************************************<-- Get/Return All -->*******************************************
-        [HttpPut]
+        [HttpPost]
         [Route("[action]/{queryCode}")]
         public List<Category> GetAllCategories(int queryCode)
         {
             return _courseService.GetAllCategories(queryCode);
         }
-        [HttpPut]
+        [HttpPost]
         [Route("[action]/{queryCode}")]
         public List<Comment> GetAllCommentForCourse(int queryCode)
         {
             return _courseService.GetAllCommentForCourse(queryCode);
         }
-        [HttpPut]
+        [HttpPost]
         [Route("[action]/{queryCode}")]
         public List<Course> GetAllCourse(int queryCode)
         {
@@ -145,6 +151,20 @@ namespace LMS.Controllers
         {
             return _courseService.GetAllType();
         }
+        //ReturnAllCoupon
+        [HttpPost]
+        [Route("[action]/{queryCode}")]
+        public List<CouponDTO> ReturnAllCoupon(int queryCode)
+        {
+            return _courseService.ReturnAllCoupon(queryCode);
+        }
+
+        [HttpPost]
+        [Route("[action]/{queryCode}")]
+        public List<Coupon> GetAllCoupons(int queryCode)
+        {
+            return _courseService.GetAllCoupons(queryCode);
+        }
         //**********************************************<-- Update -->*******************************************
         [HttpPut]
         [Route("[action]")]
@@ -152,6 +172,7 @@ namespace LMS.Controllers
         {
             return _courseService.UpdateCategory(category);
         }
+
         [HttpPut]
         [Route("[action]")]
         public bool UpdateCoupon([FromBody] Coupon coupon)
@@ -202,6 +223,13 @@ namespace LMS.Controllers
             return _courseService.ReturnAllCourses(queryCode);
         }
 
+        [HttpPost]
+        [Route("[action]")]
+        public List<CommentDTO> ReturnAllComments([FromQuery] int courseId, [FromQuery] int querycode)
+        {
+            return _courseService.ReturnAllComments(courseId, querycode);
+        }
+
 
         [HttpPost]
         [Route("[action]/{queryCode}")]
@@ -224,7 +252,7 @@ namespace LMS.Controllers
             return _courseService.UpdateLevel(level);
         }
 
-        [HttpDelete]
+        [HttpPut]
         [Route("[action]/{levelId}")]
         public bool DeleteLevel(int levelId)
         {

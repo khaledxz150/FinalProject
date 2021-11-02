@@ -16,6 +16,7 @@ namespace LMS.Core.DTO
         public DateTime EndDate { get; set; }
         public string CourseName { get; set; }
         public decimal CoursePrice { get; set; }
+        public decimal CurrentPrice { get; set; }
         public string CourseImage { get; set; }
     }
 }

@@ -12,5 +12,7 @@ namespace LMS.Core.DTO
         public int SectionId { get; set; }
         public string CourseName { get; set; }
         public string TraineeName { get; set; }
+
+        public String Description { get; set; }
     }
 }

@@ -178,9 +178,9 @@ namespace LMS.Controllers
 
         [HttpPost]
         [Route("[action]/{sectionId}")]
-        public List<CommentDTO> ReturnAllComments(int sectionId)
+        public List<CommentDTO> ReturnAllComments(int sectionId, int queryCode)
         {
-            return sectionService.ReturnAllComments(sectionId);
+            return sectionService.ReturnAllComments(sectionId,1);
         }
 
 

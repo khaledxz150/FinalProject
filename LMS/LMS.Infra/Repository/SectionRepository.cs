@@ -191,10 +191,11 @@ namespace LMS.Infra.Repository
             return result.ToList();
         }
 
-        public List<CommentDTO> ReturnAllComments(int sectionId)
+        public List<CommentDTO> ReturnAllComments(int courseId, int queryCode)
         {
             var parm = new DynamicParameters();
-            parm.Add("@SectionId", sectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@RecordId", courseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@QueryCode", queryCode, dbType: DbType.Int32, direction: ParameterDirection.Input);
             IEnumerable<CommentDTO> result = dBContext.Connection.Query<CommentDTO>("ReturnAllComments", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }

@@ -41,12 +41,20 @@ namespace LMS.Infra.Repository
             var result = _dbContext.Connection.ExecuteAsync("InsertComment", queryParameters, commandType: CommandType.StoredProcedure);
             return true;
         }
-
+        public bool InsertTag(Tag tag)
+        {
+            var queryParameters = new DynamicParameters();
+            queryParameters.Add("@P_TagName",tag.TagName, dbType: DbType.String, direction: ParameterDirection.Input);
+            queryParameters.Add("@P_CreatedBy",tag.CreatedBy, dbType: DbType.Int64, direction: ParameterDirection.Input);
+            //execute proc
+            var result = _dbContext.Connection.ExecuteAsync("InsertTag", queryParameters, commandType: CommandType.StoredProcedure);
+            return true;
+        }
         public bool InsertCourse(Course course)
         {
             var queryParameters = new DynamicParameters();
-            queryParameters.Add("@CourseName", course.Name, dbType: DbType.String, direction: ParameterDirection.Input);
-            queryParameters.Add("@CourseDescription", course.Description, dbType: DbType.String, direction: ParameterDirection.Input);
+            queryParameters.Add("@CourseName", course.CourseName, dbType: DbType.String, direction: ParameterDirection.Input);
+            queryParameters.Add("@CourseDescription", course.CourseDescription, dbType: DbType.String, direction: ParameterDirection.Input);
             queryParameters.Add("@passMark", course.PassMark, dbType: DbType.Int32, direction: ParameterDirection.Input);
             queryParameters.Add("@CoursePrice", course.CoursePrice, dbType: DbType.Double, direction: ParameterDirection.Input);
             queryParameters.Add("@TypeId", course.TypeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
@@ -173,6 +181,15 @@ namespace LMS.Infra.Repository
             IEnumerable<Comment> result = _dbContext.Connection.Query<Comment>("ReturnComment", queryParameters, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+        public List<CommentDTO> ReturnAllComments(int courseId, int queryCode)
+        {
+            var parm = new DynamicParameters();
+            
+            parm.Add("@QueryCode", queryCode, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@RecordId", courseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<CommentDTO> result = _dbContext.Connection.Query<CommentDTO>("ReturnAllComments", parm, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
 
         public List<Course> GetAllCourse(int queryCode)
         {
@@ -195,15 +212,30 @@ namespace LMS.Infra.Repository
             return result.ToList();
         }
 
+        public List<CouponDTO> ReturnAllCoupon(int queryCode)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@P_CODE", queryCode, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            IEnumerable<CouponDTO> result = _dbContext.Connection.Query<CouponDTO>("ReturnAllCoupon", parm, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public List<Coupon> GetAllCoupons(int queryCode)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@Query_CODE", queryCode, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            IEnumerable<Coupon> result = _dbContext.Connection.Query<Coupon>("ReturnCoupon", parm, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
         public bool UpdateCategory(Category category)
         {
             var queryParameters = new DynamicParameters();
             queryParameters.Add("@CategoryId", category.CategoryId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             queryParameters.Add("@Name", category.Name, dbType: DbType.String, direction: ParameterDirection.Input);
             queryParameters.Add("@IsActive", category.IsActive, dbType: DbType.Boolean, direction: ParameterDirection.Input);
-            queryParameters.Add("@CREATIONDATE", category.CreationDate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
-            queryParameters.Add("@employeeId", category.CreatedBy, dbType: DbType.Int64, direction: ParameterDirection.Input);
-
             //execute proc
             var result = _dbContext.Connection.ExecuteAsync("UpdateCategory", queryParameters, commandType: CommandType.StoredProcedure);
             return true;
@@ -212,10 +244,9 @@ namespace LMS.Infra.Repository
         public bool UpdateComment(Comment comment)
         {
             var queryParameters = new DynamicParameters();
-            queryParameters.Add("@sectionId", comment.SectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            queryParameters.Add("@courseId", comment.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             queryParameters.Add("@CommentId", comment.CommentId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             queryParameters.Add("@Description", comment.Description, dbType: DbType.String, direction: ParameterDirection.Input);
+            queryParameters.Add("@IsActive", comment.IsActive, dbType: DbType.Boolean, direction: ParameterDirection.Input);
             //execute proc
             var result = _dbContext.Connection.ExecuteAsync("UpdateComment", queryParameters, commandType: CommandType.StoredProcedure);
             return true;
@@ -224,6 +255,7 @@ namespace LMS.Infra.Repository
         public bool UpdateCoupon(Coupon coupon)
         {
             var queryParameters = new DynamicParameters();
+            
             queryParameters.Add("@couponId", coupon.CouponId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             queryParameters.Add("@Code", coupon.Code, dbType: DbType.String, direction: ParameterDirection.Input);
             queryParameters.Add("@StartDate", coupon.StartDate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
@@ -231,6 +263,8 @@ namespace LMS.Infra.Repository
             queryParameters.Add("@Redemption", coupon.Redemption, dbType: DbType.Int32, direction: ParameterDirection.Input);
             queryParameters.Add("@Discount", coupon.Discount, dbType: DbType.Double, direction: ParameterDirection.Input);
             queryParameters.Add("@courseId", coupon.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            queryParameters.Add("@IsActive", coupon.IsActive, dbType: DbType.Boolean, direction: ParameterDirection.Input);
+
 
             //execute proc
             var result = _dbContext.Connection.ExecuteAsync("UpdateCoupon", queryParameters, commandType: CommandType.StoredProcedure);
@@ -241,8 +275,8 @@ namespace LMS.Infra.Repository
         {
             var queryParameters = new DynamicParameters();
             queryParameters.Add("@CourseId", course.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            queryParameters.Add("@name", course.Name, dbType: DbType.String, direction: ParameterDirection.Input);
-            queryParameters.Add("@description", course.Description, dbType: DbType.String, direction: ParameterDirection.Input);
+            queryParameters.Add("@name", course.CourseName, dbType: DbType.String, direction: ParameterDirection.Input);
+            queryParameters.Add("@description", course.CourseDescription, dbType: DbType.String, direction: ParameterDirection.Input);
             queryParameters.Add("@pass", course.PassMark, dbType: DbType.Int32, direction: ParameterDirection.Input);
             queryParameters.Add("@price", course.CoursePrice, dbType: DbType.Double, direction: ParameterDirection.Input);
             queryParameters.Add("@typeId", course.TypeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
@@ -250,6 +284,7 @@ namespace LMS.Infra.Repository
             queryParameters.Add("@levelId", course.LevelId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             queryParameters.Add("@categoryId", course.CategoryId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             queryParameters.Add("@image", course.Image, dbType: DbType.String, direction: ParameterDirection.Input);
+            queryParameters.Add("@isActive", course.IsActive, dbType: DbType.Boolean, direction: ParameterDirection.Input);
             queryParameters.Add("@video", course.PreviewVideoUrl, dbType: DbType.String, direction: ParameterDirection.Input);
 
             //execute proc
@@ -357,7 +392,7 @@ namespace LMS.Infra.Repository
             var parameters = new DynamicParameters();
             parameters.Add("@LevelId", level.LevelId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameters.Add("@Name", level.Name, dbType: DbType.String, direction: ParameterDirection.Input);
-            parameters.Add("@CreatedBy", level.CreatedBy, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parameters.Add("@IsActive", level.IsActive, dbType: DbType.Boolean, direction: ParameterDirection.Input);
 
             var result = _dbContext.Connection.ExecuteAsync("UpdateLevel", parameters, commandType: CommandType.StoredProcedure);
             return true;
