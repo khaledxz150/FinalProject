@@ -120,7 +120,7 @@ namespace LMS.Infra.Repository
             parameters.Add("@QuestionId", examQuestion.QuestionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameters.Add("@Description", examQuestion.Description, dbType: DbType.String, direction: ParameterDirection.Input);
             parameters.Add("@ImageName", examQuestion.ImageName, dbType: DbType.String, direction: ParameterDirection.Input);
-            parameters.Add("@CourseId", examQuestion.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+          
             parameters.Add("@IsActive", examQuestion.IsActive, dbType: DbType.Boolean, direction: ParameterDirection.Input);
 
 
@@ -145,7 +145,7 @@ namespace LMS.Infra.Repository
             parameters.Add("@Description", examOption.Description, dbType: DbType.String, direction: ParameterDirection.Input);
             parameters.Add("@IsCorrect", examOption.IsCorrect, dbType: DbType.Boolean, direction: ParameterDirection.Input);
             parameters.Add("@QuestionId", examOption.QuestionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parameters.Add("@CreatedBy", examOption.CreatedBy, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parameters.Add("@CreatedBy", examOption.CreatedBy, dbType: DbType.Int64, direction: ParameterDirection.Input);
 
             var result = dBContext.Connection.ExecuteAsync("InsertExamOption", parameters, commandType: CommandType.StoredProcedure);
             return true;
@@ -222,6 +222,6 @@ namespace LMS.Infra.Repository
         {
             throw new NotImplementedException();
         }
-
+        
     }
 }
