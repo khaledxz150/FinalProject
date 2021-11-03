@@ -1,0 +1,62 @@
+
+ <div class="navigation py-3">
+  <div class="container">
+      <div class="row">
+
+          <div class="col-lg-9 col-md-9 col-sm-8 col-7">
+              <nav class="navbar navbar-expand-lg">
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                      <div class="logo mr-auto">
+                          <a href="index-2.html">
+                              <img src="../../assets/image/tahaluf_logo.png" alt="Logo" height="90px" width="130px">
+                          </a>
+                      </div>
+                      <ul class="navbar-nav mr-auto">
+                          <li class="nav-item">
+                              <a routerLink="../pages" (click)="submit()" routerLinkActive="active">Home</a>
+
+                          </li>
+                          <li class="nav-item">
+                              <a routerLink="../pages/aboutus" (click)="submit()" routerLinkActive="active">About us</a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="#">Courses</a>
+
+                          </li>
+
+                          <li class="nav-item">
+                              <a href="#">Shop</a>
+
+                          </li>
+                          <li class="nav-item">
+                              <a routerLink="../pages/contactus" (click) ="submit()" routerLinkActive="active">Contact Us</a>
+
+                          </li>
+                      </ul>
+                  </div>
+              </nav> <!-- nav -->
+          </div>
+          <div class=" col-lg-2 col-md-2 mt-1 right-icon text-right">
+            <button class="login-btn mt-3" routerLink="../auth">SignIn</button>
+            <!-- <a routerLink="../auth"><fa-icon [icon]="fauser" style="font-size: 30px;" class="pr-2" ></fa-icon></a> -->
+            <!-- <p style="font-size: 14px;">SignIn</p> -->
+          </div>
+          <div class="col-lg-1 col-md-1 col-sm-2 col-3">
+              <div class="right-icon text-right">
+                  <ul>
+                      <!-- <li><a href="#" id="search"><fa-icon [icon]="fasearch"></fa-icon></a></li> -->
+                      <!-- <li><a href="#"><i class="fa fa-shopping-bag"></i><span>0</span></a></li> -->
+                      <!-- <li><a href="#"><fa-icon [icon]="fashoppingbag"></fa-icon><span>0</span></a></li> -->
+
+                  </ul>
+              </div> <!-- right icon -->
+          </div>
+      </div> <!-- row -->
+  </div> <!-- container -->
+</div>

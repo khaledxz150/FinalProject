@@ -12,8 +12,17 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 
+import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
+
+import { HttpClientModule } from '@angular/common/http';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { NgImageSliderModule } from 'ng-image-slider';
+
+
 @NgModule({
-  declarations: [],
+  declarations: [
+
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -25,10 +34,14 @@ import {MatIconModule} from '@angular/material/icon';
     MatCardModule,
     MatButtonModule,
     MatToolbarModule,
-    MatIconModule
-  ],
+    MatIconModule,
+    AccordionModule,
+    HttpClientModule,
+    NgxSliderModule,
+    NgImageSliderModule
+    ],
   exports:[ FormsModule,
-    
+
     NgxSpinnerModule,
     MatFormFieldModule,
      ReactiveFormsModule,
@@ -37,9 +50,13 @@ import {MatIconModule} from '@angular/material/icon';
     MatCardModule,
     MatButtonModule,
     MatToolbarModule,
-    MatIconModule
-  
-  
+    MatIconModule,
+    AccordionModule,
+    HttpClientModule,
+    NgxSliderModule,
+    NgImageSliderModule
+
+
   ]
 })
 export class SharedModule { }
