@@ -114,7 +114,7 @@ namespace LMS.Infra.Repository
             var parameters = new DynamicParameters();
             parameters.Add("@P_WishListId",wishListItem.WishListId , dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameters.Add("@P_CourseId", wishListItem.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parameters.Add("@P_CreatedBy", wishListItem.CreatedBy, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameters.Add("@P_CreatedBy","System", dbType: DbType.String, direction: ParameterDirection.Input);
             var result = dBContext.Connection.ExecuteAsync("InsertWishlistItem", parameters, commandType: CommandType.StoredProcedure);
             return true;
         }
@@ -192,7 +192,6 @@ namespace LMS.Infra.Repository
             parm.Add("@P_LastName", trainee.LastName, dbType: DbType.String, direction: ParameterDirection.Input);
             parm.Add("@P_PhoneNumber", trainee.PhoneNumber, dbType: DbType.String, direction: ParameterDirection.Input);
             parm.Add("@P_Nationality", trainee.Nationality, dbType: DbType.String, direction: ParameterDirection.Input);
-            parm.Add("@P_Email", trainee.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             parm.Add("@P_ImageName", trainee.ImageName, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = dBContext.Connection.ExecuteAsync("UpdateTrainee", commandType: CommandType.StoredProcedure);
             return true;
