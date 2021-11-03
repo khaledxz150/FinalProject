@@ -33,7 +33,7 @@ namespace LMS.Infra.Repository
             var queryParameters = new DynamicParameters();
             queryParameters.Add("@TraineeBuyCourseId", courseRefund.TraineeByCourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             queryParameters.Add("@RefundsReasonsId", courseRefund.RefundsReasonsId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            queryParameters.Add("@ApprovedEmployeeId", courseRefund.ApprovedEmployeeId, dbType: DbType.Int64, direction: ParameterDirection.Input);
+           
             queryParameters.Add("@notes",courseRefund.RefundsNotes, dbType: DbType.String, direction: ParameterDirection.Input);
             //execute proc
             var result = dbContext.Connection.ExecuteAsync("InsertCourseRefunds", queryParameters, commandType: CommandType.StoredProcedure);
@@ -44,10 +44,7 @@ namespace LMS.Infra.Repository
         {
             var queryParameters = new DynamicParameters();
             queryParameters.Add("@CourseRefundsId", courseRefund.CourseRefundsId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            queryParameters.Add("@TraineeByCourseId", courseRefund.TraineeByCourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            queryParameters.Add("@RefundsReasonsId", courseRefund.RefundsReasonsId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             queryParameters.Add("@employeeId", courseRefund.ApprovedEmployeeId, dbType: DbType.Int64, direction: ParameterDirection.Input);
-            queryParameters.Add("@notes", courseRefund.RefundsNotes, dbType: DbType.String, direction: ParameterDirection.Input);
             queryParameters.Add("@isAproved", courseRefund.IsApproved, dbType: DbType.Boolean, direction: ParameterDirection.Input);
             //execute proc
             var result = dbContext.Connection.ExecuteAsync("UpdateCourseRefunds", queryParameters, commandType: CommandType.StoredProcedure);

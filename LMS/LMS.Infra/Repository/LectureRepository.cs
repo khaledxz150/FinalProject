@@ -33,7 +33,7 @@ namespace LMS.Infra.Repository
             parameters.Add("@SectionId", lecture.SectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameters.Add("@StartAt", lecture.StartAt, dbType: DbType.Time, direction: ParameterDirection.Input);
             parameters.Add("@EndAt", lecture.EndAt, dbType: DbType.Time, direction: ParameterDirection.Input);
-            parameters.Add("@CreatedBy", lecture.CreatedBy, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parameters.Add("@CreatedBy", lecture.CreatedBy, dbType: DbType.Int64, direction: ParameterDirection.Input);
 
             var result = dBContext.Connection.ExecuteAsync("InsertLecture", parameters, commandType: CommandType.StoredProcedure);
             return true;
@@ -102,10 +102,9 @@ namespace LMS.Infra.Repository
         {
             var parameters = new DynamicParameters();
             parameters.Add("@OfflineLectureId", offLineLecture.OfflineLectureId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parameters.Add("@CourseId", offLineLecture.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameters.Add("@VideoUrl", offLineLecture.VideoUrl, dbType: DbType.String, direction: ParameterDirection.Input);
             parameters.Add("@Description", offLineLecture.Description, dbType: DbType.String, direction: ParameterDirection.Input);
-            parameters.Add("@CreatedBy", offLineLecture.CreatedBy, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parameters.Add("@IsActive", offLineLecture.IsActive, dbType: DbType.Boolean, direction: ParameterDirection.Input);
 
             var result = dBContext.Connection.ExecuteAsync("UpdateOffLineLecture", parameters, commandType: CommandType.StoredProcedure);
             return true;

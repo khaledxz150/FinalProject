@@ -7,7 +7,7 @@ namespace LMS.Data
 {
     public partial class Topic
     {
-        public int Id { get; set; }
+        public int TopicId { get; set; }
         public string TopicName { get; set; }
         public int CourseId { get; set; }
         public string Description { get; set; }

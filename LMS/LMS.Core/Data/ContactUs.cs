@@ -12,8 +12,7 @@ namespace LMS.Data
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public DateTime? CreationDate { get; set; }
-        public int? TraineeId { get; set; }
 
-        public virtual Trainee Trainee { get; set; }
+        public bool IsActive { get; set; }
     }
 }

@@ -10,8 +10,8 @@ namespace LMS.Data
 
 
         public int CourseId { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public string CourseName { get; set; }
+        public string CourseDescription { get; set; }
         public short PassMark { get; set; }
         public decimal CoursePrice { get; set; }
         public int TypeId { get; set; }

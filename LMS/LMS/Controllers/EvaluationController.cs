@@ -26,12 +26,13 @@ namespace LMS.Controllers
         {
              return _evaluationService.InsertEvaluation(evaluation);
         }
+        /*
         [HttpPost]
         [Route("[action]")]
         public bool UpdateEvaluation(Evaluation evaluation)
         {
             return _evaluationService.UpdateEvaluation(evaluation);
-        }
+        }*/
         [HttpPut]
         [Route("[action]/{evaluationId}")]
         public bool DeleteEvaluation(int evaluationId)
@@ -92,6 +93,7 @@ namespace LMS.Controllers
         {
             return _evaluationService.InsertEvaluationFormsQuestion(evaluationFormsQuestion);
         }
+         /*
         [HttpGet]
         [Route("[action]/{evaluationId}")]
         public List<EvaluationFormsQuestion> ReturnEvaluationFormsQuestion(int evaluationId)
@@ -118,6 +120,7 @@ namespace LMS.Controllers
         {
             return _evaluationService.ReturnEvaluationFormsAnswerForOneTrainee(traineeId);
         }
+          */
        // test changes 54
     }
 }

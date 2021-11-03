@@ -31,7 +31,7 @@ namespace LMS.Infra.Repository
         public bool InsertMessage(ContactUs contactUs)
         {
             var parameters = new DynamicParameters();
-            parameters.Add("@TraineeId", contactUs.TraineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            
             parameters.Add("@Email", contactUs.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             parameters.Add("@PhoneNumber", contactUs.PhoneNumber, dbType: DbType.String, direction: ParameterDirection.Input);
             parameters.Add("@Description", contactUs.Description, dbType: DbType.String, direction: ParameterDirection.Input);
@@ -53,7 +53,7 @@ namespace LMS.Infra.Repository
         {
             var parameters = new DynamicParameters();
             parameters.Add("@MessageId", contactUs.MessageId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parameters.Add("@TraineeId", contactUs.TraineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+           
             parameters.Add("@Email", contactUs.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             parameters.Add("@PhoneNumber", contactUs.PhoneNumber, dbType: DbType.String, direction: ParameterDirection.Input);
             parameters.Add("@Description", contactUs.Description, dbType: DbType.String, direction: ParameterDirection.Input);
@@ -68,7 +68,6 @@ namespace LMS.Infra.Repository
             var parameters = new DynamicParameters();
             parameters.Add("@P_Description",testimonial.Description, dbType: DbType.String, direction: ParameterDirection.Input);
             parameters.Add("@P_CreatedBy",testimonial.CreatedBy , dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parameters.Add("@P_ApprovedEmployeeId", testimonial.ApprovedEmployeeId , dbType: DbType.Int64, direction: ParameterDirection.Input);
             var result = dBContext.Connection.ExecuteAsync("InsertTestimonials", parameters, commandType: CommandType.StoredProcedure);
             return true;
         }
@@ -78,7 +77,6 @@ namespace LMS.Infra.Repository
             parameters.Add("@P_TestimonialsId",testimonial.TestimonialsId , dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameters.Add("@P_Description", testimonial.Description, dbType: DbType.String, direction: ParameterDirection.Input);
             parameters.Add("@P_isApproved", testimonial.IsApproved, dbType: DbType.Boolean, direction: ParameterDirection.Input);
-            parameters.Add("@P_CreatedBy", testimonial.CreatedBy, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameters.Add("@P_ApprovedEmployeeId", testimonial.ApprovedEmployeeId, dbType: DbType.Int64, direction: ParameterDirection.Input);
             var result = dBContext.Connection.ExecuteAsync("UpdateTestimonials", parameters, commandType: CommandType.StoredProcedure);
             return true;

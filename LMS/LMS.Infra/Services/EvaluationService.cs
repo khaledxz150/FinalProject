@@ -63,7 +63,7 @@ namespace LMS.Infra.Services
             return _evaluationRepository.InsertEvaluationQuestion(evalouationQusetion);
         }
 
-        public List<EvaluationFormsQuestion> ReturnEvaluationFormsAnswerForAllTrainee(int evaluationId)
+        /*public List<EvaluationFormsQuestion> ReturnEvaluationFormsAnswerForAllTrainee(int evaluationId)
         {
             return _evaluationRepository.ReturnEvaluationFormsAnswerForAllTrainee(evaluationId);
         }
@@ -77,12 +77,12 @@ namespace LMS.Infra.Services
         {
             return _evaluationRepository.ReturnEvaluationFormsQuestion(evaluationId);
         }
-
+       
         public bool UpdateEvaluation(Evaluation evaluation)
         {
             return _evaluationRepository.UpdateEvaluation(evaluation);
         }
-
+         */
         public bool UpdateEvaluationAnswer(EvalouationAnswer evalouationAnswer)
         {
             return _evaluationRepository.UpdateEvaluationAnswer(evalouationAnswer);

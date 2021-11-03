@@ -21,8 +21,13 @@ namespace LMS.Infra.Services
 
         //// Section 
         ///Start
+                //Status
 
-        public Section AddSection(Section section)
+        public List<Status> GetAllStatus()
+        {
+            return sectionRepository.GetAllStatus();
+        }
+        public bool AddSection(Section section)
         {
             return sectionRepository.AddSection(section);              
         }
@@ -34,12 +39,7 @@ namespace LMS.Infra.Services
             return sectionRepository.DeleteSection(SectionId);
         }
 
-        
-
-        public List<Section> ReturnAllSection()
-        {
-            return sectionRepository.ReturnAllSection();
-        }
+       
 
        //// Section
        ///End
@@ -49,11 +49,11 @@ namespace LMS.Infra.Services
 
       //// TraineeSection
       ///Start
-        public TraineeSection AddTraineeSection(TraineeSection traineeSection)
+        public bool AddTraineeSection(TraineeSection traineeSection)
         {
             return sectionRepository.AddTraineeSection(traineeSection);
         }
-        public List<Section> UpdateSection(Section section)
+        public bool UpdateSection(Section section)
         {
             return sectionRepository.UpdateSection(section);
         }
@@ -63,12 +63,8 @@ namespace LMS.Infra.Services
             return sectionRepository.DeleteTraineeSection(traineeSectionId);
         }
 
-        public List<TraineeSection> ReturnTraineeSection()
-        {
-            return sectionRepository.ReturnTraineeSection();
-        }
 
-        public List<TraineeSection> UpdateTraineeSection(TraineeSection traineeSection)
+        public bool UpdateTraineeSection(TraineeSection traineeSection)
         {
             throw new NotImplementedException();
         }
@@ -100,28 +96,13 @@ namespace LMS.Infra.Services
             return sectionRepository.DeleteUnit(unitId);
         }
 
-        public List<Unit> ReturnSectionUnits(int courseId) { 
-            return sectionRepository.ReturnSectionUnits(courseId);
+        public List<Unit> ReturnSectionUnits(int sectionId) { 
+            return sectionRepository.ReturnSectionUnits(sectionId);
          
         }
 
-        //Status 
-        public bool InsertStatus(Status status)
-        {
-            return sectionRepository.InsertStatus(status);
-        }
-        public bool UpdateStatus(Status status)
-        {
-            return sectionRepository.UpdateStatus   (status);
-        }
-        public bool DeleteStatus(int statusId)
-        {
-            return sectionRepository.DeleteStatus(statusId);
-        }
-        public Status GetSectionStatus(int sectionId)
-        {
-            return sectionRepository.GetSectionStatus(sectionId);
-        }
+       
+
 
         public List<TrainerSectionDTO> ReturnAllTrainerSections(int trainerId)
         {
@@ -139,9 +120,9 @@ namespace LMS.Infra.Services
             return sectionRepository.ReturnSectionOfTrainee(traineeId, sectionId);
         }
 
-        public List<CommentDTO> ReturnAllComments(int sectionId)
+        public List<CommentDTO> ReturnAllComments(int sectionId, int queryCode)
         {
-            return sectionRepository.ReturnAllComments(sectionId);
+            return sectionRepository.ReturnAllComments( sectionId,  queryCode);
         }
 
         public List<Unit> ReturnUnitBySectionId(int sectionId)
@@ -149,36 +130,23 @@ namespace LMS.Infra.Services
             return sectionRepository.ReturnUnitBySectionId(sectionId);
         }
 
-        public Task AddTask(Task task)
+        public bool AddTask(Task task)
         {
             return sectionRepository.AddTask(task);
         }
 
 
 
-        public List<Task> ReturnAllTask()
-        {
-            return sectionRepository.ReturnAllTask();
-        }
 
-        public Task UpdateTask(Task task)
+        public bool UpdateTask(Task task)
         {
             return sectionRepository.UpdateTask(task);
         }
 
-        public TraineeSectionTask AddTraineeSectionTaskId(TraineeSectionTask traineeSectionTask)
-        {
-            return sectionRepository.AddTraineeSectionTaskId(traineeSectionTask);
-        }
 
         public List<TraineeSectionTask> SelectTraineeSectionTaskId()
         {
             return sectionRepository.SelectTraineeSectionTaskId();
-        }
-
-        public TraineeSectionTask UpdateTraineeSectionTaskId(TraineeSectionTask traineeSectionTask)
-        {
-            return sectionRepository.UpdateTraineeSectionTaskId(traineeSectionTask);
         }
 
         public List<Task> ReturnTasksOfSection(int sectionTrainerId)
