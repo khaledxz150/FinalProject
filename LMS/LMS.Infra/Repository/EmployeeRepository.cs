@@ -29,19 +29,18 @@ namespace LMS.Infra.Repository
             queryParameters.Add("@email", employee.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             queryParameters.Add("@phone", employee.PhoneNumber, dbType: DbType.String, direction: ParameterDirection.Input);
             queryParameters.Add("@imagepath", employee.Image, dbType: DbType.String, direction: ParameterDirection.Input);
-            queryParameters.Add("@role", employee.RoleTypeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             queryParameters.Add("@salary", employee.BasicSalary, dbType: DbType.Double, direction: ParameterDirection.Input);
             //execute proc
             var result = _dbContext.Connection.ExecuteAsync("InsertEmployee", queryParameters, commandType: CommandType.StoredProcedure);
             return true;
         }
 
-        public Employee DeleteEmployee(long employeeId)
+        public bool DeleteEmployee(long employeeId)
         {
             var queryParameters = new DynamicParameters();
             queryParameters.Add("@employeeId", employeeId, dbType: DbType.Int64, direction: ParameterDirection.Input);
             var result = _dbContext.Connection.ExecuteAsync("DeleteEmployee", queryParameters, commandType: CommandType.StoredProcedure);
-            return GetEmployee(employeeId);
+            return true;
         }
         public Employee GetEmployee(long employeeId)
         {
@@ -71,7 +70,7 @@ namespace LMS.Infra.Repository
             queryParameters.Add("@email", employee.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             queryParameters.Add("@phone", employee.PhoneNumber, dbType: DbType.String, direction: ParameterDirection.Input);
             queryParameters.Add("@image", employee.Image, dbType: DbType.String, direction: ParameterDirection.Input);
-            queryParameters.Add("@RoleTypeId", employee.RoleTypeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            queryParameters.Add("@active", employee.IsActive, dbType: DbType.Boolean, direction: ParameterDirection.Input);
             queryParameters.Add("@salary", employee.BasicSalary, dbType: DbType.Double, direction: ParameterDirection.Input);
             //execute proc
             var result = _dbContext.Connection.ExecuteAsync("UpdateEmployee", queryParameters, commandType: CommandType.StoredProcedure);

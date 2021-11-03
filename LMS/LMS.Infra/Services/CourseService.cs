@@ -38,7 +38,10 @@ namespace LMS.Infra.Services
         {
             return _courseRepository.InsertTopic(topic);
         }
-
+        public bool InsertTag(Tag tag)
+        {
+            return _courseRepository.InsertTag(tag);
+        }
         public bool DeleteCategory(int categoryId)
         {
             return _courseRepository.DeleteCategory(categoryId);
@@ -79,6 +82,11 @@ namespace LMS.Infra.Services
             return _courseRepository.GetAllCommentForCourse(queryCode);
         }
 
+        public List<CommentDTO> ReturnAllComments(int courseId, int queryCode)
+        {
+            return _courseRepository.ReturnAllComments(courseId, queryCode);
+        }
+
         public List<Course> GetAllCourse(int queryCode)
         {
             return _courseRepository.GetAllCourse(queryCode);
@@ -89,9 +97,19 @@ namespace LMS.Infra.Services
             return _courseRepository.GetAllTags();
         }
 
-        public List<Topic> GetCourseTopic()
+        public List<Topic> GetCourseTopic(int courseId)
         {
-            return _courseRepository.GetCourseTopic();
+            return _courseRepository.GetCourseTopic(courseId);
+        }
+        public List<Coupon> GetAllCoupons(int queryCody)
+        {
+            return _courseRepository.GetAllCoupons(queryCody);
+        }
+
+        //ReturnAllCoupon
+        public List<CouponDTO> ReturnAllCoupon(int queryCode)
+        {
+            return _courseRepository.ReturnAllCoupon(queryCode);
         }
 
 
@@ -158,6 +176,12 @@ namespace LMS.Infra.Services
         public List<CourseRatingDTO> ReturnAllCourseRating(int sectionId)
         {
             return _courseRepository.ReturnAllCourseRating(sectionId);
+        }
+
+
+        public List<CourseRating> GetCourseRatings(int courseId)
+        {
+            return _courseRepository.GetCourseRatings(courseId);
         }
 
         public List<CourseDTO> ReturnAllCourses(int queryCode)

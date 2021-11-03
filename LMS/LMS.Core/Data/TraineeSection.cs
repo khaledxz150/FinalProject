@@ -15,7 +15,7 @@ namespace LMS.Data
         public decimal? TotalMark { get; set; }
         public bool IsActive { get; set; }
         public DateTime CreationDate { get; set; }
-        public long? CreatedBy { get; set; }
+        
 
         public virtual Employee CreatedByNavigation { get; set; }
         public virtual Section Section { get; set; }

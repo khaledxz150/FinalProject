@@ -17,7 +17,7 @@ namespace LMS.Core.Services
         public bool DeleteCourse(int courseId);
         //Comment
         public List<Comment> GetAllCommentForCourse(int queryCode);
-
+        public List<CommentDTO> ReturnAllComments(int courseId,int queryCode);
         public bool InsertComment(Comment comment);
 
         public bool UpdateComment(Comment comment);
@@ -25,8 +25,9 @@ namespace LMS.Core.Services
         //Topic
         public List<Tag> GetAllTags();
         public bool DeleteTag(int tagId);
+        public bool InsertTag(Tag tag);
         //Topic
-        public List<Topic> GetCourseTopic();
+        public List<Topic> GetCourseTopic(int courseId);
         public bool InsertTopic(Topic topic);
         public bool UpdateTopic(Topic topic);
         public bool DeleteTopic(int topicId);
@@ -39,9 +40,15 @@ namespace LMS.Core.Services
         public bool InsertCoupon(Coupon coupon);
         public bool UpdateCoupon(Coupon coupon);
         public bool DeleteCoupon(int couponId);
+
+        public List<Coupon> GetAllCoupons(int queryCody);
+
+        //ReturnAllCoupon
+        public List<CouponDTO> ReturnAllCoupon(int queryCode);
         //Course Rating 
         public bool InsertCourseRate(CourseRating courseRating);
         public bool UpdateCourseRating(CourseRating courseRating);
+        public List<CourseRating> GetCourseRatings(int courseId);
 
         //Type 
         public bool InsertType(LMS.Data.Type type);

@@ -97,10 +97,6 @@ namespace LMS.Infra.Services
             return customerRepository.ReturnWishListItem(traineeId);
         }
 
-        public List<CouponDTO> ReturnAllCoupon(int queryCode)
-        {
-            return customerRepository.ReturnAllCoupon(queryCode);
-        }
 
         public List<TraineeAttendanceDTO> ReturnTraineeAttendance(int sectionId, int lectureId)
         {

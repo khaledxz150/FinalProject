@@ -26,8 +26,8 @@ namespace LMS.Controllers
         //Cart 
 
         [HttpPost]
-        [Route("[action]/{queryCode}/{trineeId}")]
-        public List<Cart> ReturnCart(int queryCode, int trineeId)
+        [Route("[action]")]
+        public List<Cart> ReturnCart([FromQuery] int queryCode, [FromQuery] int trineeId)
         {
             return customerService.ReturnCart(queryCode,trineeId);
         }
@@ -136,13 +136,7 @@ namespace LMS.Controllers
             return customerService.ReturnWishListItem(traineeId);
         }
 
-        //ReturnAllCoupon
-        [HttpPost]
-        [Route("[action]/{queryCode}")]
-        public List<CouponDTO> ReturnAllCoupon(int queryCode)
-        {
-            return customerService.ReturnAllCoupon(queryCode);
-        }
+
 
 
         //ReturnSoldCourses

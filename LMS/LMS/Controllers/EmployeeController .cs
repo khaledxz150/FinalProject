@@ -24,9 +24,9 @@ namespace LMS.Controllers
         {
             return _employeeService.AddNewEmployee(employee);
         }
-        [HttpPost]
+        [HttpPut]
         [Route("[action]/{employeeId}")]
-        public Employee DeleteEmployee(long employeeId)
+        public bool DeleteEmployee(long employeeId)
         {
             return _employeeService.DeleteEmployee(employeeId);
         }

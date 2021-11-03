@@ -12,19 +12,19 @@ namespace LMS.Core.Repository
     public interface ISectionRepository
     {
         //Section
-        public Section AddSection(Section section);
-        public List<Section> UpdateSection(Section section);
-        public List<Section> ReturnAllSection();
-        
+        public bool AddSection(Section section);
+        public bool UpdateSection(Section section);
         public bool DeleteSection(int SectionId);
 
+        //Status
+
+        public List<Status> GetAllStatus();
 
         //Trainee Section 
-        public TraineeSection AddTraineeSection(TraineeSection traineeSection);
+        public bool AddTraineeSection(TraineeSection traineeSection);
         public bool DeleteTraineeSection(int traineeSectionId);
-        public List<TraineeSection> ReturnTraineeSection();
-        public List<TraineeSection> UpdateTraineeSection(TraineeSection traineeSection);
-        
+        public bool UpdateTraineeSection(TraineeSection traineeSection);
+               
         //Trainee Section Task 
         public bool InsertTraineeTask(TraineeSectionTask traineeSectionTask);
         public bool UpdateTraineeTask(TraineeSectionTask traineeSectionTask);
@@ -34,13 +34,7 @@ namespace LMS.Core.Repository
         public bool InsertUnit(Unit unit);
         public bool DeleteUnit(int unitId);
         
-        public List<Unit> ReturnSectionUnits(int courseId);
-
-        //Status 
-        public bool InsertStatus(Status status);
-        public bool UpdateStatus(Status status);
-        public bool DeleteStatus(int statusId);
-        public Status GetSectionStatus(int sectionId);
+        public List<Unit> ReturnSectionUnits(int sectionId);
 
         //ReturnAllTrainerSections
         public List<TrainerSectionDTO> ReturnAllTrainerSections(int trainerId);
@@ -52,22 +46,21 @@ namespace LMS.Core.Repository
         public List<SectionOfTraineeDTO> ReturnSectionOfTrainee(int traineeId, int sectionId);
 
         //ReturnAllComments
-        public List<CommentDTO> ReturnAllComments(int sectionId);
+        public List<CommentDTO> ReturnAllComments(int sectionId, int queryCode);
 
         //ReturnUnitBySectionId
         public List<Unit> ReturnUnitBySectionId(int sectionId);
 
-        public Task AddTask(Task task);
-        public Task UpdateTask(Task task);
+        public bool AddTask(Task task);
+        public bool UpdateTask(Task task);
         public List<Task> ReturnAllTask();
 
 
 
-        public TraineeSectionTask AddTraineeSectionTaskId(TraineeSectionTask traineeSectionTask);
+       
 
         public List<TraineeSectionTask> SelectTraineeSectionTaskId();
 
-        public TraineeSectionTask UpdateTraineeSectionTaskId(TraineeSectionTask traineeSectionTask);
 
 
         //ReturnTasksOfSection

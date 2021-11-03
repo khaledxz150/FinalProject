@@ -22,7 +22,7 @@ namespace LMS.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public Section AddSection(Section section)
+        public bool AddSection(Section section)
         {
             return sectionService.AddSection(section);
         }
@@ -35,15 +35,15 @@ namespace LMS.Controllers
         
         [HttpGet]
         [Route("[action]")]
-        public List<Section> ReturnAllSection()
+        public List<Status> GetAllStatus()
         {
-            return sectionService.ReturnAllSection();
+            return sectionService.GetAllStatus();
         }
 
 
         [HttpPut]
         [Route("[action]")]
-        public List<Section> UpdateSection(Section section)
+        public bool UpdateSection(Section section)
         {
             return sectionService.UpdateSection(section);
         }
@@ -51,7 +51,7 @@ namespace LMS.Controllers
         /// Start
         [HttpPost]
         [Route("[action]")]
-        public TraineeSection AddTraineeSection(TraineeSection AddTraineeSection)
+        public bool AddTraineeSection(TraineeSection AddTraineeSection)
         {
             return sectionService.AddTraineeSection(AddTraineeSection);
         }
@@ -63,18 +63,10 @@ namespace LMS.Controllers
             return sectionService.DeleteTraineeSection(traineeSectionId);
         }
 
-        [HttpGet]
-        [Route("[action]")]
-        public List<TraineeSection> ReturnTraineeSection()
-        {
-            return sectionService.ReturnTraineeSection();
-
-
-        }
 
         [HttpPut]
         [Route("[action]")]
-        public List<TraineeSection> UpdateTraineeSection(TraineeSection AddTraineeSection)
+        public bool UpdateTraineeSection(TraineeSection AddTraineeSection)
         {
             return sectionService.UpdateTraineeSection(AddTraineeSection);
         }
@@ -114,38 +106,13 @@ namespace LMS.Controllers
             return sectionService.DeleteUnit(unitId);
         }
         [HttpPost]
-        [Route("[action]/{courseId}")]
-        public List<Unit> ReturnSectionUnits(int courseId)
-        {
-            return sectionService.ReturnSectionUnits(courseId);
-        }
-
-        //Status 
-        [HttpPost]
-        [Route("[action]")]
-        public bool InsertStatus(Status status)
-        {
-            return sectionService.InsertStatus(status); 
-        }
-        [HttpPost]
-        [Route("[action]")]
-        public bool UpdateStatus(Status status)
-        {
-            return sectionService.UpdateStatus (status);    
-        }
-        [HttpPost]
-        [Route("[action]/{statusId}")]
-        public bool DeleteStatus(int statusId)
-        {
-            return sectionService.DeleteStatus(statusId);
-        }
-
-        [HttpPost]
         [Route("[action]/{sectionId}")]
-        public Status GetSectionStatus(int sectionId)
+        public List<Unit> ReturnSectionUnits(int sectionId)
         {
-            return sectionService.GetSectionStatus(sectionId);
+            return sectionService.ReturnSectionUnits(sectionId);
         }
+
+
 
 
         //ReturnAllTrainerSections
@@ -178,9 +145,9 @@ namespace LMS.Controllers
 
         [HttpPost]
         [Route("[action]/{sectionId}")]
-        public List<CommentDTO> ReturnAllComments(int sectionId)
+        public List<CommentDTO> ReturnAllComments(int sectionId, int queryCode)
         {
-            return sectionService.ReturnAllComments(sectionId);
+            return sectionService.ReturnAllComments(sectionId,1);
         }
 
 
@@ -195,45 +162,28 @@ namespace LMS.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public Task AddTask(Task task)
+        public bool AddTask(Task task)
         {
             return sectionService.AddTask(task);
         }
 
 
-        [HttpGet]
-        [Route("[action]")]
-        public List<Task> ReturnAllTask()
-        {
-            return sectionService.ReturnAllTask();
-        }
+
 
         [HttpPost]
         [Route("[action]")]
-        public Task UpdateTask(Task task)
+        public bool UpdateTask(Task task)
         {
             return sectionService.UpdateTask(task);
         }
 
-        [HttpPost]
-        [Route("[action]")]
-        public TraineeSectionTask AddTraineeSectionTaskId(TraineeSectionTask traineeSectionTask)
-        {
-            return sectionService.AddTraineeSectionTaskId(traineeSectionTask);
-        }
+         
 
         [HttpGet]
         [Route("[action]")]
         public List<TraineeSectionTask> SelectTraineeSectionTaskId()
         {
             return sectionService.SelectTraineeSectionTaskId();
-        }
-
-        [HttpPost]
-        [Route("[action]")]
-        public TraineeSectionTask UpdateTraineeSectionTaskId(TraineeSectionTask traineeSectionTask)
-        {
-            return sectionService.UpdateTraineeSectionTaskId(traineeSectionTask);
         }
 
 

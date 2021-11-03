@@ -15,7 +15,7 @@ namespace LMS.Data
         public TimeSpan SectionTimeEnd { get; set; }
         public int SectionCapacity { get; set; }
         public int NoLecture { get; set; }
-        public string Status { get; set; }
+        public int StatusId { get; set; }
         public bool IsActive { get; set; }
         public DateTime CreationDate { get; set; }
         public string CreatedBy { get; set; }

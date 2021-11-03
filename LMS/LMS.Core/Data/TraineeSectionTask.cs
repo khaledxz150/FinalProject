@@ -16,7 +16,7 @@ namespace LMS.Data
         public string TrainerNote { get; set; }
         public bool IsActive { get; set; }
         public DateTime CreationDate { get; set; }
-        public string CreatedBy { get; set; }
+    
 
         public virtual Task Task { get; set; }
         public virtual TraineeSection TraineeSection { get; set; }

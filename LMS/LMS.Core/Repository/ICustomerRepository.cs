@@ -49,8 +49,7 @@ namespace LMS.Core.Repository
         //ReturnWishListItem
         public List<WishListItemDTO> ReturnWishListItem(int traineeId);
 
-        //ReturnAllCoupon
-        public List<CouponDTO> ReturnAllCoupon(int queryCode);
+
 
         //ReturnTraineeAttendance
         public List<TraineeAttendanceDTO> ReturnTraineeAttendance(int sectionId, int lectureId);
