@@ -12,6 +12,7 @@ using System.Text;
 namespace LMS.Infra.Repository
 {
    public class SectionRepository : ISectionRepository
+        //Update Repos
     {      
         private IDbContext dBContext;
         public SectionRepository(IDbContext dBContext)
