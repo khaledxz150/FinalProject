@@ -1,4 +1,6 @@
-﻿using LMS.Core.Services;
+﻿using LMS.Core.Data;
+using LMS.Core.DTO;
+using LMS.Core.Services;
 using LMS.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -43,7 +45,7 @@ namespace LMS.Controllers
             return examService.UpdateExam(exam);
         }
 
-        [HttpDelete]
+        [HttpPut]
         [Route("[action]/{examId}")]
         public bool DeleteExam(int examId)
         {
@@ -52,28 +54,21 @@ namespace LMS.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public TraineeSectionExam AddTraineeSectionExam(TraineeSectionExam traineeSectionExam)
+        public bool AddTraineeSectionExam(TraineeSectionExam traineeSectionExam)
         {
             return examService.AddTraineeSectionExam(traineeSectionExam);
         }
 
 
-        [HttpDelete]
-        [Route("[action]/{examId}")]
-        public bool DeleteTraineeSectionExam(int traineeSectionExamId) {
-
-        return examService.DeleteTraineeSectionExam(traineeSectionExamId);
-
-        }
 
 
         //ExamOption
 
         [HttpPost]
-        [Route("[action]/{queryCode}")]
-        public List<ExamOption> ReturnExamOption(int queryCode)
+        [Route("[action]")]
+        public List<ExamOption> ReturnExamOption([FromQuery] int queryCode, [FromQuery] int questionId)
         {
-            return examService.ReturnExamOption(queryCode);
+            return examService.ReturnExamOption(queryCode, questionId);
         }
 
         [HttpPost]
@@ -90,7 +85,7 @@ namespace LMS.Controllers
             return examService.UpdateExamOption(examOption);
         }
 
-        [HttpDelete]
+        [HttpPut]
         [Route("[action]/{optionId}")]
         public bool DeleteExamOption(int optionId)
         {
@@ -100,10 +95,10 @@ namespace LMS.Controllers
         //ExamQuestion
 
         [HttpPost]
-        [Route("[action]/{queryCode}")]
-        public List<ExamQuestion> ReturnExamQuestion(int queryCode)
+        [Route("[action]")]
+        public List<ExamQuestion> ReturnExamQuestion([FromQuery] int queryCode, [FromQuery] int courseId)
         {
-            return examService.ReturnExamQuestion(queryCode);
+            return examService.ReturnExamQuestion(queryCode, courseId);
         }
 
         [HttpPost]
@@ -120,7 +115,7 @@ namespace LMS.Controllers
             return examService.UpdateExamQuestion(examQuestion);
         }
 
-        [HttpDelete]
+        [HttpPut]
         [Route("[action]/{questionId}")]
         public bool DeleteExamQuestion(int questionId)
         {
@@ -130,11 +125,52 @@ namespace LMS.Controllers
         //ReturnExamBySectionId
 
         [HttpPost]
-        [Route("[action]/{questionId}")]
+        [Route("[action]/{sectionId}")]
         public List<Exam> ReturnExamBySectionId(int sectionId)
         {
             return examService.ReturnExamBySectionId(sectionId);
         }
 
+        //Section Exam 
+        [HttpPost]
+        [Route("[action]")]
+        public bool InsertSectionExam([FromBody] SectionExam sectionExam)
+        {
+            return examService.InsertSectionExam(sectionExam);
+        }
+
+        //Section Exam Answer 
+        [HttpPost]
+        [Route("[action]")]
+        public bool InsertSectionExamAnswer(SectionExamAnswer sectionExamAnswer)
+        {
+            return examService.InsertSectionExamAnswer(sectionExamAnswer);
+        }
+
+        // <---------------------- DTO --------------------------------> 
+        [HttpPost]
+        [Route("[action]/{sectionId}")]
+        public List<GetTraineeMarksDTO> GetTraineeMarks(int sectionId)
+        {
+            return examService.GetTraineeMarks(sectionId);
+        }
+        [HttpPost]
+        [Route("[action]/{sectionId}")]
+        public List<TraineeAnswersDTO> GetTraineeAnswer(int sectionId)
+        {
+            return examService.GetTraineeAnswer(sectionId);
+        }
+        [HttpPost]
+        [Route("[action]/{sectionId}")]
+        public List<ExamFormDTO> GetExamForm(int sectionId)
+        {
+            return examService.GetExamForm(sectionId);
+        }
+        [HttpPost]
+        [Route("[action]/{sectionId}")]
+        public List<ExamAnswersDTO> GetExamAnswersDTOs(int sectionId)
+        {
+            return examService.GetExamAnswersDTOs(sectionId);
+        }
     }
 }

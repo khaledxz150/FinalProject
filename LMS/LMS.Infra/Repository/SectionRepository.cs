@@ -18,7 +18,7 @@ namespace LMS.Infra.Repository
         {
             this.dBContext = dBContext;
         }
-        public Section AddSection(Section section)
+        public bool AddSection(Section section)
         {
             var parm = new DynamicParameters();
             parm.Add("@P_CourseId", section.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
@@ -26,10 +26,10 @@ namespace LMS.Infra.Repository
             parm.Add("@P_SectionCapacity", section.SectionCapacity, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parm.Add("@P_SectionTimeStart", section.SectionTimeStart, dbType: DbType.Time, direction: ParameterDirection.Input);
             parm.Add("@P_NoLecture", section.NoLecture, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parm.Add("@P_Status", section.Status, dbType: DbType.String, direction: ParameterDirection.Input);
+            parm.Add("@P_Status", section.StatusId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parm.Add("@P_CreatedBy", section.CreatedBy, dbType: DbType.String, direction: ParameterDirection.Input);
-            IEnumerable<Section> result = dBContext.Connection.Query<Section>("InsertSection", parm, commandType: CommandType.StoredProcedure);
-            return ReturnAllSection().OrderByDescending(x => x.SectionId).FirstOrDefault();
+            var result = dBContext.Connection.ExecuteAsync("InsertSection", parm, commandType: CommandType.StoredProcedure);
+            return true;
         }
         public bool DeleteSection(int SectionId)
         {
@@ -39,36 +39,26 @@ namespace LMS.Infra.Repository
             return true;
         }
 
-        public List<Section> ReturnAllSection()
-        {
-            IEnumerable <Section> result = dBContext.Connection.Query<Section>("ReturnAllSection", commandType: CommandType.StoredProcedure);
-            return result.ToList();
-        }
-
-        public List<Section> UpdateSection(Section section)
+        public bool UpdateSection(Section section)
         {
             var parm = new DynamicParameters();
             parm.Add("@P_SectionId", section.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parm.Add("@P_CourseId", section.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parm.Add("@P_SectionTimeEnd", section.SectionTimeEnd, dbType: DbType.Time, direction: ParameterDirection.Input);
             parm.Add("@P_SectionCapacity", section.SectionCapacity, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parm.Add("@P_SectionTimeStart", section.SectionTimeStart, dbType: DbType.Time, direction: ParameterDirection.Input);
+          
             parm.Add("@P_NoLecture", section.NoLecture, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parm.Add("@P_Status", section.Status, dbType: DbType.String, direction: ParameterDirection.Input);
-            IEnumerable<Section> result = dBContext.Connection.Query<Section>("UpdateSection", parm, commandType: CommandType.StoredProcedure);
-            return result.ToList();
+            parm.Add("@P_Status", section.StatusId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = dBContext.Connection.ExecuteAsync("UpdateSection", parm, commandType: CommandType.StoredProcedure);
+            return true;
         }
 
 
-        public TraineeSection AddTraineeSection(TraineeSection traineeSection){
+        public bool AddTraineeSection(TraineeSection traineeSection){
 
             var parm = new DynamicParameters();
             parm.Add("@P_SectionId", traineeSection.SectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parm.Add("@P_TraineeId", traineeSection.TraineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parm.Add("@P_TotalMark", traineeSection.TotalMark, dbType: DbType.Double, direction: ParameterDirection.Input);
-            parm.Add("@P_CreatedBy", traineeSection.TotalMark, dbType: DbType.String, direction: ParameterDirection.Input);      
-            IEnumerable<TraineeSection> result = dBContext.Connection.Query<TraineeSection>("InsertTraineeSection", parm, commandType: CommandType.StoredProcedure);
-            return ReturnTraineeSection().OrderByDescending(x => x.SectionId).FirstOrDefault();
+            var result = dBContext.Connection.ExecuteAsync("InsertTraineeSection", parm, commandType: CommandType.StoredProcedure);
+            return true;
         }
 
         public bool DeleteTraineeSection(int traineeSectionId) {
@@ -79,16 +69,16 @@ namespace LMS.Infra.Repository
             return true;
         }
 
-        public List<TraineeSection> ReturnTraineeSection()
+        public bool UpdateTraineeSection(TraineeSection traineeSection)
         {
-            IEnumerable<TraineeSection> result = dBContext.Connection.Query<TraineeSection>("ReturnTraineeSection", commandType: CommandType.StoredProcedure);
-            return result.ToList();
+            var parm = new DynamicParameters();
+            parm.Add("@P_TraineeSectionId", traineeSection.TraineeSectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@P_TotalMark", traineeSection.TotalMark, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = dBContext.Connection.ExecuteAsync("UpdateTraineeSection", parm, commandType: CommandType.StoredProcedure);
+            return true;
         }
 
-        public List<TraineeSection> UpdateTraineeSection(TraineeSection traineeSection)
-        {
-            throw new NotImplementedException();
-        }
+
 
         public bool InsertTraineeTask(TraineeSectionTask traineeSectionTask)
         {
@@ -97,20 +87,12 @@ namespace LMS.Infra.Repository
             parm.Add("@P_TaskId",traineeSectionTask.TaskId , dbType: DbType.Int32, direction: ParameterDirection.Input);
             parm.Add("@P_Note",traineeSectionTask.Note , dbType: DbType.String, direction: ParameterDirection.Input);
             parm.Add("@P_FileUrl", traineeSectionTask.FileUrl, dbType: DbType.String, direction: ParameterDirection.Input);
-            parm.Add("@P_Mark",traineeSectionTask.Mark , dbType: DbType.Double, direction: ParameterDirection.Input);
-            parm.Add("@P_TrainerNote",traineeSectionTask.TrainerNote , dbType: DbType.String, direction: ParameterDirection.Input);
-            parm.Add("@P_CreatedBy",traineeSectionTask.CreatedBy , dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = dBContext.Connection.ExecuteAsync("InsertTraineeSectionTask", parm, commandType: CommandType.StoredProcedure);
             return true;
         }
         public bool UpdateTraineeTask(TraineeSectionTask traineeSectionTask)
         {
             var parm = new DynamicParameters();
-
-            parm.Add("@P_TraineeSectionId", traineeSectionTask.TraineeSectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parm.Add("@P_TaskId", traineeSectionTask.TaskId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parm.Add("@P_Note", traineeSectionTask.Note, dbType: DbType.String, direction: ParameterDirection.Input);
-            parm.Add("@P_FileUrl", traineeSectionTask.FileUrl, dbType: DbType.String, direction: ParameterDirection.Input);
             parm.Add("@P_Mark", traineeSectionTask.Mark, dbType: DbType.Double, direction: ParameterDirection.Input);
             parm.Add("@P_TrainerNote", traineeSectionTask.TrainerNote, dbType: DbType.String, direction: ParameterDirection.Input);
             parm.Add("@P_TraineeSectionTaskId", traineeSectionTask.TraineeSectionTaskId, dbType: DbType.Int32, direction: ParameterDirection.Input);
@@ -123,6 +105,14 @@ namespace LMS.Infra.Repository
             parm.Add("@P_TraineeSectionTaskId", traineeSectionTaskId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = dBContext.Connection.ExecuteAsync("DeleteTraineeSectionTask", parm, commandType: CommandType.StoredProcedure);
             return true;
+        }
+
+        //Status
+
+        public List<Status> GetAllStatus()
+        {
+            IEnumerable<Status> result = dBContext.Connection.Query<Status>("ReturnAllStatus", commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
 
         //Unit 
@@ -143,28 +133,16 @@ namespace LMS.Infra.Repository
             return true;
         }
 
-        public List<Unit> ReturnSectionUnits(int courseId)
+        public List<Unit> ReturnSectionUnits(int sectionId)
         {
-            throw new NotImplementedException();
+            var parm = new DynamicParameters();
+            parm.Add("@SectionId", sectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<Unit> result = dBContext.Connection.Query<Unit>("ReturnUnitBySectionId", parm, commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
 
-        //Status 
-        public bool InsertStatus(Status status)
-        {
-            throw new NotImplementedException();
-        }
-        public bool UpdateStatus(Status status)
-        {
-            throw new NotImplementedException();
-        }
-        public bool DeleteStatus(int statusId)
-        {
-            throw new NotImplementedException();
-        }
-        public Status GetSectionStatus(int sectionId)
-        {
-            throw new NotImplementedException();
-        }
+       
+       
 
         public List<TrainerSectionDTO> ReturnAllTrainerSections(int trainerId)
         {
@@ -208,7 +186,7 @@ namespace LMS.Infra.Repository
             return result.ToList();
         }
 
-        public Task AddTask(Task task)
+        public bool AddTask(Task task)
         {
             var parm = new DynamicParameters();
             parm.Add("@P_TaskTitle", task.TaskTitle, dbType: DbType.String, direction: ParameterDirection.Input);
@@ -219,12 +197,12 @@ namespace LMS.Infra.Repository
             parm.Add("@P_Date", task.Date, dbType: DbType.DateTime, direction: ParameterDirection.Input);
             parm.Add("@P_Deadline", task.Deadline, dbType: DbType.DateTime, direction: ParameterDirection.Input);
             parm.Add("@P_SectionTrainerId", task.SectionTrainer, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parm.Add("@P_CreatedBy", task.CreatedBy, dbType: DbType.String, direction: ParameterDirection.Input);
+           
 
 
-            IEnumerable<Section> result = dBContext.Connection.Query<Section>("AddTask", parm, commandType: CommandType.StoredProcedure);
+            var result = dBContext.Connection.ExecuteAsync("AddTask", parm, commandType: CommandType.StoredProcedure);
 
-            return ReturnAllTask().OrderByDescending(x => x.TaskId).FirstOrDefault();
+            return true;
         }
 
 
@@ -236,63 +214,22 @@ namespace LMS.Infra.Repository
 
         }
 
-        public Task UpdateTask(Task task)
+        public bool UpdateTask(Task task)
         {
             var parm = new DynamicParameters();
 
             parm.Add("@P_TaskId", task.TaskId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parm.Add("@P_TaskTitle", task.TaskTitle, dbType: DbType.String, direction: ParameterDirection.Input);
-            parm.Add("@P_Mark", task.Mark, dbType: DbType.Double, direction: ParameterDirection.Input);
             parm.Add("@P_Note", task.Note, dbType: DbType.String, direction: ParameterDirection.Input);
-            parm.Add("@P_Weight", task.Weight, dbType: DbType.Double, direction: ParameterDirection.Input);
             parm.Add("@P_FileUrl", task.FileUrl, dbType: DbType.String, direction: ParameterDirection.Input);
-            parm.Add("@P_Date", task.Date, dbType: DbType.DateTime, direction: ParameterDirection.Input);
             parm.Add("@P_Deadline", task.Deadline, dbType: DbType.DateTime, direction: ParameterDirection.Input);
-            parm.Add("@P_SectionTrainerId", task.SectionTrainer, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parm.Add("@P_CreatedBy", task.CreatedBy, dbType: DbType.String, direction: ParameterDirection.Input);
-
-
-            IEnumerable<Section> result = dBContext.Connection.Query<Section>("UpdateTask", parm, commandType: CommandType.StoredProcedure);
-
-            return ReturnAllTask().OrderByDescending(x => x.TaskId = task.TaskId).FirstOrDefault();
-        }
-
-        public TraineeSectionTask AddTraineeSectionTaskId(TraineeSectionTask traineeSectionTask)
-        {
-            var parm = new DynamicParameters();
-            parm.Add("@P_TraineeSectionId", traineeSectionTask.TraineeSectionTaskId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parm.Add("@P_TaskId", traineeSectionTask.TaskId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parm.Add("@P_Note", traineeSectionTask.Note, dbType: DbType.String, direction: ParameterDirection.Input);
-            parm.Add("@P_FileUrl", traineeSectionTask.FileUrl, dbType: DbType.String, direction: ParameterDirection.Input);
-            parm.Add("@P_Mark", traineeSectionTask.Mark, dbType: DbType.Double, direction: ParameterDirection.Input);
-            parm.Add("@P_CreatedBy", traineeSectionTask.CreatedBy, dbType: DbType.String, direction: ParameterDirection.Input);
-
-
-
-            IEnumerable<TraineeSectionTask> result = dBContext.Connection.Query<TraineeSectionTask>("AddTraineeSectionTaskId", parm, commandType: CommandType.StoredProcedure);
-
-            return SelectTraineeSectionTaskId().OrderByDescending(x => x.TraineeSectionTaskId).FirstOrDefault();
+            var result = dBContext.Connection.ExecuteAsync("UpdateTask", parm, commandType: CommandType.StoredProcedure);
+            return true;
         }
 
 
-        public TraineeSectionTask UpdateTraineeSectionTaskId(TraineeSectionTask traineeSectionTask)
-        {
-            var parm = new DynamicParameters();
-            parm.Add("@P_TraineeSectionTaskId", traineeSectionTask.TraineeSectionTaskId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parm.Add("@P_TraineeSectionId", traineeSectionTask.TraineeSectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-
-            parm.Add("@P_TaskId", traineeSectionTask.TaskId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parm.Add("@P_Note", traineeSectionTask.Note, dbType: DbType.String, direction: ParameterDirection.Input);
-            parm.Add("@P_FileUrl", traineeSectionTask.FileUrl, dbType: DbType.String, direction: ParameterDirection.Input);
-            parm.Add("@P_Mark", traineeSectionTask.Mark, dbType: DbType.Double, direction: ParameterDirection.Input);
-            parm.Add("@P_CreatedBy", traineeSectionTask.CreatedBy, dbType: DbType.String, direction: ParameterDirection.Input);
 
 
-
-            IEnumerable<TraineeSectionTask> result = dBContext.Connection.Query<TraineeSectionTask>("UpdateTraineeSectionTaskId", parm, commandType: CommandType.StoredProcedure);
-
-            return SelectTraineeSectionTaskId().OrderByDescending(x => x.TraineeSectionTaskId = traineeSectionTask.TraineeSectionTaskId).FirstOrDefault();
-        }
         public List<TraineeSectionTask> SelectTraineeSectionTaskId()
         {
 

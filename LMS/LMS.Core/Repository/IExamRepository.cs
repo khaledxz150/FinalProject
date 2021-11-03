@@ -1,4 +1,6 @@
-﻿using LMS.Data;
+﻿using LMS.Core.Data;
+using LMS.Core.DTO;
+using LMS.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,15 +16,13 @@ namespace LMS.Core.Repository
         public bool UpdateExam(Exam exam);
         public bool DeleteExam(int examId);
 
-
-        public TraineeSectionExam AddTraineeSectionExam(TraineeSectionExam traineeSectionExam);
-        public bool DeleteTraineeSectionExam(int traineeSectionExamId);
-        public List<TraineeSectionExam> ReturnTraineeSectionExam();
-        public List<TraineeSectionExam> UpdateTraineeSectionExam(TraineeSectionExam traineeSectionExam);
+        //Trainee Section Exam
+        public bool AddTraineeSectionExam(TraineeSectionExam traineeSectionExam);
+       
 
 
         //ExamQuestion
-        public List<ExamQuestion> ReturnExamQuestion(int queryCode);
+        public List<ExamQuestion> ReturnExamQuestion(int queryCode, int courseId);
         public bool InsertExamQuestion(ExamQuestion examQuestion);
         public bool UpdateExamQuestion(ExamQuestion examQuestion);
         public bool DeleteExamQuestion(int questionId);
@@ -30,13 +30,29 @@ namespace LMS.Core.Repository
 
         //ExamOption
 
-        public List<ExamOption> ReturnExamOption(int queryCode);
+        public List<ExamOption> ReturnExamOption(int queryCode, int questionId);
         public bool InsertExamOption(ExamOption examOption);
         public bool UpdateExamOption(ExamOption examOption);
         public bool DeleteExamOption(int optionId);
 
         //ReturnExamBySectionId
         public List<Exam> ReturnExamBySectionId(int sectionId);
+
+        //Section Exam 
+        public bool InsertSectionExam(SectionExam sectionExam);
+
+        //SectionExamAnswer
+        public bool InsertSectionExamAnswer(SectionExamAnswer sectionExamAnswer);
+
+        // <---------------------- DTO --------------------------------> 
+        public List<GetTraineeMarksDTO> GetTraineeMarks(int sectionId);
+        public List<TraineeAnswersDTO> GetTraineeAnswer(int sectionId);
+
+        public List<ExamFormDTO>GetExamForm(int sectionId);
+
+        public List<ExamAnswersDTO>GetExamAnswersDTOs(int sectionId);
+        
+
 
     }
 }

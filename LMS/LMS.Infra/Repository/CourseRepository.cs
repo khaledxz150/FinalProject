@@ -78,7 +78,7 @@ namespace LMS.Infra.Repository
             queryParameters.Add("@P_Description", topic.Description, dbType: DbType.String, direction: ParameterDirection.Input);
             queryParameters.Add("@P_CreatedBy", topic.CreatedBy, dbType: DbType.Int64, direction: ParameterDirection.Input);
             //execute proc
-            var result = _dbContext.Connection.ExecuteAsync("InsssertTopic", queryParameters, commandType: CommandType.StoredProcedure);
+            var result = _dbContext.Connection.ExecuteAsync("InsertTopic", queryParameters, commandType: CommandType.StoredProcedure);
             return true;
         }
         public bool InsertCoupon(Coupon coupon)
@@ -206,9 +206,12 @@ namespace LMS.Infra.Repository
             return result.ToList();
         }
         //need edit
-        public List<Topic> GetCourseTopic()
+        public List<Topic> GetCourseTopic(int courseId)
+            
         {
-            IEnumerable<Topic> result = _dbContext.Connection.Query<Topic>("ReturnAllTopicForCourse", commandType: CommandType.StoredProcedure);
+           var queryParameters = new DynamicParameters();
+            queryParameters.Add("@CourseId", courseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<Topic> result = _dbContext.Connection.Query<Topic>("ReturnAllTopicForCourse",queryParameters, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 
@@ -295,8 +298,8 @@ namespace LMS.Infra.Repository
         public bool UpdateCourseRating(CourseRating courseRating)
         {
             var queryParameters = new DynamicParameters();
-            queryParameters.Add("@star", courseRating.NoOfStar, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            queryParameters.Add("@notes", courseRating.RateNote, dbType: DbType.String, direction: ParameterDirection.Input);
+            queryParameters.Add("@NoOfStar", courseRating.NoOfStar, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            queryParameters.Add("@RateNote", courseRating.RateNote, dbType: DbType.String, direction: ParameterDirection.Input);
             queryParameters.Add("@CourseRatingId", courseRating.CourseRatingId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             //execute proc
             var result = _dbContext.Connection.ExecuteAsync("UpdateCourseRating", queryParameters, commandType: CommandType.StoredProcedure);
@@ -306,9 +309,9 @@ namespace LMS.Infra.Repository
         public bool UpdateTopic(Topic topic)
         {
             var queryParameters = new DynamicParameters();
-            queryParameters.Add("@P_Id", topic.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            queryParameters.Add("@P_Id", topic.TopicId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             queryParameters.Add("@P_TopicName", topic.TopicName, dbType: DbType.String, direction: ParameterDirection.Input);
-            queryParameters.Add("@P_CourseId", topic.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            queryParameters.Add("@P_IsActive", topic.IsActive, dbType: DbType.Boolean, direction: ParameterDirection.Input);
             queryParameters.Add("@P_Description", topic.Description, dbType: DbType.String, direction: ParameterDirection.Input);
 
             //execute proc
@@ -350,6 +353,14 @@ namespace LMS.Infra.Repository
             IEnumerable<CourseRatingDTO> result = _dbContext.Connection.Query<CourseRatingDTO>("ReturnAllCourseRating", Parameter, commandType: CommandType.StoredProcedure);
             return result.ToList();
 
+        }
+
+        public List<CourseRating> GetCourseRatings(int courseId)
+        {
+            var Parameter = new DynamicParameters();
+            Parameter.Add("@courseId", courseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<CourseRating> result = _dbContext.Connection.Query<CourseRating>("ReturnCourseRating", Parameter, commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
 
         public List<CourseDTO> ReturnAllCourses(int queryCode)

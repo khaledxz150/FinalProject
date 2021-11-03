@@ -139,11 +139,11 @@ namespace LMS.Controllers
         {
             return _courseService.GetAllTags();
         }
-        [HttpGet]
-        [Route("[action]")]
-        public List<Topic> GetCourseTopic()
+        [HttpPost]
+        [Route("[action]/{courseId}")]
+        public List<Topic> GetCourseTopic(int courseId)
         {
-            return _courseService.GetCourseTopic();
+            return _courseService.GetCourseTopic(courseId);
         }
         [HttpGet]
         [Route("[action]")]
@@ -212,8 +212,12 @@ namespace LMS.Controllers
         {
             return _courseService.ReturnAllCourseRating(sectionId);
         }
-
-
+        [HttpPost]
+        [Route("[action]/{courseId}")]
+        public List<CourseRating> GetCourseRatings(int courseId)
+        {
+            return _courseService.GetCourseRatings(courseId);
+        }
         //ReturnAllCourses
 
         [HttpPost]

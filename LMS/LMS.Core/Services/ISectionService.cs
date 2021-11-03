@@ -12,16 +12,16 @@ namespace LMS.Core.Services
     public interface ISectionService
     {
         //Section
-        public List<Section> ReturnAllSection();
-        public Section AddSection(Section section);
-        public List<Section> UpdateSection(Section section);
+        
+        public bool AddSection(Section section);
+        public bool UpdateSection(Section section);
         public bool DeleteSection(int SectionId);
 
         //Trainee Section
-        public TraineeSection AddTraineeSection(TraineeSection traineeSection);
+        public bool AddTraineeSection(TraineeSection traineeSection);
         public bool DeleteTraineeSection(int traineeSectionId);
-        public List<TraineeSection> ReturnTraineeSection();
-        public List<TraineeSection> UpdateTraineeSection(TraineeSection traineeSection);
+      
+        public bool UpdateTraineeSection(TraineeSection traineeSection);
 
 
         //Trainee Section Task 
@@ -33,14 +33,11 @@ namespace LMS.Core.Services
         public bool InsertUnit(Unit unit);
         public bool DeleteUnit(int unitId);
 
-        public List<Unit> ReturnSectionUnits(int courseId);
+        public List<Unit> ReturnSectionUnits(int sectionId);
 
-        //Status 
-        public bool InsertStatus(Status status);
-        public bool UpdateStatus(Status status);
-        public bool DeleteStatus(int statusId);
-        public Status GetSectionStatus(int sectionId);
+        //Status
 
+        public List<Status> GetAllStatus();
 
         //ReturnAllTrainerSections
         public List<TrainerSectionDTO> ReturnAllTrainerSections(int trainerId);
@@ -57,15 +54,12 @@ namespace LMS.Core.Services
         //ReturnUnitBySectionId
         public List<Unit> ReturnUnitBySectionId(int sectionId);
 
-        public Task AddTask(Task task);
-        public List<Task> ReturnAllTask();
-        public Task UpdateTask(Task task);
+        public bool AddTask(Task task);
+        
+        public bool UpdateTask(Task task);
 
 
 
-
-        public TraineeSectionTask AddTraineeSectionTaskId(TraineeSectionTask traineeSectionTask);
-        public TraineeSectionTask UpdateTraineeSectionTaskId(TraineeSectionTask traineeSectionTask);
         public List<TraineeSectionTask> SelectTraineeSectionTaskId();
 
         //ReturnTasksOfSection

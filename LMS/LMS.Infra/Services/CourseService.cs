@@ -97,9 +97,9 @@ namespace LMS.Infra.Services
             return _courseRepository.GetAllTags();
         }
 
-        public List<Topic> GetCourseTopic()
+        public List<Topic> GetCourseTopic(int courseId)
         {
-            return _courseRepository.GetCourseTopic();
+            return _courseRepository.GetCourseTopic(courseId);
         }
         public List<Coupon> GetAllCoupons(int queryCody)
         {
@@ -176,6 +176,12 @@ namespace LMS.Infra.Services
         public List<CourseRatingDTO> ReturnAllCourseRating(int sectionId)
         {
             return _courseRepository.ReturnAllCourseRating(sectionId);
+        }
+
+
+        public List<CourseRating> GetCourseRatings(int courseId)
+        {
+            return _courseRepository.GetCourseRatings(courseId);
         }
 
         public List<CourseDTO> ReturnAllCourses(int queryCode)

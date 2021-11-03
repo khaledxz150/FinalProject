@@ -26,7 +26,7 @@ namespace LMS.Core.Repository
         public List<Tag> GetAllTags();
         public bool DeleteTag(int tagId);
         // Topic
-        public List<Topic> GetCourseTopic();
+        public List<Topic> GetCourseTopic(int courseId);
         public bool InsertTopic(Topic topic);
         public bool UpdateTopic(Topic topic);
         public bool DeleteTopic(int topicId);
@@ -48,6 +48,8 @@ namespace LMS.Core.Repository
         //Course Rating 
         public bool InsertCourseRate(CourseRating courseRating);
         public bool UpdateCourseRating(CourseRating courseRating);
+
+        public List<CourseRating> GetCourseRatings(int courseId);
 
         // Type 
         public bool InsertType(LMS.Data.Type type);

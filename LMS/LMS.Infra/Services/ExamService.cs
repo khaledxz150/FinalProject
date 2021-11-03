@@ -1,4 +1,6 @@
-﻿using LMS.Core.Repository;
+﻿using LMS.Core.Data;
+using LMS.Core.DTO;
+using LMS.Core.Repository;
 using LMS.Core.Services;
 using LMS.Data;
 using System;
@@ -18,13 +20,13 @@ namespace LMS.Infra.Services
             this.examRepository = examRepository;
         }
 
-     
+
         public bool DeleteExam(int examId)
         {
             return examRepository.DeleteExam(examId);
         }
 
-   
+
 
         public bool InsertExam(Exam exam)
         {
@@ -41,30 +43,12 @@ namespace LMS.Infra.Services
             return examRepository.UpdateExam(exam);
         }
 
-      
-        public TraineeSectionExam AddTraineeSectionExam(TraineeSectionExam traineeSectionExam)
+
+        public bool AddTraineeSectionExam(TraineeSectionExam traineeSectionExam)
         {
             return examRepository.AddTraineeSectionExam(traineeSectionExam);
         }
 
-    
-        public bool DeleteTraineeSectionExam(int traineeSectionExamId)
-        {
-            return examRepository.DeleteTraineeSectionExam(traineeSectionExamId);
-        }
-
-
-        public List<TraineeSectionExam> ReturnTraineeSectionExam() {
-
-            return examRepository.ReturnTraineeSectionExam();
-
-
-        }
-
-        public List<TraineeSectionExam> UpdateTraineeSectionExam(TraineeSectionExam traineeSectionExam)
-        {
-            return examRepository.UpdateTraineeSectionExam(traineeSectionExam);
-        }
 
         //ExamQuestion
 
@@ -78,9 +62,9 @@ namespace LMS.Infra.Services
             return examRepository.InsertExamQuestion(examQuestion);
         }
 
-        public List<ExamQuestion> ReturnExamQuestion(int queryCode)
+        public List<ExamQuestion> ReturnExamQuestion(int queryCode, int courseId)
         {
-            return examRepository.ReturnExamQuestion(queryCode);
+            return examRepository.ReturnExamQuestion(queryCode, courseId);
         }
 
         public bool UpdateExamQuestion(ExamQuestion examQuestion)
@@ -101,9 +85,9 @@ namespace LMS.Infra.Services
             return examRepository.InsertExamOption(examOption);
         }
 
-        public List<ExamOption> ReturnExamOption(int queryCode)
+        public List<ExamOption> ReturnExamOption(int queryCode, int questionId)
         {
-            return examRepository.ReturnExamOption(queryCode);
+            return examRepository.ReturnExamOption(queryCode, questionId);
         }
 
         public bool UpdateExamOption(ExamOption examOption)
@@ -114,6 +98,33 @@ namespace LMS.Infra.Services
         public List<Exam> ReturnExamBySectionId(int sectionId)
         {
             return examRepository.ReturnExamBySectionId(sectionId);
+        }
+
+        //Section Exam 
+        public bool InsertSectionExam(SectionExam sectionExam)
+        {
+            return examRepository.InsertSectionExam(sectionExam);
+        }
+        //SectionExamAnswer
+        public bool InsertSectionExamAnswer(SectionExamAnswer sectionExamAnswer)
+        {
+            return examRepository.InsertSectionExamAnswer(sectionExamAnswer);
+        }
+        // <---------------------- DTO --------------------------------> 
+        public List<GetTraineeMarksDTO> GetTraineeMarks(int sectionId)
+        {
+            return examRepository.GetTraineeMarks(sectionId);
+        }
+        public List<TraineeAnswersDTO> GetTraineeAnswer(int sectionId) {
+            return examRepository.GetTraineeAnswer(sectionId);     
+        }
+
+        public List<ExamFormDTO> GetExamForm(int sectionId) {
+            return examRepository.GetExamForm(sectionId);
+        }
+
+        public List<ExamAnswersDTO> GetExamAnswersDTOs(int sectionId) {
+            return examRepository.GetExamAnswersDTOs(sectionId);
         }
     }
 }

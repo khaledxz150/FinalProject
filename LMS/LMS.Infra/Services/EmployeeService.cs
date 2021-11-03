@@ -24,7 +24,7 @@ namespace LMS.Infra.Services
             return _employeeRepository.AddNewEmployee(employee);
         }
 
-        public Employee DeleteEmployee(long employeeId)
+        public bool DeleteEmployee(long employeeId)
         {
             return _employeeRepository.DeleteEmployee(employeeId);
         }
