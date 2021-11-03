@@ -13,7 +13,5 @@ namespace LMS.Core.DTO
         public string CourseName { get; set; }
         public string Description { get; set; }
         public string TraineeName { get; set; }
-
-        public String Description { get; set; }
     }
 }

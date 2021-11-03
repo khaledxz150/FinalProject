@@ -52,28 +52,22 @@ namespace LMS.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public TraineeSectionExam AddTraineeSectionExam(TraineeSectionExam traineeSectionExam)
+        public bool AddTraineeSectionExam(TraineeSectionExam traineeSectionExam)
         {
             return examService.AddTraineeSectionExam(traineeSectionExam);
         }
 
 
-        [HttpDelete]
-        [Route("[action]/{traineeSectionExamId}")]
-        public bool DeleteTraineeSectionExam(int traineeSectionExamId) {
 
-        return examService.DeleteTraineeSectionExam(traineeSectionExamId);
-
-        }
 
 
         //ExamOption
 
         [HttpPost]
-        [Route("[action]/{queryCode}")]
-        public List<ExamOption> ReturnExamOption(int queryCode)
+        [Route("[action]")]
+        public List<ExamOption> ReturnExamOption([FromQuery]int queryCode, [FromQuery] int questionId)
         {
-            return examService.ReturnExamOption(queryCode);
+            return examService.ReturnExamOption(queryCode,questionId);
         }
 
         [HttpPost]
@@ -100,10 +94,10 @@ namespace LMS.Controllers
         //ExamQuestion
 
         [HttpPost]
-        [Route("[action]/{queryCode}")]
-        public List<ExamQuestion> ReturnExamQuestion(int queryCode)
+        [Route("[action]")]
+        public List<ExamQuestion> ReturnExamQuestion([FromQuery] int queryCode, [FromQuery] int courseId)
         {
-            return examService.ReturnExamQuestion(queryCode);
+            return examService.ReturnExamQuestion(queryCode,courseId);
         }
 
         [HttpPost]
