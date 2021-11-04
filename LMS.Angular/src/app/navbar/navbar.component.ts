@@ -12,15 +12,15 @@ export class NavbarComponent implements OnInit {
     private spinner: NgxSpinnerService
   ) {
 
-    window.addEventListener("scroll", (event)=>{
-      // debugger;
-      const content:any = document.querySelector('#content');
-      if (window.pageYOffset < content.clientHeight ) {
-        content.classList.add('elementToFadeInAndOut');
-      } else {
-        // box.classList.remove('elementToFadeInAndOut');
-      }
-    });
+    // window.addEventListener("scroll", (event)=>{
+    //   // debugger;
+    //   const content:any = document.querySelector('#content');
+    //   if (window.pageYOffset < content.clientHeight ) {
+    //     content.classList.add('elementToFadeInAndOut');
+    //   } else {
+    //     // box.classList.remove('elementToFadeInAndOut');
+    //   }
+    // });
   }
 
   ngOnInit(): void {

@@ -7,6 +7,11 @@ import { PagesModule } from './pages/pages.module';
 const routes: Routes = [
 
   {
+    path:'',
+    redirectTo:'pages',
+    pathMatch:'full'
+  },
+  {
     path:'pages',
     loadChildren: ()=>PagesModule
   }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Options } from '@angular-slider/ngx-slider';
+import { CourseService } from 'src/app/Service/course.service';
+import { Course } from 'src/app/models/course';
 
 
 @Component({
@@ -9,6 +11,8 @@ import { Options } from '@angular-slider/ngx-slider';
 })
 export class HomeComponent implements OnInit {
 
+
+  responsiveOptions:any;
   // value: number = 100;
   // options: Options = {
   //   floor: 0,
@@ -33,15 +37,32 @@ export class HomeComponent implements OnInit {
 // ];
 
 
-  constructor() {
-
-
+  constructor(public courseService: CourseService) {
+    this.responsiveOptions = [
+      {
+          breakpoint: '1024px',
+          numVisible: 3,
+          numScroll: 3
+      },
+      {
+          breakpoint: '768px',
+          numVisible: 2,
+          numScroll: 2
+      },
+      {
+          breakpoint: '560px',
+          numVisible: 1,
+          numScroll: 1
+      }
+  ];
 
   }
 
+
+
   ngOnInit(): void {
-
-
+    debugger
+     this.courseService.getCourses();
 
   }
 

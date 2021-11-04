@@ -18,6 +18,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { NgImageSliderModule } from 'ng-image-slider';
 
+import {CarouselModule} from 'primeng/carousel';
+import {ButtonModule} from 'primeng/button';
+import {ToastModule} from 'primeng/toast';
+
 
 @NgModule({
   declarations: [
@@ -38,13 +42,17 @@ import { NgImageSliderModule } from 'ng-image-slider';
     AccordionModule,
     HttpClientModule,
     NgxSliderModule,
-    NgImageSliderModule
+    NgImageSliderModule,
+    CarouselModule,
+    ButtonModule,
+    ToastModule
     ],
-  exports:[ FormsModule,
-
+  exports:[
+    CommonModule,
+    FormsModule,
     NgxSpinnerModule,
     MatFormFieldModule,
-     ReactiveFormsModule,
+    ReactiveFormsModule,
     MatInputModule,
     MatProgressSpinnerModule,
     MatCardModule,
@@ -54,7 +62,10 @@ import { NgImageSliderModule } from 'ng-image-slider';
     AccordionModule,
     HttpClientModule,
     NgxSliderModule,
-    NgImageSliderModule
+    NgImageSliderModule,
+    CarouselModule,
+    ButtonModule,
+    ToastModule
 
 
   ]

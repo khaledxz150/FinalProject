@@ -42,12 +42,12 @@
                       <h2>Keep in touch</h2>
                   </div> <!-- section title -->
                   <div class="main-form pt-45">
-                      <form id="contact-form" action="#" method="post" data-toggle="validator">
+                      <form [formGroup] = "contactUsService.contactUsForm" (sumbit) = "send()">
                           <div class="row">
                               <div class="col-md-6">
 
                                   <div class="singel-form form-group">
-                                      <input name="name" type="text" placeholder="Your Name*" required>
+                                      <input name="name" type="text" placeholder="Your Name*" formControlName="name" data-error="Name is required." required="required">
                                       <div class="help-block with-errors"></div>
 
 
@@ -55,29 +55,29 @@
                               </div>
                               <div class="col-md-6">
                                   <div class="singel-form form-group">
-                                      <input name="email" type="email" placeholder="Email*"  required>
+                                      <input name="email" type="email" placeholder="Email*" formControlName="email" data-error="Valid email is required." required="required">
                                       <div class="help-block with-errors"></div>
 
                                   </div> <!-- singel form -->
                               </div>
                               <div class="col-md-6">
                                   <div class="singel-form form-group">
-                                      <input type="text"  placeholder="Subject*" required>
+                                      <input type="text"  placeholder="Subject*" formControlName="subject" data-error="Subject is required." required="required">
                                       <div class="help-block with-errors"></div>
 
                                   </div> <!-- singel form -->
                               </div>
                               <div class="col-md-6">
                                   <div class="singel-form form-group">
-                                      <input type="text" placeholder="Phone">
-                                      <div class="help-block with-errors"></div>
+                                      <input type="text" placeholder="Phone" formControlName="phoneNumber">
+                                      <!-- <div class="help-block with-errors"></div> -->
                                   </div> <!-- singel form -->
                               </div>
                               <div class="col-md-12">
 
                                   <div class="singel-form form-group">
 
-                                      <textarea  placeholder="Messege*" required></textarea>
+                                      <textarea  placeholder="Messege*" formControlName="description" data-error="Please,leave us a message." required="required"></textarea>
                                       <div class="help-block with-errors"></div>
 
 
@@ -86,8 +86,10 @@
                               <p class="form-message"></p>
                               <div class="col-md-12">
                                   <div class="singel-form">
-                                      <button type="submit" class="main-btn">Send</button>
+                                      <button (click) = "send()" class="main-btn" type="submit" mat-raised-button [disabled]="!contactUsService.contactUsForm.valid">Send</button>
                                   </div> <!-- singel form -->
+
+
                               </div>
                           </div> <!-- row -->
                       </form>
