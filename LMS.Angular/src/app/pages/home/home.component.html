@@ -1,15 +1,18 @@
  <!--====== SLIDER PART START ======-->
 
- <!-- <ngx-slider [(value)]="value" [options]="options"></ngx-slider> -->
- <!-- <ng-image-slider [images]="imageObject" #nav></ng-image-slider> -->
- <!-- <ng-image-slider #nav
-    [images]="imageObject"
-    [infinite]="false"
-    [autoSlide]="1"
-    [imageSize]="{width: '25%', height: 200}"
-    slideImage="1">
-  </ng-image-slider> -->
-
+  <!-- <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="d-block w-100" src="../../../assets/image/page-banner-1.jpg" alt="First slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100" src="../../../assets/image/page-banner-1.jpg" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+            <img class="d-block w-100" src="../../../assets/image/page-banner-1.jpg" alt="Third slide">
+            </div>
+      </div>
+  </div> -->
 
   <section id="slider-part" class="slider-active">
     <div class="single-slider bg_cover pt-150" style="background-image: url(../../assets/image/slider.jpg)" data-overlay="4">
@@ -90,6 +93,78 @@
 
 <!--====== ABOUT PART ENDS ======-->
 
+    <!--====== CATEGORY PART START ======-->
+
+  <section id="category-3" class="category-2-items pt-50 pb-80 gray-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-8 col-sm-7">
+            <div class="section-title pb-60">
+                <h5>Our Category</h5>
+                <h2>Discover Categories </h2>
+            </div> <!-- section title -->
+        </div>
+        </div>
+          <div class="row">
+
+              <div class="col-lg-3 col-md-6">
+                  <div class="singel-items text-center mt-30">
+                      <div class="items-image">
+                          <img src="../../../assets/image/s-1.jpg" alt="Category">
+                      </div>
+                      <div class="items-cont">
+                          <a href="#">
+                              <h5>App Design</h5>
+                              <span>24 courses</span>
+                          </a>
+                      </div>
+                  </div> <!-- singel items -->
+              </div>
+              <div class="col-lg-3 col-md-6">
+                  <div class="singel-items text-center mt-30">
+                      <div class="items-image">
+                          <img src="../../../assets/image/s-1.jpg" alt="Category">
+                      </div>
+                      <div class="items-cont">
+                          <a href="#">
+                              <h5>UI/ UX Design</h5>
+                              <span>103 courses</span>
+                          </a>
+                      </div>
+                  </div> <!-- singel items -->
+              </div>
+              <div class="col-lg-3 col-md-6">
+                  <div class="singel-items text-center mt-30">
+                      <div class="items-image">
+                          <img src="../../../assets/image/s-1.jpg" alt="Category">
+                      </div>
+                      <div class="items-cont">
+                          <a href="#">
+                              <h5>App development</h5>
+                              <span>57 courses</span>
+                          </a>
+                      </div>
+                  </div> <!-- singel items -->
+              </div>
+              <div class="col-lg-3 col-md-6">
+                  <div class="singel-items text-center mt-30">
+                      <div class="items-image">
+                          <img src="../../../assets/image/s-1.jpg" alt="Category">
+                      </div>
+                      <div class="items-cont">
+                          <a href="#">
+                              <h5>Photography</h5>
+                              <span>17 courses</span>
+                          </a>
+                      </div>
+                  </div> <!-- singel items -->
+              </div>
+          </div> <!-- row -->
+      </div> <!-- container -->
+  </section>
+
+  <!--====== CATEGORY PART ENDS ======-->
+
 
 <!--====== COURSE PART START ======-->
 
@@ -105,20 +180,20 @@
       </div> <!-- row -->
 
 
+      <!-- <p-image src="../../../assets/image/s-1.jpg"  [preview]="true" alt="Image" width="250"></p-image> -->
 
 
     <p-carousel [value]="courseService.courses" styleClass="custom-carousel" [numVisible]="3" [numScroll]="3" [circular]="true" [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
-      <!-- <ng-template pTemplate="header">
-          <h5>Circular, AutoPlay, 3 Items per Page and Scroll by 1</h5>
-      </ng-template> -->
+
       <ng-template let-course pTemplate="item">
           <div class="product-item">
               <div class="product-item-content">
                   <div class="p-mb-3">
+
                       <img src="../../../assets/image/s-1.jpg" [alt]="course.CourseName" class="product-image" />
                   </div>
                   <div>
-                      <h4 class="p-mb-1">{{course.courseName}}</h4>
+                      <h4 class="p-mb-1 py-3">{{course.courseName}}</h4>
                       <h6 class="p-mt-0 p-mb-3">${{course.coursePrice}}</h6>
                       <!-- <span [class]="'product-badge status-'+product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span> -->
                       <!-- <div class="car-buttons p-mt-5">
@@ -129,7 +204,18 @@
                   </div>
               </div>
           </div>
+
       </ng-template>
+
+      <ng-template pTemplate="footer">
+        <div class="moreCat">
+          <fa-icon [icon]="faAngleDoubleRight"></fa-icon> <span style="padding-right: 10px; cursor: pointer;">For more</span>
+
+        </div>
+        <!-- <h5>Circular, AutoPlay, 3 Items per Page and Scroll by 1</h5> -->
+        <!-- <span class="moreCat">more</span> <i class="pi pi-angle-double-right moreCat"></i> -->
+    </ng-template>
+
   </p-carousel>
       <!-- <div class="row course-slied mt-30">
         <app-course-card class="col-lg-4"></app-course-card>
@@ -144,76 +230,166 @@
 
 <!--====== COURSE PART ENDS ======-->
 
-<!--====== TEACHERS PART START ======-->
+ <!--====== PUBLICATION PART START ======-->
 
-<section id="teachers-part" class="pt-70 pb-120">
-  <div class="container">
-      <div class="row">
-          <div class="col-lg-5">
-              <div class="section-title mt-50">
-                  <h5>Featured Trainers</h5>
-                  <h2>Meet Our Trainers</h2>
-              </div> <!-- section title -->
-              <div class="teachers-cont">
-                  <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet . Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt  mauris. <br> <br> auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet . Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt  mauris</p>
-                  <a href="#" class="main-btn mt-55">Career with us</a>
-              </div> <!-- teachers cont -->
-          </div>
-          <div class="col-lg-6 offset-lg-1">
-              <div class="teachers mt-20">
-                  <div class="row">
-                      <div class="col-sm-6">
-                          <div class="singel-teachers mt-30 text-center">
-                              <div class="image">
-                                  <img src="../../assets/image/trainer/t-1.jpg" alt="Teachers">
-                              </div>
-                              <div class="cont">
-                                  <a href="teachers-singel.html"><h6>Mark alen</h6></a>
-                                  <span>Vice chencelor</span>
-                              </div>
-                          </div> <!-- singel teachers -->
+  <section id="publication-part" class="pt-115 pb-120 gray-2">
+      <div class="container">
+          <div class="row align-items-end">
+              <div class="col-lg-6 col-md-8 col-sm-7">
+                  <div class="section-title pb-60">
+                      <h5>Courses</h5>
+                      <h2>From Store </h2>
+                  </div> <!-- section title -->
+              </div>
+              <div class="col-lg-6 col-md-4 col-sm-5">
+                  <div class="products-btn text-right pb-60">
+                      <a href="#" class="main-btn">All Products</a>
+                  </div> <!-- products btn -->
+              </div>
+          </div> <!-- row -->
+          <div class="row justify-content-center">
+              <div class="col-lg-3 col-md-6 col-sm-8">
+                  <div class="singel-publication mt-30">
+                      <div class="image">
+                          <img src="../../../assets/image/publication/p-1.jpg" alt="Publication">
+                          <div class="add-cart">
+                              <ul>
+                                  <li><a href="#"><fa-icon [icon]="faShoppingCart"></fa-icon> </a></li>
+                                  <li><a href="#"><fa-icon [icon]="faHeart"></fa-icon></a></li>
+                              </ul>
+                          </div>
                       </div>
-                      <div class="col-sm-6">
-                          <div class="singel-teachers mt-30 text-center">
-                              <div class="image">
-                                  <img src="../../assets/image/trainer/t-2.jpg" alt="Teachers">
-                              </div>
-                              <div class="cont">
-                                  <a href="teachers-singel.html"><h6>David card</h6></a>
-                                  <span>Pro chencelor</span>
-                              </div>
-                          </div> <!-- singel teachers -->
+                      <div class="cont">
+                          <div class="name">
+                              <a href="shop-singel.html"><h6>Set for life </h6></a>
+                              <span>By Scott Trench</span>
+                          </div>
+                          <div class="button text-right">
+                              <a href="#" class="main-btn">Buy Now ($50)</a>
+                          </div>
                       </div>
-                      <div class="col-sm-6">
-                          <div class="singel-teachers mt-30 text-center">
-                              <div class="image">
-                                  <img src="../../assets/image/trainer/t-3.jpg" alt="Teachers">
-                              </div>
-                              <div class="cont">
-                                  <a href="teachers-singel.html"><h6>Rebeka alig</h6></a>
-                                  <span>Pro chencelor</span>
-                              </div>
-                          </div> <!-- singel teachers -->
+                  </div> <!-- singel publication -->
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-8">
+                  <div class="singel-publication mt-30">
+                      <div class="image">
+                          <img src="../../../assets/image/publication/p-2.jpg" alt="Publication">
+                          <div class="add-cart">
+                              <ul>
+                                <li><a href="#"><fa-icon [icon]="faShoppingCart"></fa-icon> </a></li>
+                                  <li><a href="#"><fa-icon [icon]="faHeart"></fa-icon></a></li>
+                              </ul>
+                          </div>
                       </div>
-                      <div class="col-sm-6">
-                          <div class="singel-teachers mt-30 text-center">
-                              <div class="image">
-                                  <img src="../../assets/image/trainer/t-4.jpg" alt="Teachers">
-                              </div>
-                              <div class="cont">
-                                  <a href="teachers-singel.html"><h6>Hanna bein</h6></a>
-                                  <span>Aerobics head</span>
-                              </div>
-                          </div> <!-- singel teachers -->
+                      <div class="cont">
+                          <div class="name">
+                              <a href="shop-singel.html"><h6>A Daughters </h6></a>
+                              <span>By Scott Trench</span>
+                          </div>
+                          <div class="button text-right">
+                              <a href="#" class="main-btn">Buy Now ($30)</a>
+                          </div>
                       </div>
-                  </div> <!-- row -->
-              </div> <!-- teachers -->
-          </div>
-      </div> <!-- row -->
-  </div> <!-- container -->
-</section>
+                  </div> <!-- singel publication -->
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-8">
+                  <div class="singel-publication mt-30">
+                      <div class="image">
+                          <img src="../../../assets/image/publication/p-3.jpg" alt="Publication">
+                          <div class="add-cart">
+                              <ul>
+                                <li><a href="#"><fa-icon [icon]="faShoppingCart"></fa-icon> </a></li>
+                                <li><a href="#"><fa-icon [icon]="faHeart"></fa-icon></a></li>
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="cont">
+                          <div class="name">
+                              <a href="shop-singel.html"><h6>A Magnet </h6></a>
+                              <span>By Scott Trench</span>
+                          </div>
+                          <div class="button text-right">
+                              <a href="#" class="main-btn">Buy Now ($20)</a>
+                          </div>
+                      </div>
+                  </div> <!-- singel publication -->
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-8">
+                  <div class="singel-publication mt-30">
+                      <div class="image">
+                          <img src="../../../assets/image/publication/p-4.jpg" alt="Publication">
+                          <div class="add-cart">
+                              <ul>
+                                <li><a href="#"><fa-icon [icon]="faShoppingCart"></fa-icon> </a></li>
+                                <li><a href="#"><fa-icon [icon]="faHeart"></fa-icon></a></li>
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="cont">
+                          <div class="name">
+                              <a href="shop-singel.html"><h6>Pices of light</h6></a>
+                              <span>By Scott Trench</span>
+                          </div>
+                          <div class="button text-right">
+                              <a href="#" class="main-btn">Buy Now ($75)</a>
+                          </div>
+                      </div>
+                  </div> <!-- singel publication -->
+              </div>
+          </div> <!-- row -->
+      </div> <!-- container -->
+  </section>
 
-<!--====== TEACHERS PART ENDS ======-->
+  <!--====== PUBLICATION PART ENDS ======-->
+
+
+
+
+    <!--====== TEASTIMONIAL PART START ======-->
+
+    <section id="testimonial" class="bg_cover pt-115 pb-115" data-overlay="8" style="background-image: url(../../../assets/image/bg-2.jpg)">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-6">
+                  <div class="section-title pb-40">
+                      <h5>Testimonial</h5>
+                      <h2>What they say</h2>
+                  </div> <!-- section title -->
+              </div>
+          </div> <!-- row -->
+          <div class="row testimonial-slied mt-40">
+            <p-carousel [value]="testimonialService.testimonial" styleClass="custom-carousel"  [numVisible]="2"  [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+
+              <ng-template let-testimonial pTemplate="item">
+                  <div class="product-item">
+                      <div class="carousel">
+                        <div>
+                          <div class="singel-testimonial">
+                              <div class="testimonial-thum">
+                                  <img src="../../assets/image/trainer/t-1.jpg" alt="Testimonial" width="90" height="90">
+                                  <div class="quote">
+                                      <i class="fa fa-quote-right"><fa-icon [icon]="faQuoteRight"></fa-icon></i>
+                                  </div>
+                              </div>
+                              <div class="testimonial-cont">
+                                  <p>{{testimonial.description}}</p>
+                                  <h6>{{testimonial.traineeName}}</h6>
+                                  <span>Trainee</span>
+                              </div>
+                          </div> <!-- singel testimonial -->
+                      </div>
+                      </div>
+                  </div>
+
+              </ng-template>
+
+
+          </p-carousel>
+          </div> <!-- testimonial slied -->
+      </div> <!-- container -->
+  </section>
+
+  <!--====== TEASTIMONIAL PART ENDS ======-->
 
 
 

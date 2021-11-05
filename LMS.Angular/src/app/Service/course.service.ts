@@ -11,7 +11,7 @@ export class CourseService {
 
   courses: Course[]=[];
 
-  constructor(private http: HttpClient,private toastr:ToastrService,) { }
+  constructor(private http: HttpClient,private toastr:ToastrService) { }
 
 
   getCourses(){
@@ -21,14 +21,14 @@ export class CourseService {
     // debugger;
     //  this.spinner.show();
 
-     this.http.get(environment.apiUrl + 'Course/ReturnAllCourses/'+0).subscribe((res:any)=>{
+     this.http.post(environment.apiUrl + 'Course/ReturnAllCourses/1',1).subscribe((res:any)=>{
       // debugger
       // this.spinner.hide();
       // this.toastr.success('Send Message successfully, Thank You :)');
       debugger
       console.log(res)
       this.courses = res;
-      console.log( "test",this.courses)
+      // console.log( "test",this.courses)
       // this.toastr.success('Data Retrived !!!');
 
 

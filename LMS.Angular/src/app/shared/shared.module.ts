@@ -21,7 +21,8 @@ import { NgImageSliderModule } from 'ng-image-slider';
 import {CarouselModule} from 'primeng/carousel';
 import {ButtonModule} from 'primeng/button';
 import {ToastModule} from 'primeng/toast';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {ImageModule} from 'primeng/image';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,9 @@ import {ToastModule} from 'primeng/toast';
     NgImageSliderModule,
     CarouselModule,
     ButtonModule,
-    ToastModule
+    ToastModule,
+    FontAwesomeModule,
+    ImageModule
     ],
   exports:[
     CommonModule,
@@ -65,7 +68,9 @@ import {ToastModule} from 'primeng/toast';
     NgImageSliderModule,
     CarouselModule,
     ButtonModule,
-    ToastModule
+    ToastModule,
+    FontAwesomeModule,
+    ImageModule
 
 
   ]
