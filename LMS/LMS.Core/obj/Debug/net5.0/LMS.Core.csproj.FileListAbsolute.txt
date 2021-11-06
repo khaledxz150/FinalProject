@@ -21,7 +21,6 @@ C:\GitHub\FinalProject\FinalProject\LMS\LMS.Core\obj\Debug\net5.0\LMS.Core.cspro
 C:\GitHub\FinalProject\FinalProject\LMS\LMS.Core\obj\Debug\net5.0\LMS.Core.dll
 C:\GitHub\FinalProject\FinalProject\LMS\LMS.Core\obj\Debug\net5.0\ref\LMS.Core.dll
 C:\GitHub\FinalProject\FinalProject\LMS\LMS.Core\obj\Debug\net5.0\LMS.Core.pdb
-C:\GitHub\FinalProject\FinalProject\LMS\LMS.Core\obj\Debug\net5.0\LMS.Core.csproj.AssemblyReference.cache
 C:\GitHub\FinalProject\LMS\LMS.Core\bin\Debug\net5.0\LMS.Core.deps.json
 C:\GitHub\FinalProject\LMS\LMS.Core\bin\Debug\net5.0\LMS.Core.dll
 C:\GitHub\FinalProject\LMS\LMS.Core\bin\Debug\net5.0\ref\LMS.Core.dll

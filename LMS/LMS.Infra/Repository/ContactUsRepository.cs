@@ -35,6 +35,8 @@ namespace LMS.Infra.Repository
             parameters.Add("@Email", contactUs.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             parameters.Add("@PhoneNumber", contactUs.PhoneNumber, dbType: DbType.String, direction: ParameterDirection.Input);
             parameters.Add("@Description", contactUs.Description, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameters.Add("@Name", contactUs.Description, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameters.Add("@Subject", contactUs.Description, dbType: DbType.String, direction: ParameterDirection.Input);
 
             var result = dBContext.Connection.ExecuteAsync("InsertMessage", parameters, commandType: CommandType.StoredProcedure);
             return true;
