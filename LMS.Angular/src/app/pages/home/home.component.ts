@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Options } from '@angular-slider/ngx-slider';
 import { CourseService } from 'src/app/Service/course.service';
 import { Course } from 'src/app/models/course';
-
+import { faAngleDoubleRight, faShoppingCart, faHeart, faQuoteRight} from '@fortawesome/free-solid-svg-icons';
+import { TestimonialService } from 'src/app/Service/testimonial.service';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,12 @@ import { Course } from 'src/app/models/course';
   styleUrls: ['./home.component.css','../../../assets/css/default.css','../../../assets/css/slick.css','../../../assets/css/style.css']
 })
 export class HomeComponent implements OnInit {
+
+  // Icons
+  faAngleDoubleRight = faAngleDoubleRight
+  faShoppingCart = faShoppingCart
+  faHeart = faHeart
+  faQuoteRight = faQuoteRight
 
 
   responsiveOptions:any;
@@ -37,7 +44,7 @@ export class HomeComponent implements OnInit {
 // ];
 
 
-  constructor(public courseService: CourseService) {
+  constructor(public courseService: CourseService, public testimonialService: TestimonialService) {
     this.responsiveOptions = [
       {
           breakpoint: '1024px',
@@ -63,6 +70,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     debugger
      this.courseService.getCourses();
+     this.testimonialService.getTestimonial();
 
   }
 
