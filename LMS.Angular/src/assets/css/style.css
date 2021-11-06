@@ -1254,19 +1254,35 @@ p {
     -webkit-transition: all 0.4s linear;
     transition: all 0.4s linear;
 }
+
 .singel-course:hover .thum .image img{
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
 }
+
 
 .singel-course .thum .price{
     position: absolute;
     right: 60px;
     bottom: -24px;
 }
+.singel-course .thum .type{
+  background: #0c8f39;
+    color: #fff;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    width: 114px;
+    position: absolute;
+    top: 15px;
+    left: -26px;
+    text-align: center;
+    font-size: .6rem;
+    padding: 5px;
+}
 .singel-course .thum .price span{
     font-size: 14px;
-    color: #12120f;
+    /* color: #12120f; */
+    color: #fcfcfc;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     width: 55px;
@@ -1916,17 +1932,21 @@ p {
 ======================================================*/
 
 .category-2-items{}
-.category-2-items .singel-items{
+/* .category-2-items */
+ .singel-items{
     position: relative;
 }
-.category-2-items .singel-items .items-image{
+/* .category-2-items */
+ .singel-items .items-image{
     position: relative;
 }
-.category-2-items .singel-items .items-image img{
+/* .category-2-items */
+.singel-items .items-image img{
     width: 100%;
     border-radius: 5px;
 }
-.category-2-items .singel-items .items-image::before{
+/* .category-2-items */
+.singel-items .items-image::before{
     content: '';
     position: absolute;
     top: 0;
@@ -1937,7 +1957,8 @@ p {
     background-color: #7c7c7b99;
     border-radius: 5px;
 }
-.category-2-items .singel-items .items-cont {
+/* .category-2-items */
+.singel-items .items-cont {
     position: absolute;
     top: 50%;
     left: 0;
@@ -1945,17 +1966,20 @@ p {
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
 }
-.category-2-items .singel-items .items-cont h5{
+/* .category-2-items */
+.singel-items .items-cont h5{
     color: #fff;
     font-size: 18px;
     -webkit-transition: all 0.4s linear;
     transition: all 0.4s linear;
 }
-.category-2-items .singel-items .items-cont span{
+/* .category-2-items */
+ .singel-items .items-cont span{
     font-size: 14px;
     color: #fff;
 }
-.category-2-items .singel-items .items-cont h5:hover{
+/* .category-2-items  */
+.singel-items .items-cont h5:hover{
     color: #af1a2d;
 }
 

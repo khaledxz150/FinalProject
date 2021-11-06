@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TrainerService } from 'src/app/Service/trainer.service';
 
 @Component({
   selector: 'app-aboutus',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutusComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public trainerService: TrainerService
+  ) { }
 
   ngOnInit(): void {
+    this.trainerService.getTrainer();
+
   }
+
+
 
 }

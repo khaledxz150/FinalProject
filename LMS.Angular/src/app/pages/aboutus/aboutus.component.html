@@ -115,50 +115,18 @@
               </div>
           </div> <!-- row -->
           <div class="row">
-            <div class="col-lg-3 col-sm-6">
+            <div class="col-lg-3 col-sm-6" *ngFor="let trainer of trainerService.trainer">
                 <div class="singel-teachers mt-30 text-center">
                     <div class="image">
-                        <img src="../../assets/image/trainer/t-1.jpg" alt="Teachers">
+                        <img src="../../assets/image/trainer/{{trainer.image}}" alt="Teachers">
                     </div>
                     <div class="cont">
-                        <a href="teachers-singel.html"><h6>Mark alen</h6></a>
-                        <span>Vice chencelor</span>
+                        <a href="teachers-singel.html"><h6>{{trainer.fname}} {{trainer.lname}}</h6></a>
+                        <span>Trainer</span>
                     </div>
                 </div> <!-- singel teachers -->
             </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="singel-teachers mt-30 text-center">
-                    <div class="image">
-                        <img src="../../assets/image/trainer/t-2.jpg" alt="Teachers">
-                    </div>
-                    <div class="cont">
-                        <a href="teachers-singel.html"><h6>Mark alen</h6></a>
-                        <span>Vice chencelor</span>
-                    </div>
-                </div> <!-- singel teachers -->
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="singel-teachers mt-30 text-center">
-                    <div class="image">
-                        <img src="../../assets/image/trainer/t-3.jpg" alt="Teachers">
-                    </div>
-                    <div class="cont">
-                        <a href="teachers-singel.html"><h6>Mark alen</h6></a>
-                        <span>Vice chencelor</span>
-                    </div>
-                </div> <!-- singel teachers -->
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="singel-teachers mt-30 text-center">
-                    <div class="image">
-                        <img src="../../assets/image/trainer/t-4.jpg" alt="Teachers">
-                    </div>
-                    <div class="cont">
-                        <a href="teachers-singel.html"><h6>Mark alen</h6></a>
-                        <span>Vice chencelor</span>
-                    </div>
-                </div> <!-- singel teachers -->
-            </div>
+
 
         </div> <!-- row -->
       </div> <!-- container -->
