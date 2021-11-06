@@ -36,6 +36,8 @@
 <!--====== SLIDER PART ENDS ======-->
 
 
+
+
 <!--====== ABOUT PART START ======-->
 
 <section id="about-part" class="pt-65">
@@ -51,39 +53,7 @@
                   <a routerLink="../aboutus" class="main-btn mt-55">Learn More</a>
               </div>
           </div> <!-- about cont -->
-          <div class="col-lg-6 offset-lg-1">
-              <div class="about-event mt-50">
-                  <div class="event-title">
-                      <h3>Upcoming events</h3>
-                  </div> <!-- event title -->
-                  <ul>
-                      <li>
-                          <div class="singel-event">
-                              <span><i class="fa fa-calendar"></i> 2 December 2018</span>
-                              <a href="events-singel.html"><h4>Campus clean workshop</h4></a>
-                              <span><i class="fa fa-clock-o"></i> 10:00 Am - 3:00 Pm</span>
-                              <span><i class="fa fa-map-marker"></i> Rc Auditorim</span>
-                          </div>
-                      </li>
-                      <li>
-                          <div class="singel-event">
-                              <span><i class="fa fa-calendar"></i> 2 December 2018</span>
-                              <a href="events-singel.html"><h4>Tech Summit</h4></a>
-                              <span><i class="fa fa-clock-o"></i> 10:00 Am - 3:00 Pm</span>
-                              <span><i class="fa fa-map-marker"></i> Rc Auditorim</span>
-                          </div>
-                      </li>
-                      <li>
-                          <div class="singel-event">
-                              <span><i class="fa fa-calendar"></i> 2 December 2018</span>
-                              <a href="events-singel.html"><h4>Enviroement conference</h4></a>
-                              <span><i class="fa fa-clock-o"></i> 10:00 Am - 3:00 Pm</span>
-                              <span><i class="fa fa-map-marker"></i> Rc Auditorim</span>
-                          </div>
-                      </li>
-                  </ul>
-              </div> <!-- about event -->
-          </div>
+
       </div> <!-- row -->
   </div> <!-- container -->
   <div class="about-bg">
@@ -106,59 +76,20 @@
         </div>
         </div>
           <div class="row">
+            <div class="cards">
+              <app-category-card *ngFor="let card of categoryService.category"
 
-              <div class="col-lg-3 col-md-6">
-                  <div class="singel-items text-center mt-30">
-                      <div class="items-image">
-                          <img src="../../../assets/image/s-1.jpg" alt="Category">
-                      </div>
-                      <div class="items-cont">
-                          <a href="#">
-                              <h5>App Design</h5>
-                              <span>24 courses</span>
-                          </a>
-                      </div>
-                  </div> <!-- singel items -->
-              </div>
-              <div class="col-lg-3 col-md-6">
-                  <div class="singel-items text-center mt-30">
-                      <div class="items-image">
-                          <img src="../../../assets/image/s-1.jpg" alt="Category">
-                      </div>
-                      <div class="items-cont">
-                          <a href="#">
-                              <h5>UI/ UX Design</h5>
-                              <span>103 courses</span>
-                          </a>
-                      </div>
-                  </div> <!-- singel items -->
-              </div>
-              <div class="col-lg-3 col-md-6">
-                  <div class="singel-items text-center mt-30">
-                      <div class="items-image">
-                          <img src="../../../assets/image/s-1.jpg" alt="Category">
-                      </div>
-                      <div class="items-cont">
-                          <a href="#">
-                              <h5>App development</h5>
-                              <span>57 courses</span>
-                          </a>
-                      </div>
-                  </div> <!-- singel items -->
-              </div>
-              <div class="col-lg-3 col-md-6">
-                  <div class="singel-items text-center mt-30">
-                      <div class="items-image">
-                          <img src="../../../assets/image/s-1.jpg" alt="Category">
-                      </div>
-                      <div class="items-cont">
-                          <a href="#">
-                              <h5>Photography</h5>
-                              <span>17 courses</span>
-                          </a>
-                      </div>
-                  </div> <!-- singel items -->
-              </div>
+              [categoryId] = "card.categoryId"
+              [categoryName]="card.name"
+              [categoryImage]="card.image"
+            >
+            </app-category-card>
+            </div>
+
+
+
+
+
           </div> <!-- row -->
       </div> <!-- container -->
   </section>
@@ -166,188 +97,116 @@
   <!--====== CATEGORY PART ENDS ======-->
 
 
-<!--====== COURSE PART START ======-->
-
-<section id="course-part" class="pt-115 pb-120 gray-bg">
-  <div class="container">
-      <div class="row">
-          <div class="col-lg-6">
-              <div class="section-title pb-45">
-                  <h5>Our course</h5>
-                  <h2>Featured courses </h2>
-              </div> <!-- section title -->
-          </div>
-      </div> <!-- row -->
 
 
-      <!-- <p-image src="../../../assets/image/s-1.jpg"  [preview]="true" alt="Image" width="250"></p-image> -->
 
+    <!--====== COURSE PART START ======-->
 
-    <p-carousel [value]="courseService.courses" styleClass="custom-carousel" [numVisible]="3" [numScroll]="3" [circular]="true" [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
-
-      <ng-template let-course pTemplate="item">
-          <div class="product-item">
-              <div class="product-item-content">
-                  <div class="p-mb-3">
-
-                      <img src="../../../assets/image/s-1.jpg" [alt]="course.CourseName" class="product-image" />
-                  </div>
-                  <div>
-                      <h4 class="p-mb-1 py-3">{{course.courseName}}</h4>
-                      <h6 class="p-mt-0 p-mb-3">${{course.coursePrice}}</h6>
-                      <!-- <span [class]="'product-badge status-'+product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span> -->
-                      <!-- <div class="car-buttons p-mt-5">
-                          <p-button type="button" styleClass="p-button p-button-rounded p-mr-2" icon="pi pi-search"></p-button>
-                          <p-button type="button" styleClass="p-button-success p-button-rounded p-mr-2" icon="pi pi-star"></p-button>
-                          <p-button type="button" styleClass="p-button-help p-button-rounded" icon="pi pi-cog"></p-button>
-                      </div> -->
-                  </div>
-              </div>
-          </div>
-
-      </ng-template>
-
-      <ng-template pTemplate="footer">
-        <div class="moreCat">
-          <fa-icon [icon]="faAngleDoubleRight"></fa-icon> <span style="padding-right: 10px; cursor: pointer;">For more</span>
-
-        </div>
-        <!-- <h5>Circular, AutoPlay, 3 Items per Page and Scroll by 1</h5> -->
-        <!-- <span class="moreCat">more</span> <i class="pi pi-angle-double-right moreCat"></i> -->
-    </ng-template>
-
-  </p-carousel>
-      <!-- <div class="row course-slied mt-30">
-        <app-course-card class="col-lg-4"></app-course-card>
-        <app-course-card  class="col-lg-4"></app-course-card>
-        <app-course-card  class="col-lg-4"></app-course-card>
-        <app-course-card  class="col-lg-4"></app-course-card>
-        <app-course-card  class="col-lg-4"></app-course-card>
-        <app-course-card  class="col-lg-4"></app-course-card>
-      </div> course slied -->
-  </div> <!-- container -->
-</section>
-
-<!--====== COURSE PART ENDS ======-->
-
- <!--====== PUBLICATION PART START ======-->
-
-  <section id="publication-part" class="pt-115 pb-120 gray-2">
+  <section id="course-part" class="pt-115 pb-120 gray-bg">
       <div class="container">
-          <div class="row align-items-end">
-              <div class="col-lg-6 col-md-8 col-sm-7">
-                  <div class="section-title pb-60">
-                      <h5>Courses</h5>
-                      <h2>From Store </h2>
+          <div class="row">
+              <div class="col-lg-6">
+                  <div class="section-title pb-45">
+                      <h5>Our course</h5>
+                      <h2>Featured courses </h2>
                   </div> <!-- section title -->
               </div>
-              <div class="col-lg-6 col-md-4 col-sm-5">
-                  <div class="products-btn text-right pb-60">
-                      <a href="#" class="main-btn">All Products</a>
-                  </div> <!-- products btn -->
-              </div>
           </div> <!-- row -->
-          <div class="row justify-content-center">
-              <div class="col-lg-3 col-md-6 col-sm-8">
-                  <div class="singel-publication mt-30">
-                      <div class="image">
-                          <img src="../../../assets/image/publication/p-1.jpg" alt="Publication">
-                          <div class="add-cart">
-                              <ul>
-                                  <li><a href="#"><fa-icon [icon]="faShoppingCart"></fa-icon> </a></li>
-                                  <li><a href="#"><fa-icon [icon]="faHeart"></fa-icon></a></li>
-                              </ul>
-                          </div>
-                      </div>
-                      <div class="cont">
-                          <div class="name">
-                              <a href="shop-singel.html"><h6>Set for life </h6></a>
-                              <span>By Scott Trench</span>
-                          </div>
-                          <div class="button text-right">
-                              <a href="#" class="main-btn">Buy Now ($50)</a>
-                          </div>
-                      </div>
-                  </div> <!-- singel publication -->
+          <p-carousel [value]="courseService.courses" styleClass="custom-carousel" [numVisible]="3" [numScroll]="3" [circular]="true" [autoplayInterval]="5000" [responsiveOptions]="responsiveOptions">
+
+            <ng-template let-course pTemplate="item">
+                <div class="product-item">
+                    <div class="product-item-content mx-4">
+                      <div class="row course-slied mt-30">
+                        <div>
+
+                            <div class="singel-course">
+                                <div class="thum">
+                                  <div class="type"><span>{{course.typeName}}</span></div>
+
+                                    <div class="image">
+
+                                        <img src="../../../assets/image/course/cu-1.jpg" alt="Course">
+                                    </div>
+                                    <div class="price">
+                                        <span>$ {{course.coursePrice}}</span>
+                                    </div>
+                                </div>
+                                <div class="cont">
+                                    <ul class="faStar">
+                                        <li> <fa-icon [icon]="faStar"></fa-icon></li>
+                                        <li> <fa-icon [icon]="faStar"></fa-icon></li>
+                                        <li> <fa-icon [icon]="faStar"></fa-icon></li>
+                                        <li> <fa-icon [icon]="faStar"></fa-icon></li>
+                                        <li> <fa-icon [icon]="faStar"></fa-icon></li>
+                                        <!-- <fa-icon [icon]="faStar"></fa-icon>
+                                        <fa-icon [icon]="faStar"></fa-icon>
+                                        <fa-icon [icon]="faStar"></fa-icon>
+                                        <fa-icon [icon]="faStar"></fa-icon>
+                                        <fa-icon [icon]="faStar"></fa-icon> -->
+                                    </ul>
+                                    <!-- <span>(20 Reviws)</span> -->
+                                    <div style="height: 100px;">
+                                      <a href="courses-singel.html"><h4>{{course.courseName}}</h4></a>
+
+                                    </div>
+                                    <div class="course-teacher">
+                                        <!-- <div class="thum">
+                                            <a href="#"><img src="images/course/teacher/t-1.jpg" alt="teacher"></a>
+                                        </div> -->
+                                        <div class="name">
+                                            <!-- <a href="#"><h6>Mark anthem</h6></a> -->
+                                            <div>
+                                              <fa-icon [icon]="faBook"></fa-icon><span class="pl-2">{{course.categoryName}}</span>
+                                            </div>
+                                            <div>
+                                              <fa-icon [icon]="faTag"></fa-icon><span class="pl-2 pt-2"> {{course.tagName}}</span>
+
+                                            </div>
+                                            <div>
+                                              <fa-icon [icon]="faChartLine"></fa-icon><span class="pl-2 pt-2"> {{course.levelName}}</span>
+
+                                            </div>
+
+                                        </div>
+                                        <!-- <div class="admin">
+                                            <ul>
+
+                                                <li><a href="#"><fa-icon [icon]="faUser"></fa-icon><span>31</span></a></li>
+                                                <li><a href="#"><fa-icon [icon]="faHeart"></fa-icon><span>10</span></a></li>
+                                            </ul>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div> <!-- singel course -->
+                        </div>
+
+                    </div> <!-- course slied -->
+                    </div>
+                </div>
+
+            </ng-template>
+
+            <ng-template pTemplate="footer">
+              <div class="moreCat">
+                <!-- <fa-icon [icon]="faAngleDoubleRight"></fa-icon> <span style="padding-right: 10px; cursor: pointer;">For more</span> -->
+
               </div>
-              <div class="col-lg-3 col-md-6 col-sm-8">
-                  <div class="singel-publication mt-30">
-                      <div class="image">
-                          <img src="../../../assets/image/publication/p-2.jpg" alt="Publication">
-                          <div class="add-cart">
-                              <ul>
-                                <li><a href="#"><fa-icon [icon]="faShoppingCart"></fa-icon> </a></li>
-                                  <li><a href="#"><fa-icon [icon]="faHeart"></fa-icon></a></li>
-                              </ul>
-                          </div>
-                      </div>
-                      <div class="cont">
-                          <div class="name">
-                              <a href="shop-singel.html"><h6>A Daughters </h6></a>
-                              <span>By Scott Trench</span>
-                          </div>
-                          <div class="button text-right">
-                              <a href="#" class="main-btn">Buy Now ($30)</a>
-                          </div>
-                      </div>
-                  </div> <!-- singel publication -->
-              </div>
-              <div class="col-lg-3 col-md-6 col-sm-8">
-                  <div class="singel-publication mt-30">
-                      <div class="image">
-                          <img src="../../../assets/image/publication/p-3.jpg" alt="Publication">
-                          <div class="add-cart">
-                              <ul>
-                                <li><a href="#"><fa-icon [icon]="faShoppingCart"></fa-icon> </a></li>
-                                <li><a href="#"><fa-icon [icon]="faHeart"></fa-icon></a></li>
-                              </ul>
-                          </div>
-                      </div>
-                      <div class="cont">
-                          <div class="name">
-                              <a href="shop-singel.html"><h6>A Magnet </h6></a>
-                              <span>By Scott Trench</span>
-                          </div>
-                          <div class="button text-right">
-                              <a href="#" class="main-btn">Buy Now ($20)</a>
-                          </div>
-                      </div>
-                  </div> <!-- singel publication -->
-              </div>
-              <div class="col-lg-3 col-md-6 col-sm-8">
-                  <div class="singel-publication mt-30">
-                      <div class="image">
-                          <img src="../../../assets/image/publication/p-4.jpg" alt="Publication">
-                          <div class="add-cart">
-                              <ul>
-                                <li><a href="#"><fa-icon [icon]="faShoppingCart"></fa-icon> </a></li>
-                                <li><a href="#"><fa-icon [icon]="faHeart"></fa-icon></a></li>
-                              </ul>
-                          </div>
-                      </div>
-                      <div class="cont">
-                          <div class="name">
-                              <a href="shop-singel.html"><h6>Pices of light</h6></a>
-                              <span>By Scott Trench</span>
-                          </div>
-                          <div class="button text-right">
-                              <a href="#" class="main-btn">Buy Now ($75)</a>
-                          </div>
-                      </div>
-                  </div> <!-- singel publication -->
-              </div>
-          </div> <!-- row -->
+              <!-- <h5>Circular, AutoPlay, 3 Items per Page and Scroll by 1</h5> -->
+              <!-- <span class="moreCat">more</span> <i class="pi pi-angle-double-right moreCat"></i> -->
+          </ng-template>
+
+        </p-carousel>
+
       </div> <!-- container -->
   </section>
 
-  <!--====== PUBLICATION PART ENDS ======-->
-
-
+  <!--====== COURSE PART ENDS ======-->
 
 
     <!--====== TEASTIMONIAL PART START ======-->
 
-    <section id="testimonial" class="bg_cover pt-115 pb-115" data-overlay="8" style="background-image: url(../../../assets/image/bg-2.jpg)">
+  <section id="testimonial" class="bg_cover pt-70 pb-70" data-overlay="8" style="background-image: url(../../../assets/image/bg-2.jpg)">
       <div class="container">
           <div class="row">
               <div class="col-lg-6">

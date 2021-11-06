@@ -8,6 +8,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { CoursesComponent } from './courses/courses.component';
 import { SingleCourseComponent } from './single-course/single-course.component';
 import { SharedModule } from '../shared/shared.module';
+import { CategoryCardComponent } from './home/category-card/category-card.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { SharedModule } from '../shared/shared.module';
     ContactusComponent,
     AboutusComponent,
     CoursesComponent,
-    SingleCourseComponent
+    SingleCourseComponent,
+    CategoryCardComponent
   ],
   imports: [
     CommonModule,
