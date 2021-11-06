@@ -11,6 +11,7 @@ namespace LMS.Data
 
         public int CategoryId { get; set; }
         public string Name { get; set; }
+        public string Image { get; set; }
         public bool IsActive { get; set; }
         public DateTime CreationDate { get; set; }
         public long CreatedBy { get; set; }

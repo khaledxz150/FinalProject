@@ -10,7 +10,7 @@ namespace LMS.Core.DTO
     {
         public int CourseId { get; set; }
         public string CourseName { get; set; }
-        public string Description { get; set; }
+        public string CourseDescription { get; set; }
         public short PassMark { get; set; }
         public decimal CoursePrice { get; set; }
         public string TypeName { get; set; }
