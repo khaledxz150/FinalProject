@@ -9,7 +9,10 @@ import { CategoryService } from 'src/app/Service/category.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css','../../../assets/css/default.css','../../../assets/css/slick.css','../../../assets/css/style.css']
+  styleUrls: ['./home.component.css',
+  '../../../assets/css/default.css',
+  '../../../assets/css/slick.css',
+  '../../../assets/css/style.css']
 })
 export class HomeComponent implements OnInit {
 

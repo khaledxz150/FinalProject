@@ -1,0 +1,77 @@
+
+.login-btn{
+  display: inline-block;
+  font-weight: 488;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  user-select: none;
+  border: 1px solid #af1a2d;
+  padding: 0 20px;
+  font-size: 11px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  line-height: 30px;
+  border-radius: 5px;
+  color: #af1a2d;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 5;
+  transition: 0.4s ease-in-out;
+  /* background-color: #af1a2d; */
+  background-color: transparent;
+}
+
+.login-btn:hover{
+  background-color: #af1a2d;
+  /* border: none; */
+  color: #fff;
+  border-radius: 5px;
+  /* color: #af1a2d; */
+}
+
+
+.dropbtn {
+  font-size: 24px;
+
+  color: #af1a2d;
+  margin: 20px 5px 6px 0px;
+  display: inline-block;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.profileImage{
+  cursor: pointer;
+  margin: 15px 5px 6px 0px;
+  border-radius: 50%;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 100000000000000000000000000000000000000000000000;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+

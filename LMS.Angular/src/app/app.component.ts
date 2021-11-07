@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { TraineeNavComponent } from './trainee/trainee-nav/trainee-nav.component';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'LMS';
-
+  login=false;
 
   // imageLoader = false;
   constructor(private http: HttpClient){}
