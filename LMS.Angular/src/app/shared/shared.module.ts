@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SharedRoutingModule } from './shared-routing.module';
+// import { SharedRoutingModule } from './shared-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -25,9 +25,9 @@ import {ToastModule} from 'primeng/toast';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {ImageModule} from 'primeng/image';
 
+
 @NgModule({
   declarations: [
-
   ],
   imports: [
     CommonModule,
@@ -74,7 +74,6 @@ import {ImageModule} from 'primeng/image';
     FontAwesomeModule,
     ImageModule,
     MatTabsModule
-
 
   ]
 })

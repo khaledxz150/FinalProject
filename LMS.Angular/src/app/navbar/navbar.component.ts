@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
@@ -9,7 +10,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class NavbarComponent implements OnInit {
 
   constructor(
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private router: Router
   ) {
 
     // window.addEventListener("scroll", (event)=>{
@@ -38,5 +40,9 @@ export class NavbarComponent implements OnInit {
     }, 1000);
 
 
+   }
+
+   signIn(){
+    this.router.navigate(['auth/login']);
    }
 }

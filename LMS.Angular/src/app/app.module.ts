@@ -17,7 +17,7 @@ import { ToastrModule } from 'ngx-toastr';
     AppComponent,
     PipelinePipe,
     FooterComponent,
-    NavbarComponent
+    // NavbarComponent
 
   ],
   imports: [

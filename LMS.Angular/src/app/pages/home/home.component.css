@@ -117,3 +117,20 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
   }
+
+  .slider{
+    /* border: none !important; */
+    /* border: 1px solid var(--surface-d); */
+    /* border-radius: 3px; */
+    margin: 0!important;
+    padding: 0!important;
+    /* text-align: center; */
+
+
+
+  }
+
+  .slider-item{
+    height: 600px;
+
+  }
