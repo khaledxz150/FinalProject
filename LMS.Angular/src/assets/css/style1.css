@@ -4,7 +4,7 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-:root {
+ :root {
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -8204,9 +8204,10 @@ h1, h2, h3, h4, h5,
   border: none; }
 
 .wrapper {
-  width: 100%; }
+  width: 100%;
+}
 
-  #sidebar::before{
+  /* #sidebar::after{
     background: #7c7c7b5e  none repeat scroll 0 0;
     content: "";
     height: 100%;
@@ -8215,13 +8216,15 @@ h1, h2, h3, h4, h5,
     top: 0;
     width: 100%;
     z-index: 1;
-  }
+  } */
 #sidebar {
   min-width: 270px;
   max-width: 270px;
   /* background: #494ca2; */
   background-color: #8c8e8c;
   background-image: url('https://s3.amazonaws.com/tjn-blog-images/wp-content/uploads/2015/09/20003023/Which-Fields-Have-the-Highest-Paying-Administrative-Jobs.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   color: #fff;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;

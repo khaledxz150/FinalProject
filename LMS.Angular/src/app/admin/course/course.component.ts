@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { faAngleDoubleRight, faShoppingCart, faHeart, faQuoteRight, faStar, faUser, faBook, faTag, faChartLine, faCalendar, faDollarSign, faPercentage} from '@fortawesome/free-solid-svg-icons';
-
+import { faAngleDoubleRight, faShoppingCart, faHeart, faQuoteRight, faStar, faUser, faBook, faTag, faChartLine, faCalendar, faDollarSign, faPercentage, faEdit} from '@fortawesome/free-solid-svg-icons';
+import { CourseService } from 'src/app/Service/course.service';
+import { CreateCourseComponent } from './create-course/create-course.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-course',
@@ -8,6 +10,7 @@ import { faAngleDoubleRight, faShoppingCart, faHeart, faQuoteRight, faStar, faUs
   styleUrls: ['./course.component.css','../../../assets/css/style1.css']
 })
 export class CourseComponent implements OnInit {
+
 
 
   // Icons
@@ -23,9 +26,20 @@ export class CourseComponent implements OnInit {
   faCalendar = faCalendar
   faDollarSign = faDollarSign
   faPercentage = faPercentage
-  constructor() { }
+  faEdit =faEdit
+  constructor(public courseService: CourseService, private dialog:MatDialog) {
+    this.courseService.getCourses();
+  }
 
   ngOnInit(): void {
+  }
+
+  deleteCourse(courseId:number){
+    this.courseService.deleteCourse(courseId);
+  }
+
+  createCourse(){
+    this.dialog.open(CreateCourseComponent)
   }
 
 }

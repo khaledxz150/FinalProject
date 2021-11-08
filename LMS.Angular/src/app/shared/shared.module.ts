@@ -25,7 +25,9 @@ import {ToastModule} from 'primeng/toast';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {ImageModule} from 'primeng/image';
 
-
+import {PaginatorModule} from 'primeng/paginator';
+import {MatDialogModule} from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
   declarations: [
   ],
@@ -50,7 +52,10 @@ import {ImageModule} from 'primeng/image';
     ToastModule,
     FontAwesomeModule,
     ImageModule,
-    MatTabsModule
+    MatTabsModule,
+    PaginatorModule,
+    MatDialogModule,
+    MatSelectModule
     ],
   exports:[
     CommonModule,
@@ -73,7 +78,10 @@ import {ImageModule} from 'primeng/image';
     ToastModule,
     FontAwesomeModule,
     ImageModule,
-    MatTabsModule
+    MatTabsModule,
+    PaginatorModule,
+    MatDialogModule,
+    MatSelectModule
 
   ]
 })

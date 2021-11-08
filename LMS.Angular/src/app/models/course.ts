@@ -1,5 +1,5 @@
 export class Course{
-  courseId:number |undefined;
+  courseId:number = 0;
   courseName:string |undefined;
   courseDescription:string |undefined;
   passMark:number |undefined;
@@ -10,4 +10,7 @@ export class Course{
   categoryId:number |undefined;
   previewVideoUrl:string |undefined;
   tagId:number |undefined;
+  tagName:string |undefined;
+  levelName:string |undefined
+  categoryName:string |undefined
 }
