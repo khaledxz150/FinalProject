@@ -6,6 +6,7 @@ import { ContactusComponent } from './pages/contactus/contactus.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PagesModule } from './pages/pages.module';
 import { TraineeModule } from './trainee/trainee.module';
+import { TrainerModule } from './trainer/trainer.module';
 
 const routes: Routes = [
 
@@ -29,6 +30,10 @@ const routes: Routes = [
   ,{
     path:'admin',
     loadChildren:()=>AdminModule
+  },
+  {
+    path:'trainer',
+    loadChildren:()=>TrainerModule
   }
 ];
 
