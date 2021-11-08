@@ -60,28 +60,27 @@ export class CourseService {
       this.courses = res;
       // console.log( "test",this.courses)
       window.location.reload();
-      this.toastr.success('Course Deleted !!!');
-
+      this.toastr.success('Course Deleted successfully !!!');
 
     },err=>{
       // this.spinner.hide();
-      this.toastr.warning('Something wrong');
+      this.toastr.error('Something Wrong, Try Again!');
     })
     debugger;
   }
 
 
-  createCourse(data1:any){
+  createCourse(course:any){
     debugger
-    this.http.post('https://localhost:44371/api/Courses/',data1).subscribe((res:any)=>{
+    this.http.post(environment.apiUrl + 'Course/InsertCourse/',course).subscribe((res:any)=>{
       debugger
       // this.spiner.hide();
-      this.toastr.success('Data Created successfully !!!');
+      this.toastr.success('Course Created successfully !!!');
 
 
     },err=>{
       // this.spiner.hide();
-      this.toastr.error('something wrong');
+      this.toastr.error('Something Wrong, Try Again!');
     })
   }
 }

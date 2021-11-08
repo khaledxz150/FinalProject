@@ -7,6 +7,8 @@ import { SharedModule } from '../shared/shared.module';
 import { CourseComponent } from './course/course.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { CreateCourseComponent } from './course/create-course/create-course.component';
+import { CategoryComponent } from './category/category.component';
+import { CreateCategoryComponent } from './category/create-category/create-category.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { CreateCourseComponent } from './course/create-course/create-course.comp
     AdminDashboardComponent,
       CourseComponent,
       SidebarComponent,
-      CreateCourseComponent
+      CreateCourseComponent,
+      CategoryComponent,
+      CreateCategoryComponent
   ],
   imports: [
     CommonModule,
