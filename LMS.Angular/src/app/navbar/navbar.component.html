@@ -19,11 +19,11 @@
                       </div>
                       <ul class="navbar-nav mr-auto">
                           <li class="nav-item">
-                              <a routerLink="../pages/home" (click)="submit()" routerLinkActive="active">Home</a>
+                              <a routerLink="../../pages/home" (click)="submit()" routerLinkActive="active">Home</a>
 
                           </li>
                           <li class="nav-item">
-                              <a routerLink="../pages/aboutus" (click)="submit()" routerLinkActive="active">About us</a>
+                              <a routerLink="../../pages/aboutus" (click)="submit()" routerLinkActive="active">About us</a>
                           </li>
                           <li class="nav-item">
                               <a href="#">Courses</a>
@@ -35,7 +35,7 @@
 
                           </li>
                           <li class="nav-item">
-                              <a routerLink="../pages/contactus" (click) ="submit()" routerLinkActive="active">Contact Us</a>
+                              <a routerLink="../../pages/contactus" (click) ="submit()" routerLinkActive="active">Contact Us</a>
 
                           </li>
                       </ul>
@@ -43,7 +43,7 @@
               </nav> <!-- nav -->
           </div>
           <div class=" col-lg-2 col-md-2 mt-1 right-icon text-right">
-            <button class="login-btn mt-3" routerLink="../auth">SignIn</button>
+            <button class="login-btn mt-3" (click) = "signIn()">SignIn</button>
             <!-- <a routerLink="../auth"><fa-icon [icon]="fauser" style="font-size: 30px;" class="pr-2" ></fa-icon></a> -->
             <!-- <p style="font-size: 14px;">SignIn</p> -->
           </div>

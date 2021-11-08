@@ -9,6 +9,7 @@ import { CoursesComponent } from './courses/courses.component';
 import { SingleCourseComponent } from './single-course/single-course.component';
 import { SharedModule } from '../shared/shared.module';
 import { CategoryCardComponent } from './home/category-card/category-card.component';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +18,14 @@ import { CategoryCardComponent } from './home/category-card/category-card.compon
     AboutusComponent,
     CoursesComponent,
     SingleCourseComponent,
-    CategoryCardComponent
+    CategoryCardComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule,
     PagesRoutingModule,
-    SharedModule
+    SharedModule,
+
   ]
 })
 export class PagesModule { }
