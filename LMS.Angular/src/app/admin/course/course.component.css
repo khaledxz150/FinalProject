@@ -1,6 +1,7 @@
-.wrapper{
-  height: 100%
-}
+/* .wrapper{
+  height: 100%;
+
+} */
 
 /* .card-item{
   position: relative;
@@ -14,6 +15,7 @@
 
 .card-item img{
   border-radius: 5%;
+  padding-right: 5px;
 
 }
 
@@ -34,4 +36,33 @@ mat-card{
 
 mat-card{
   margin: 0.5rem!important;
+
+}
+mat-card fa-icon{
+  color: #af1a2d;
+}
+
+p-button{
+  background-color:#0c8f39!important;
+  border: none;
+
+}
+
+.add{
+  background-color: #0c8f39;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+}
+.add i{
+  color: #fff;
+}
+
+.create{
+  background-color:  #af1a2d;
+
+}
+
+.testt{
+  max-width: 550px;
 }

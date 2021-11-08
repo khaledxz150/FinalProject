@@ -1,0 +1,89 @@
+<h2 mat-dialog-title>Create Course</h2>
+<mat-dialog-content class="mat-typography">
+
+  <div class="form" style="margin-top:50px">
+  <form [formGroup] = "formGroup">
+
+
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Course Name</mat-label>
+      <input type="text" matInput formControlName="courseName">
+      <!-- <mat-error *ngIf="formGroup.controls.courseName.hasError('required')">
+        Course Name is <strong>required</strong>
+      </mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>CoursePrice</mat-label>
+      <input type="text" matInput formControlName="coursePrice">
+
+      <!-- <mat-error *ngIf="formGroup.controls.coursePrice.hasError('required')">
+        Course Price is <strong>required</strong>
+      </mat-error> -->
+    </mat-form-field>
+
+
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Descripction</mat-label>
+      <input type="text" matInput  formControlName="courseDescripction">
+      <!-- <mat-error *ngIf="registerForm.controls.address.hasError('email') && !registerForm.controls.email.hasError('required')">
+        Please enter a valid email address
+      </mat-error> -->
+      <!-- <mat-error *ngIf="formGroup.controls.courseDescripction.hasError('required')">
+        Course Descripction is <strong>required</strong>
+      </mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="categoryId" >
+        <mat-option *ngFor="let category of this.categoryService.category" [value]="category.categoryId">
+          {{category.name}}
+        </mat-option>
+      </mat-select>
+      <!-- <mat-error *ngIf="formGroup.controls.categoryId.hasError('required')">
+          Client is <strong>required</strong>
+      </mat-error> -->
+    </mat-form-field>
+
+    <!-- <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>EndDate</mat-label>
+      <input type="text" matInput  formControlName="endDate">
+
+      <mat-error *ngIf="formGroup.controls.endDate.hasError('required')">
+        EndDate is <strong>required</strong>
+      </mat-error>
+    </mat-form-field> -->
+
+    <!-- <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>CourseCateogry</mat-label>
+      <input type="text" matInput   formControlName="courseCateogry">
+
+      <mat-error *ngIf="formGroup.controls.courseCateogry.hasError('required')">
+        CourseCateogry is <strong>required</strong>
+      </mat-error>
+
+    </mat-form-field> -->
+
+    <!-- <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Created BY</mat-label>
+      <input type="text" matInput formControlName="createdBy">
+      <mat-error *ngIf="formGroup.controls.createdBy.hasError('required')">
+        CratedBy is <strong>required</strong>
+      </mat-error>
+    </mat-form-field> -->
+
+    <!-- <button (click) = "submit()" type="submit" mat-raised-button color="primary" style="flex: 1; width:100%; margin-top: 50px;" [disabled]="!registerForm.valid">
+      Register
+    </button> -->
+  </form>
+
+</div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click) ="Create()" [disabled]="!formGroup.valid">Save</button>
+</mat-dialog-actions>
