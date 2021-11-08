@@ -1,0 +1,46 @@
+<h2 mat-dialog-title>Create Category</h2>
+<mat-dialog-content class="mat-typography">
+
+  <div class="form" style="margin-top:50px">
+  <form [formGroup] = "formGroup">
+
+
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Category Name</mat-label>
+      <input type="text" matInput formControlName="name">
+      <mat-error *ngIf="formGroup.controls.name.hasError('required')">
+        Category Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Image</mat-label>
+      <input type="text" matInput formControlName="image">
+
+      <mat-error *ngIf="formGroup.controls.image.hasError('required')">
+        Image is <strong>required</strong>
+      </mat-error>
+
+
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>CreatedBy</mat-label>
+      <input type="number" matInput formControlName="createdBy">
+
+      <mat-error *ngIf="formGroup.controls.createdBy.hasError('required')">
+        Image is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+
+  </form>
+
+</div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click) ="Create()" [disabled]="!formGroup.valid">Save</button>
+</mat-dialog-actions>
+

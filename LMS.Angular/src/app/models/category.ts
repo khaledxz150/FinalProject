@@ -1,5 +1,6 @@
 export class Category{
-  CategoryId:number |undefined;
-  Name:string |undefined;
+  categoryId:number |undefined;
+  name:string |undefined;
+  image:string|undefined
   createdBy:number |undefined;
 }
