@@ -1,3 +1,37 @@
 .wrapper{
   height: 100%
 }
+
+/* .card-item{
+  position: relative;
+} */
+.card-item {
+  display: flex;
+  /* justify-content: space-between; */
+  /* border-right: 1px solid #dee2e6!important; */
+
+}
+
+.card-item img{
+  border-radius: 5%;
+
+}
+
+@media (max-width: 991.98px) {
+  .card-item {
+    border-right: none;
+
+  }
+}
+
+mat-card{
+  width: 50%;
+}
+
+/* .card{
+  display: flex;
+} */
+
+mat-card{
+  margin: 0.5rem!important;
+}
