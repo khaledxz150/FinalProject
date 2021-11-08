@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminModule } from './admin/admin.module';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { ContactusComponent } from './pages/contactus/contactus.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -24,6 +25,10 @@ const routes: Routes = [
   ,{
     path:'auth',
     loadChildren:()=>AuthenticationModule
+  }
+  ,{
+    path:'admin',
+    loadChildren:()=>AdminModule
   }
 ];
 
