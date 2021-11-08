@@ -25,8 +25,9 @@ namespace LMS.Infra.Repository
             var queryParameters = new DynamicParameters();
             queryParameters.Add("@Name", category.Name, dbType: DbType.String, direction: ParameterDirection.Input);
             queryParameters.Add("@employeeId", category.CreatedBy, dbType: DbType.Int64, direction: ParameterDirection.Input);
+            queryParameters.Add("@image", category.Image, dbType: DbType.String, direction: ParameterDirection.Input);
             //execute proc
-            var result = _dbContext.Connection.ExecuteAsync("InsertCategoty", queryParameters, commandType: CommandType.StoredProcedure);
+            var result = _dbContext.Connection.ExecuteAsync("InsertCategory", queryParameters, commandType: CommandType.StoredProcedure);
             return true;
         }
 
