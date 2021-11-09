@@ -15,5 +15,6 @@ namespace LMS.Core.DTO
         public TimeSpan SectionTimeStart { get; set; }
         public TimeSpan? SectionTimeEnd { get; set; }
         public string TrainerName { get; set; }
+        public string CourseName { get; set; }
     }
 }
