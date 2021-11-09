@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { CategoryComponent } from './category/category.component';
 import { CourseComponent } from './course/course.component';
+import { SectionComponent } from './section/section.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path:'category',
     component:CategoryComponent
+  },
+  {
+    path:'course-section',
+    component:SectionComponent
   }
 ];
 
