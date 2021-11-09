@@ -1,54 +1,97 @@
+<head>
+    <meta charset="UTF-8">
+    <title color="primary"> dashboard </title>
+    <!-- Boxicons CDN Link -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 
-
-
-  <!-- <div class="wrapper d-flex align-items-stretch"> -->
-
-    <nav id="sidebar" class="active">
-      <div class="p-4">
-        <img src="../../assets/image/tahaluf_logo.png" alt="" width="100" height="70" class="ml-5">
-        <h4 class="mt-3"><a href="index.html" class="logo">Admin Daashboard</a></h4>
-        <ul class="list-unstyled components mb-5">
-          <li class="active">
-            <a href="#"><span class="fa fa-home mr-3"></span> Home</a>
-          </li>
-          <li>
-              <a href="#"><span class="fa fa-user mr-3"></span> About</a>
-          </li>
-          <li>
-            <a href="#"><span class="fa fa-briefcase mr-3"></span> Portfolio</a>
-          </li>
-          <li>
-            <a href="#"><span class="fa fa-sticky-note mr-3"></span> Blog</a>
-          </li>
-          <li>
-            <a href="#"><span class="fa fa-paper-plane mr-3"></span> Contact</a>
-          </li>
-        </ul>
-
-        <!-- <div class="mb-5">
-          <h3 class="h6 mb-3">Subscribe for newsletter</h3>
-          <form action="#" class="subscribe-form">
-            <div class="form-group d-flex">
-              <div class="icon"><span class="icon-paper-plane"></span></div>
-              <input type="text" class="form-control" placeholder="Enter Email Address">
-            </div>
-          </form>
-        </div> -->
-
-        <div class="footer">
-          <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+<body>
+    <div class="sidebar">
+        <div class="logo-details" (click)="btnclicked()">
+            <i class='bx bxl-c-plus-plus icon'></i>
+            <div class="logo_name">LMS</div>
+            <i class='bx bx-menu' id="btn"></i>
         </div>
+        <ul class="nav-list">
+            <li>
+                <i class='bx bx-search'></i>
+                <input type="text" placeholder="Search...">
+                <span class="tooltip">Search</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+                <span class="tooltip">Dashboard</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">User</span>
+                </a>
+                <span class="tooltip">User</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-chat'></i>
+                    <span class="links_name">Messages</span>
+                </a>
+                <span class="tooltip">Messages</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-pie-chart-alt-2'></i>
+                    <span class="links_name">Analytics</span>
+                </a>
+                <span class="tooltip">Analytics</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-folder'></i>
+                    <span class="links_name">File Manager</span>
+                </a>
+                <span class="tooltip">Files</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-cart-alt'></i>
+                    <span class="links_name">Order</span>
+                </a>
+                <span class="tooltip">Order</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-heart'></i>
+                    <span class="links_name">Saved</span>
+                </a>
+                <span class="tooltip">Saved</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-cog'></i>
+                    <span class="links_name">Setting</span>
+                </a>
+                <span class="tooltip">Setting</span>
+            </li>
 
-      </div>
-    </nav>
+            <li>
+                <a routerLink="/trainer/section" routerLinkActive="active">
+                    <i class='bx bx-code'></i>
+                    <span class="links_name">Section</span>
+                </a>
+                <span class="tooltip">Section</span>
+            </li>
+            <li class="profile">
+                <div class="profile-details">
+                    <img src="../../../assets/image/profile.png" alt="profileImg">
+                    <div class="name_job">
+                        Khaled Abulawi (placeholder)
+                    </div>
+                </div>
+                <i class='bx bx-log-out' id="log_out"></i>
+            </li>
+        </ul>
+    </div>
 
-      <!-- Page Content  -->
-
-  <!-- </div> -->
-
-
-
-
-
+</body>

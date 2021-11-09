@@ -19,6 +19,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     CommonModule,
     AdminRoutingModule,
     SharedModule
-  ]
+  ],
+ 
 })
 export class AdminModule { }

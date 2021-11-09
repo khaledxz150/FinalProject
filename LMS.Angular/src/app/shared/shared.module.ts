@@ -50,7 +50,8 @@ import {ImageModule} from 'primeng/image';
     ToastModule,
     FontAwesomeModule,
     ImageModule,
-    MatTabsModule
+    MatTabsModule,
+    
     ],
   exports:[
     CommonModule,

@@ -9,7 +9,6 @@ import { TraineeModule } from './trainee/trainee.module';
 import { TrainerModule } from './trainer/trainer.module';
 
 const routes: Routes = [
-
   {
     path:'',
     redirectTo:'pages',

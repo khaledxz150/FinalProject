@@ -25,6 +25,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "bootstrap": "^4.6.1",
+    "boxicons": "^2.0.9",
     "jquery": "^3.6.0",
     "ng-http-loader": "^10.1.0",
     "ng-image-slider": "^2.8.0",

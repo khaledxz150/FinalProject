@@ -1,7 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SectionComponent } from './section/section.component';
+import { UnitComponent } from './unit/unit.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path:'section',
+    component:SectionComponent
+  },
+  {
+    path:'unit',
+    component:UnitComponent
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
