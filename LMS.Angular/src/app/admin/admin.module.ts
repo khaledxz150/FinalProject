@@ -9,6 +9,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { CreateCourseComponent } from './course/create-course/create-course.component';
 import { CategoryComponent } from './category/category.component';
 import { CreateCategoryComponent } from './category/create-category/create-category.component';
+import { SectionComponent } from './section/section.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { CreateCategoryComponent } from './category/create-category/create-categ
       SidebarComponent,
       CreateCourseComponent,
       CategoryComponent,
-      CreateCategoryComponent
+      CreateCategoryComponent,
+      SectionComponent
   ],
   imports: [
     CommonModule,
