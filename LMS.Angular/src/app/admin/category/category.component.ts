@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { faAngleDoubleRight, faShoppingCart, faHeart, faQuoteRight, faStar, faUser, faBook, faTag, faChartLine, faCalendar, faDollarSign, faPercentage, faEdit} from '@fortawesome/free-solid-svg-icons';
 import { CourseService } from 'src/app/Service/course.service';
-import { CreateCourseComponent } from './create-course/create-course.component';
 import { MatDialog } from '@angular/material/dialog';
+import { CategoryService } from 'src/app/Service/category.service';
+import { CreateCategoryComponent } from './create-category/create-category.component';
 
 @Component({
-  selector: 'app-course',
-  templateUrl: './course.component.html',
-  styleUrls: ['./course.component.css','../../../assets/css/style1.css']
+  selector: 'app-category',
+  templateUrl: './category.component.html',
+  styleUrls: ['./category.component.css']
 })
-export class CourseComponent implements OnInit {
+export class CategoryComponent implements OnInit {
 
 
 
@@ -27,19 +28,19 @@ export class CourseComponent implements OnInit {
   faDollarSign = faDollarSign
   faPercentage = faPercentage
   faEdit =faEdit
-  constructor(public courseService: CourseService, private dialog:MatDialog) {
-    this.courseService.getCourses();
+  constructor(public categoryService: CategoryService, private dialog:MatDialog) {
+    this.categoryService.getCategories();
   }
 
   ngOnInit(): void {
   }
 
-  deleteCourse(courseId:number){
-    this.courseService.deleteCourse(courseId);
+  deleteCategory(categoryId:number){
+    this.categoryService.deleteCategory(categoryId);
   }
 
   createCourse(){
-    this.dialog.open(CreateCourseComponent)
+    this.dialog.open(CreateCategoryComponent)
   }
 
 }

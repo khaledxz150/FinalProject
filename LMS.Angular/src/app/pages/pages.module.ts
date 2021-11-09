@@ -10,6 +10,7 @@ import { SingleCourseComponent } from './single-course/single-course.component';
 import { SharedModule } from '../shared/shared.module';
 import { CategoryCardComponent } from './home/category-card/category-card.component';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { NavbarComponent } from '../navbar/navbar.component';
     CoursesComponent,
     SingleCourseComponent,
     CategoryCardComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
+
   ],
   imports: [
     CommonModule,
