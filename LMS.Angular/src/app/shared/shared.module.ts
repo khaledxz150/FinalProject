@@ -28,6 +28,9 @@ import {ImageModule} from 'primeng/image';
 import {PaginatorModule} from 'primeng/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
+
+
+import {CardModule} from 'primeng/card';
 @NgModule({
   declarations: [
   ],
@@ -55,7 +58,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatTabsModule,
     PaginatorModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    CardModule
     ],
   exports:[
     CommonModule,
@@ -81,7 +85,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatTabsModule,
     PaginatorModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    CardModule
 
   ]
 })
