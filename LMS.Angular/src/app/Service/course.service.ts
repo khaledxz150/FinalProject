@@ -28,6 +28,7 @@ export class CourseService {
       debugger
       console.log(res)
       this.courses = res;
+      // window.location.reload();
       // console.log( "test",this.courses)
       // this.toastr.success('Data Retrived !!!');
 

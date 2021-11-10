@@ -6,7 +6,7 @@ export class Section{
   sectionTimeStart:string |undefined;
   sectionTimeEnd:string |undefined;
   trainerName:string |undefined;
-
+  courseName:string | undefined;
 }
 /*
         public int SectionId { get; set; }
