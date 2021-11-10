@@ -1,56 +1,36 @@
-<div class="wrapper d-flex align-items-stretch"  style="background-color:#eee;">
-  <app-sidebar></app-sidebar>
-<div class="container" >
-
-    <!-- <p-paginator [rows]="10" [totalRecords]="120" [rowsPerPageOptions]="[10,20,30]"></p-paginator> -->
-  <div id="content" class="p-4 p-md-5 pt-5">
-    <!-- <div style="background-color:black; width: 100%;height: 50px; z-index: -1;"></div> -->
-    <div class="course-section" style="background-color:white; height: 100%; border-radius: 5px;" class="p-3">
-      <div class="d-flex" style="justify-content:space-between;">
-        <h4>Sections</h4>
-        <button mat-fab color="primary" class="create" >
-          <mat-icon>add</mat-icon>
-        </button>
-      </div>
-
-      <div class="d-flex" style="justify-content:end;">
-        <!-- <h2 class="mb-4">Manage Sections</h2> -->
-        <mat-form-field  class="mt-4 mr-5">
-          <mat-label>Course Name</mat-label>
-        <mat-select [formControl]="courseId" (ngModelChange)="search()">
-          <mat-option class="mat-option" *ngFor="let course of this.courseService.courses" [value]="course.courseId">
-            {{course.courseName}}
-          </mat-option>
-          <mat-option [value] = "0">
-            ALL
-          </mat-option>
-        </mat-select>
-
-
-        </mat-form-field>
 
 
 
 
 
-      </div>
 
 
-    <div clas="card" style="display: flex;  flex-wrap: wrap;">
+  <div class="wrapper d-flex align-items-stretch"  style="background-color:#eee;">
+    <app-sidebar></app-sidebar>
+    <div class="container" >
+    <!-- <div class="container ">
+      <div class="row"> -->
+        <div id="content" class="px-3 p-md-5 pt-5 mt-5" style="background-color:white; height: 100%; border-radius: 5px; width: 100%;">
 
-      <div class="container pt-4">
-        <div class="row">
 
+          <div class="d-flex" style="justify-content:space-between;">
+            <h3 class="mb-4">Manage Sections</h3>
+            <!-- <button class="add"><i class="pi pi-plus" style="font-size: 2rem"></i></button>
+            <button mat-fab color="primary">Warn</button> -->
+            <button mat-fab color="primary" class="create" >
+              <mat-icon>add</mat-icon>
+            </button>
+            <!-- <p-button icon="pi pi-plus" iconPos="right" class="p-button-success"></p-button> -->
+            <!-- <button pButton pRipple type="button" label="Success" class="p-button-success"></button> -->
+            <!-- <button pButton pRipple type="button" label="Create" class="p-button-rounded p-button-success"></button> -->
 
-            <p-panel header="{{course.courseName}}" class="m-4 col-lg-12"  [toggleable]="true"  *ngFor ="let course of courseService.courses">
-              <ng-template pTemplate="icons">
-                  <!-- <button pButton class="p-panel-header-icon p-link" icon="pi pi-cog" (click)="menu.toggle($event)">
-                  </button> -->
-                  <!-- <p-menu #menu id="config_menu" [model]="items" [popup]="true"></p-menu> -->
-              </ng-template>
-              <div class="row">
-                <ng-container *ngFor ="let section of sectionService.sections">
-                <div class=" card card-margin col-lg-5 mx-2" *ngIf = "course.courseName == section.courseName">
+          </div>
+        <div clas="card " style="display: flex;  flex-wrap: wrap;">
+          <mat-tab-group mat-align-tabs="center"  style="width: 100%; display: flex; padding-bottom: 5rem;" >
+
+            <mat-tab label="{{course.courseName}}" *ngFor ="let course of courseService.courses" style="display: flex; padding-bottom: 5rem;">
+              <ng-container *ngFor ="let section of sectionService.sections">
+                <div class=" card card-margin col-lg-5 m-2 mt-3" *ngIf = "course.courseName == section.courseName">
                 <div>
 
                   <div class="card-header no-border ">
@@ -101,17 +81,29 @@
               </div>
                 <!-- <div *ngIf = "course.courseName == null">test</div> -->
               </ng-container>
-              </div>
+            </mat-tab>
 
-          </p-panel>
+          </mat-tab-group>
+
 
         </div>
-        </div>
-    </div>
-    </div>
 
 
-    </div>
-    </div>
 
-  </div>
+
+
+
+
+      </div>
+      </div>
+      </div>
+    <!-- <p-paginator [rows]="10" [totalRecords]="120" [rowsPerPageOptions]="[10,20,30]"></p-paginator> -->
+
+
+
+    <!-- </div>
+  </div> -->
+
+
+  <!-- p-card -->
+

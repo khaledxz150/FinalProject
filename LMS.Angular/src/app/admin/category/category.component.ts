@@ -8,7 +8,7 @@ import { CreateCategoryComponent } from './create-category/create-category.compo
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
-  styleUrls: ['./category.component.css']
+  styleUrls: ['./category.component.css','../../../assets/css/style1.css']
 })
 export class CategoryComponent implements OnInit {
 
