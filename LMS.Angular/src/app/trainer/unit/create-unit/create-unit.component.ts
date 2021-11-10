@@ -10,23 +10,37 @@ import { CourseService } from 'src/app/Service/course.service';
 })
 export class CreateUnitComponent implements OnInit {
 
+  selectedFile: File|null=null;
   formGroup: FormGroup = new FormGroup({
-    courseId: new FormControl('', [Validators.required]),
-    courseName: new FormControl('', [Validators.required]),
-    coursePrice: new FormControl('', [Validators.required]),
-    courseDescripction: new FormControl(''),
-    passMark: new FormControl('',[Validators.required]),
-    image: new FormControl('', [Validators.required]),
-    typeId : new FormControl('', [Validators.required]),
-    levelId: new FormControl('', [Validators.required]),
-    categoryId: new FormControl('', [Validators.required]),
-    tagId: new FormControl('', [Validators.required]),
-    createdBy: new FormControl('', [Validators.required])
+    FilePath: new FormControl('', [Validators.required])
   });
+
+newUnit:any=[];
+ 
   constructor(private courseService: CourseService,
     public categoryService:CategoryService,) { }
 
   ngOnInit(): void {
+     this.newUnit= {
+      SectionId:undefined,
+      FilePath:undefined,
+      IsActive:undefined,
+      createdBy:undefined,
+    }
   }
-  Create(){}
+  Create(){
+    this.newUnit= {
+      FilePath:this.selectedFile,
+      IsActive:1,
+      createdBy:Date.now(),
+    }
+  }
+  
+  UploadFile(e:any) {
+this.selectedFile = <File>e.target.files[0];
+console.log(this.selectedFile );
 }
+
+}
+ 
+

@@ -75,32 +75,17 @@
                 </mat-panel-description>
             </mat-expansion-panel-header>
 
-            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <table mat-table [dataSource]="sections" class="mat-elevation-z8">
                 <!--- Note that these columns can be defined in any order.
                       The actual rendered columns are set as a property on the row definition" -->
 
                 <!-- Position Column -->
-                <ng-container matColumnDef="Course">
+                <ng-container matColumnDef="SectionId">
                     <th mat-header-cell *matHeaderCellDef> CourseName </th>
-                    <td mat-cell *matCellDef="let element"> {{element.Course}} </td>
+                    <td mat-cell *matCellDef="let element"> {{element.SectionId}} </td>
                 </ng-container>
 
-                <!-- Name Column -->
-                <ng-container matColumnDef="time">
-                    <th mat-header-cell *matHeaderCellDef> Time </th>
-                    <td mat-cell *matCellDef="let element"> {{element.time}} </td>
-                </ng-container>
 
-                <!-- Weight Column -->
-                <ng-container matColumnDef="lecturesDone">
-                    <th mat-header-cell *matHeaderCellDef> lectures Done </th>
-                    <td mat-cell *matCellDef="let element"> {{element.lecturesDone}} </td>
-                </ng-container>
-
-                <ng-container matColumnDef="rating" disabled>
-                    <th mat-header-cell *matHeaderCellDef> Lecture rating </th>
-                    <td mat-cell *matCellDef="let element"> {{element.rating}} </td>
-                </ng-container>
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
@@ -116,38 +101,7 @@
                     <mat-icon>map</mat-icon>
                 </mat-panel-description>
             </mat-expansion-panel-header>
-
-            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-                <!--- Note that these columns can be defined in any order.
-                      The actual rendered columns are set as a property on the row definition" -->
-
-                <!-- Position Column -->
-                <ng-container matColumnDef="Course">
-                    <th mat-header-cell *matHeaderCellDef> CourseName </th>
-                    <td mat-cell *matCellDef="let element"> {{element.Course}} </td>
-                </ng-container>
-
-                <!-- Name Column -->
-                <ng-container matColumnDef="time">
-                    <th mat-header-cell *matHeaderCellDef> Time </th>
-                    <td mat-cell *matCellDef="let element"> {{element.time}} </td>
-                </ng-container>
-
-                <!-- Weight Column -->
-                <ng-container matColumnDef="lecturesDone">
-                    <th mat-header-cell *matHeaderCellDef> lectures Done </th>
-                    <td mat-cell *matCellDef="let element"> {{element.lecturesDone}} </td>
-                </ng-container>
-
-                <ng-container matColumnDef="rating">
-                    <th mat-header-cell *matHeaderCellDef> Lecture rating </th>
-                    <td mat-cell *matCellDef="let element"> {{element.rating}} </td>
-                </ng-container>
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
         </mat-expansion-panel>
-
         <mat-expansion-panel>
             <mat-expansion-panel-header>
                 <mat-panel-title>

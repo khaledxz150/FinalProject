@@ -16,6 +16,8 @@ namespace LMS.Core.Repository
         public bool UpdateSection(Section section);
         public bool DeleteSection(int SectionId);
 
+        public List<Section> GetAllSection();
+
         //Status
 
         public List<Status> GetAllStatus();

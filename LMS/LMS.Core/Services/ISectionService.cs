@@ -16,6 +16,8 @@ namespace LMS.Core.Services
         public bool AddSection(Section section);
         public bool UpdateSection(Section section);
         public bool DeleteSection(int SectionId);
+        public List<Section> GetAllSection();
+
 
         //Trainee Section
         public bool AddTraineeSection(TraineeSection traineeSection);

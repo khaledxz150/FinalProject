@@ -1,21 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {ViewChild} from '@angular/core';
 import {MatAccordion} from '@angular/material/expansion';
 import {FormGroup, FormControl} from '@angular/forms';
-export interface PeriodicElement {
-  Course: string;
-  time: string;
-  lecturesDone : string;
-  rating:string;
-}
+import { SectionService } from 'src/app/Service/section.service';
+import { UnitService } from 'src/app/Service/unit.service';
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {Course: 'C++', time: '1 - 5 pm', lecturesDone:'5/7', rating:'4/5'},
-  {Course: 'C++', time: '1 - 5 pm', lecturesDone:'5/7', rating:'4/5'},
-  {Course: 'C++', time: '1 - 5 pm', lecturesDone:'5/7', rating:'4/5'},
-  {Course: 'C++', time: '1 - 5 pm', lecturesDone:'5/7', rating:'4/5'},
-  {Course: 'C++', time: '1 - 5 pm', lecturesDone:'5/7', rating:'4/5'},
-];
+
 
 @Component({
   selector: 'app-section',
@@ -24,15 +14,35 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 
 export class SectionComponent implements OnInit {
-  @ViewChild(MatAccordion) accordion!: MatAccordion;
-  displayedColumns: string[] = ['Course', 'time', 'lecturesDone','rating'];
-  dataSource = ELEMENT_DATA;
-  constructor() { }
+ 
+@ViewChild(MatAccordion) accordion!: MatAccordion;
+// @Input () SectionId: string| undefined;
+// @Input () CourseId: string| undefined;
+// @Input ()SectionTimeStart : Date| undefined;
+// @Input ()SectionTimeEnd:Date | undefined;
+// @Input ()  SectionCapacity:number| undefined;
+// @Input () NoLecture: number| undefined;
+// @Input () StatusId: number| undefined;
+// @Input () IsActive: boolean| undefined;
+// @Input () CreationDate:Date| undefined;
+// @Input () CreatedBy: number| undefined;
+  
 
+  displayedColumns: string[] = ['SectionId'];
+  constructor(private sectionService: SectionService, private unitService: UnitService) { }
+
+  sections:any=[{}];
   ngOnInit(): void {
+    this.getAllSection();
+    this.unitService.getAllSectionAndUnit();
+    this.sections = this.sectionService.section;
 
   }
+  getAllSection(){
 
+  this.sectionService.getAllSection();
+
+  }
 Change(e: any){
   const cardInfoBtn = e.target.closest('.card__more-info')
   const cardLessBtn = e.target.closest('.card__less-info')
@@ -46,4 +56,5 @@ Change(e: any){
   }
   
 }
+
 }

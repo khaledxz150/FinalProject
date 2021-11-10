@@ -2542,19 +2542,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\user\\.nuget\\packages\\": {}
+    "C:\\Users\\khale\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\GitHub\\FinalProject\\FinalProject\\LMS\\LMS\\LMS.csproj",
+      "projectUniqueName": "C:\\Github\\FinalProject\\LMS\\LMS\\LMS.csproj",
       "projectName": "LMS",
-      "projectPath": "C:\\GitHub\\FinalProject\\FinalProject\\LMS\\LMS\\LMS.csproj",
-      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\GitHub\\FinalProject\\FinalProject\\LMS\\LMS\\obj\\",
+      "projectPath": "C:\\Github\\FinalProject\\LMS\\LMS\\LMS.csproj",
+      "packagesPath": "C:\\Users\\khale\\.nuget\\packages\\",
+      "outputPath": "C:\\Github\\FinalProject\\LMS\\LMS\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\khale\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2568,11 +2568,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\GitHub\\FinalProject\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj": {
-              "projectPath": "C:\\GitHub\\FinalProject\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj"
+            "C:\\Github\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj": {
+              "projectPath": "C:\\Github\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj"
             },
-            "C:\\GitHub\\FinalProject\\FinalProject\\LMS\\LMS.Infra\\LMS.Infra.csproj": {
-              "projectPath": "C:\\GitHub\\FinalProject\\FinalProject\\LMS\\LMS.Infra\\LMS.Infra.csproj"
+            "C:\\Github\\FinalProject\\LMS\\LMS.Infra\\LMS.Infra.csproj": {
+              "projectPath": "C:\\Github\\FinalProject\\LMS\\LMS.Infra\\LMS.Infra.csproj"
             }
           }
         }
@@ -2624,7 +2624,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -8,6 +8,9 @@ import { ExamComponent } from './exam/exam.component';
 import { SharedModule } from '../shared/shared.module';
 import { TrainerSideBarComponent } from './trainer-side-bar/trainer-side-bar.component';
 import { CreateUnitComponent } from './unit/create-unit/create-unit.component';
+import { EditUnitComponent } from './unit/edit-unit/edit-unit.component';
+import { UnitTableComponent } from './unit/unit-table/unit-table.component';
+import { ExamTableComponent } from './exam/exam-table/exam-table.component';
 
 
 @NgModule({
@@ -17,6 +20,9 @@ import { CreateUnitComponent } from './unit/create-unit/create-unit.component';
     ExamComponent,
     TrainerSideBarComponent,
     CreateUnitComponent,
+    EditUnitComponent,
+    UnitTableComponent,
+    ExamTableComponent,
     ],
   imports: [
     CommonModule,

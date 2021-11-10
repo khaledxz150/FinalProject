@@ -31,6 +31,8 @@ import {MatTableModule} from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 
+import {CardModule} from 'primeng/card';
+
 @NgModule({
   declarations: [
   ],
@@ -58,7 +60,10 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatTabsModule,
     MatExpansionModule, MatDatepickerModule,MatTableModule,
     MatSelectModule,
-    MatDialogModule
+    MatDialogModule,
+    CardModule,
+    MatFormFieldModule,
+    MatInputModule
     
     ],
   exports:[
@@ -87,7 +92,10 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatDatepickerModule,
     MatTableModule,
     MatSelectModule,
-    MatDialogModule
+    MatDialogModule,
+    CardModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class SharedModule { }
