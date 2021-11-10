@@ -13,6 +13,7 @@ import { SectionComponent } from './section/section.component';
 import { MatSelectModule } from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ViewCourseComponent } from './course/view-course/view-course.component';
+import { TrainerInfoComponent } from './trainer-info/trainer-info.component';
 @NgModule({
   declarations: [
 
@@ -23,7 +24,8 @@ import { ViewCourseComponent } from './course/view-course/view-course.component'
       CategoryComponent,
       CreateCategoryComponent,
       SectionComponent,
-      ViewCourseComponent
+      ViewCourseComponent,
+      TrainerInfoComponent
   ],
   imports: [
     CommonModule,

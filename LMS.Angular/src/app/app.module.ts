@@ -12,10 +12,19 @@ import { NgHttpLoaderModule } from 'ng-http-loader';
 
 import { ToastrModule } from 'ngx-toastr';
 
+import { DeleteTrainerComponent } from './admin/trainer-info/delete-trainer/delete-trainer.component';
+import { AddTrainerComponent } from './admin/trainer-info/add-trainer/add-trainer.component';
+import { EditTrainerComponent } from './admin/trainer-info/edit-trainer/edit-trainer.component';
+import { AlertDialogComponent } from './alert-dialog/alert-dialog.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     PipelinePipe,
+    AddTrainerComponent,
+    EditTrainerComponent,
+    DeleteTrainerComponent,
+    AlertDialogComponent,
     // FooterComponent,
     // NavbarComponent
 

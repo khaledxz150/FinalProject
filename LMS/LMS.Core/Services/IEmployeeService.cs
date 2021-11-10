@@ -22,8 +22,8 @@ namespace LMS.Core.Services
         public bool DeleteRoleType(int roleTypeId);
         public List<RoleType> GetRoleTypes(int queryCode);
 
-
-
+        public bool ChangeTrainerStatus(long employeeId);
+        
         //ReturnEmployeeInfo
         public List<EmployeeInfoDTO> ReturnEmployeeInfo(int employeeId);
     }
