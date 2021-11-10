@@ -9,12 +9,18 @@ import { Course } from '../models/course';
 })
 export class CourseService {
 
+
   courses: Course[]=[];
+
+
+  // categoryName:string|undefined
+
 
   constructor(private http: HttpClient,private toastr:ToastrService) { }
 
 
   getCourses(){
+
 
     // const contactUs : ContactUs = this.contactUsForm.value;
 
@@ -28,6 +34,8 @@ export class CourseService {
       debugger
       console.log(res)
       this.courses = res;
+
+      // this.cor  = res;
       // window.location.reload();
       // console.log( "test",this.courses)
       // this.toastr.success('Data Retrived !!!');

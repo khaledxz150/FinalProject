@@ -30,6 +30,12 @@ import {MatTableModule} from '@angular/material/table';
 
 import { MatSelectModule } from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
+import {CardModule} from 'primeng/card';
+
+
+import {PanelModule} from 'primeng/panel';
+
+import {TabViewModule} from 'primeng/tabview';
 
 @NgModule({
   declarations: [
@@ -58,8 +64,11 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatTabsModule,
     MatExpansionModule, MatDatepickerModule,MatTableModule,
     MatSelectModule,
-    MatDialogModule
-    
+    MatDialogModule,
+    CardModule,
+    PanelModule,
+    TabViewModule
+
     ],
   exports:[
     CommonModule,
@@ -83,11 +92,14 @@ import {MatDialogModule} from '@angular/material/dialog';
     FontAwesomeModule,
     ImageModule,
     MatTabsModule,
-    MatExpansionModule, 
+    MatExpansionModule,
     MatDatepickerModule,
     MatTableModule,
     MatSelectModule,
-    MatDialogModule
+    MatDialogModule,
+    CardModule,
+    PanelModule,
+    TabViewModule
   ]
 })
 export class SharedModule { }

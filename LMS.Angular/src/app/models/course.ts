@@ -11,6 +11,7 @@ export class Course{
   previewVideoUrl:string |undefined;
   tagId:number |undefined;
   tagName:string |undefined;
-  levelName:string |undefined
-  categoryName:string |undefined
+  levelName:string |undefined;
+  categoryName:string |undefined;
+  typeName:string | undefined
 }
