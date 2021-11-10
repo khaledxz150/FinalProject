@@ -1,11 +1,9 @@
-/* .wrapper{
-  height: 100%;
 
-} */
 
-/* .card-item{
-  position: relative;
-} */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap');
+
+
+
 .card-item {
   display: flex;
   /* justify-content: space-between; */
@@ -214,4 +212,8 @@ left: 0;
 
 .mat-tab-group {
   margin-bottom: 48px;
+}
+#content h3{
+  font-family: 'Open Sans', sans-serif;
+  border-bottom: 1px solid #af1a2d;
 }
