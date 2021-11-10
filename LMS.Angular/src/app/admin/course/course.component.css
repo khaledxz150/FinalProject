@@ -34,29 +34,29 @@ mat-card{
   display: flex;
 } */
 
-mat-card{
+/* mat-card{
   margin: 0.5rem!important;
 
-}
-mat-card fa-icon{
+} */
+p-card fa-icon{
   color: #af1a2d;
 }
 
-p-button{
+/* p-button{
   background-color:#0c8f39!important;
   border: none;
 
-}
+} */
 
-.add{
+/* .add{
   background-color: #0c8f39;
   border: none;
   border-radius: 50%;
   width: 60px;
-}
-.add i{
+} */
+/* .add i{
   color: #fff;
-}
+} */
 
 .create{
   background-color:  #af1a2d;
@@ -65,4 +65,32 @@ p-button{
 
 .card-content{
   max-width: 550px;
+}
+
+
+.button{
+  /* display: inline-block; */
+    /* font-weight: 500; */
+    /* text-align: center; */
+    /* white-space: nowrap; */
+    /* vertical-align: middle; */
+    /* -webkit-user-select: none; */
+    /* user-select: none; */
+    /* border: none; */
+    /* padding: 0 35px; */
+    /* font-size: 16px; */
+    /* font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    line-height: 50px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 5;
+    transition: 0.4s ease-in-out; */
+    background: #af1a2d!important;
+    border:1px solid #af1a2d!important;
+    cursor: pointer!important;
+    /* color: #af1a2d!important; */
 }
