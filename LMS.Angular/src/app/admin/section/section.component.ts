@@ -11,7 +11,7 @@ import { SectionService } from 'src/app/Service/section.service';
 })
 export class SectionComponent implements OnInit {
 
-  // courseId:number = 0 //this.sectionService.sections.sectionId;
+   // courseId:number = 0 //this.sectionService.sections.sectionId;
 
   // @Input() courseId:number | undefined;
   faInfoCircle = faInfoCircle

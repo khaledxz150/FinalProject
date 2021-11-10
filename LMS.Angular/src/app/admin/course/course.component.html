@@ -1,91 +1,86 @@
-<div class="wrapper d-flex align-items-stretch">
+<div class="wrapper d-flex align-items-stretch"  style="background-color:#eee;">
   <app-sidebar></app-sidebar>
+  <div class="container" >
+  <!-- <div class="container ">
+    <div class="row"> -->
+      <div id="content" class="px-3 p-md-5 pt-5 mt-5" style="background-color:white; height: 100%; border-radius: 5px; width: 100%;">
 
-  <!-- <p-paginator [rows]="10" [totalRecords]="120" [rowsPerPageOptions]="[10,20,30]"></p-paginator> -->
-  <div id="content" class="p-4 p-md-5 pt-5">
-    <div class="d-flex" style="justify-content:space-between;">
-      <h2 class="mb-4">Manage Courses</h2>
-      <!-- <button class="add"><i class="pi pi-plus" style="font-size: 2rem"></i></button>
-      <button mat-fab color="primary">Warn</button> -->
-      <button mat-fab color="primary" class="create" (click)="createCourse()" >
-        <mat-icon>add</mat-icon>
-      </button>
-      <!-- <p-button icon="pi pi-plus" iconPos="right" class="p-button-success"></p-button> -->
-      <!-- <button pButton pRipple type="button" label="Success" class="p-button-success"></button> -->
-      <!-- <button pButton pRipple type="button" label="Create" class="p-button-rounded p-button-success"></button> -->
+
+        <div class="d-flex" style="justify-content:space-between;">
+          <h3 class="mb-4">Manage Courses</h3>
+          <!-- <button class="add"><i class="pi pi-plus" style="font-size: 2rem"></i></button>
+          <button mat-fab color="primary">Warn</button> -->
+          <button mat-fab color="primary" class="create" (click)="createCourse()" >
+            <mat-icon>add</mat-icon>
+          </button>
+          <!-- <p-button icon="pi pi-plus" iconPos="right" class="p-button-success"></p-button> -->
+          <!-- <button pButton pRipple type="button" label="Success" class="p-button-success"></button> -->
+          <!-- <button pButton pRipple type="button" label="Create" class="p-button-rounded p-button-success"></button> -->
+
+        </div>
+      <div clas="card " style="display: flex;  flex-wrap: wrap;">
+        <mat-tab-group mat-align-tabs="center"  style="width: 100%; display: flex; padding-bottom: 5rem;" >
+
+          <mat-tab label="{{category.name}}" *ngFor="let category of categoryService.category" style="display: flex; padding-bottom: 5rem;">
+
+          <ng-container  class="container">
+               <div class="row">
+
+              <!-- card start -->
+                    <ng-container  *ngFor="let course of courseService.courses">
+                      <ng-container class="course-card" *ngIf = "category.name == course.categoryName">
+
+                  <div class="col-lg-3 col-md-4 col-sm-6 my-3 course-card" (click)="viewCourse(course.courseId)">
+                    <div class="type"><span>{{course.typeName}}</span></div>
+                      <div style="background-image:url(../../../assets/image/bg-2.jpg); background-repeat: no-repeat; background-size: cover;" class="course-card-img mt-2">
+                        <!-- <img src="../../../assets/image/bg-2.jpg" height="150px" class="main" alt=""> -->
+                        <!-- <img src="https://cdn.freebiesupply.com/logos/large/2x/sketch-2-logo-png-transparent.png" class="layered" alt=""> -->
+
+                      </div>
+                      <div class="course-card-content">
+                        <h4>{{course.courseName}}</h4>
+
+
+                          <h6>$ {{course.coursePrice}}</h6>
+
+                          <!-- <div >
+                          <fa-icon [icon]="faChartLine"></fa-icon><span>{{course.levelName}}</span>
+                        </div> -->
+
+                      </div>
+
+                  </div>
+                </ng-container>
+
+                </ng-container>
+
+
+              <!-- card end -->
+          </div>
+          </ng-container>
+          </mat-tab>
+
+        </mat-tab-group>
+
+
+      </div>
+
+
+
+
+
+
 
     </div>
-  <div clas="card" style="display: flex;  flex-wrap: wrap;">
+    </div>
+    </div>
+  <!-- <p-paginator [rows]="10" [totalRecords]="120" [rowsPerPageOptions]="[10,20,30]"></p-paginator> -->
 
 
-    <p-card header="{{course.courseName}}" subheader="$ {{course.coursePrice}}" [style]="{width: '360px', 'margin':'0.5rem'}" styleClass="p-card-shadow" *ngFor ="let course of courseService.courses">
-      <ng-template pTemplate="header">
 
-          <img alt="Card" src="../../../assets/image/bg-2.jpg" height="150px">
-      </ng-template>
-      <div class="pl-1 row">
-        <div class="col-lg-12">
-          <div class="row">
-            <div class="col-lg-6">
-              <fa-icon [icon]="faBook"></fa-icon><span class="pl-2 pr-3">{{course.categoryName}}</span>
-
-            </div>
-            <div class="col-lg-6">
-              <fa-icon [icon]="faChartLine"></fa-icon><span class="pl-2 pr-3">{{course.levelName}}</span>
-
-            </div>
-          </div>
+  <!-- </div>
+</div> -->
 
 
-        </div>
-        <div class="col-lg-12 py-2">
-          <div class="row">
-            <div class="col-lg-6">
-              <fa-icon [icon]="faTag" clas="pl-3"></fa-icon><span class="pl-2 pr-3">{{course.tagName}}</span>
+<!-- p-card -->
 
-            </div>
-            <div class="col-lg-6">
-              <fa-icon [icon]="faCalendar" clas="pl-3"></fa-icon><span class="pl-2 pr-3">{{course.tagName}}</span>
-
-            </div>
-          </div>
-          <!-- <fa-icon [icon]="faTag" clas="pl-3"></fa-icon><span class="pl-2 pr-3">{{course.tagName}}</span>
-          <fa-icon [icon]="faCalendar" clas="pl-3"></fa-icon><span class="pl-2 pr-3">{{course.tagName}}</span> -->
-          <!-- <fa-icon [icon]=" faPercentage" clas="pl-3"></fa-icon><span class="pl-2 pr-3">{{course.passMark}}</span> -->
-        </div>
-
-        <div class="col-lg-12 py-2">
-          <div class="row">
-            <div class="col-lg-6">
-              <fa-icon [icon]=" faPercentage" clas="pl-3"></fa-icon><span class="pl-2 pr-3">{{course.passMark}}</span>
-
-            </div>
-            <div class="col-lg-6">
-              <!-- <fa-icon [icon]="faCalendar" clas="pl-3"></fa-icon><span class="pl-2 pr-3">{{course.tagName}}</span> -->
-
-            </div>
-          </div>
-          <!-- <fa-icon [icon]="faTag" clas="pl-3"></fa-icon><span class="pl-2 pr-3">{{course.tagName}}</span>
-          <fa-icon [icon]="faCalendar" clas="pl-3"></fa-icon><span class="pl-2 pr-3">{{course.tagName}}</span> -->
-          <!-- <fa-icon [icon]=" faPercentage" clas="pl-3"></fa-icon><span class="pl-2 pr-3">{{course.passMark}}</span> -->
-        </div>
-        <!-- <div class="pt-1">
-          <fa-icon [icon]=" faPercentage" clas="pl-3"></fa-icon><span class="pl-2 pt-2">{{course.passMark}}</span>
-        </div> -->
-        <!-- <div class="pt-3">
-          <fa-icon [icon]=" faPercentage" ></fa-icon><span class="pl-2 pt-2">course.price</span>
-
-        </div> -->
-      </div>
-      <ng-template pTemplate="footer">
-        <!-- <button class="button">Update</button>
-        <button class="button" (click)="deleteCourse(course.courseId)">Delete</button> -->
-          <p-button label="Update" icon="pi pi-edit"></p-button>
-          <p-button label="Delete" icon="pi pi-trash" styleClass="p-button-danger" [style]="{'margin-left': '.5em'}" (click)="deleteCourse(course.courseId)"></p-button>
-      </ng-template>
-  </p-card>
-  </div>
-  </div>
-
-
-  </div>

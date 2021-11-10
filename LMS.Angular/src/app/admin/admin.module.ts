@@ -12,6 +12,7 @@ import { CreateCategoryComponent } from './category/create-category/create-categ
 import { SectionComponent } from './section/section.component';
 import { MatSelectModule } from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
+import { ViewCourseComponent } from './course/view-course/view-course.component';
 @NgModule({
   declarations: [
 
@@ -21,7 +22,8 @@ import {MatDialogModule} from '@angular/material/dialog';
       CreateCourseComponent,
       CategoryComponent,
       CreateCategoryComponent,
-      SectionComponent
+      SectionComponent,
+      ViewCourseComponent
   ],
   imports: [
     CommonModule,
