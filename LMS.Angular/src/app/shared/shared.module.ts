@@ -24,7 +24,12 @@ import {ButtonModule} from 'primeng/button';
 import {ToastModule} from 'primeng/toast';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {ImageModule} from 'primeng/image';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatTableModule} from '@angular/material/table';
 
+import { MatSelectModule } from '@angular/material/select';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -51,6 +56,9 @@ import {ImageModule} from 'primeng/image';
     FontAwesomeModule,
     ImageModule,
     MatTabsModule,
+    MatExpansionModule, MatDatepickerModule,MatTableModule,
+    MatSelectModule,
+    MatDialogModule
     
     ],
   exports:[
@@ -74,8 +82,12 @@ import {ImageModule} from 'primeng/image';
     ToastModule,
     FontAwesomeModule,
     ImageModule,
-    MatTabsModule
-
+    MatTabsModule,
+    MatExpansionModule, 
+    MatDatepickerModule,
+    MatTableModule,
+    MatSelectModule,
+    MatDialogModule
   ]
 })
 export class SharedModule { }

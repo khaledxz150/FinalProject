@@ -5,7 +5,7 @@ import { UnitComponent } from './unit/unit.component';
 
 const routes: Routes = [
   {
-    path:'section',
+    path:'',
     component:SectionComponent
   },
   {
