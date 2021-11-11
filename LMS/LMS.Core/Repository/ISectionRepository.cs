@@ -12,7 +12,8 @@ namespace LMS.Core.Repository
     public interface ISectionRepository
     {
         //Section
-        public bool AddSection(Section section);
+        public Task<bool> AddSection(Section section, int trainerId);
+
         public bool UpdateSection(Section section);
         public bool DeleteSection(int SectionId);
 

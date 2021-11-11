@@ -11,14 +11,14 @@ namespace LMS.Data
 
         public int SectionId { get; set; }
         public int CourseId { get; set; }
-        public TimeSpan SectionTimeStart { get; set; }
-        public TimeSpan SectionTimeEnd { get; set; }
+        public DateTime SectionTimeStart { get; set; }
+        public DateTime SectionTimeEnd { get; set; }
         public int SectionCapacity { get; set; }
         public int NoLecture { get; set; }
         public int StatusId { get; set; }
         public bool IsActive { get; set; }
         public DateTime CreationDate { get; set; }
-        public string CreatedBy { get; set; }
+        public long CreatedBy { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<CourseRating> CourseRatings { get; set; }
