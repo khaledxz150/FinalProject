@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using Task = LMS.Data.Task;
 
 namespace LMS.Controllers
 {
@@ -28,10 +30,10 @@ namespace LMS.Controllers
 
 
         [HttpPost]
-        [Route("[action]")]
-        public bool AddSection(Section section)
+        [Route("[action]/{trainerId}")]
+        public Task<bool> AddSection(Section section, int trainerId)
         {
-            return sectionService.AddSection(section);
+            return sectionService.AddSection(section, trainerId);
         }
         [HttpDelete]
         [Route("[action]/{SectionId}")]

@@ -12,8 +12,9 @@ namespace LMS.Core.Services
     public interface ISectionService
     {
         //Section
-        
-        public bool AddSection(Section section);
+
+        public Task<bool> AddSection(Section section, int trainerId);
+
         public bool UpdateSection(Section section);
         public bool DeleteSection(int SectionId);
         public List<Section> GetAllSection();
