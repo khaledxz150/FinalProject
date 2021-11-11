@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { faAngleDoubleRight, faShoppingCart, faHeart, faQuoteRight, faStar, faUser, faBook, faTag, faChartLine, faCalendar, faDollarSign, faPercentage, faEdit} from '@fortawesome/free-solid-svg-icons';
+import { faAngleDoubleRight, faShoppingCart, faHeart, faQuoteRight, faStar, faUser, faBook, faTag, faChartLine, faCalendar, faDollarSign, faPercentage, faEdit, faInfoCircle, faTrashAlt} from '@fortawesome/free-solid-svg-icons';
 import { CourseService } from 'src/app/Service/course.service';
 import { CreateCourseComponent } from './create-course/create-course.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Course } from 'src/app/models/course';
 import { CategoryService } from 'src/app/Service/category.service';
 import { ViewCourseComponent } from './view-course/view-course.component';
+import { UpdateCourseComponent } from './update-course/update-course.component';
 
 @Component({
   selector: 'app-course',
@@ -31,9 +32,11 @@ export class CourseComponent implements OnInit {
   faDollarSign = faDollarSign
   faPercentage = faPercentage
   faEdit =faEdit
-  categoryName:string  = '';
+  faInfoCircle = faInfoCircle
+  faTrashAlt = faTrashAlt
+  // categoryName:string  = '';
 
-  cat:Course[]=  this.courseService.courses.filter(x=>x.categoryName == this.categoryName);
+  // cat:Course[]=  this.courseService.courses.filter(x=>x.categoryName == this.categoryName);
   constructor(public courseService: CourseService, private dialog:MatDialog, public categoryService:CategoryService) {
     this.courseService.getCourses();
     this.categoryService.getCategories();
@@ -42,11 +45,11 @@ export class CourseComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  deleteCourse(courseId:number){
-    this.courseService.deleteCourse(courseId);
+  // deleteCourse(courseId:number){
+  //   this.courseService.deleteCourse(courseId);
 
 
-  }
+  // }
 
   createCourse(){
     this.dialog.open(CreateCourseComponent)
@@ -59,9 +62,21 @@ export class CourseComponent implements OnInit {
   viewCourse(courseId:number){
     console.log(courseId)
 
-    const item = this.courseService.courses.find(i =>i.courseId == courseId);
+    const courseDetails = this.courseService.courses.find(i =>i.courseId == courseId);
 
 
-    this.dialog.open(ViewCourseComponent,{data:item})
+    this.dialog.open(ViewCourseComponent,{data:courseDetails})
+  }
+
+  updateCourse(courseId:number){
+    const course = this.courseService.courses.find(i =>i.courseId == courseId);
+
+
+    this.dialog.open(UpdateCourseComponent,{data:course})
+  }
+
+
+  deleteCourse(courseId:number){
+    this.courseService.deleteCourse(courseId);
   }
 }

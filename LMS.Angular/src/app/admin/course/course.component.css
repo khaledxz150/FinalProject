@@ -36,8 +36,15 @@ mat-card{
   margin: 0.5rem!important;
 
 } */
-p-card fa-icon{
+fa-icon{
+  font-size: 1rem;
   color: #af1a2d;
+  /* font-size: 20px; */
+}
+
+fa-icon:hover{
+  /* border: 1px solid #af1a2d; */
+  font-size: 1.5rem;
 }
 
 /* p-button{
@@ -217,3 +224,5 @@ left: 0;
   font-family: 'Open Sans', sans-serif;
   border-bottom: 1px solid #af1a2d;
 }
+
+

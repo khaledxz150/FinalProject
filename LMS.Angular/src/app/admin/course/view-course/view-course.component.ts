@@ -1,6 +1,9 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CourseService } from 'src/app/Service/course.service';
+import { faBook, faCalendar, faChalkboard, faChartLine, faDollarSign, faPercentage, faTag } from '@fortawesome/free-solid-svg-icons';
+
+
 
 @Component({
   selector: 'app-view-course',
@@ -21,6 +24,15 @@ export class ViewCourseComponent implements OnInit {
   @Input() tagName:string|undefined
 
 
+
+  //Icons
+  faBook = faBook
+  faChartLine = faChartLine
+  faTag = faTag
+  faCalendar = faCalendar
+  faPercentage = faPercentage
+  faChalkboard = faChalkboard
+  faDollarSign = faDollarSign
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public courseService: CourseService) { }
 
   ngOnInit(): void {
@@ -40,10 +52,10 @@ export class ViewCourseComponent implements OnInit {
   }
 
 
-  deleteCourse(){
-    console.log(this.courseId)
-    if(this.courseId)
-    this.courseService.deleteCourse(this.courseId);
-  }
+  // deleteCourse(){
+  //   console.log(this.courseId)
+  //   if(this.courseId)
+  //   this.courseService.deleteCourse(this.courseId);
+  // }
 
 }
