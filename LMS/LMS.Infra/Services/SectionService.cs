@@ -158,5 +158,9 @@ namespace LMS.Infra.Services
         {
             return sectionRepository.ReturnSolutionOfTask(taskId, sectionId);
         }
+
+        public List<Section> GetAllSection()
+        {
+            return sectionRepository.GetAllSection();        }
     }
 }

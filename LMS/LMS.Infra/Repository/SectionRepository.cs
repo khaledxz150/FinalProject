@@ -212,11 +212,7 @@ namespace LMS.Infra.Repository
             parm.Add("@P_Date", task.Date, dbType: DbType.DateTime, direction: ParameterDirection.Input);
             parm.Add("@P_Deadline", task.Deadline, dbType: DbType.DateTime, direction: ParameterDirection.Input);
             parm.Add("@P_SectionTrainerId", task.SectionTrainer, dbType: DbType.Int32, direction: ParameterDirection.Input);
-          
-
-
             IEnumerable<Section> result = dBContext.Connection.Query<Section>("AddTask", parm, commandType: CommandType.StoredProcedure);
-
             return true;
         }
 
@@ -275,6 +271,12 @@ namespace LMS.Infra.Repository
             parm.Add("@TaskId", taskId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parm.Add("@SectionId", sectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             IEnumerable<TaskSolutionDTO> result = dBContext.Connection.Query<TaskSolutionDTO>("ReturnSolutionOfTask", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public List<Section> GetAllSection()
+        {
+            IEnumerable<Section> result = dBContext.Connection.Query<Section>("ReturnAllSection", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
     }

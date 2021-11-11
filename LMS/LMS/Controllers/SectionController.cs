@@ -19,6 +19,13 @@ namespace LMS.Controllers
         {
             this.sectionService = sectionService;
         }
+        [HttpGet]
+        [Route("[action]")]
+        public List<Section> GetAllSection()
+        {
+            return sectionService.GetAllSection();
+        }
+
 
         [HttpPost]
         [Route("[action]")]
