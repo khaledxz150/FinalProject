@@ -30,22 +30,30 @@
                     <ng-container  *ngFor="let course of courseService.courses">
                       <ng-container class="course-card" *ngIf = "category.name == course.categoryName">
 
-                  <div class="col-lg-3 col-md-4 col-sm-6 my-3 course-card" (click)="viewCourse(course.courseId)">
+                  <div class="col-lg-3 col-md-4 col-sm-6 my-3 course-card"  style="height: 100%">
                     <div class="type"><span>{{course.typeName}}</span></div>
                       <div style="background-image:url(../../../assets/image/bg-2.jpg); background-repeat: no-repeat; background-size: cover;" class="course-card-img mt-2">
-                        <!-- <img src="../../../assets/image/bg-2.jpg" height="150px" class="main" alt=""> -->
-                        <!-- <img src="https://cdn.freebiesupply.com/logos/large/2x/sketch-2-logo-png-transparent.png" class="layered" alt=""> -->
 
                       </div>
                       <div class="course-card-content">
-                        <h4>{{course.courseName}}</h4>
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <h4>{{course.courseName}}</h4>
+                          </div>
+                          <div class="col-lg-12">
+                            <h6>$ {{course.coursePrice}}</h6>
+                          </div>
+                          <div class="col-lg-12" style="display: flex; justify-content: end;">
+                          <fa-icon [icon] = "faInfoCircle" class="px-2" (click)="viewCourse(course.courseId)"></fa-icon>
+                          <fa-icon [icon] = "faEdit"class="px-2" (click)="updateCourse(course.courseId)"></fa-icon>
+                          <fa-icon [icon] = "faTrashAlt"class="px-2" (click)="deleteCourse(course.courseId)"></fa-icon>
+                          </div>
+                        </div>
 
 
-                          <h6>$ {{course.coursePrice}}</h6>
 
-                          <!-- <div >
-                          <fa-icon [icon]="faChartLine"></fa-icon><span>{{course.levelName}}</span>
-                        </div> -->
+
+
 
                       </div>
 

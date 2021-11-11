@@ -13,6 +13,7 @@ import { CourseService } from 'src/app/Service/course.service';
 export class CreateCourseComponent implements OnInit {
 
 
+
   formGroup: FormGroup = new FormGroup({
     courseId: new FormControl('', [Validators.required]),
     courseName: new FormControl('', [Validators.required]),
@@ -37,15 +38,6 @@ export class CreateCourseComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // if (this.data) {
-    //   this.formGroup.controls.courseName.setValue(this.data.courseName);
-    //   this.formGroup.controls.coursePrice.setValue(this.data.coursePrice);
-    //   this.formGroup.controls.courseDescripction.setValue(this.data.courseDescripction);
-    //   this.formGroup.controls.startDate.setValue(this.data.startDate);
-    //   this.formGroup.controls.endDate.setValue(this.data.endDate);
-    //   this.formGroup.controls.courseCateogry.setValue(this.data.courseCateogry);
-    //   this.formGroup.controls.createdBy.setValue(this.data.createdBy);
-    // }
   }
 
 

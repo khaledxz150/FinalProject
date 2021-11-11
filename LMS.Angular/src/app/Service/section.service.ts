@@ -12,9 +12,10 @@ import { Section } from '../models/section';
 export class SectionService {
 
    section: any=[{}];
-  sections: any=[{}];
+   sections: any=[{}];
+   status: any[]=[{}];
 
-  
+
 
   constructor(private http: HttpClient,private toastr:ToastrService, private spinner: NgxSpinnerService,private router:Router) { }
 
@@ -62,8 +63,10 @@ getSections(courseId:number){
 
 
 
-} 
-  getSectionsById(courseId:number){
+}
+
+/////////
+getSectionsById(courseId:number){
 
      this.spinner.show();
 
@@ -86,6 +89,58 @@ getSections(courseId:number){
 
   }
 
+
+
+
+  getStatus(){
+
+    // debugger;
+//  this.spinner.show();
+
+this.http.get(environment.apiUrl + 'Section/GetAllStatus/').subscribe((res:any)=>{
+  // debugger
+  // this.spinner.hide();
+  // this.toastr.success('Send Message successfully, Thank You :)');
+  debugger
+  console.log(res)
+  this.status = res;
+  // console.log( "test",this.courses)
+  // this.toastr.success('Data Retrived !!!');
+
+
+},err=>{
+  // this.spinner.hide();
+  // this.toastr.warning('Something wrong');
+})
+debugger;
+
+}
+
+
+createSection(section:Section,trainerId:number){
+
+
+
+   debugger
+  this.http.post(environment.apiUrl + 'Section/AddSection/'+trainerId,section).subscribe((res:any)=>{
+    // debugger
+    // this.spinner.hide();
+    // this.toastr.success('Send Message successfully, Thank You :)');
+    debugger
+
+
+    // console.log( "test",this.courses)
+    this.toastr.success('Data Retrived !!!');
+
+
+  },err=>{
+    // this.spinner.hide();
+    this.toastr.warning('Something wrong');
+  })
+  debugger;;
+
+
+}
 
 
 }

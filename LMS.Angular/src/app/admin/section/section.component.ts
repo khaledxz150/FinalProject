@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { faEdit, faHashtag, faInfoCircle, faTrashAlt, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { CourseService } from 'src/app/Service/course.service';
 import { SectionService } from 'src/app/Service/section.service';
+import { CreateSectionComponent } from './create-section/create-section.component';
 
 @Component({
   selector: 'app-section',
@@ -22,7 +24,8 @@ export class SectionComponent implements OnInit {
   courseId = new FormControl('');
 
   constructor(public sectionService:SectionService,
-    public courseService:CourseService) {
+    public courseService:CourseService,
+    private dialog:MatDialog) {
 
 
   }
@@ -45,4 +48,9 @@ export class SectionComponent implements OnInit {
     this.sectionService.getSections(courseId);
   }
 
+
+
+  createSection(){
+    this.dialog.open(CreateSectionComponent)
+  }
 }
