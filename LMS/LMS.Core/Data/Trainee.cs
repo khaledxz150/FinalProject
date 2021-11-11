@@ -18,7 +18,7 @@ namespace LMS.Data
         public string ImageName { get; set; }
         public bool IsActive { get; set; }
         public DateTime CreationDate { get; set; }
-        public long CreatedBy { get; set; }
+        public string CreatedBy { get; set; }
 
         public virtual Employee CreatedByNavigation { get; set; }
         public virtual ICollection<Cart> Carts { get; set; }

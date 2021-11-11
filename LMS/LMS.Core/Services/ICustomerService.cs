@@ -68,6 +68,9 @@ namespace LMS.Core.Services
         public bool InsertCertificate(Certificate certificate);
 
         public bool DeleteCertificate(int certificateId);
+
+        public List<Trainee> ReturnAllTrainee(int queryCode);
+        public bool ChangeTraineeStatus(long traieeId);
     }
 
 }

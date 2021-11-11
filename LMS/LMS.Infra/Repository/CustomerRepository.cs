@@ -234,6 +234,22 @@ namespace LMS.Infra.Repository
             var result = dBContext.Connection.ExecuteAsync("DeleteCertificate", commandType: CommandType.StoredProcedure);
             return true;
         }
+
+        public List<Trainee> ReturnAllTrainee(int queryCode)
+        {
+            var queryParameters = new DynamicParameters();
+            queryParameters.Add("@P_CODE", queryCode, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<Trainee> result = dBContext.Connection.Query<Trainee>("ReturnTrainee", queryParameters, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public bool ChangeTraineeStatus(long traieeId)
+        {
+            var queryParameters = new DynamicParameters();
+            queryParameters.Add("@TraineeId", traieeId, dbType: DbType.Int64, direction: ParameterDirection.Input);
+            var result = dBContext.Connection.ExecuteAsync("ChangeTraineeStatus", queryParameters, commandType: CommandType.StoredProcedure);
+            return true;
+        }
     }
 
 }

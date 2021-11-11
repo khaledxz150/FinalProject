@@ -47,7 +47,7 @@ namespace LMS.Infra.Services
 
         public List<Cart> ReturnCart(int queryCode, int trineeId)
         {
-            return customerRepository.ReturnCart(queryCode,trineeId);
+            return customerRepository.ReturnCart(queryCode, trineeId);
         }
 
 
@@ -79,7 +79,7 @@ namespace LMS.Infra.Services
         }
         public bool DeleteWishListItem(int wishListItemId)
         {
-            return customerRepository.DeleteWishListItem(wishListItemId);   
+            return customerRepository.DeleteWishListItem(wishListItemId);
         }
 
         public List<SoldCourseDTO> ReturnSoldCourses()
@@ -135,6 +135,15 @@ namespace LMS.Infra.Services
         {
             return customerRepository.DeleteCertificate(certificateId);
         }
-    }
+        public List<Trainee> ReturnAllTrainee(int queryCode)
+        {
+            return customerRepository.ReturnAllTrainee(queryCode);
 
-}
+        }
+
+        public bool ChangeTraineeStatus(long traieeId)
+        {
+            return customerRepository.ChangeTraineeStatus(traieeId);
+        }
+    }
+    }
