@@ -202,7 +202,18 @@ namespace LMS.Controllers
         {
             return customerService.DeleteCertificate(certificateId);    
         }
-
+        [HttpPost]
+        [Route("[action]/{queryCode}")]
+        public List<Trainee> ReturnAllTrainee(int queryCode)
+        {
+            return customerService.ReturnAllTrainee(queryCode);
+        }
+        [HttpPut]
+        [Route("[action]/{traieeId}")]
+        public bool ChangeTraineeStatus(long traieeId)
+        {
+            return customerService.ChangeTraineeStatus(traieeId);
+        }
     }
 
 }

@@ -55,6 +55,8 @@ namespace LMS.Core.Repository
         public List<TraineeAttendanceDTO> ReturnTraineeAttendance(int sectionId, int lectureId);
 
         //ReturnTraineeInfo
+        public List<Trainee> ReturnAllTrainee(int queryCode);
+       
         public List<TraineeInfoDTO> ReturnTraineeInfo(int traineeId);
 
         // Add New Trainee 
@@ -71,6 +73,8 @@ namespace LMS.Core.Repository
         public bool InsertCertificate(Certificate certificate);
 
         public bool DeleteCertificate(int certificateId);
+        //change status
+        public bool ChangeTraineeStatus(Int64 trainerId);
     }
 
 }
