@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from 'src/environments/environment';
-import { Course } from '../models/course';
+import { Coupon, Course } from '../models/course';
 import { Topic } from '../models/topic';
 
 @Injectable({
@@ -216,4 +216,35 @@ export class CourseService {
             debugger
     }
 
+
+    //Coupon
+
+    coupon:Coupon[]=[]
+    ReturnAllCoupon(){
+debugger
+      this.http.post(environment.apiUrl + 'Course/ReturnAllCoupon/'+0,0).subscribe((res:any)=>{
+
+        debugger
+        this.coupon = res;
+      })
+
+    }
+
+    createCoupon(coupon:any){
+
+
+    debugger
+    this.http.post(environment.apiUrl + 'Course/InsertCoupon/',coupon).subscribe((res:any)=>{
+
+
+      window.location.reload()
+      this.toastr.success('coupon Created successfully !!!');
+
+    },err=>{
+      // this.spiner.hide();
+      this.toastr.error('Something Wrong, Try Again!');
+    })
+
+    debugger
+    }
 }

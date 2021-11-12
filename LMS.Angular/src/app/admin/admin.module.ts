@@ -19,6 +19,7 @@ import { UpdateCategoryComponent } from './category/update-category/update-categ
 import { UpdateSectionComponent } from './section/update-section/update-section.component';
 import { TopicComponent } from './topic/topic.component';
 import { CreateTopicComponent } from './topic/create-topic/create-topic.component';
+import { CouponComponent } from './coupon/coupon.component';
 @NgModule({
   declarations: [
 
@@ -35,7 +36,8 @@ import { CreateTopicComponent } from './topic/create-topic/create-topic.componen
       UpdateCategoryComponent,
       UpdateSectionComponent,
       TopicComponent,
-      CreateTopicComponent
+      CreateTopicComponent,
+      CouponComponent
   ],
   imports: [
     CommonModule,
