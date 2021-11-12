@@ -44,3 +44,4 @@ C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS.Core\obj\Debug\net5.0\LMS.Core
 C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS.Core\obj\Debug\net5.0\LMS.Core.dll
 C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS.Core\obj\Debug\net5.0\ref\LMS.Core.dll
 C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS.Core\obj\Debug\net5.0\LMS.Core.pdb
+C:\GitHub\FinalProject\FinalProject\LMS\LMS.Core\obj\Debug\net5.0\LMS.Core.csproj.AssemblyReference.cache

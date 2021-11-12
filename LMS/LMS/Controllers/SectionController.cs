@@ -51,10 +51,10 @@ namespace LMS.Controllers
 
 
         [HttpPut]
-        [Route("[action]")]
-        public bool UpdateSection(Section section)
+        [Route("[action]/{trainerId}")]
+        public Task<bool> UpdateSection(Section section, int trainerId)
         {
-            return sectionService.UpdateSection(section);
+            return sectionService.UpdateSection(section, trainerId);
         }
         /// TraineeSection
         /// Start

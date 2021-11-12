@@ -15,7 +15,7 @@ namespace LMS.Core.Services
 
         public Task<bool> AddSection(Section section, int trainerId);
 
-        public bool UpdateSection(Section section);
+        public Task<bool> UpdateSection(Section section, int trainerId);
         public bool DeleteSection(int SectionId);
         public List<Section> GetAllSection();
 
