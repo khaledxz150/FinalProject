@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { faInfoCircle, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { AlertDialogComponent } from 'src/app/alert-dialog/alert-dialog.component';
 import { Section } from 'src/app/models/section';
 import { CourseService } from 'src/app/Service/course.service';
@@ -9,19 +9,19 @@ import { SectionService } from 'src/app/Service/section.service';
 import { TrainerService } from 'src/app/Service/trainer.service';
 
 @Component({
-  selector: 'app-create-section',
-  templateUrl: './create-section.component.html',
-  styleUrls: ['./create-section.component.css']
+  selector: 'app-update-section',
+  templateUrl: './update-section.component.html',
+  styleUrls: ['./update-section.component.css']
 })
-export class CreateSectionComponent implements OnInit {
+export class UpdateSectionComponent implements OnInit {
 
 
   //Icons
   faTimes =faTimes
-  faInfoCircle = faInfoCircle
+
 
   formGroup: FormGroup = new FormGroup({
-    // sectionId: new FormControl('', [Validators.required]),
+    // sectionId: new FormControl(''),
     noLecture: new FormControl('',[Validators.required]),
     sectionCapacity: new FormControl('',[Validators.required]),
     statusId: new FormControl('',[Validators.required]),
@@ -47,16 +47,30 @@ export class CreateSectionComponent implements OnInit {
     public trainerService:TrainerService,
     public courseService: CourseService,
     private dialog:MatDialog,
-    // private dialog: MatDialogRef<CreateSectionComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.sectionService.getStatus();
+    this.sectionService.getSections(0);
+
     this.trainerService.getTrainer();
     this.courseService.getCourses();
+
   }
 
   ngOnInit(): void {
 
+    if (this.data) {
+      debugger
+      // this.formGroup.controls.noLecture.setValue(this.data.noLecture);
+      this.formGroup.controls.noLecture.setValue(this.data.noLecture);
+      this.formGroup.controls.sectionCapacity.setValue(this.data.sectionCapacity);
+      this.formGroup.controls.sectionTimeStart.setValue(this.data.sectionTimeStart);
+      this.formGroup.controls.sectionTimeEnd.setValue(this.data.sectionTimeEnd);
+      this.formGroup.controls.trainerId.setValue(this.data.trainerId);
+      this.formGroup.controls.courseId.setValue(this.data.courseId);
+      this.formGroup.controls.statusId.setValue(this.data.statusId);
+      console.log("this.data.trainerId = ",this.data.trainerId)
+    }
 
   }
 
@@ -71,8 +85,9 @@ export class CreateSectionComponent implements OnInit {
 
 // }
 
-createSection(){
+updateSection(){
 
+  debugger
   let dialogRef = this.dialog.open(AlertDialogComponent);
 
   dialogRef.afterClosed().subscribe(result => {
@@ -81,17 +96,19 @@ createSection(){
     if (result == 'confirm') {
 
       const section : Section = this.formGroup.value;
-      // const trainerId:number = this.formGroup.controls.trainerId.value;
-      let trainerId = this.formGroup.controls.trainerId.value;
+
+      section.sectionId = this.data.sectionId;
+      // section.sectionId = sectionId;
+      let trainerId= this.formGroup.controls.trainerId.value;
+      // let sectionId = this.data.sectionId;
       debugger
 
-        this.sectionService.createSection(section,trainerId);
+        this.sectionService.updateSection(section,trainerId);
       // window.location.reload();
 
     }
     })
 
+    debugger
 }
-
-
 }

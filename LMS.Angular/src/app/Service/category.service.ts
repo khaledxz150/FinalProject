@@ -84,4 +84,20 @@ export class CategoryService {
       this.toastr.error('Something Wrong, Try Again!');
     })
   }
+
+
+  updateCategory(category:any){
+    debugger
+    this.http.put(environment.apiUrl + 'Course/UpdateCategory',category).subscribe((res:any)=>{
+      debugger
+      // this.spiner.hide();
+      this.toastr.success('Category Updated successfully !!!');
+
+
+    },err=>{
+      // this.spiner.hide();
+      this.toastr.error('Something Wrong, Try Again!');
+    })
+
+  }
 }

@@ -6,7 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Course } from 'src/app/models/course';
 import { CategoryService } from 'src/app/Service/category.service';
 import { ViewCourseComponent } from './view-course/view-course.component';
-import { UpdateCourseComponent } from './update-course/update-course.component';
+import { AlertDialogComponent } from 'src/app/alert-dialog/alert-dialog.component';
 
 @Component({
   selector: 'app-course',
@@ -16,67 +16,104 @@ import { UpdateCourseComponent } from './update-course/update-course.component';
 export class CourseComponent implements OnInit {
 
 
+// Icons
+faAngleDoubleRight = faAngleDoubleRight
+faShoppingCart = faShoppingCart
+faHeart = faHeart
+faQuoteRight = faQuoteRight
+faStar = faStar
+faUser = faUser
+faBook = faBook
+faTag = faTag
+faChartLine = faChartLine
+faCalendar = faCalendar
+faDollarSign = faDollarSign
+faPercentage = faPercentage
+faEdit =faEdit
+faInfoCircle = faInfoCircle
+faTrashAlt = faTrashAlt
 
 
-  // Icons
-  faAngleDoubleRight = faAngleDoubleRight
-  faShoppingCart = faShoppingCart
-  faHeart = faHeart
-  faQuoteRight = faQuoteRight
-  faStar = faStar
-  faUser = faUser
-  faBook = faBook
-  faTag = faTag
-  faChartLine = faChartLine
-  faCalendar = faCalendar
-  faDollarSign = faDollarSign
-  faPercentage = faPercentage
-  faEdit =faEdit
-  faInfoCircle = faInfoCircle
-  faTrashAlt = faTrashAlt
-  // categoryName:string  = '';
+constructor(public courseService: CourseService, private dialog:MatDialog, public categoryService:CategoryService) {
+  this.courseService.getCourses();
+  this.categoryService.getCategories();
+}
 
-  // cat:Course[]=  this.courseService.courses.filter(x=>x.categoryName == this.categoryName);
-  constructor(public courseService: CourseService, private dialog:MatDialog, public categoryService:CategoryService) {
-    this.courseService.getCourses();
-    this.categoryService.getCategories();
-  }
-
-  ngOnInit(): void {
-  }
-
-  // deleteCourse(courseId:number){
-  //   this.courseService.deleteCourse(courseId);
+ngOnInit(): void {
+}
 
 
-  // }
+createCourse(){
+  this.dialog.open(CreateCourseComponent).afterClosed().subscribe((course) =>{
+    if(course){
 
-  createCourse(){
-    this.dialog.open(CreateCourseComponent)
-  }
+      let dialogRef = this.dialog.open(AlertDialogComponent);
+
+      dialogRef.afterClosed().subscribe(result => {
+
+        // NOTE: The result can also be nothing if the user presses the `esc` key or clicks outside the dialog
+        if (result == 'confirm') {
+
+          this.courseService.createCourse(course);
+
+        }
+        })
+
+    }
+  });
+}
+
+viewCourse(courseId:number){
+  console.log(courseId)
+
+  const courseDetails = this.courseService.courses.find(i =>i.courseId == courseId);
 
 
+  this.dialog.open(ViewCourseComponent,{data:courseDetails})
+}
+
+updateCourse(courseId:number){
+  const course = this.courseService.courses.find(i =>i.courseId == courseId);
 
 
+  console.log("course = ", course)
+  this.dialog.open(CreateCourseComponent,{data:course}).afterClosed().subscribe((update) =>{
+    if(update){
 
-  viewCourse(courseId:number){
-    console.log(courseId)
+      let dialogRef = this.dialog.open(AlertDialogComponent);
 
-    const courseDetails = this.courseService.courses.find(i =>i.courseId == courseId);
+      dialogRef.afterClosed().subscribe(result => {
 
+        // NOTE: The result can also be nothing if the user presses the `esc` key or clicks outside the dialog
+        if (result == 'confirm') {
 
-    this.dialog.open(ViewCourseComponent,{data:courseDetails})
-  }
+          update.courseId = course?.courseId;
+          this.courseService.updateCourse(update);
+          // window.location.reload();
 
-  updateCourse(courseId:number){
-    const course = this.courseService.courses.find(i =>i.courseId == courseId);
-
-
-    this.dialog.open(UpdateCourseComponent,{data:course})
-  }
+        }
+        })
 
 
-  deleteCourse(courseId:number){
-    this.courseService.deleteCourse(courseId);
-  }
+    }
+  });
+
+}
+
+deleteCourse(courseId:number){
+
+  let dialogRef = this.dialog.open(AlertDialogComponent);
+
+  dialogRef.afterClosed().subscribe(result => {
+
+    // NOTE: The result can also be nothing if the user presses the `esc` key or clicks outside the dialog
+    if (result == 'confirm') {
+
+      this.courseService.deleteCourse(courseId);
+      window.location.reload();
+
+    }
+    })
+
+}
 }

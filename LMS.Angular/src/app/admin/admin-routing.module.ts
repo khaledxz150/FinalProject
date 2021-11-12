@@ -4,18 +4,19 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { CategoryComponent } from './category/category.component';
 import { CourseComponent } from './course/course.component';
 import { SectionComponent } from './section/section.component';
+import { TopicComponent } from './topic/topic.component';
 import { TrainerInfoComponent } from './trainer-info/trainer-info.component';
 
 const routes: Routes = [
   {
-    path:'dash',
+    path:'',
     component:AdminDashboardComponent
   },
   {
     path:'course',
     component:CourseComponent
   },
-  
+
   {
     path:'trainer-info',
     component:TrainerInfoComponent
@@ -25,8 +26,12 @@ const routes: Routes = [
     component:CategoryComponent
   },
   {
-    path:'course-section',
+    path:'section',
     component:SectionComponent
+  },
+  {
+    path:'topic',
+    component:TopicComponent
   }
 ];
 

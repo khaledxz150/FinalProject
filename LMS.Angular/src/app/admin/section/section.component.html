@@ -29,9 +29,15 @@
           <mat-tab-group mat-align-tabs="center"  style="width: 100%; display: flex; padding-bottom: 5rem;" >
 
             <mat-tab label="{{course.courseName}}" *ngFor ="let course of courseService.courses" style="display: flex; padding-bottom: 5rem;">
+
+
+              <ng-container  class="container">
+                <div class="row">
+
               <ng-container *ngFor ="let section of sectionService.sections">
                 <div class=" card card-margin col-lg-5 m-2 mt-3" *ngIf = "course.courseName == section.courseName">
                 <div>
+                  <ng-container class="course-card" *ngIf = "course.courseName == section.courseName">
 
                   <div class="card-header no-border ">
                       <h5 class="card-title">{{section.courseName}}</h5>
@@ -71,16 +77,21 @@
                           </ol> -->
                           <div class="widget-49-meeting-action mt-5">
                               <!-- <a href="#" class="btn btn-sm btn-flash-border-primary">update</a> -->
-                              <fa-icon [icon]="faEdit" style="font-size: 1.3rem; color:#af1a2d;"></fa-icon>
-                              <fa-icon [icon] = "faTrashAlt" style="font-size: 1.3rem;  color:#af1a2d" class="px-3 pt-0"></fa-icon>
+                              <fa-icon [icon]="faEdit" style="font-size: 1.3rem; color:#af1a2d;" (click)="updateSection(section.sectionId)"></fa-icon>
+                              <fa-icon [icon] = "faTrashAlt" style="font-size: 1.3rem;  color:#af1a2d" class="px-3 pt-0" (click)="deleteSection(section.sectionId)"></fa-icon>
                               <!-- <i class="pi pi-trash px-3 pt-0"  style="font-size: 1.3rem;"></i> -->
                           </div>
                       </div>
                   </div>
+
+                  </ng-container>
                 </div>
               </div>
                 <!-- <div *ngIf = "course.courseName == null">test</div> -->
               </ng-container>
+            </div>
+            </ng-container>
+
             </mat-tab>
 
           </mat-tab-group>

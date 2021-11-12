@@ -3,7 +3,7 @@
 <div class="container" >
   <!-- <h2 class="mb-2">Create Section</h2> -->
   <div class="d-flex" style="justify-content: space-between;">
-    <h3 class="mb-3" style="font-weight: bold; ">Create Section</h3>
+    <h3 class="mb-3" style="font-weight: bold; ">Update Section</h3>
     <fa-icon [icon]="faTimes" style="font-size: 30px;"  mat-dialog-close></fa-icon>
   </div>
   <div class="row">
@@ -75,10 +75,13 @@
                 <mat-option *ngFor="let course of this.courseService.courses" [value]="course.courseId">
                     {{course.courseName}}
                 </mat-option>
+
             </mat-select>
             <mat-error *ngIf="formGroup.controls.courseId.hasError('required')">
               Course Name is <strong>required</strong>
             </mat-error>
+
+
           </mat-form-field>
 
 
@@ -87,9 +90,10 @@
           <mat-form-field >
             <mat-label>Trainer</mat-label>
             <mat-select formControlName="trainerId">
-                <mat-option *ngFor="let trainer of this.trainerService.trainer" [value]="trainer.employeeId">
+                <mat-option *ngFor="let trainer of this.trainerService.trainer"  [value]="trainer.employeeId">
                     {{trainer.fname}} {{trainer.lname}}
                 </mat-option>
+
             </mat-select>
             <mat-error *ngIf="formGroup.controls.trainerId.hasError('required')">
               Trainer is <strong>required</strong>
@@ -101,13 +105,13 @@
 
       <div class="row">
         <div class="col mt-2">
-          <!-- <fa-icon [icon]="faInfoCircle" style="color:#af1a2d;"></fa-icon> -->
+
           <label id="SelectStatus"> Status:</label>
           <mat-radio-group formControlName="statusId" aria-label="SelectStatus" class="example-radio-group">
-            <mat-radio-button [value]="status.statusId" class="example-radio-button" *ngFor="let status of this.sectionService.status" >{{status.statusName}}</mat-radio-button>
+            <mat-radio-button [value]="status.statusId" class="example-radio-button" *ngFor="let status of this.sectionService.status" checked="true">{{status.statusName}}</mat-radio-button>
             <!-- <mat-radio-button value="2">Option 2</mat-radio-button> -->
           </mat-radio-group>
-
+<!-- <input type="text" formControlName="statusName"> -->
 
         </div>
 
@@ -118,7 +122,7 @@
 
   <mat-dialog-actions align="end">
     <!-- <button mat-button mat-dialog-close>Cancel</button> -->
-    <button mat-button [mat-dialog-close]="true" cdkFocusInitial [disabled]="!formGroup.valid" (click)="createSection()">Create</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial [disabled]="!formGroup.valid" (click)="updateSection()">Update</button>
   </mat-dialog-actions>
 </form>
 
