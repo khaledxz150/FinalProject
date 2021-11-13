@@ -239,7 +239,8 @@ namespace LMS.Infra.Repository
             var queryParameters = new DynamicParameters();
             queryParameters.Add("@CategoryId", category.CategoryId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             queryParameters.Add("@Name", category.Name, dbType: DbType.String, direction: ParameterDirection.Input);
-            queryParameters.Add("@IsActive", category.IsActive, dbType: DbType.Boolean, direction: ParameterDirection.Input);
+            queryParameters.Add("@Image", category.Image, dbType: DbType.String, direction: ParameterDirection.Input);
+            // queryParameters.Add("@IsActive", category.IsActive, dbType: DbType.Boolean, direction: ParameterDirection.Input);
             //execute proc
             var result = _dbContext.Connection.ExecuteAsync("UpdateCategory", queryParameters, commandType: CommandType.StoredProcedure);
             return true;
@@ -288,7 +289,6 @@ namespace LMS.Infra.Repository
             queryParameters.Add("@levelId", course.LevelId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             queryParameters.Add("@categoryId", course.CategoryId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             queryParameters.Add("@image", course.Image, dbType: DbType.String, direction: ParameterDirection.Input);
-            queryParameters.Add("@isActive", course.IsActive, dbType: DbType.Boolean, direction: ParameterDirection.Input);
             queryParameters.Add("@video", course.PreviewVideoUrl, dbType: DbType.String, direction: ParameterDirection.Input);
 
             //execute proc
@@ -312,9 +312,8 @@ namespace LMS.Infra.Repository
             var queryParameters = new DynamicParameters();
             queryParameters.Add("@P_Id", topic.TopicId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             queryParameters.Add("@P_TopicName", topic.TopicName, dbType: DbType.String, direction: ParameterDirection.Input);
-            queryParameters.Add("@P_IsActive", topic.IsActive, dbType: DbType.Boolean, direction: ParameterDirection.Input);
             queryParameters.Add("@P_Description", topic.Description, dbType: DbType.String, direction: ParameterDirection.Input);
-
+            queryParameters.Add("@P_CourseId", topic.CourseId, dbType: DbType.Int16, direction: ParameterDirection.Input);
             //execute proc
             var result = _dbContext.Connection.ExecuteAsync("UpdateTopic", queryParameters, commandType: CommandType.StoredProcedure);
             return true;

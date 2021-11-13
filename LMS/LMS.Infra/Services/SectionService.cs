@@ -54,11 +54,11 @@ namespace LMS.Infra.Services
         {
             return sectionRepository.AddTraineeSection(traineeSection);
         }
-        public bool UpdateSection(Section section)
+        public Task<bool> UpdateSection(Section section, int trainerId)
         {
-            return sectionRepository.UpdateSection(section);
+            return sectionRepository.UpdateSection(section, trainerId);
         }
-        
+
         public bool DeleteTraineeSection(int traineeSectionId)
         {
             return sectionRepository.DeleteTraineeSection(traineeSectionId);
