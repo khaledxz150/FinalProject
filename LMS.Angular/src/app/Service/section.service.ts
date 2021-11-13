@@ -15,7 +15,7 @@ export class SectionService {
 
    section: any[]=[{}];
    TrainerSection : any[]=[{}];
-   sections: any=[{}];
+   sections: any[]=[{}];
    status: any[]=[{}];
 
 
@@ -29,7 +29,7 @@ export class SectionService {
     console.log("Hello",result);
    this.TrainerSection = result;
    this.TrainerSection = this.TrainerSection.filter(x => x.isActive == true);
-   
+
   this.spinner.hide();
   },err=>{
     this.spinner.hide();
@@ -155,5 +155,46 @@ createSection(section:Section,trainerId:number){
 
 }
 
+deleteSection(sectionId:number){
+  this.http.delete(environment.apiUrl + 'Section/DeleteSection/'+sectionId).subscribe((res:any)=>{
+     debugger
+    // this.spinner.hide();
+
+    window.location.reload();
+    this.toastr.success('Course Deleted successfully !!!');
+
+  },err=>{
+    // this.spinner.hide();
+    this.toastr.error('Something Wrong, Try Again!');
+  })
+  debugger;
+ }
+
+
+ updateSection(section:Section,trainerId:number){
+
+
+
+  debugger
+ this.http.put(environment.apiUrl + 'Section/UpdateSection/'+trainerId,section).subscribe((res:any)=>{
+   // debugger
+   // this.spinner.hide();
+   // this.toastr.success('Send Message successfully, Thank You :)');
+   debugger
+
+
+   // console.log( "test",this.courses)
+   window.location.reload();
+   this.toastr.success('Data Retrived !!!');
+
+
+ },err=>{
+   // this.spinner.hide();
+   this.toastr.warning('Something wrong');
+ })
+ debugger;;
+
+
+ }
 
 }
