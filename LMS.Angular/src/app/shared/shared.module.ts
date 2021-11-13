@@ -37,6 +37,11 @@ import {PanelModule} from 'primeng/panel';
 
 import {TabViewModule} from 'primeng/tabview';
 
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+
+
+
+
 @NgModule({
   declarations: [
   ],
@@ -67,7 +72,9 @@ import {TabViewModule} from 'primeng/tabview';
     MatDialogModule,
     CardModule,
     PanelModule,
-    TabViewModule
+    TabViewModule,
+    MatIconModule,
+    PdfViewerModule,
 
     ],
   exports:[
@@ -99,7 +106,9 @@ import {TabViewModule} from 'primeng/tabview';
     MatDialogModule,
     CardModule,
     PanelModule,
-    TabViewModule
+    TabViewModule,
+    PdfViewerModule
+    
   ]
 })
 export class SharedModule { }

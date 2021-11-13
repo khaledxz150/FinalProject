@@ -30,6 +30,14 @@ namespace LMS.Controllers
         {
             return _employeeService.DeleteEmployee(employeeId);
         }
+
+        [HttpPut]
+        [Route("[action]/{employeeId}")]
+        public bool ChangeTrainerStatus(long employeeId)
+        {
+            return _employeeService.ChangeTrainerStatus(employeeId);
+        }
+
         [HttpPost]
         [Route("[action]/{queryCode}")]
         public List<Employee> GetAllEmployess(int queryCode)

@@ -4,6 +4,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { CategoryComponent } from './category/category.component';
 import { CourseComponent } from './course/course.component';
 import { SectionComponent } from './section/section.component';
+import { TrainerInfoComponent } from './trainer-info/trainer-info.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,11 @@ const routes: Routes = [
   {
     path:'course',
     component:CourseComponent
+  },
+  
+  {
+    path:'trainer-info',
+    component:TrainerInfoComponent
   },
   {
     path:'category',

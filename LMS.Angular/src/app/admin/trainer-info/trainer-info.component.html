@@ -1,0 +1,91 @@
+<!--====== PAGE BANNER PART START ======-->
+
+<!-- <div class="wrapper d-flex align-items-stretch"> -->
+
+<!--====== Table Information Employee  ======-->
+
+
+
+<div class="wrapper d-flex align-items-stretch" style="background-color:#eee;">
+  <app-sidebar></app-sidebar>
+  <div class="container">
+
+     <h2 class="row justify-content-center"  style="padding-top:6%" mat-dialog-title> Employee Managment </h2> 
+    <!-- <form class="example-form">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Assignee</mat-label>
+        <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option.fname}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form> -->
+    <button mat-fab color="primary" class="create" (click)="AddTrainer()">
+      <mat-icon>add</mat-icon>
+    </button>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="table-wrap">
+          <table class="table table-responsive-xl">
+            <thead>
+              <tr>
+                <th>&nbsp;</th>
+                <th>SSN</th>
+                <th>Image</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Status</th>
+                <th>&nbsp;</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let trainer of trainer.trainer">
+              <tr class="alert" role="alert">
+                <td>
+                  <label class="checkbox-wrap checkbox-primary">
+                    <input type="checkbox" checked>
+                    <span class="checkmark"></span>
+                  </label>
+                </td>
+                <td>{{trainer.nationalSecurutiyNumber}}</td>
+                <td>
+                  <!-- <div class="img" style="background-image: url(../../../assets/image/trainer/{{trainer.image}});"></div> -->
+                  <img src="{{trainer.image}}" width="70px" height="70px">
+                </td>
+                <td>{{trainer.email}}</td>
+                <td>{{trainer.phoneNumber}}</td>
+                <td class="status">
+
+                  <span class="active" *ngIf="trainer.isActive" (click)="ChangeTrainerStatus(trainer.employeeId)">
+                    {{trainer.isActive}}
+                  </span>
+                  <span class="error" *ngIf="!trainer.isActive" (click)="ChangeTrainerStatus(trainer.employeeId)">
+                    {{trainer.isActive}}
+                  </span>
+                </td>
+                <td>
+
+
+                  <button mat-flat-button
+                    style="  border-radius: 20%;color:white;background-color :green; width:20%;height: 30%;"
+                    (click)="UpdateTrainer(trainer.employeeId)">
+                    Edit
+                  </button>
+                  <button mat-flat-button style="  border-radius: 20%;color:white;background-color :rgb(202, 29, 29);"
+                    (click)="DeleteTrainer(trainer.employeeId)">
+                    Delete
+                  </button>
+
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>

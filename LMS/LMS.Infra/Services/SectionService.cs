@@ -6,7 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
+using Task = LMS.Data.Task;
 
 namespace LMS.Infra.Services
 {
@@ -27,12 +28,12 @@ namespace LMS.Infra.Services
         {
             return sectionRepository.GetAllStatus();
         }
-        public bool AddSection(Section section)
+        public Task<bool> AddSection(Section section, int trainerId)
         {
-            return sectionRepository.AddSection(section);              
+            return sectionRepository.AddSection(section, trainerId);
         }
 
-       
+
 
         public bool DeleteSection(int SectionId)
         {
@@ -161,6 +162,7 @@ namespace LMS.Infra.Services
 
         public List<Section> GetAllSection()
         {
-            return sectionRepository.GetAllSection();        }
+            return sectionRepository.GetAllSection();     
+        }
     }
 }

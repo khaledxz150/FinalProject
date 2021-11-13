@@ -92,4 +92,32 @@ export class CourseService {
       this.toastr.error('Something Wrong, Try Again!');
     })
   }
+
+
+  updateCourse(course:any){
+
+
+    // const contactUs : ContactUs = this.contactUsForm.value;
+
+    // debugger;
+    //  this.spinner.show();
+
+    this.http.put(environment.apiUrl + 'Course/DeleteCourse',course).subscribe((res:any)=>{
+      // debugger
+      // this.spinner.hide();
+      // this.toastr.success('Send Message successfully, Thank You :)');
+      debugger
+      console.log(res)
+      // this.courses = res;
+      // console.log( "test",this.courses)
+
+      this.toastr.success('Course Deleted successfully !!!');
+      // window.location.reload();
+
+    },err=>{
+      // this.spinner.hide();
+      this.toastr.error('Something Wrong, Try Again!');
+    })
+    debugger;
+  }
 }

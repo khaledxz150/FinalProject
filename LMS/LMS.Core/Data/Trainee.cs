@@ -12,13 +12,13 @@ namespace LMS.Data
         public int TraineeId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
         public string Nationality { get; set; }
         public string Email { get; set; }
         public string ImageName { get; set; }
         public bool IsActive { get; set; }
         public DateTime CreationDate { get; set; }
-        public long CreatedBy { get; set; }
+        public string CreatedBy { get; set; }
 
         public virtual Employee CreatedByNavigation { get; set; }
         public virtual ICollection<Cart> Carts { get; set; }

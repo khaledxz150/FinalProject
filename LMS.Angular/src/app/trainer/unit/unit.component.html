@@ -1,13 +1,161 @@
 <body>
-    <div>
-        <app-trainer-side-bar></app-trainer-side-bar>
-    </div>
-    <div class="content" style="margin-top:40%; width:70%; font-weight:900;">
-        <h1 class="title">Unit control</h1>
-    </div>
+   <app-trainer-side-bar></app-trainer-side-bar>
+    <div class="Main_body"> 
     
+        <div class="content" style=" margin-left:15%; width:70%; font-weight:900;">
+            <h1 class="title">Unit control</h1>
+            <button mat-fab color="primary" class="create" (click)="addUnit(unitService.sectionID)" >
+                <mat-icon>add</mat-icon>
+              </button>
+        </div>
+    
+    <div class="limit">
+      <div class="example-action-buttons">
+          <button mat-button (click)="accordion.openAll()">Expand All</button>
+          <button mat-button (click)="accordion.closeAll()">Collapse All</button>
+      </div>
+      <mat-accordion class="example-headers-align" multi>
+          <mat-expansion-panel>
+    
+    
+    
+              <mat-expansion-panel-header>
+                  <mat-panel-title>
+                      Active units
+    
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    Active units
+    
+                      <mat-icon>book</mat-icon>
+                  </mat-panel-description>
+    
+              </mat-expansion-panel-header>
+      <div class="container-table100">
+          <div class="wrap-table100">
+              <div class="content">
+                  
+                  
+    
+    
+              </div>
+              <div class="table100 ver2 m-b-110">
+                  <div class="table100-head">
+                      <table>
+                          <thead>
+                              <tr class="row100 head">
+                                  <th class="cell100 column1">unit ID</th>
+                                  <th class="cell100 column2">Section ID</th>
+                                  <th class="cell100 column4">File</th>
+                                  <th class="cell100 column4">Start Time</th>
+                                  
+                                  <th class="cell100 column4">  
+                                 Edit unit
+                                  </th>
+                                  <th class="cell100 column4">  
+                                      Delete unit
+                                  </th>
+                              </tr>
+                          </thead>
+                      </table>
+                  </div>
+                  <div class="table100-body js-pscroll">
+                      <table>
+                          <tbody *ngFor="let data of unitService.units">
+                              <tr>
+                                  <td class="cell100 column1 fancy-link">{{data.id}}</td>
+                                  <td class="cell100 column2 fancy-link">{{data.sectionId}}</td>
+                                  <td class="cell100 column3 fancy-link">{{data.filePath}}</td>
+                                  <td class="cell100 column1 fancy-link"><mat-icon class="pointer fancy-link" (click)="editUnit(data.unitId)">delete</mat-icon>
+                                  </td>  
+                                  <td class="cell100 column1 fancy-link">   <mat-icon class="pointer fancy-link" (click)="deleteUnit(data.unitId)">Book</mat-icon></td>   
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+    
+          </div>
+      </div>
+    
+              
+    
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                  <mat-panel-title>
+                      completed sections
+                  </mat-panel-title>
+                  <mat-panel-description>
+                      sections that have been already completed and archieved
+                      <mat-icon>map</mat-icon>
+                  </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div class="container-table100">
+                  <div class="wrap-table100">
+                      <div class="content">
+                      
+                      </div>
+                      <div class="table100 ver2 m-b-110">
+                          <div class="table100-head">
+                              <table>
+                                  <thead>
+                                      <tr class="row100 head">
+                                          <th class="cell100 column1">Course Name</th>
+                                          <th class="cell100 column2">Section ID</th>
+                                          <th class="cell100 column4">Level Name</th>
+                                          <th class="cell100 column4">Category</th>
+                                          <th class="cell100 column4"> No Lecture</th>
+                                          <th class="cell100 column4">Section Capacity</th>
+                                          <th class="cell100 column4">Status Name</th>
+                                          <th class="cell100 column4">Start time</th>
+                                          <th class="cell100 column4">End Time</th>
+                                          <th class="cell100 column4">Delete unit</th>
 
 
-<app-unit-table></app-unit-table>
+                                      </tr>
+                                  </thead>
+                              </table>
+                          </div>
+                          <div class="table100-body js-pscroll">
+                              <table>
+                                  <tbody *ngFor="let data of unitService.units">
+                                      <tr>
+                                          <td class="cell100 column1 fancy-link">{{data.courseName}}</td>
+                                          <td class="cell100 column2 fancy-link">{{data.sectionId}}</td>
+                                          <td class="cell100 column3 fancy-link">{{data.levelName}}</td>
+                                          <td class="cell100 column5 fancy-link">{{data.categoryName}}</td>
+                                          <td class="cell100 column3 fancy-link">{{data.noLecture}}</td>
+                                          <td class="cell100 column3 fancy-link">{{data.sectionCapacity}}</td>
+                                          <td class="cell100 column5 fancy-link">{{data.statusName}}</td>
+                                          <td class="cell100 column3 fancy-link">{{data.sectionTimeStart| date : 'shortTime'}}</td>
+                                          <td class="cell100 column3 fancy-link">{{data.sectionTimeEnd | date : 'shortTime'}}</td>
+                                         <mat-icon class="pointer fancy-link" (click)="deleteUnit(data.unitId)">delete</mat-icon>
+                                         
+                                      </tr>
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+          
+                  </div>
+              </div>
+          
+          </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    </div>
+    </body>
+     <!--===============================================================================================-->
+     <script src="../../../assets/jquery/jquery-3.2.1.min.js "></script>
+     <!--===============================================================================================-->
+     <script src="../../../assets/bootstrap/js/popper.js "></script>
+     <script src="../../../assets/bootstrap/js/bootstrap.min.js "></script>
+     <!--===============================================================================================-->
+     <!--===============================================================================================-->
+    
+     <!--===============================================================================================-->
+     <script src="../../../assets/js/main.js "></script>
 
-</body>
+
+

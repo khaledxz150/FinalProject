@@ -110,5 +110,13 @@ namespace LMS.Infra.Repository
             IEnumerable<EmployeeInfoDTO> result = _dbContext.Connection.Query<EmployeeInfoDTO>("ReturnEmployeeInfo", parm, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
+        public bool ChangeTrainerStatus(long employeeId)
+        {
+            var queryParameters = new DynamicParameters();
+            queryParameters.Add("@EmployeeId", employeeId, dbType: DbType.Int64, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.ExecuteAsync("ChangeTrainerStatus", queryParameters, commandType: CommandType.StoredProcedure);
+            return true;
+        }
     }
 }

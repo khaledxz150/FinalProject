@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using Task = LMS.Data.Task;
 
 namespace LMS.Infra.Repository
 {
@@ -41,17 +43,27 @@ namespace LMS.Infra.Repository
             return result.ToList();
         }
 
-        public bool AddSection(Section section)
+        public async Task<bool> AddSection(Section section, int trainerId)
         {
             var parm = new DynamicParameters();
+
+
             parm.Add("@P_CourseId", section.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parm.Add("@P_SectionTimeEnd", section.SectionTimeEnd, dbType: DbType.Time, direction: ParameterDirection.Input);
+            parm.Add("@P_SectionTimeEnd", section.SectionTimeEnd, dbType: DbType.DateTime, direction: ParameterDirection.Input);
             parm.Add("@P_SectionCapacity", section.SectionCapacity, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parm.Add("@P_SectionTimeStart", section.SectionTimeStart, dbType: DbType.Time, direction: ParameterDirection.Input);
+            parm.Add("@P_SectionTimeStart", section.SectionTimeStart, dbType: DbType.DateTime, direction: ParameterDirection.Input);
             parm.Add("@P_NoLecture", section.NoLecture, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parm.Add("@P_Status", section.StatusId, dbType: DbType.String, direction: ParameterDirection.Input);
-            parm.Add("@P_CreatedBy", section.CreatedBy, dbType: DbType.String, direction: ParameterDirection.Input);
-            var result = dBContext.Connection.ExecuteAsync("InsertSection", parm, commandType: CommandType.StoredProcedure);
+            parm.Add("@P_Status", section.StatusId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@P_CreatedBy", section.CreatedBy, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = await dBContext.Connection.ExecuteAsync("InsertSection", parm, commandType: CommandType.StoredProcedure);
+
+            var sectionId = GetAllSection().OrderByDescending(x => x.SectionId).FirstOrDefault().SectionId;
+
+            var parm1 = new DynamicParameters();
+            parm1.Add("@P_TrainerId", trainerId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm1.Add("@P_SectionId", sectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm1.Add("@P_CreatedBy", section.CreatedBy, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result1 = await dBContext.Connection.ExecuteAsync("InsertTrainerSection", parm1, commandType: CommandType.StoredProcedure);
             return true;
         }
         public bool DeleteSection(int SectionId)
@@ -152,10 +164,12 @@ namespace LMS.Infra.Repository
             return true;
         }
 
-        public List<Unit> ReturnSectionUnits(int courseId)
+        public List<Unit> ReturnSectionUnits(int sectionId)
         {
-            throw new NotImplementedException();
-
+            var parm = new DynamicParameters();
+            parm.Add("@SectionId", sectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<Unit> result = dBContext.Connection.Query<Unit>("ReturnUnitBySectionId", parm,  commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
 
       

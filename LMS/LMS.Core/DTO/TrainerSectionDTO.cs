@@ -18,8 +18,10 @@ namespace LMS.Core.DTO
         public int SectionCapacity { get; set; }
         public string StatusName { get; set; }
         public int? SectionId { get; set; }
-        public TimeSpan SectionTimeStart { get; set; }
-        public TimeSpan? SectionTimeEnd { get; set; }
+        public DateTime SectionTimeStart { get; set; }
+        public DateTime? SectionTimeEnd { get; set; }
+
+        public bool? IsActive { get; set; }
 
     }
 }

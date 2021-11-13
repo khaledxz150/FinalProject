@@ -52,6 +52,7 @@ namespace LMS.Core.Services
         public List<WishListItemDTO> ReturnWishListItem(int traineeId);
 
 
+
         //ReturnTraineeAttendance
         public List<TraineeAttendanceDTO> ReturnTraineeAttendance(int sectionId, int lectureId);
 
@@ -68,6 +69,9 @@ namespace LMS.Core.Services
         public bool InsertCertificate(Certificate certificate);
 
         public bool DeleteCertificate(int certificateId);
+
+        public List<Trainee> ReturnAllTrainee(int queryCode);
+        public bool ChangeTraineeStatus(long traieeId);
     }
 
 }

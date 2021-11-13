@@ -1,9 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {ViewChild} from '@angular/core';
 import {MatAccordion} from '@angular/material/expansion';
 import {FormGroup, FormControl} from '@angular/forms';
 import { SectionService } from 'src/app/Service/section.service';
 import { UnitService } from 'src/app/Service/unit.service';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateUnitComponent } from '../unit/create-unit/create-unit.component';
+import { ExamServiceService } from 'src/app/Service/exam-service.service';
 
 
 
@@ -28,33 +31,33 @@ export class SectionComponent implements OnInit {
 // @Input () CreatedBy: number| undefined;
   
 
-  displayedColumns: string[] = ['SectionId'];
-  constructor(private sectionService: SectionService, private unitService: UnitService) { }
+  constructor(public sectionService: SectionService, private unitService: UnitService, private dialog:MatDialog,private examservice: ExamServiceService) { }
 
   sections:any=[{}];
   ngOnInit(): void {
-    this.getAllSection();
-    this.unitService.getAllSectionAndUnit();
-    this.sections = this.sectionService.section;
+    this.sectionService.ReturnAllTrainerSections(1);
+    this.sectionService.ReturnAllInactiveTrainerSections(1);
 
   }
-  getAllSection(){
 
-  this.sectionService.getAllSection();
-
-  }
+ 
 Change(e: any){
-  const cardInfoBtn = e.target.closest('.card__more-info')
-  const cardLessBtn = e.target.closest('.card__less-info')
-  
+  const cardInfoBtn = e.target.closest('.card__more-info');
+  const cardLessBtn = e.target.closest('.card__less-info');
   if (cardInfoBtn) {
     cardInfoBtn.parentNode.parentNode.classList.add('card--open')
   }
-  
   if (cardLessBtn) {
     cardLessBtn.parentNode.parentNode.classList.remove('card--open')
   }
   
 }
+ 
+ViewUnit(sectionId:number){
+this.unitService.getAllTrainerSectionUnit(sectionId);
+}
 
+ViewExam(sectionId:number) {
+  this.examservice.GetExamBySection(sectionId);
+}
 }

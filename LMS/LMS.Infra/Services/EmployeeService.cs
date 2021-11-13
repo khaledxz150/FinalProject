@@ -62,5 +62,10 @@ namespace LMS.Infra.Services
         {
             return _employeeRepository.ReturnEmployeeInfo(employeeId);
         }
+
+        public bool ChangeTrainerStatus(long employeeId)
+        {
+           return  _employeeRepository.ChangeTrainerStatus(employeeId);
+        }
     }
 }

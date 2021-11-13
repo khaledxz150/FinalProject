@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Unit } from 'src/app/models/unit';
 import { CategoryService } from 'src/app/Service/category.service';
 import { CourseService } from 'src/app/Service/course.service';
+import { UnitService } from 'src/app/Service/unit.service';
 
 @Component({
   selector: 'app-create-unit',
@@ -15,32 +17,42 @@ export class CreateUnitComponent implements OnInit {
     FilePath: new FormControl('', [Validators.required])
   });
 
-newUnit:any=[];
+  Unit: Unit=new Unit();
+  FileSrc: string | undefined;
  
   constructor(private courseService: CourseService,
-    public categoryService:CategoryService,) { }
+    public categoryService:CategoryService, public unitService: UnitService) { }
 
   ngOnInit(): void {
-     this.newUnit= {
-      SectionId:undefined,
-      FilePath:undefined,
-      IsActive:undefined,
-      createdBy:undefined,
-    }
-  }
+    
+  } 
+
   Create(){
-    this.newUnit= {
-      FilePath:this.selectedFile,
-      IsActive:1,
-      createdBy:Date.now(),
+this.unitService.insertUnit(this.Unit);
+debugger
+  }
+ 
+  
+  Uploadfile(event: any) {
+    const reader = new FileReader();
+
+    if (event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+        this.FileSrc = reader.result as string;    
+
+
+        this.Unit={SectionId: 1 , FilePath: this.FileSrc , isActive: true, CreationDate: new Date(), CreatedBy:1}
+   
+      };
     }
+    
   }
   
-  UploadFile(e:any) {
-this.selectedFile = <File>e.target.files[0];
-console.log(this.selectedFile );
 }
 
-}
+
  
 
