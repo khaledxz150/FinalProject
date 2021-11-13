@@ -4,12 +4,12 @@ import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from 'src/environments/environment';
 import { AlertDialogComponent } from '../alert-dialog/alert-dialog.component';
-
+import {DataTablesModule} from 'angular-datatables'
 @Injectable({
   providedIn: 'root'
 })
 export class TrainerService {
-
+  dtOptions: any []=[{}]
   trainer: any[] = [{}]
 
   constructor(
@@ -65,7 +65,7 @@ export class TrainerService {
   DeleteTrainer(empId: number) {
 
     debugger
-    this.http.put(environment.apiUrl + 'Employee/DeleteEmployee/' + empId, empId).subscribe((res: any) => {
+    this.http.put(environment.apiUrl + 'Employee/DeleteEmployeeFromDatabase/' + empId, empId).subscribe((res: any) => {
       debugger
       // this.spiner.hide();
       this.toastr.success('Trainer Deleted successfully !!!');

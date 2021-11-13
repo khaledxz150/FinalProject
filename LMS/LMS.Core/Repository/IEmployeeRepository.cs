@@ -17,6 +17,7 @@ namespace LMS.Core.Repository
         public bool AddNewEmployee(Employee employee);
         public bool UpdateEmployee(Employee employee);
         public bool DeleteEmployee(Int64 employeeId);
+        public bool DeleteEmployeeFromDatabase(long employeeId);
         public bool ChangeTrainerStatus(Int64 employeeId);
 
         //Role Type

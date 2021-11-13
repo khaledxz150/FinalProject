@@ -67,5 +67,10 @@ namespace LMS.Infra.Services
         {
            return  _employeeRepository.ChangeTrainerStatus(employeeId);
         }
+
+        public bool DeleteEmployeeFromDatabase(long employeeId)
+        {
+            return _employeeRepository.DeleteEmployeeFromDatabase(employeeId);
+        }
     }
 }

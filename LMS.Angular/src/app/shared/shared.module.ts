@@ -37,12 +37,14 @@ import {PanelModule} from 'primeng/panel';
 
 import {TabViewModule} from 'primeng/tabview';
 import {MatRadioModule} from '@angular/material/radio';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
   declarations: [
   ],
   imports: [
+    DataTablesModule,
     CommonModule,
     FormsModule,
     NgxSpinnerModule,
@@ -74,6 +76,7 @@ import {MatRadioModule} from '@angular/material/radio';
 
     ],
   exports:[
+    DataTablesModule,
     CommonModule,
     FormsModule,
     NgxSpinnerModule,

@@ -26,5 +26,6 @@ namespace LMS.Core.Services
         
         //ReturnEmployeeInfo
         public List<EmployeeInfoDTO> ReturnEmployeeInfo(int employeeId);
+        public bool DeleteEmployeeFromDatabase(long employeeId);
     }
 }

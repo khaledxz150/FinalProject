@@ -20,6 +20,7 @@ import { UpdateSectionComponent } from './section/update-section/update-section.
 import { TopicComponent } from './topic/topic.component';
 import { CreateTopicComponent } from './topic/create-topic/create-topic.component';
 import { CouponComponent } from './coupon/coupon.component';
+import { TraineeInfoComponent } from './trainee-info/trainee-info.component';
 @NgModule({
   declarations: [
 
@@ -37,7 +38,8 @@ import { CouponComponent } from './coupon/coupon.component';
       UpdateSectionComponent,
       TopicComponent,
       CreateTopicComponent,
-      CouponComponent
+      CouponComponent,
+      TraineeInfoComponent
   ],
   imports: [
     CommonModule,

@@ -14,13 +14,13 @@ export class EditTrainerComponent implements OnInit {
  
   formGroup: FormGroup = new FormGroup({
 
-    image: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required]),
-    fname: new FormControl('', [Validators.required]),
-    lname: new FormControl('', [Validators.required]),
-    phoneNumber: new FormControl('', [Validators.required]),
-    basicSalary: new FormControl('', [Validators.required]),
-    nationalSecurutiyNumber: new FormControl('', [Validators.required])
+    image: new FormControl(''),
+    email: new FormControl(''),
+    fname: new FormControl(''),
+    lname: new FormControl(''),
+    phoneNumber: new FormControl(''),
+    basicSalary: new FormControl(''),
+    nationalSecurutiyNumber: new FormControl('')
 
   });
   imageSrc: string = '';

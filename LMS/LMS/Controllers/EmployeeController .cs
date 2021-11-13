@@ -83,8 +83,12 @@ namespace LMS.Controllers
         {
             return _employeeService.ReturnEmployeeInfo(employeeId);
         }
-
-
+        [HttpDelete]
+        [Route("[action]/{employeeId}")]
+        public bool DeleteEmployeeFromDatabase(long employeeId)
+        {
+            return _employeeService.DeleteEmployeeFromDatabase(employeeId);
+        }
 
     }
 }

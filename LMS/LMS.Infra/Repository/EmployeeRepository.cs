@@ -42,9 +42,10 @@ namespace LMS.Infra.Repository
             var result = _dbContext.Connection.ExecuteAsync("DeleteEmployee", queryParameters, commandType: CommandType.StoredProcedure);
             return true;
         }
+
         public Employee GetEmployee(long employeeId)
         {
-
+            
             var queryParameters = new DynamicParameters();
             queryParameters.Add("@employeeId", employeeId, dbType: DbType.Int64, direction: ParameterDirection.Input);
             Employee result = _dbContext.Connection.QuerySingle<Employee>("SearchForEmployee", queryParameters, commandType: CommandType.StoredProcedure);
@@ -116,6 +117,14 @@ namespace LMS.Infra.Repository
             var queryParameters = new DynamicParameters();
             queryParameters.Add("@EmployeeId", employeeId, dbType: DbType.Int64, direction: ParameterDirection.Input);
             var result = _dbContext.Connection.ExecuteAsync("ChangeTrainerStatus", queryParameters, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        public bool DeleteEmployeeFromDatabase(long employeeId)
+        {
+            var queryParameters = new DynamicParameters();
+            queryParameters.Add("@employeeId", employeeId, dbType: DbType.Int64, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.ExecuteAsync("DeleteEmployeeFromDatabase", queryParameters, commandType: CommandType.StoredProcedure);
             return true;
         }
     }

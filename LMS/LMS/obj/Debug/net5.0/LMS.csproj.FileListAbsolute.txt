@@ -263,3 +263,6 @@ C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.genruntim
 C:\GitHub\FinalProject\FinalProject\LMS\LMS\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.dll
 C:\GitHub\FinalProject\FinalProject\LMS\LMS\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
 C:\GitHub\FinalProject\FinalProject\LMS\LMS\bin\Debug\net5.0\System.IO.Pipelines.dll
+C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\System.IO.Pipelines.dll
