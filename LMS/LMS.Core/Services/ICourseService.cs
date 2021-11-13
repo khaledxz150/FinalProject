@@ -43,6 +43,8 @@ namespace LMS.Core.Services
 
         public List<Coupon> GetAllCoupons(int queryCody);
 
+        public bool ChangeCouponStatus(int couponId);
+
         //ReturnAllCoupon
         public List<CouponDTO> ReturnAllCoupon(int queryCode);
         //Course Rating 

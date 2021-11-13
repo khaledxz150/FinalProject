@@ -203,6 +203,14 @@ namespace LMS.Controllers
         {
             return _courseService.UpdateTopic(topic);
         }
+
+
+        [HttpPut]
+        [Route("[action]/{couponId}")]
+        public bool ChangeCouponStatus(int couponId)
+        {
+            return _courseService.ChangeCouponStatus(couponId);
+        }
         //**********************************************<-- DTO -->*******************************************
 
         //ReturnAllCourseRating

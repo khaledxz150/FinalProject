@@ -1780,19 +1780,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\HP\\.nuget\\packages\\": {}
+    "C:\\Users\\user\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HP\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Infra\\LMS.Infra.csproj",
+      "projectUniqueName": "C:\\GitHub\\FinalProject\\FinalProject\\LMS\\LMS.Infra\\LMS.Infra.csproj",
       "projectName": "LMS.Infra",
-      "projectPath": "C:\\Users\\HP\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Infra\\LMS.Infra.csproj",
-      "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\HP\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Infra\\obj\\",
+      "projectPath": "C:\\GitHub\\FinalProject\\FinalProject\\LMS\\LMS.Infra\\LMS.Infra.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "C:\\GitHub\\FinalProject\\FinalProject\\LMS\\LMS.Infra\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1806,8 +1806,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\HP\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj": {
-              "projectPath": "C:\\Users\\HP\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj"
+            "C:\\GitHub\\FinalProject\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj": {
+              "projectPath": "C:\\GitHub\\FinalProject\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj"
             }
           }
         }
@@ -1850,7 +1850,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
