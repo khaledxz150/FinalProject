@@ -94,11 +94,10 @@ export class TraineeService {
 
   EditTrainee(trainee: any) {
 
-    debugger
     this.http.put(environment.apiUrl + 'Customer/UpdateTrainee', trainee).subscribe((res: any) => {
-      debugger
+    
       // this.spiner.hide();
-      this.toastr.success('Trainee Deleted successfully !!!');
+      this.toastr.success('Trainee edit successfully !!!');
       window.location.reload();
 
     }, err => {

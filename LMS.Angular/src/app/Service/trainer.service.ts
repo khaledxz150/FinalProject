@@ -86,7 +86,7 @@ export class TrainerService {
       // this.spiner.hide();
 
 
-      this.toastr.success('Trainer Deleted successfully !!!');
+      this.toastr.success('Trainer Edit successfully !!!');
       window.location.reload();
 
 

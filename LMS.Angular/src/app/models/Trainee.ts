@@ -1,5 +1,5 @@
 export class Trainee{      
-
+    traineeId:number=0;
     firstName:string|undefined;
     lastName :string|undefined;
     phoneNumber:string|undefined;

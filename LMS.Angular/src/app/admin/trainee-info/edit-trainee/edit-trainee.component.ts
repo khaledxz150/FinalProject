@@ -1,6 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Trainee } from 'src/app/models/Trainee';
+import { TraineeService } from 'src/app/Service/trainee.service';
 import { TrainerService } from 'src/app/Service/trainer.service';
 
 @Component({
@@ -30,24 +32,24 @@ export class EditTraineeComponent implements OnInit {
     fileSource: new FormControl('', [Validators.required])
   });
 
-  constructor(public trainerService: TrainerService, @Inject(MAT_DIALOG_DATA) public data: any) { }
+  constructor(public traineeService: TraineeService, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
     if (this.data) {
-      this.formGroup.controls.image.setValue(this.data.imageName);
+      this.formGroup.controls.imageName.setValue(this.data.imageName);
       this.formGroup.controls.email.setValue(this.data.email);
-      this.formGroup.controls.fname.setValue(this.data.firstName);
-      this.formGroup.controls.lname.setValue(this.data.lastName);
+      this.formGroup.controls.firstName.setValue(this.data.firstName);
+      this.formGroup.controls.lastName.setValue(this.data.lastName);
       this.formGroup.controls.phoneNumber.setValue(this.data.phoneNumber);
-      this.formGroup.controls.nationalSecurutiyNumber.setValue(this.data.nationality);
-      this.imageSrc = this.data.image;
+      this.formGroup.controls.nationality.setValue(this.data.nationality);
+      this.imageSrc = this.data.imageName;
 
     }
   }
   Update() {
-    const trainee: any = this.formGroup.value;
+    const trainee: Trainee = this.formGroup.value;
     trainee.traineeId = this.data.traineeId;
-    this.trainerService.EditTrainer(trainee);
+    this.traineeService.EditTrainee(trainee);
     console.log('IMAGE : ' + trainee.imageName);
     window.location.reload();
   }
@@ -61,7 +63,7 @@ export class EditTraineeComponent implements OnInit {
 
       reader.onload = () => {
         this.imageSrc = reader.result as string;
-        this.formGroup.controls.image.setValue(this.imageSrc);
+        this.formGroup.controls.imageName.setValue(this.imageSrc);
         this.myForm.patchValue({
           fileSource: reader.result
         });

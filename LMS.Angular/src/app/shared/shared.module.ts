@@ -38,6 +38,7 @@ import {PanelModule} from 'primeng/panel';
 import {TabViewModule} from 'primeng/tabview';
 import {MatRadioModule} from '@angular/material/radio';
 import { DataTablesModule } from 'angular-datatables';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -72,10 +73,12 @@ import { DataTablesModule } from 'angular-datatables';
     CardModule,
     PanelModule,
     TabViewModule,
-    MatRadioModule
+    MatRadioModule,
+    Ng2SearchPipeModule
 
     ],
   exports:[
+    Ng2SearchPipeModule,
     DataTablesModule,
     CommonModule,
     FormsModule,

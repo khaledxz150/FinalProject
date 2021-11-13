@@ -149,7 +149,7 @@ namespace LMS.Infra.Repository
             IEnumerable<WishListItemDTO> result = dBContext.Connection.Query<WishListItemDTO>("ReturnWishListItem", parm, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
-
+       
         public List<CouponDTO> ReturnAllCoupon(int queryCode)
         {
             var parm = new DynamicParameters();
@@ -201,7 +201,7 @@ namespace LMS.Infra.Repository
             parm.Add("@P_Nationality", trainee.Nationality, dbType: DbType.String, direction: ParameterDirection.Input);
             parm.Add("@P_Email", trainee.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             parm.Add("@P_ImageName", trainee.ImageName, dbType: DbType.String, direction: ParameterDirection.Input);
-            var result = dBContext.Connection.ExecuteAsync("UpdateTrainee", commandType: CommandType.StoredProcedure);
+            var result = dBContext.Connection.ExecuteAsync("UpdateTrainee",parm, commandType: CommandType.StoredProcedure);
             return true;
         }
 
