@@ -18,16 +18,18 @@ export class Course{
 
 
 export class Coupon{
-  couponId:number|undefined;
+  couponId:number = 0;
   courseId:number|undefined;
+  code:string|undefined;
   discount:number|undefined;
   redemption:number|undefined;
-  startDate:string|undefined
-  endDate:string|undefined;
+  startDate:string=''
+  endDate:string=''
   courseName:string|undefined;
   courseImage:string|undefined;
   coursePrice:number|undefined;
   currentPrice:number|undefined;
+  isActive:boolean|undefined
 }
 
 
