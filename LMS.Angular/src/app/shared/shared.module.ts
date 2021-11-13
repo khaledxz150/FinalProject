@@ -36,6 +36,8 @@ import {CardModule} from 'primeng/card';
 import {PanelModule} from 'primeng/panel';
 
 import {TabViewModule} from 'primeng/tabview';
+import {MatRadioModule} from '@angular/material/radio';
+
 
 @NgModule({
   declarations: [
@@ -67,7 +69,8 @@ import {TabViewModule} from 'primeng/tabview';
     MatDialogModule,
     CardModule,
     PanelModule,
-    TabViewModule
+    TabViewModule,
+    MatRadioModule
 
     ],
   exports:[
@@ -99,7 +102,8 @@ import {TabViewModule} from 'primeng/tabview';
     MatDialogModule,
     CardModule,
     PanelModule,
-    TabViewModule
+    TabViewModule,
+    MatRadioModule
   ]
 })
 export class SharedModule { }

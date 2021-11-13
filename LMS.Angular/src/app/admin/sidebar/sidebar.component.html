@@ -9,7 +9,9 @@
   <div class="sidebar">
       <div class="logo-details" (click)="btnclicked()">
           <i class='bx bxl-c-plus-plus icon' style="color:#8a1525"></i>
-          <div class="logo_name">LMS</div>
+          <div class="logo_name">
+            <img class="pt-2 mr-4" src="../../../assets/image/tahaluf_logo.png" alt="" width="100" height="70">
+          </div>
           <i class='bx bx-menu' id="btn"></i>
       </div>
       <ul class="nav-list">
@@ -19,7 +21,7 @@
               <span class="tooltip">Search</span>
           </li>
           <li>
-              <a routerLink="/trainer">
+              <a routerLink="/admin">
                   <i class='bx bx-grid-alt'></i>
                   <span class="links_name">Section Dashboard</span>
               </a>
@@ -54,39 +56,39 @@
               <span class="tooltip">Files</span>
           </li>
           <li>
-              <a href="#">
-                  <i class='bx bx-cart-alt'></i>
-                  <span class="links_name">Order</span>
+              <a routerLink="/admin/category" routerLinkActive="active">
+                  <i class='bx bx-bookmark'></i>
+                  <span class="links_name">Categories</span>
               </a>
-              <span class="tooltip">Order</span>
+              <span class="tooltip">Categories</span>
           </li>
           <li>
-              <a href="#">
-                  <i class='bx bx-heart'></i>
-                  <span class="links_name">Saved</span>
+              <a routerLink="/admin/course" routerLinkActive="active">
+                  <i class='bx bx-book-alt'></i>
+                  <span class="links_name">Courses</span>
               </a>
-              <span class="tooltip">Saved</span>
+              <span class="tooltip">Courses</span>
           </li>
           <li>
-              <a href="#">
-                  <i class='bx bx-cog'></i>
-                  <span class="links_name">Setting</span>
+              <a routerLink="/admin/topic" routerLinkActive="active">
+                  <i class='bx bx-book-content'></i>
+                  <span class="links_name">Topics</span>
               </a>
-              <span class="tooltip">Setting</span>
+              <span class="tooltip">Topics</span>
           </li>
 
           <li>
-              <a routerLink="/trainer/section" routerLinkActive="active">
+              <a routerLink="/admin/section" routerLinkActive="active">
                   <i class='bx bx-code'></i>
-                  <span class="links_name">Section</span>
+                  <span class="links_name">Sections</span>
               </a>
-              <span class="tooltip">Section</span>
+              <span class="tooltip">Sections</span>
           </li>
           <li class="profile">
               <div class="profile-details">
                   <img src="../../../assets/image/profile.png" alt="profileImg">
                   <div class="name_job" style="color:white">
-                      Khaled Abulawi (placeholder)
+                      Admin
                   </div>
               </div>
               <i class='bx bx-log-out' id="log_out"></i>

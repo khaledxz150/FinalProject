@@ -10,7 +10,7 @@
           <h3 class="mb-4">Manage Categories</h3>
           <!-- <button class="add"><i class="pi pi-plus" style="font-size: 2rem"></i></button>
           <button mat-fab color="primary">Warn</button> -->
-          <button mat-fab color="primary" class="create" (click)="createCourse()" >
+          <button mat-fab color="primary" class="create" (click)="createCategory()" >
             <mat-icon>add</mat-icon>
           </button>
           <!-- <p-button icon="pi pi-plus" iconPos="right" class="p-button-success"></p-button> -->
@@ -31,7 +31,7 @@
                 <mat-card-content>
 
                   <div class="card-item p-2">
-                    <img src="../../../assets/image/{{category.image}}" alt="" width="200" height="150">
+                    <img src="{{category.image}}" alt="" width="200" height="150">
 
                    </div>
 
@@ -41,7 +41,7 @@
                 </mat-card-content>
 
                 <mat-card-actions align="end">
-                  <button mat-button >Update</button>
+                  <button mat-button (click)="updateCategory(category.categoryId)">Update</button>
                   <!-- <fa-icon [icon]="faEdit" style="font-size: 2rem" ></fa-icon> -->
                   <button mat-button (click)="deleteCategory(category.categoryId)">Delete</button>
                 </mat-card-actions>
