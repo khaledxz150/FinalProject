@@ -23,6 +23,8 @@ import { CouponComponent } from './coupon/coupon.component';
 import { TraineeInfoComponent } from './trainee-info/trainee-info.component';
 import { AddTraineeComponent } from './trainee-info/add-trainee/add-trainee.component';
 import { EditTraineeComponent } from './trainee-info/edit-trainee/edit-trainee.component';
+import { CreateCouponComponent } from './coupon/create-coupon/create-coupon.component';
+import { DateFormatPipe } from '../Pipeline/date-format.pipe';
 @NgModule({
   declarations: [
 
@@ -43,7 +45,9 @@ import { EditTraineeComponent } from './trainee-info/edit-trainee/edit-trainee.c
       CouponComponent,
       TraineeInfoComponent,
       AddTraineeComponent,
-      EditTraineeComponent
+      EditTraineeComponent,
+      CreateCouponComponent,
+      DateFormatPipe
   ],
   imports: [
     CommonModule,

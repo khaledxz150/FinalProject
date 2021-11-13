@@ -217,34 +217,90 @@ export class CourseService {
     }
 
 
-    //Coupon
+       //Coupon
 
-    coupon:Coupon[]=[]
-    ReturnAllCoupon(){
-debugger
-      this.http.post(environment.apiUrl + 'Course/ReturnAllCoupon/'+0,0).subscribe((res:any)=>{
-
-        debugger
-        this.coupon = res;
-      })
-
-    }
-
-    createCoupon(coupon:any){
+       coupon:Coupon[]=[]
 
 
-    debugger
-    this.http.post(environment.apiUrl + 'Course/InsertCoupon/',coupon).subscribe((res:any)=>{
+       ReturnAllCoupon(){
+         debugger
+         this.http.post(environment.apiUrl + 'Course/ReturnAllCoupon/'+0,0).subscribe((res:any)=>{
+
+           debugger
+           this.coupon = res;
+         })
+
+       }
+
+       createCoupon(coupon:any){
 
 
-      window.location.reload()
-      this.toastr.success('coupon Created successfully !!!');
+       debugger
+       this.http.post(environment.apiUrl + 'Course/InsertCoupon/',coupon).subscribe((res:any)=>{
 
-    },err=>{
-      // this.spiner.hide();
-      this.toastr.error('Something Wrong, Try Again!');
-    })
 
-    debugger
-    }
+         window.location.reload()
+         this.toastr.success('coupon Created successfully !!!');
+
+       },err=>{
+         // this.spiner.hide();
+         this.toastr.error('Something Wrong, Try Again!');
+       })
+
+       debugger
+       }
+
+
+       ChangeCouponStatus(couponId:number){
+
+
+         debugger
+         this.http.put(environment.apiUrl + 'Course/ChangeCouponStatus/'+couponId,couponId).subscribe((res:any)=>{
+
+
+           window.location.reload()
+           this.toastr.success('Coupon Updated successfully !!!');
+
+         },err=>{
+           // this.spiner.hide();
+           this.toastr.error('Something Wrong, Try Again!');
+         })
+
+         debugger
+       }
+
+       updateCoupon(updatedCoupon:any){
+
+
+         debugger
+         this.http.put(environment.apiUrl + 'Course/UpdateCoupon/',updatedCoupon).subscribe((res:any)=>{
+
+
+           window.location.reload()
+           this.toastr.success('Coupon Updated successfully !!!');
+
+         },err=>{
+           // this.spiner.hide();
+           this.toastr.error('Something Wrong, Try Again!');
+         })
+
+         debugger
+       }
+
+
+       getALlRefund(){
+
+       }
+
+
+       //Checkout
+
+       soldCourse:any[]=[{}]
+       returnSoldCourses(){
+         this.http.get(environment.apiUrl + 'Course/ReturnSoldCourses').subscribe((res:any)=>{
+
+           debugger
+           this.soldCourse = res;
+         })
+       }
 }
