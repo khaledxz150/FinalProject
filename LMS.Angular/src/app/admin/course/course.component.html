@@ -1,9 +1,12 @@
 <div class="wrapper d-flex align-items-stretch"  style="background-color:#eee;">
   <app-sidebar></app-sidebar>
+
+
   <div class="container" >
+    <!-- <div class="test"></div> -->
   <!-- <div class="container ">
     <div class="row"> -->
-      <div id="content" class="px-3 p-md-5 pt-5 mt-5" style="background-color:white; height: 100%; border-radius: 5px; width: 100%;">
+      <div id="content" class="px-3 p-md-5 pt-5">
 
 
         <div class="d-flex" style="justify-content:space-between;">
@@ -32,7 +35,7 @@
 
                   <div class="col-lg-3 col-md-4 col-sm-6 my-3 course-card"  style="height: 100%">
                     <div class="type"><span>{{course.typeName}}</span></div>
-                      <div style="background-image:url(../../../assets/image/bg-2.jpg); background-repeat: no-repeat; background-size: cover;" class="course-card-img mt-2">
+                      <div style="background-image:url({{course.image}}); background-repeat: no-repeat; background-size: cover;" class="course-card-img mt-2">
 
                       </div>
                       <div class="course-card-content">

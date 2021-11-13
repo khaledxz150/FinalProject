@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "g3LzdAUt+Qc5GaMDOGvCg8UdSmPWRcdz7OsDHYuCqjwsw80MTAb9T9T4QOtvXEM6/VjtFmnb8Y5b6PGdLoazHg==",
+  "dgSpecHash": "/CqG+1K1771YI+G7804OT95eW8do3OxmD0N4Y8hacx1CperXRLXTtDUXIDqEU5yAVLSz7Hl6XWw65UDrO5bLmQ==",
   "success": true,
-  "projectFilePath": "C:\\Github\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\khale\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.12\\microsoft.aspnetcore.http.features.5.0.12.nupkg.sha512",
-    "C:\\Users\\khale\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
-    "C:\\Users\\khale\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\GitHub\\FinalProject\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

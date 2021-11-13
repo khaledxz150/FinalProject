@@ -42,10 +42,10 @@ fa-icon{
   /* font-size: 20px; */
 }
 
-fa-icon:hover{
-  /* border: 1px solid #af1a2d; */
+/* fa-icon:hover{
+  border: 1px solid #af1a2d;
   font-size: 1.5rem;
-}
+} */
 
 /* p-button{
   background-color:#0c8f39!important;
@@ -226,3 +226,30 @@ left: 0;
 }
 
 
+/* .test{
+  background-color: red;
+  width: 100%;
+  min-height: 50px;
+} */
+
+.wrapper{
+  position: relative;
+  z-index: 1;
+}
+.wrapper::before{
+  content: '';
+  position:absolute;
+  top:0;
+  left: 0;
+  background-color: #1f1a1b42;
+  z-index: -1;
+  height: 12%;
+  width: 100%;
+}
+#content{
+ background-color:white;
+ height: 100%;
+ border-radius: 5px;
+ width: 100%;
+ margin-top: 4rem;
+}

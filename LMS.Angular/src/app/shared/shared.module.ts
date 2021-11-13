@@ -36,10 +36,7 @@ import {CardModule} from 'primeng/card';
 import {PanelModule} from 'primeng/panel';
 
 import {TabViewModule} from 'primeng/tabview';
-
-import { PdfViewerModule } from 'ng2-pdf-viewer';
-
-
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -73,8 +70,7 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     CardModule,
     PanelModule,
     TabViewModule,
-    MatIconModule,
-    PdfViewerModule,
+    MatRadioModule
 
     ],
   exports:[
@@ -107,8 +103,7 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     CardModule,
     PanelModule,
     TabViewModule,
-    PdfViewerModule
-    
+    MatRadioModule
   ]
 })
 export class SharedModule { }

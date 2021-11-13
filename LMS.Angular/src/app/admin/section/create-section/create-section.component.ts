@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { faInfoCircle, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { AlertDialogComponent } from 'src/app/alert-dialog/alert-dialog.component';
 import { Section } from 'src/app/models/section';
 import { CourseService } from 'src/app/Service/course.service';
 import { SectionService } from 'src/app/Service/section.service';
@@ -12,15 +15,20 @@ import { TrainerService } from 'src/app/Service/trainer.service';
 })
 export class CreateSectionComponent implements OnInit {
 
+
+  //Icons
+  faTimes =faTimes
+  faInfoCircle = faInfoCircle
+
   formGroup: FormGroup = new FormGroup({
     // sectionId: new FormControl('', [Validators.required]),
-    noLecture: new FormControl(''),
-    sectionCapacity: new FormControl(''),
-    statusId: new FormControl(''),
-    sectionTimeStart: new FormControl(''),
+    noLecture: new FormControl('',[Validators.required]),
+    sectionCapacity: new FormControl('',[Validators.required]),
+    statusId: new FormControl('',[Validators.required]),
+    sectionTimeStart: new FormControl('',[Validators.required]),
     sectionTimeEnd: new FormControl(''),
-    trainerId : new FormControl(''),
-    courseId: new FormControl(''),
+    trainerId : new FormControl('',[Validators.required]),
+    courseId: new FormControl('',[Validators.required]),
     // categoryId: new FormControl('', [Validators.required]),
     // tagId: new FormControl('', [Validators.required]),
     // createdBy: new FormControl('', [Validators.required])
@@ -38,7 +46,9 @@ export class CreateSectionComponent implements OnInit {
     public sectionService: SectionService,
     public trainerService:TrainerService,
     public courseService: CourseService,
-    // @Inject(MAT_DIALOG_DATA) public data: any
+    private dialog:MatDialog,
+    // private dialog: MatDialogRef<CreateSectionComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.sectionService.getStatus();
     this.trainerService.getTrainer();
@@ -63,13 +73,25 @@ export class CreateSectionComponent implements OnInit {
 
 createSection(){
 
+  let dialogRef = this.dialog.open(AlertDialogComponent);
 
-const section : Section = this.formGroup.value;
-// const trainerId:number = this.formGroup.controls.trainerId.value;
-let trainerId = this.formGroup.controls.trainerId.value;
-debugger
+  dialogRef.afterClosed().subscribe(result => {
 
-  this.sectionService.createSection(section,trainerId);
+    // NOTE: The result can also be nothing if the user presses the `esc` key or clicks outside the dialog
+    if (result == 'confirm') {
+
+      const section : Section = this.formGroup.value;
+      // const trainerId:number = this.formGroup.controls.trainerId.value;
+      let trainerId = this.formGroup.controls.trainerId.value;
+      debugger
+
+        this.sectionService.createSection(section,trainerId);
+      // window.location.reload();
+
+    }
+    })
+
 }
+
 
 }

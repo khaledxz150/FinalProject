@@ -4,6 +4,8 @@ import { CourseService } from 'src/app/Service/course.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CategoryService } from 'src/app/Service/category.service';
 import { CreateCategoryComponent } from './create-category/create-category.component';
+import { UpdateCategoryComponent } from './update-category/update-category.component';
+import { AlertDialogComponent } from 'src/app/alert-dialog/alert-dialog.component';
 
 @Component({
   selector: 'app-category',
@@ -36,11 +38,31 @@ export class CategoryComponent implements OnInit {
   }
 
   deleteCategory(categoryId:number){
-    this.categoryService.deleteCategory(categoryId);
+    let dialogRef = this.dialog.open(AlertDialogComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+
+      // NOTE: The result can also be nothing if the user presses the `esc` key or clicks outside the dialog
+      if (result == 'confirm') {
+
+        this.categoryService.deleteCategory(categoryId);
+
+        window.location.reload();
+
+      }
+      })
+
   }
 
-  createCourse(){
+  createCategory(){
     this.dialog.open(CreateCategoryComponent)
+  }
+
+
+  updateCategory(categoryId:number){
+    const item = this.categoryService.category.find(i => i.categoryId == categoryId);
+
+    this.dialog.open(UpdateCategoryComponent, { data: item });
   }
 
 }

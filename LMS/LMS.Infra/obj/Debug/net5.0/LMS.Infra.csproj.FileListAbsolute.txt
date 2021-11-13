@@ -54,6 +54,7 @@ C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS.Infra\obj\Debug\net5.0\LMS.Inf
 C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS.Infra\obj\Debug\net5.0\LMS.Infra.AssemblyInfoInputs.cache
 C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS.Infra\obj\Debug\net5.0\LMS.Infra.AssemblyInfo.cs
 C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS.Infra\obj\Debug\net5.0\LMS.Infra.csproj.CoreCompileInputs.cache
+C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS.Infra\obj\Debug\net5.0\LMS.Infra.csproj.CopyComplete
 C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS.Infra\obj\Debug\net5.0\LMS.Infra.dll
 C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS.Infra\obj\Debug\net5.0\ref\LMS.Infra.dll
 C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS.Infra\obj\Debug\net5.0\LMS.Infra.pdb

@@ -1,144 +1,164 @@
+<div class="container" style="width:700px; height: 600px;">
+  <form [formGroup] = "formGroup" >
+<div class="d-flex" style="justify-content: space-between; align-items: center;">
+  <!-- <h1>Manage Course</h1> -->
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="d-flex" style="justify-content: space-between;">
+    <h3 class="mb-3" style="font-weight: bold; ">Manage Course</h3>
+    <fa-icon [icon]="faTimes" style="font-size: 30px;"  mat-dialog-close></fa-icon>
+  </div>
+    <div class="d-flex  " style="justify-content: space-between; flex-wrap: wrap!important; ">
 
 
-
-
-
-<div class="container" >
-  <div class="row">
-
-    <mat-dialog-content class="mat-typography">
-    <div class="col mb-2">
-      <img src="../../../assets/image/bg-2.jpg" alt="" width="200" height="100">
-
-    </div>
-    <div class="col">
-
-      <div class="row">
-        <div class="col">
-
-
-            <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Course Name</mat-label>
-              <input type="text" matInput formControlName="courseName">
-              <mat-error *ngIf="formGroup.controls.courseName.hasError('required')">
-                Course Name is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-
-
+      <div class=" d-flex course-info mb-4 ">
+        <fa-icon [icon]="faBook" class="pr-2"></fa-icon><span class="assignmentIcon mr-2"></span>
+        <div>
+          <mat-form-field class="example-full-width">
+            <mat-label>Course Name</mat-label>
+            <input type="text" matInput formControlName="courseName">
+            <mat-error *ngIf="formGroup.controls.courseName.hasError('required')">
+              Course Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
         </div>
-        <div class="col">
-          <mat-form-field class="example-full-width" appearance="fill">
+      </div>
+
+      <div class=" d-flex course-info mb-4 ">
+        <fa-icon [icon]="faBookmark" class="pr-2"></fa-icon><span class="assignmentIcon mr-2"></span>
+        <div>
+          <mat-form-field>
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="categoryId">
+                <mat-option *ngFor="let category of this.categoryService.category" [value]="category.categoryId">
+
+                  {{category.name}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="formGroup.controls.categoryId.hasError('required')">
+              Category is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+
+      <div class=" d-flex course-info mb-4 ">
+        <fa-icon [icon]="faDollarSign" class="pr-2"></fa-icon><span class="assignmentIcon mr-2"></span>
+        <div>
+          <mat-form-field class="div-width">
             <mat-label>Course Price</mat-label>
-            <input type="number" matInput formControlName="coursePrice">
+            <input type="number" matInput formControlName="coursePrice" min=0>
             <mat-error *ngIf="formGroup.controls.coursePrice.hasError('required')">
               Course Price is <strong>required</strong>
             </mat-error>
           </mat-form-field>
-
         </div>
       </div>
 
-      <div class="row">
-        <div class="col">
 
-
-            <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Course Name</mat-label>
-              <input type="text" matInput formControlName="passMark">
-              <mat-error *ngIf="formGroup.controls.passMark.hasError('required')">
-                Pass Mark is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-
-
-        </div>
-        <div class="col">
-          <mat-form-field appearance="fill">
-            <mat-label>Category</mat-label>
-            <mat-select formControlName="categoryId">
-                <mat-option *ngFor="let category of this.categoryService.category" [value]="category.categoryId">
-                    {{category.name}}
-                </mat-option>
-            </mat-select>
-            <mat-error *ngIf="formGroup.controls.categoryId.hasError('required')">
-              Category is <strong>required</strong>
+      <div class=" d-flex course-info mb-4 ">
+        <fa-icon [icon]="faPercentage" class="pr-2"></fa-icon><span class="assignmentIcon mr-2"></span>
+        <div>
+          <mat-form-field class="div-width">
+            <mat-label>Pass Mark</mat-label>
+            <input type="number" matInput formControlName="passMark" min=0 max=100>
+            <mat-error *ngIf="formGroup.controls.passMark.hasError('required')">
+              Pass Mark is <strong>required</strong>
             </mat-error>
           </mat-form-field>
-
+          <span class="pl-2 mt-2" style="font-size: 1rem;"> / 100</span>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col">
+      <div class=" d-flex course-info mb-4 ">
+        <fa-icon [icon]="faChalkboard" class="pr-2"></fa-icon><span class="assignmentIcon mr-2"></span>
+        <div>
+          <mat-form-field>
+            <mat-label>Type</mat-label>
+            <mat-select formControlName="typeId">
+                <mat-option *ngFor="let type of this.courseService.type" [value]="type.typeId">
 
-
-          <mat-form-field appearance="fill">
-            <mat-label>Category</mat-label>
-            <mat-select formControlName="categoryId">
-                <mat-option *ngFor="let category of this.categoryService.category" [value]="category.categoryId">
-                    {{category.name}}
+                  {{type.typeName}}
                 </mat-option>
             </mat-select>
-            <mat-error *ngIf="formGroup.controls.categoryId.hasError('required')">
-              Category is <strong>required</strong>
+            <mat-error *ngIf="formGroup.controls.typeId.hasError('required')">
+              Type is <strong>required</strong>
             </mat-error>
           </mat-form-field>
-
-
-        </div>
-        <div class="col">
-          <mat-form-field appearance="fill">
-            <mat-label>Category</mat-label>
-            <mat-select formControlName="categoryId">
-                <mat-option *ngFor="let category of this.categoryService.category" [value]="category.categoryId">
-                    {{category.name}}
-                </mat-option>
-            </mat-select>
-            <mat-error *ngIf="formGroup.controls.categoryId.hasError('required')">
-              Category is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-
         </div>
       </div>
 
-      <div class="row">
-        <div class="col">
+      <div class=" d-flex course-info mb-4 ">
+        <fa-icon [icon]="faChartLine" class="pr-2"></fa-icon><span class="assignmentIcon mr-2"></span>
+        <div>
+          <mat-form-field>
+            <mat-label>Level</mat-label>
+            <mat-select formControlName="levelId">
+                <mat-option *ngFor="let level of this.courseService.level" [value]="level.levelId">
 
-
-          <mat-form-field appearance="fill">
-            <mat-label>Category</mat-label>
-            <mat-select formControlName="categoryId">
-                <mat-option *ngFor="let category of this.categoryService.category" [value]="category.categoryId">
-                    {{category.name}}
+                  {{level.name}}
                 </mat-option>
             </mat-select>
-            <mat-error *ngIf="formGroup.controls.categoryId.hasError('required')">
-              Category is <strong>required</strong>
+            <mat-error *ngIf="formGroup.controls.levelId.hasError('required')">
+              Level is <strong>required</strong>
             </mat-error>
           </mat-form-field>
-
-
-        </div>
-        <div class="col">
-          <mat-form-field appearance="fill">
-            <mat-label>Category</mat-label>
-            <mat-select formControlName="categoryId">
-                <mat-option *ngFor="let category of this.categoryService.category" [value]="category.categoryId">
-                    {{category.name}}
-                </mat-option>
-            </mat-select>
-            <mat-error *ngIf="formGroup.controls.categoryId.hasError('required')">
-              Category is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-
         </div>
       </div>
+
+      <div class=" d-flex course-info mb-4 ">
+        <fa-icon [icon]="faTag" class="pr-2"></fa-icon><span class="assignmentIcon mr-2"></span>
+        <div>
+          <mat-form-field>
+            <mat-label>Tag</mat-label>
+            <mat-select formControlName="tagId">
+                <mat-option *ngFor="let tag of this.courseService.tag" [value]="tag.tagId">
+
+                  {{tag.tagName}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="formGroup.controls.tagId.hasError('required')">
+              Tag is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
     </div>
 
-  </mat-dialog-content>
+    <div class="d-flex" style="justify-content: space-between; flex-wrap: wrap!important; ">
+
+      <div class="col-md-6 course-info mb-4 ">
+        <div>
+          <mat-form-field class="example-full-width"  appearance="fill" formControlName="courseDescripction" >
+            <mat-label>Course Description</mat-label>
+            <textarea matInput></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="col-md-6 course-info mb-4 ">
+        <div style="border: 1px dotted;" class="p-5">
+          <img [src]="imageSrc"  *ngIf="imageSrc" height="200" width="200">
+
+
+          <input formControlName="file" id="file" type="file" (change)="onFileChange($event)">
+          <fa-icon [icon]="faImages" class="pl-5" style="font-size: 100px;" *ngIf="!imageSrc"></fa-icon>
+
+
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </div>
-
+</div>
+<mat-dialog-actions align="end">
+  <!-- <button mat-button mat-dialog-close>Cancel</button> -->
+  <button mat-button [mat-dialog-close]="true" (click) ="saveItem()" [disabled]="!formGroup.valid">Save</button>
+</mat-dialog-actions>
+</form>
+</div>

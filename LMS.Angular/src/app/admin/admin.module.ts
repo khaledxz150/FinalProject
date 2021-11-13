@@ -15,7 +15,11 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ViewCourseComponent } from './course/view-course/view-course.component';
 import { TrainerInfoComponent } from './trainer-info/trainer-info.component';
 import { CreateSectionComponent } from './section/create-section/create-section.component';
-import { UpdateCourseComponent } from './course/update-course/update-course.component';
+import { UpdateCategoryComponent } from './category/update-category/update-category.component';
+import { UpdateSectionComponent } from './section/update-section/update-section.component';
+import { TopicComponent } from './topic/topic.component';
+import { CreateTopicComponent } from './topic/create-topic/create-topic.component';
+import { CouponComponent } from './coupon/coupon.component';
 @NgModule({
   declarations: [
 
@@ -29,7 +33,11 @@ import { UpdateCourseComponent } from './course/update-course/update-course.comp
       ViewCourseComponent,
       TrainerInfoComponent,
       CreateSectionComponent,
-      UpdateCourseComponent
+      UpdateCategoryComponent,
+      UpdateSectionComponent,
+      TopicComponent,
+      CreateTopicComponent,
+      CouponComponent
   ],
   imports: [
     CommonModule,
@@ -38,6 +46,6 @@ import { UpdateCourseComponent } from './course/update-course/update-course.comp
     MatSelectModule,
     MatDialogModule
   ],
- 
+
 })
 export class AdminModule { }
