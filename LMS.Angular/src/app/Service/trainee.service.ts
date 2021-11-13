@@ -1,38 +1,52 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from 'src/environments/environment';
-import { AlertDialogComponent } from '../alert-dialog/alert-dialog.component';
-import {DataTablesModule} from 'angular-datatables'
+
 @Injectable({
   providedIn: 'root'
 })
-export class TrainerService {
-  dtOptions: any []=[{}]
-  trainer: any[] = [{}]
+export class TraineeService {
+
+  trainee: any[] = [{}]
 
   constructor(
     private http: HttpClient,
     private toastr: ToastrService
-    , protected dialog: MatDialog
   ) { }
 
+  dtOptions: any = {};
+ 
+ ngOnInit(): void {
 
-  getTrainer() {
+
+   this.dtOptions = {
+     pagingType: 'full_numbers',
+     pageLength: 3,
+     processing: true,
+     dom: 'Bfrtip',
+       buttons: [
+           'copy', 'csv', 'excel', 'print'
+       ]
+   };
+  }
+
+  getTrainee() {
 
     debugger;
     //  this.spinner.show();
 
-    this.http.post(environment.apiUrl + 'Employee/GetAllEmployess/0', 0).subscribe((res: any) => {
+    this.http.post(environment.apiUrl + 'Customer/ReturnAllTrainee/0', 0).subscribe((res: any) => {
       debugger
       // this.spinner.hide();
       debugger
       console.log(res)
-      this.trainer = res;
+      this.trainee = res;
       // console.log( "test",this.courses)
       // this.toastr.success('Data Retrived !!!');
-     }, err => {
+
+
+    }, err => {
       // this.spinner.hide();
       // this.toastr.warning('Something wrong');
     })
@@ -43,14 +57,14 @@ export class TrainerService {
   }
 
 
-  AddTrainer(emp: any) {
+  AddTrainee(trainee: any) {
 
     debugger
-    this.http.post(environment.apiUrl + 'Employee/AddNewEmployee', emp).subscribe((res: any) => {
+    this.http.post(environment.apiUrl + 'Customer/InsertTrainee', trainee).subscribe((res: any) => {
       debugger
       // this.spiner.hide();
-      this.toastr.success('Trainer Created successfully !!!');
-
+      this.toastr.success('Trainee Created successfully !!!');
+      window.location.reload();
 
     }, err => {
       // this.spiner.hide();
@@ -62,13 +76,13 @@ export class TrainerService {
   }
   //add put when delet/
 
-  DeleteTrainer(empId: number) {
+  DeleteTrainee(trainee: number) {
 
     debugger
-    this.http.put(environment.apiUrl + 'Employee/DeleteEmployee/' + empId, empId).subscribe((res: any) => {
+    this.http.put(environment.apiUrl + 'Customer/DeleteTrainee/' + trainee, trainee).subscribe((res: any) => {
       debugger
       // this.spiner.hide();
-      this.toastr.success('Trainer Deleted successfully !!!');
+      this.toastr.success('Trainee Deleted successfully !!!');
       window.location.reload();
 
     }, err => {
@@ -78,18 +92,14 @@ export class TrainerService {
 
   }
 
-  EditTrainer(emp: any) {
+  EditTrainee(trainee: any) {
 
     debugger
-    this.http.put(environment.apiUrl + 'Employee/UpdateEmployee', emp).subscribe((res: any) => {
-
+    this.http.put(environment.apiUrl + 'Customer/UpdateTrainee', trainee).subscribe((res: any) => {
+      debugger
       // this.spiner.hide();
-
-
-      this.toastr.success('Trainer Deleted successfully !!!');
+      this.toastr.success('Trainee Deleted successfully !!!');
       window.location.reload();
-
-
 
     }, err => {
       // this.spiner.hide();
@@ -99,10 +109,10 @@ export class TrainerService {
   EditStatus(emp: number) {
 
     debugger
-    this.http.put(environment.apiUrl + 'Employee/ChangeTrainerStatus/' + emp, emp).subscribe((res: any) => {
+    this.http.put(environment.apiUrl + 'Customer/ChangeTraineeStatus/' + emp, emp).subscribe((res: any) => {
       debugger
       // this.spiner.hide();
-      this.toastr.success('Edit Status Trainer successfully !!!');
+      this.toastr.success('Edit Status Trainee successfully !!!');
       window.location.reload();
 
     }, err => {
@@ -110,4 +120,10 @@ export class TrainerService {
       this.toastr.error('Something Wrong, Try Again!');
     })
   }
+
+
+
+
+
+
 }

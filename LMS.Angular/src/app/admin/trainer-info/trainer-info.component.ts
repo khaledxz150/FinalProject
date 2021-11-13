@@ -95,7 +95,8 @@ export class TrainerInfoComponent implements OnInit {
       // NOTE: The result can also be nothing if the user presses the `esc` key or clicks outside the dialog
       if (result == 'confirm') {
         const item = this.trainer.trainer.find(i => i.employeeId == empId);
-        debugger
+        
+        
         this.dialog.open(EditTrainerComponent, { data: item })
       }
       })

@@ -6,6 +6,7 @@ import { CouponComponent } from './coupon/coupon.component';
 import { CourseComponent } from './course/course.component';
 import { SectionComponent } from './section/section.component';
 import { TopicComponent } from './topic/topic.component';
+import { TraineeInfoComponent } from './trainee-info/trainee-info.component';
 import { TrainerInfoComponent } from './trainer-info/trainer-info.component';
 
 const routes: Routes = [
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path:'trainer-info',
     component:TrainerInfoComponent
+  },
+  {
+    path:'trainee-info',
+    component:TraineeInfoComponent
   },
   {
     path:'category',

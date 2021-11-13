@@ -21,6 +21,8 @@ import { TopicComponent } from './topic/topic.component';
 import { CreateTopicComponent } from './topic/create-topic/create-topic.component';
 import { CouponComponent } from './coupon/coupon.component';
 import { TraineeInfoComponent } from './trainee-info/trainee-info.component';
+import { AddTraineeComponent } from './trainee-info/add-trainee/add-trainee.component';
+import { EditTraineeComponent } from './trainee-info/edit-trainee/edit-trainee.component';
 @NgModule({
   declarations: [
 
@@ -39,7 +41,9 @@ import { TraineeInfoComponent } from './trainee-info/trainee-info.component';
       TopicComponent,
       CreateTopicComponent,
       CouponComponent,
-      TraineeInfoComponent
+      TraineeInfoComponent,
+      AddTraineeComponent,
+      EditTraineeComponent
   ],
   imports: [
     CommonModule,
