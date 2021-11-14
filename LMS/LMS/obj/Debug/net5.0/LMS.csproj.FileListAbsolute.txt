@@ -194,7 +194,6 @@ C:\GitHub\FinalProject\FinalProject\LMS\LMS\bin\Debug\net5.0\Microsoft.AspNetCor
 C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.MvcApplicationPartsAssemblyInfo.cs
 C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\LMS.StaticWebAssets.xml
-C:\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.csproj.CopyComplete
 C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\appsettings.json
 C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\LMS.exe
