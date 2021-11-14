@@ -35,7 +35,6 @@ debugger
   
   Uploadfile(event: any) {
     const reader = new FileReader();
-
     if (event.target.files && event.target.files.length) {
       const [file] = event.target.files;
       reader.readAsDataURL(file);
