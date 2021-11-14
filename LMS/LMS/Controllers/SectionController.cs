@@ -114,6 +114,13 @@ namespace LMS.Controllers
         {
             return sectionService.DeleteUnit(unitId);
         }
+
+        [HttpPut]
+        [Route("[action]")]
+        public bool UpdateUnit(Unit unit)
+        {
+            return sectionService.UpdateUnit(unit);
+        }
         [HttpPost]
         [Route("[action]/{sectionId}")]
         public List<Unit> ReturnSectionUnits(int sectionId)

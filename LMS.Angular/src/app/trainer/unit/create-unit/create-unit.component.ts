@@ -12,7 +12,6 @@ import { UnitService } from 'src/app/Service/unit.service';
 })
 export class CreateUnitComponent implements OnInit {
 
-  selectedFile: File|null=null;
   formGroup: FormGroup = new FormGroup({
     FilePath: new FormControl('', [Validators.required])
   });
@@ -44,7 +43,7 @@ debugger
         this.FileSrc = reader.result as string;    
 
 
-        this.Unit={SectionId: 1 , FilePath: this.FileSrc , isActive: true, CreationDate: new Date(), CreatedBy:1}
+        this.Unit={Id:1,SectionId: 1 , FilePath: this.FileSrc , isActive: true, CreationDate: new Date(), CreatedBy:1}
    
       };
     }

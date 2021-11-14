@@ -34,6 +34,7 @@
     "file-saver": "^2.0.5",
     "jquery": "^3.6.0",
     "mat-file-upload": "^11.1.2",
+    "mat-timepicker": "^5.1.4",
     "ng-file-upload": "^12.2.13",
     "ng-http-loader": "^10.1.0",
     "ng-image-slider": "^2.8.0",
@@ -43,7 +44,7 @@
     "primeicons": "^4.1.0",
     "primeng": "^12.2.2",
     "rxjs": "~6.6.0",
-    "tslib": "^2.3.0",
+    "tslib": "^2.3.1",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

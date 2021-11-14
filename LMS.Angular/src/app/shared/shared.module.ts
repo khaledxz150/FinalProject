@@ -38,6 +38,9 @@ import {PanelModule} from 'primeng/panel';
 import {TabViewModule} from 'primeng/tabview';
 import {MatRadioModule} from '@angular/material/radio';
 import { DataTablesModule } from 'angular-datatables';
+import { MatNativeDateModule } from '@angular/material/core';
+
+import { MatTimepickerModule } from 'mat-timepicker';
 
 
 @NgModule({
@@ -72,7 +75,11 @@ import { DataTablesModule } from 'angular-datatables';
     CardModule,
     PanelModule,
     TabViewModule,
-    MatRadioModule
+    MatRadioModule,
+    MatNativeDateModule,MatTimepickerModule
+     
+  
+
 
     ],
   exports:[
@@ -98,15 +105,14 @@ import { DataTablesModule } from 'angular-datatables';
     FontAwesomeModule,
     ImageModule,
     MatTabsModule,
-    MatExpansionModule,
-    MatDatepickerModule,
-    MatTableModule,
+    MatExpansionModule, MatDatepickerModule,MatTableModule,
     MatSelectModule,
     MatDialogModule,
     CardModule,
     PanelModule,
     TabViewModule,
-    MatRadioModule
+    MatRadioModule,
+    MatTimepickerModule
   ]
 })
 export class SharedModule { }

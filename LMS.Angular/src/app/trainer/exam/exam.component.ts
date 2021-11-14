@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatAccordion } from '@angular/material/expansion';
 import { ExamServiceService } from 'src/app/Service/exam-service.service';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateExamComponent } from './create-exam/create-exam.component';
+
 
 @Component({
   selector: 'app-exam',
@@ -9,7 +12,8 @@ import { ExamServiceService } from 'src/app/Service/exam-service.service';
 })
 export class ExamComponent implements OnInit {
 
-  constructor(public examService:ExamServiceService) { }
+  
+  constructor(public examService:ExamServiceService, private dialog: MatDialog) { }
   @ViewChild(MatAccordion) accordion!: MatAccordion;
 
   ngOnInit(): void {
@@ -29,6 +33,11 @@ export class ExamComponent implements OnInit {
   }
 
   EditExam(sectionId: number){};
-  DeleteExam(sectionId: number){}
+
+  DeleteExam(sectionId: number){};
+
+  addExam(){
+    this.dialog.open(CreateExamComponent );
+  }
 
 }

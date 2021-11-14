@@ -40,7 +40,7 @@ sectionID:any = 0;
 
  insertUnit(unit:Unit) {
   this.spinner.show();
-      this.http.post(environment.apiUrl + 'Section/InsertUnit',unit).subscribe((res:any)=>{
+      this.http.put(environment.apiUrl + 'Section/UpdateUnit',unit).subscribe((res:any)=>{
       this.units = res;
       debugger
       this.router.navigate(['trainer/unit'])
@@ -51,8 +51,21 @@ sectionID:any = 0;
       this.toastr.warning('Something wrong');
     })
   }
+
+  UpdateUnit(unit:Unit) {
+    this.spinner.show();
+        this.http.put(environment.apiUrl + 'Section/UpdateUnit',unit).subscribe((res:any)=>{
+        this.units = res;
+        debugger
+        this.router.navigate(['trainer/unit'])
+        window.location.reload();
+        this.spinner.hide();
+    
+      },err=>{
+        this.spinner.hide();
+        this.toastr.warning('Something wrong');
+      })
+    }
   
-  uploadFile(selectedFile: File) {
-    throw new Error('Method not implemented.');
-  }
+ 
 }
