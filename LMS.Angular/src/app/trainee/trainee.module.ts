@@ -6,12 +6,20 @@ import { TraineeNavComponent } from './trainee-nav/trainee-nav.component';
 import { SharedModule } from '../shared/shared.module';
 import { ProfileComponent } from './profile/profile.component';
 import { MyLeaningComponent } from './my-leaning/my-leaning.component';
+import { SectionInfoComponent } from './section-info/section-info.component';
+import { MySectionsComponent } from './my-sections/my-sections.component';
+import { CommentsComponent } from './comments/comments.component';
+import { AddCommentComponent } from './add-comment/add-comment.component';
 
 @NgModule({
   declarations: [
     TraineeNavComponent,
     ProfileComponent,
-    MyLeaningComponent
+    MyLeaningComponent,
+    SectionInfoComponent,
+    MySectionsComponent,
+    CommentsComponent,
+    AddCommentComponent
   ],
   imports: [
     CommonModule,
