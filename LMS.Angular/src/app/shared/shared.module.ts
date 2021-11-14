@@ -39,12 +39,14 @@ import {TabViewModule} from 'primeng/tabview';
 import {MatRadioModule} from '@angular/material/radio';
 import { DataTablesModule } from 'angular-datatables';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { FullCalendarModule } from '@fullcalendar/angular'; 
+import { FullCalendarModule } from '@fullcalendar/angular';
 import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { MbscModule } from 'ack-angular-mobiscroll';
+// Import ng-circle-progress
+import { NgxProgressModule } from '@ngx-lite/progress';
 
-FullCalendarModule.registerPlugins([ 
+FullCalendarModule.registerPlugins([
   interactionPlugin,
   dayGridPlugin
 ]);
@@ -85,7 +87,8 @@ FullCalendarModule.registerPlugins([
     PanelModule,
     TabViewModule,
     MatRadioModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    NgxProgressModule
 
     ],
   exports:[
@@ -121,7 +124,8 @@ FullCalendarModule.registerPlugins([
     CardModule,
     PanelModule,
     TabViewModule,
-    MatRadioModule
+    MatRadioModule,
+    NgxProgressModule
   ]
 })
 export class SharedModule { }

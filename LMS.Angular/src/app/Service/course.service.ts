@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from 'src/environments/environment';
 import { Coupon, Course } from '../models/course';
+import { CourseCard } from '../models/courseCard';
 import { Topic } from '../models/topic';
 
 @Injectable({
@@ -12,8 +13,15 @@ export class CourseService {
 
 
   courses: Course[]=[];
-
-
+  availableCourses:CourseCard[]=[];
+  courseTopic:Topic[]=[];
+  courseComment:any[]=[];
+  courseSection:any[]=[];
+  singleCourse:any={};
+  coursesActualRating:any[]=[];
+  coursesSumationOfReview:any[]=[]
+  finalRate:number=0;
+  summationRate:number=0;
 
   constructor(private http: HttpClient,private toastr:ToastrService) { }
 
@@ -303,4 +311,65 @@ export class CourseService {
            this.soldCourse = res;
          })
        }
+       getAllAvailableCourse(){
+        this.http.post('http://localhost:54921/api/Course/ReturnAllCourses/0',null).subscribe((res:any)=>{
+            this.availableCourses=res
+            for(let course of res){
+               this.GetCourseRating(course.courseId)
+            }
+         })
+     }
+     GetCourseRating(courseId:number){
+        this.http.post('http://localhost:54921/api/Course/GetCourseRatings/'+courseId,null)
+        .subscribe((res:any)=>{
+
+          this.coursesSumationOfReview.push(res.length)
+
+          if(res.length>0){
+          for(let userRate of res){
+
+             this.summationRate+=userRate.noOfStar
+          }
+          this.finalRate=this.summationRate/res.length
+          this.coursesActualRating.push(Math.floor(this.finalRate))
+         }else{
+           this.coursesActualRating.push(0)
+         }
+
+        })
+     }
+
+
+     GetSingleCourseInfoById(P_courseId:number|undefined){
+       this.http.post('http://localhost:54921/api/Course/ReturnAllCourses/0',null).subscribe((res:any)=>{
+
+         for(let course of res){
+           if(course.courseId==P_courseId){
+             this.singleCourse=course;
+             console.log(this.singleCourse)
+           }
+         }
+      })
+
+     }
+
+     GetCourseTopic(P_courseId:number|undefined){
+       this.http.post('http://localhost:54921/api/Course/GetCourseTopic/'+P_courseId,null)
+          .subscribe((res:any)=>{
+            this.courseTopic=res
+          })
+     }
+
+     GetCourseComments(P_courseId:number|undefined){
+       this.http.post('http://localhost:54921/api/Course/ReturnAllComments?courseId='+P_courseId+'&queryCode=0',null).subscribe((res:any)=>{
+            this.courseComment=res;
+       })
+     }
+
+     GetCourseSections(P_courseId:number|undefined){
+       this.http.post('http://localhost:54921/api/Section/ReturnSectionByCourseId/'+P_courseId,null).subscribe((res:any)=>{
+         this.courseSection=res;
+       })
+     }
+
 }

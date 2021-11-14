@@ -49,7 +49,41 @@
                               <mat-icon>view_week</mat-icon>
                               All Course
                             </ng-template>
-                            Content 1
+                            <ng-container >
+                              <div class="course-card" *ngFor="let course of this.learningService.myEnrollment">
+                                <div class="card">
+                              <div class="row no-gutters">
+                              <div class="col-md-4">
+                               <img [src]="course.image" class="img" alt="">
+                              </div>
+                              <div class="col-md-5 border-right">
+                               <div class="card-body">
+                                 <h5 class="card-title">{{course.courseName}}</h5>
+                                 <br>
+                                 <br>
+                                 <div class="row">
+                                  <span class="col-3 card-title"> Mark </span>
+                                  <span class="col-3 card-title"> Level </span>
+                                  <span class="col-5 card-title">Type</span>
+                                  <span class="badge badge-pill badge-success tages">{{course.passMark}}</span>
+                                  <span class="badge badge-pill badge-danger tages">{{course.levelName}}</span>
+                                  <span class="badge badge-pill badge-warning tages">{{course.typeName}}</span>
+                                 </div>
+
+                               </div>
+                              </div>
+                                 <div class="col-md-3" style="margin-top: 15px; padding-left:4px;">
+                                  <ngx-progress-circle style="color: #af1a2c;" [value]="23" >
+                                  </ngx-progress-circle>
+
+                                  <span class="Spantext">23</span>
+                                 </div>
+                              </div>
+                              </div>
+                              </div>
+                            </ng-container>
+
+
                           </mat-tab>
 
                           <mat-tab>
@@ -57,7 +91,9 @@
                               <mat-icon>new_releases</mat-icon>
                               Newest
                             </ng-template>
-                            Content 2
+                            <ng-container >
+
+                            </ng-container>
                           </mat-tab>
 
                           <mat-tab>
@@ -66,7 +102,44 @@
                               In Progress
                             </ng-template>
 
-                            Content 3
+                            <ng-container >
+
+                              <div class="course-card" *ngFor="let course of this.learningService.myLiveSections">
+                                <div class="card">
+                              <div class="row no-gutters">
+                              <div class="col-md-4">
+                               <img [src]="course.image" class="img" alt="">
+                              </div>
+                              <div class="col-md-5 border-right">
+                               <div class="card-body">
+                                 <h5 class="card-title">{{course.courseName}}</h5>
+                                 <br>
+                                 <h6 style="">Trainer : </h6>
+                                 <h6> {{course.trainerName}}</h6>
+
+                                 <h6></h6>
+                                 <br>
+                                 <br>
+                                 <div class="row">
+                                  <span class="col-6 card-title"> Level </span>
+                                  <span class="col-6 card-title">Status</span>
+
+                                  <span class="badge badge-pill badge-danger tages " style="margin-left: 55px;">{{course.level}}</span>
+                                  <span class="badge badge-pill badge-warning tages" style="margin-left: 55px;">{{course.statusName}}</span>
+                                 </div>
+
+                               </div>
+                              </div>
+                                 <div class="col-md-3" style="margin-top: 15px; padding-left:4px;">
+                                  <ngx-progress-circle style="color: #af1a2c;" [value]="23" >
+                                  </ngx-progress-circle>
+
+                                  <span class="Spantext">23</span>
+                                 </div>
+                              </div>
+                              </div>
+                              </div>
+                            </ng-container>
                           </mat-tab>
                           <mat-tab>
                             <ng-template mat-tab-label>
@@ -74,7 +147,39 @@
                               Online Course
                             </ng-template>
 
-                            Content 3
+                            <ng-container >
+                              <div class="course-card" *ngFor="let course of this.learningService.myOnlineCourses">
+                                <div class="card">
+                              <div class="row no-gutters">
+                              <div class="col-md-4">
+                               <img [src]="course.image" class="img" alt="">
+                              </div>
+                              <div class="col-md-5 border-right">
+                               <div class="card-body">
+                                 <h5 class="card-title">{{course.courseName}}</h5>
+                                 <br>
+                                 <br>
+                                 <div class="row">
+                                  <span class="col-3 card-title"> Mark </span>
+                                  <span class="col-3 card-title"> Level </span>
+                                  <span class="col-5 card-title">Type</span>
+                                  <span class="badge badge-pill badge-success tages">{{course.passMark}}</span>
+                                  <span class="badge badge-pill badge-danger tages">{{course.levelName}}</span>
+                                  <span class="badge badge-pill badge-warning tages">{{course.typeName}}</span>
+                                 </div>
+
+                               </div>
+                              </div>
+                                 <div class="col-md-3" style="margin-top: 15px; padding-left:4px;">
+                                  <ngx-progress-circle style="color: #af1a2c;" [value]="23" >
+                                  </ngx-progress-circle>
+
+                                  <span class="Spantext">23</span>
+                                 </div>
+                              </div>
+                              </div>
+                              </div>
+                            </ng-container>
                           </mat-tab>
                         </mat-tab-group>
 
@@ -95,7 +200,7 @@
                   <div class="row align-items-center mb-2 d-flex">
                       <div class="col-8">
                           <h2 class="d-flex align-items-center mb-0">
-                              0
+                              {{this.learningService.myEnrollment.length-this.learningService.myLiveSections.length-this.learningService.myOnlineCourses.length}}
                           </h2>
                       </div>
                   </div>
@@ -112,7 +217,9 @@
                   <div class="row align-items-center mb-2 d-flex">
                       <div class="col-8">
                           <h2 class="d-flex align-items-center mb-0">
-                              0
+                            {{this.learningService.myLiveSections.length}}
+
+
                           </h2>
                       </div>
                   </div>
@@ -129,7 +236,7 @@
                   <div class="row align-items-center mb-2 d-flex">
                       <div class="col-8">
                           <h2 class="d-flex align-items-center mb-0">
-                              0
+                            {{this.learningService.myOnlineCourses.length}}
                           </h2>
                       </div>
                   </div>
@@ -159,4 +266,3 @@
 
 
 
-    
