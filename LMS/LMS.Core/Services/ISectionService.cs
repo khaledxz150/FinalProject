@@ -35,8 +35,6 @@ namespace LMS.Core.Services
         //Unit 
         public bool InsertUnit(Unit unit);
         public bool DeleteUnit(int unitId);
-        public bool UpdateUnit(Unit unit);
-
 
         public List<Unit> ReturnSectionUnits(int sectionId);
 
@@ -73,6 +71,6 @@ namespace LMS.Core.Services
 
         //ReturnSolutionOfTask
         public List<TaskSolutionDTO> ReturnSolutionOfTask(int taskId, int sectionId);
-       
+
     }
 }

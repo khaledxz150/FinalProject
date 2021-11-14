@@ -14,7 +14,7 @@ const routes: Routes = [
     component:UnitComponent
   },
   {path:'exam',
-   component:ExamComponent}
+component:ExamComponent}
 ];
 
 @NgModule({

@@ -9,7 +9,6 @@ import { TrainerSideBarComponent } from './trainer-side-bar/trainer-side-bar.com
 import { CreateUnitComponent } from './unit/create-unit/create-unit.component';
 import { TrainerComponent } from './trainer.component';
 import { EditUnitComponent } from './unit/edit-unit/edit-unit.component';
-import { CreateExamComponent } from './exam/create-exam/create-exam.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import { CreateExamComponent } from './exam/create-exam/create-exam.component';
     CreateUnitComponent,
     TrainerComponent,
     EditUnitComponent,
-    CreateExamComponent,
     
     ],
   imports: [

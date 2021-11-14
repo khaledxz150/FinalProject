@@ -163,18 +163,6 @@ namespace LMS.Infra.Repository
             var result = dBContext.Connection.ExecuteAsync("InsertUnit", parm, commandType: CommandType.StoredProcedure);
             return true;
         }
-
-        public bool UpdateUnit(Unit unit)
-        {
-            var parm = new DynamicParameters();
-            parm.Add("@P_Id", unit.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parm.Add("@P_SectionId", unit.SectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parm.Add("@P_FilePath", unit.FilePath, dbType: DbType.String, direction: ParameterDirection.Input);
-            var result = dBContext.Connection.ExecuteAsync("UpdateUnit", parm, commandType: CommandType.StoredProcedure);
-            return true;
-        }
-
-
         public bool DeleteUnit(int unitId)
         {
             var parm = new DynamicParameters();

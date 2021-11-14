@@ -92,13 +92,6 @@ namespace LMS.Infra.Services
         {
             return sectionRepository.InsertUnit(unit);
         }
-
-        public bool UpdateUnit(Unit unit)
-        {
-            return sectionRepository.UpdateUnit(unit);
-        }
-
-
         public bool DeleteUnit(int unitId)
         {
             return sectionRepository.DeleteUnit(unitId);
