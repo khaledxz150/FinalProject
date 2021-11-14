@@ -45,6 +45,13 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import { MbscModule } from 'ack-angular-mobiscroll';
 // Import ng-circle-progress
 import { NgxProgressModule } from '@ngx-lite/progress';
+import { NavbarComponent } from '../navbar/navbar.component';
+import { FooterComponent } from '../footer/footer.component';
+import { SharedRoutingModule } from './shared-routing.module';
+
+import {TableModule} from 'primeng/table';
+import {MatNativeDateModule} from '@angular/material/core';
+
 
 FullCalendarModule.registerPlugins([
   interactionPlugin,
@@ -54,6 +61,8 @@ FullCalendarModule.registerPlugins([
 
 @NgModule({
   declarations: [
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     MbscModule,
@@ -88,7 +97,10 @@ FullCalendarModule.registerPlugins([
     TabViewModule,
     MatRadioModule,
     Ng2SearchPipeModule,
-    NgxProgressModule
+    NgxProgressModule,
+    SharedRoutingModule,
+    TableModule,
+    MatNativeDateModule
 
     ],
   exports:[
@@ -125,7 +137,11 @@ FullCalendarModule.registerPlugins([
     PanelModule,
     TabViewModule,
     MatRadioModule,
-    NgxProgressModule
+    NgxProgressModule,
+    NavbarComponent,
+    FooterComponent,
+    TableModule,
+    MatNativeDateModule
   ]
 })
 export class SharedModule { }

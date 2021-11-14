@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from 'src/environments/environment';
-import { Coupon, Course } from '../models/course';
+import { Coupon, Course, SoldCourse } from '../models/course';
 import { CourseCard } from '../models/courseCard';
 import { Topic } from '../models/topic';
 
@@ -13,6 +13,7 @@ export class CourseService {
 
 
   courses: Course[]=[];
+  countOfCourses:number = 0;
   availableCourses:CourseCard[]=[];
   courseTopic:Topic[]=[];
   courseComment:any[]=[];
@@ -42,7 +43,7 @@ export class CourseService {
       debugger
       console.log(res)
       this.courses = res;
-
+      this.countOfCourses = res.length;
       // this.cor  = res;
       // window.location.reload();
       // console.log( "test",this.courses)
@@ -303,14 +304,59 @@ export class CourseService {
 
        //Checkout
 
-       soldCourse:any[]=[{}]
+       soldCourse:SoldCourse[]=[]
+       countOfSoldCourses = 0;
+       totalSales:number = 0
+       recentSoldCourses:any[] =[]
+       annualSoldCourses:any[]=[]
+
        returnSoldCourses(){
-         this.http.get(environment.apiUrl + 'Course/ReturnSoldCourses').subscribe((res:any)=>{
+         this.http.get(environment.apiUrl + 'Customer/ReturnSoldCourses').subscribe((res:any)=>{
 
            debugger
            this.soldCourse = res;
+           this.annualSoldCourses = res;
+          this.countOfSoldCourses = res.length;
+
+          this.soldCourse.forEach((total) => {
+
+           this.totalSales =this.totalSales + total.coursePrice;
+
+           // let date = new Date();
+           const date=new Date();
+           this.recentSoldCourses = this.soldCourse.filter(course => new Date(course.creationDate).getDate() == date.getDate())
+           // console.log("Date.now.toString() = ", date)
+           // console.log("Date = ", course.creationDate)
+
+
+          });
+
          })
        }
+
+
+       filterSoldCourse(year:any){
+         this.soldCourse = this.annualSoldCourses.filter(course => new Date(course.creationDate).getFullYear() == year.value)
+         debugger
+         // this.returnSoldCourses();
+         // this.soldCourse = this.annualSoldCourses.filter(course => new Date(course.creationDate).getMonth()+1 == month.value)
+
+       }
+
+       filterSoldCourseBetweenDate(startDate:any, endDate:any){
+         this.soldCourse = this.annualSoldCourses.filter(course => new Date(course.creationDate) >= startDate.value && new Date(course.creationDate) <= endDate.value)
+
+
+
+         console.log("startDate = ",startDate);
+         console.log("endDate = ",endDate);
+         debugger
+
+         // this.returnSoldCourses();
+         // this.soldCourse = this.annualSoldCourses.filter(course => new Date(course.creationDate).getMonth()+1 == month.value)
+
+       }
+       
        getAllAvailableCourse(){
         this.http.post('http://localhost:54921/api/Course/ReturnAllCourses/0',null).subscribe((res:any)=>{
             this.availableCourses=res
