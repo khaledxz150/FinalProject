@@ -1,0 +1,72 @@
+<h2 mat-dialog-title>Add Trainee </h2>
+<mat-dialog-content class="mat-typography">
+
+    <div class="form" style="margin-top:50px">
+        <form [formGroup]="formGroup">
+
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Nationality </mat-label>
+                <input type="text" matInput formControlName="nationality">
+                <mat-error *ngIf="formGroup.controls.nationality.hasError('required')">
+                    Nationality <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>FirstName </mat-label>
+                <input type="text" matInput formControlName="firstName">
+                <mat-error *ngIf="formGroup.controls.firstName.hasError('required')">
+                    First Name is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>lastName </mat-label>
+                <input type="email" matInput formControlName="lastName">
+                <mat-error *ngIf="formGroup.controls.lastName.hasError('required')">
+                    lastName is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Email </mat-label>
+                <input type="email" matInput formControlName="email">
+                <mat-error *ngIf="formGroup.controls.email.hasError('required')">
+                    Email is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Phone</mat-label>
+                <input type="text" matInput formControlName="phoneNumber">
+
+                <mat-error *ngIf="formGroup.controls.phoneNumber.hasError('required')">
+                    Phone Number is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+
+
+            <mat-card>
+                <mat-label for="file">File</mat-label>
+                <input formControlName="file" id="file" type="file" class="form-control"
+                    (change)="onFileChange($event)">
+                <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
+                    <div *ngIf="f.file.errors && f.file.errors.required">File is required.</div>
+                </div>
+
+                <img class="img" [src]="imageSrc" *ngIf="imageSrc" style="height: 150px; width:150px">
+            </mat-card>
+
+        </form>
+    </div>
+</mat-dialog-content>
+
+
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="Create()"
+        [disabled]="!formGroup.valid">Save</button>
+</mat-dialog-actions>

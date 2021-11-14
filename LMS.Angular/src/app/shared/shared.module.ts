@@ -38,12 +38,41 @@ import {PanelModule} from 'primeng/panel';
 import {TabViewModule} from 'primeng/tabview';
 import {MatRadioModule} from '@angular/material/radio';
 import { DataTablesModule } from 'angular-datatables';
+<<<<<<< HEAD
+=======
+
+import { MatTimepickerModule } from 'mat-timepicker';
+>>>>>>> parent of a084abdf (Revert "Merge branch 'main' of https://github.com/khaledxz150/FinalProject")
+
+import interactionPlugin from '@fullcalendar/interaction';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import { MbscModule } from 'ack-angular-mobiscroll';
+// Import ng-circle-progress
+import { NgxProgressModule } from '@ngx-lite/progress';
+import { NavbarComponent } from '../navbar/navbar.component';
+import { FooterComponent } from '../footer/footer.component';
+import { SharedRoutingModule } from './shared-routing.module';
+
+import {TableModule} from 'primeng/table';
+import {MatNativeDateModule} from '@angular/material/core';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
+
+FullCalendarModule.registerPlugins([
+  interactionPlugin,
+  dayGridPlugin
+]);
 
 
 @NgModule({
   declarations: [
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
+    MbscModule,
+    FullCalendarModule,
     DataTablesModule,
     CommonModule,
     FormsModule,
@@ -72,10 +101,23 @@ import { DataTablesModule } from 'angular-datatables';
     CardModule,
     PanelModule,
     TabViewModule,
+<<<<<<< HEAD
     MatRadioModule
+=======
+    MatRadioModule,
+    MatNativeDateModule,
+    MatTimepickerModule,
+    Ng2SearchPipeModule,
+    NgxProgressModule,
+    SharedRoutingModule,
+    TabViewModule,
+    MatNativeDateModule
+>>>>>>> parent of a084abdf (Revert "Merge branch 'main' of https://github.com/khaledxz150/FinalProject")
 
     ],
   exports:[
+    FullCalendarModule,
+    Ng2SearchPipeModule,
     DataTablesModule,
     CommonModule,
     FormsModule,
@@ -98,15 +140,28 @@ import { DataTablesModule } from 'angular-datatables';
     FontAwesomeModule,
     ImageModule,
     MatTabsModule,
+<<<<<<< HEAD
     MatExpansionModule,
     MatDatepickerModule,
+=======
+    MatExpansionModule, MatDatepickerModule,
+>>>>>>> parent of a084abdf (Revert "Merge branch 'main' of https://github.com/khaledxz150/FinalProject")
     MatTableModule,
     MatSelectModule,
     MatDialogModule,
     CardModule,
     PanelModule,
     TabViewModule,
+<<<<<<< HEAD
     MatRadioModule
+=======
+    MatRadioModule,
+    MatTimepickerModule,
+    NgxProgressModule,
+    NavbarComponent,
+    FooterComponent,
+    MatNativeDateModule
+>>>>>>> parent of a084abdf (Revert "Merge branch 'main' of https://github.com/khaledxz150/FinalProject")
   ]
 })
 export class SharedModule { }
