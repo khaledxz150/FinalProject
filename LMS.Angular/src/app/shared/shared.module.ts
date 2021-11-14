@@ -12,7 +12,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
-
+import {TableModule} from 'primeng/table';
+import {MatNativeDateModule} from '@angular/material/core';
 import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
 
 import { HttpClientModule } from '@angular/common/http';
@@ -39,12 +40,13 @@ import {TabViewModule} from 'primeng/tabview';
 import {MatRadioModule} from '@angular/material/radio';
 import { DataTablesModule } from 'angular-datatables';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { FullCalendarModule } from '@fullcalendar/angular'; 
+import { FullCalendarModule } from '@fullcalendar/angular';
 import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { MbscModule } from 'ack-angular-mobiscroll';
+import { NgxProgressModule } from '@ngx-lite/progress';
 
-FullCalendarModule.registerPlugins([ 
+FullCalendarModule.registerPlugins([
   interactionPlugin,
   dayGridPlugin
 ]);
@@ -85,8 +87,10 @@ FullCalendarModule.registerPlugins([
     PanelModule,
     TabViewModule,
     MatRadioModule,
-    Ng2SearchPipeModule
-
+    Ng2SearchPipeModule,
+    NgxProgressModule
+,TableModule,
+MatNativeDateModule
     ],
   exports:[
     FullCalendarModule,
@@ -121,7 +125,10 @@ FullCalendarModule.registerPlugins([
     CardModule,
     PanelModule,
     TabViewModule,
-    MatRadioModule
+    MatRadioModule,
+    NgxProgressModule,
+    TableModule,
+     MatNativeDateModule
   ]
 })
 export class SharedModule { }
