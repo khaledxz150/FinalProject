@@ -94,10 +94,6 @@ saveItem() {
 
 ////image
 
-deleteImage(){
-  this.imageSrc = ''
-}
-
 imageSrc: string = '';
 myForm = new FormGroup({
   name: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -151,6 +147,5 @@ onFileChange(event: any) {
     };
   }
 }
-
 
 }

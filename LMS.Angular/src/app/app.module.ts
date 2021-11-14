@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';  
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +17,6 @@ import { DeleteTrainerComponent } from './admin/trainer-info/delete-trainer/dele
 import { AddTrainerComponent } from './admin/trainer-info/add-trainer/add-trainer.component';
 import { EditTrainerComponent } from './admin/trainer-info/edit-trainer/edit-trainer.component';
 import { AlertDialogComponent } from './alert-dialog/alert-dialog.component';
-import { DateFormatPipe } from './Pipeline/date-format.pipe';
 
 @NgModule({
   declarations: [
@@ -27,11 +26,10 @@ import { DateFormatPipe } from './Pipeline/date-format.pipe';
     EditTrainerComponent,
     DeleteTrainerComponent,
     AlertDialogComponent,
-    // DateFormatPipe,
     // FooterComponent,
     // NavbarComponent,
 
-
+    
 
   ],
   imports: [

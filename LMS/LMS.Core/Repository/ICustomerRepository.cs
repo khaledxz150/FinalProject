@@ -18,7 +18,7 @@ namespace LMS.Core.Repository
         public bool DeleteCart(int cartId);
 
         //CartItem
-
+        
         public bool InsertCartItem(CartItem cartItem);
         public bool DeleteCartItem(int cartItemId);
 
@@ -29,15 +29,6 @@ namespace LMS.Core.Repository
 
         //ReturnSoldCourses
         public List<SoldCourseDTO> ReturnSoldCourses();
-
-        //Return Enrollment
-        public List<EnrollmentDTO> ReturnEnrollmentCourses(int traineeId);
-        // Return Live Course 
-        public List<LiveCourseDTO> ReturnLiveCourses(int traineeId);
-
-        public List<MySectionsDTO> ReturnSection(int traineeId);
-
-
 
         //WishList
 
@@ -64,7 +55,9 @@ namespace LMS.Core.Repository
         public List<TraineeAttendanceDTO> ReturnTraineeAttendance(int sectionId, int lectureId);
 
         //ReturnTraineeInfo
-        public TraineeInfoDTO ReturnTraineeInfo(int traineeId);
+        public List<Trainee> ReturnAllTrainee(int queryCode);
+       
+        public List<TraineeInfoDTO> ReturnTraineeInfo(int traineeId);
 
         // Add New Trainee 
         public bool InsertTrainee(Trainee trainee);
@@ -80,6 +73,8 @@ namespace LMS.Core.Repository
         public bool InsertCertificate(Certificate certificate);
 
         public bool DeleteCertificate(int certificateId);
+        //change status
+        public bool ChangeTraineeStatus(Int64 trainerId);
     }
 
 }

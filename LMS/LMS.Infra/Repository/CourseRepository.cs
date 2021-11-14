@@ -408,13 +408,5 @@ namespace LMS.Infra.Repository
             var result = _dbContext.Connection.ExecuteAsync("UpdateLevel", parameters, commandType: CommandType.StoredProcedure);
             return true;
         }
-
-        public bool ChangeCouponStatus(int couponId)
-        {
-            var queryParameters = new DynamicParameters();
-            queryParameters.Add("@CouponId", couponId, dbType: DbType.Int64, direction: ParameterDirection.Input);
-            var result = _dbContext.Connection.ExecuteAsync("ChangeCouponStatus", queryParameters, commandType: CommandType.StoredProcedure);
-            return true;
-        }
     }
 }

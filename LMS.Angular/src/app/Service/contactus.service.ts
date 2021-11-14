@@ -55,24 +55,4 @@ export class ContactusService {
     })
     debugger;
   }
-
-
-
-  message:any[]=[{}];
-
-  returnAllMessages(){
-    this.http.post(environment.apiUrl + 'ContactUs/ReturnMessage/'+1,1).subscribe((res:any)=>{
-
-      debugger
-      this.message = res;
-      debugger
-    })
-  }
-
-
-
-    deleteMessage(messageId:number){
-      this.http.put(environment.apiUrl + 'ContactUs/DeleteMessage/'+messageId,messageId).subscribe((res:any)=>{
-      })
-    }
 }

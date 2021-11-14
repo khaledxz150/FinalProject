@@ -29,7 +29,7 @@ namespace LMS.Controllers
         [Route("[action]")]
         public List<Cart> ReturnCart([FromQuery] int queryCode, [FromQuery] int trineeId)
         {
-            return customerService.ReturnCart(queryCode, trineeId);
+            return customerService.ReturnCart(queryCode,trineeId);
         }
 
         [HttpPut]
@@ -76,24 +76,6 @@ namespace LMS.Controllers
         }
 
         [HttpPost]
-        [Route("[action]/{traineeId}")]
-        public List<EnrollmentDTO> ReturnEnrollmentCourses(int traineeId)
-        {
-            return customerService.ReturnEnrollmentCourses(traineeId);
-        }
-        [HttpPost]
-        [Route("[action]/{traineeId}")]
-        public List<MySectionsDTO> ReturnSection(int traineeId)
-        {
-            return customerService.ReturnSection(traineeId);
-        }
-        [HttpPost]
-        [Route("[action]/{traineeId}")]
-        public List<LiveCourseDTO> ReturnLiveCourses(int traineeId)
-        {
-            return customerService.ReturnLiveCourses(traineeId);
-        }
-        [HttpPost]
         [Route("[action]")]
         public bool InsertCheckout([FromBody] Checkout checkout)
         {
@@ -105,11 +87,11 @@ namespace LMS.Controllers
         [Route("[action]/{traineeId}")]
         public List<WishList> ReturnWishList(int traineeId)
         {
-            return customerService.ReturnWishList(traineeId);
+            return customerService.ReturnWishList( traineeId);
         }
         [HttpPost]
         [Route("[action]")]
-        public bool InsertWishList([FromBody] WishList wishList)
+        public bool InsertWishList([FromBody]  WishList wishList)
         {
             return customerService.InsertWishList(wishList);
         }
@@ -123,7 +105,7 @@ namespace LMS.Controllers
         //WithListItem
         [HttpPost]
         [Route("[action]")]
-        public bool InsertWishListItem([FromBody] WishListItem wishListItem)
+        public bool InsertWishListItem([FromBody]  WishListItem wishListItem)
         {
             return customerService.InsertWishListItem(wishListItem);
         }
@@ -180,7 +162,7 @@ namespace LMS.Controllers
         //ReturnTraineeInfo
         [HttpPost]
         [Route("[action]/{traineeId}")]
-        public TraineeInfoDTO ReturnTraineeInfo(int traineeId)
+        public List<TraineeInfoDTO> ReturnTraineeInfo(int traineeId)
         {
             return customerService.ReturnTraineeInfo(traineeId);
         }
@@ -218,9 +200,20 @@ namespace LMS.Controllers
         [Route("[action]/{certificateId}")]
         public bool DeleteCertificate(int certificateId)
         {
-            return customerService.DeleteCertificate(certificateId);
+            return customerService.DeleteCertificate(certificateId);    
         }
-
+        [HttpPost]
+        [Route("[action]/{queryCode}")]
+        public List<Trainee> ReturnAllTrainee(int queryCode)
+        {
+            return customerService.ReturnAllTrainee(queryCode);
+        }
+        [HttpPut]
+        [Route("[action]/{traieeId}")]
+        public bool ChangeTraineeStatus(long traieeId)
+        {
+            return customerService.ChangeTraineeStatus(traieeId);
+        }
     }
 
 }

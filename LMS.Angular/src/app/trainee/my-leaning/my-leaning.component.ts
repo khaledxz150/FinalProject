@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { LearningService } from 'src/app/Service/learning.service';
 
 @Component({
   selector: 'app-my-leaning',
@@ -12,12 +11,9 @@ import { LearningService } from 'src/app/Service/learning.service';
 })
 export class MyLeaningComponent implements OnInit {
 
-  constructor(public learningService:LearningService) { }
- //س
+  constructor() { }
+
   ngOnInit(): void {
-    this.learningService.GetAllEnrollmentCourses(2)
-    this.learningService.GetAllLiveCourses(2)
-    this.learningService.GetOnlineCourses()
   }
 
 }

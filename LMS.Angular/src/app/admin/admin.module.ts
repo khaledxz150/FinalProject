@@ -21,11 +21,6 @@ import { TopicComponent } from './topic/topic.component';
 import { CreateTopicComponent } from './topic/create-topic/create-topic.component';
 import { CouponComponent } from './coupon/coupon.component';
 import { TraineeInfoComponent } from './trainee-info/trainee-info.component';
-import { AddTraineeComponent } from './trainee-info/add-trainee/add-trainee.component';
-import { EditTraineeComponent } from './trainee-info/edit-trainee/edit-trainee.component';
-import { CreateCouponComponent } from './coupon/create-coupon/create-coupon.component';
-import { DateFormatPipe } from '../Pipeline/date-format.pipe';
-import { CalenderComponent } from './calender/calender.component';
 @NgModule({
   declarations: [
 
@@ -44,12 +39,7 @@ import { CalenderComponent } from './calender/calender.component';
       TopicComponent,
       CreateTopicComponent,
       CouponComponent,
-      TraineeInfoComponent,
-      AddTraineeComponent,
-      EditTraineeComponent,
-      CreateCouponComponent,
-      DateFormatPipe,
-      CalenderComponent
+      TraineeInfoComponent
   ],
   imports: [
     CommonModule,

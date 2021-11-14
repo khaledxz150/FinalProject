@@ -65,7 +65,7 @@ export class TrainerService {
   DeleteTrainer(empId: number) {
 
     debugger
-    this.http.put(environment.apiUrl + 'Employee/DeleteEmployee/' + empId, empId).subscribe((res: any) => {
+    this.http.put(environment.apiUrl + 'Employee/DeleteEmployeeFromDatabase/' + empId, empId).subscribe((res: any) => {
       debugger
       // this.spiner.hide();
       this.toastr.success('Trainer Deleted successfully !!!');
@@ -86,7 +86,7 @@ export class TrainerService {
       // this.spiner.hide();
 
 
-      this.toastr.success('Trainer Edit successfully !!!');
+      this.toastr.success('Trainer Deleted successfully !!!');
       window.location.reload();
 
 

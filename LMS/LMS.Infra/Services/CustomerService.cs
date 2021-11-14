@@ -56,21 +56,6 @@ namespace LMS.Infra.Services
             return customerRepository.ReturnCheckout();
         }
 
-        public List<EnrollmentDTO> ReturnEnrollmentCourses(int traineeId)
-        {
-            return customerRepository.ReturnEnrollmentCourses(traineeId);
-        }
-
-        public List<LiveCourseDTO> ReturnLiveCourses(int traineeId)
-        {
-            return customerRepository.ReturnLiveCourses(traineeId);
-        }
-
-        public List<MySectionsDTO> ReturnSection(int traineeId)
-        {
-            return customerRepository.ReturnSection(traineeId);
-        }
-
         //WishList
 
         public List<WishList> ReturnWishList(int traineeId)
@@ -118,7 +103,7 @@ namespace LMS.Infra.Services
             return customerRepository.ReturnTraineeAttendance(sectionId, lectureId);
         }
 
-        public TraineeInfoDTO ReturnTraineeInfo(int traineeId)
+        public List<TraineeInfoDTO> ReturnTraineeInfo(int traineeId)
         {
             return customerRepository.ReturnTraineeInfo(traineeId);
         }
@@ -150,6 +135,15 @@ namespace LMS.Infra.Services
         {
             return customerRepository.DeleteCertificate(certificateId);
         }
-    }
+        public List<Trainee> ReturnAllTrainee(int queryCode)
+        {
+            return customerRepository.ReturnAllTrainee(queryCode);
 
-}
+        }
+
+        public bool ChangeTraineeStatus(long traieeId)
+        {
+            return customerRepository.ChangeTraineeStatus(traieeId);
+        }
+    }
+    }

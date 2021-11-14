@@ -32,12 +32,6 @@ namespace LMS.Core.Services
         //ReturnSoldCourses
         public List<SoldCourseDTO> ReturnSoldCourses();
 
-        public List<EnrollmentDTO> ReturnEnrollmentCourses(int traineeId);
-
-        public List<LiveCourseDTO> ReturnLiveCourses(int traineeId);
-
-        public List<MySectionsDTO> ReturnSection(int traineeId);
-
         //WishList
 
         public List<WishList> ReturnWishList(int traineeId);
@@ -58,11 +52,12 @@ namespace LMS.Core.Services
         public List<WishListItemDTO> ReturnWishListItem(int traineeId);
 
 
+
         //ReturnTraineeAttendance
         public List<TraineeAttendanceDTO> ReturnTraineeAttendance(int sectionId, int lectureId);
 
         //ReturnTraineeInfo
-        public TraineeInfoDTO ReturnTraineeInfo(int traineeId);
+        public List<TraineeInfoDTO> ReturnTraineeInfo(int traineeId);
         public bool InsertTrainee(Trainee trainee);
 
         //Update Trainee 
@@ -74,6 +69,9 @@ namespace LMS.Core.Services
         public bool InsertCertificate(Certificate certificate);
 
         public bool DeleteCertificate(int certificateId);
+
+        public List<Trainee> ReturnAllTrainee(int queryCode);
+        public bool ChangeTraineeStatus(long traieeId);
     }
 
 }

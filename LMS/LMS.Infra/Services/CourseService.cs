@@ -209,10 +209,5 @@ namespace LMS.Infra.Services
         {
             return _courseRepository.UpdateLevel(level);
         }
-
-        public bool ChangeCouponStatus(int couponId)
-        {
-            return _courseRepository.ChangeCouponStatus(couponId);
-        }
     }
 }
