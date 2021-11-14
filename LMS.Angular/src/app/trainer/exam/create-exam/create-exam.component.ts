@@ -25,7 +25,6 @@ export class CreateExamComponent implements OnInit {
 
   Create(event:any){
 console.log(event);
-    // this.examService.CreateExam(){};
 
   }
 

@@ -28,8 +28,8 @@ import { DateFormatPipe } from './Pipeline/date-format.pipe';
     DeleteTrainerComponent,
     AlertDialogComponent,
     // DateFormatPipe,
-    // FooterComponent,
-    // NavbarComponent,
+     FooterComponent,
+     NavbarComponent,
 
 
 
@@ -43,6 +43,9 @@ import { DateFormatPipe } from './Pipeline/date-format.pipe';
     ToastrModule.forRoot(),
     CommonModule
   ],
+  exports: [FooterComponent,
+    NavbarComponent],
+
   providers: [],
   bootstrap: [AppComponent]
 })

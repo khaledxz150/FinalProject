@@ -62,6 +62,6 @@
 
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="Create()"
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="Create($event)"
     [disabled]="!formGroup.valid">Save</button>
 </mat-dialog-actions>
