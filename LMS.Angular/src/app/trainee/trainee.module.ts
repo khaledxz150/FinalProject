@@ -10,6 +10,8 @@ import { SectionInfoComponent } from './section-info/section-info.component';
 import { MySectionsComponent } from './my-sections/my-sections.component';
 import { CommentsComponent } from './comments/comments.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
+import { CertificationComponent } from './certification/certification.component';
+import { ExamInfoComponent } from './exam-info/exam-info.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { AddCommentComponent } from './add-comment/add-comment.component';
     SectionInfoComponent,
     MySectionsComponent,
     CommentsComponent,
-    AddCommentComponent
+    AddCommentComponent,
+    CertificationComponent,
+    ExamInfoComponent,
   ],
   imports: [
     CommonModule,
