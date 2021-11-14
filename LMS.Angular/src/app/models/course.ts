@@ -18,16 +18,18 @@ export class Course{
 
 
 export class Coupon{
-  couponId:number|undefined;
+  couponId:number = 0;
   courseId:number|undefined;
+  code:string|undefined;
   discount:number|undefined;
   redemption:number|undefined;
-  startDate:string|undefined
-  endDate:string|undefined;
+  startDate:string=''
+  endDate:string=''
   courseName:string|undefined;
   courseImage:string|undefined;
   coursePrice:number|undefined;
   currentPrice:number|undefined;
+  isActive:boolean|undefined
 }
 
 
@@ -42,3 +44,18 @@ export class Coupon{
         public decimal CurrentPrice { get; set; }
         public string CourseImage { get; set; }
          */
+
+
+        export class SoldCourse{
+          checkoutId:number = 0;
+          cartId:number|undefined;
+          cartItemId:number|undefined;
+          courseId:number|undefined;
+          creationDate:string = '';
+          courseName:string|undefined;
+          firstName:string|undefined;
+          lastName:string|undefined;
+          traineeImage:string|undefined;
+          phoneNumber:number|undefined;
+          coursePrice:number = 0;
+        }

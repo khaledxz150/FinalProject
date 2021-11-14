@@ -10,6 +10,7 @@ namespace LMS.Core.DTO
     {
         public int CouponId { get; set; }
         public int CourseId { get; set; }
+        public string Code { get; set; }
         public decimal? Discount { get; set; }
         public int? Redemption { get; set; }
         public DateTime StartDate { get; set; }
@@ -18,5 +19,6 @@ namespace LMS.Core.DTO
         public decimal CoursePrice { get; set; }
         public decimal CurrentPrice { get; set; }
         public string CourseImage { get; set; }
+        public bool IsActive { get; set; }
     }
 }

@@ -22,16 +22,16 @@ namespace LMS.Infra.Repository
             this.dBContext = dBContext;
         }
 
-
-
         //Status
         //New Update By Jasser At 9:48
+
         public List<Status> GetAllStatus()
         {
             
             IEnumerable<Status> result = dBContext.Connection.Query<Status>("ReturnAllStatus", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
         //Return All Comment
         public List<CommentDTO> ReturnAllComments(int courseId, int queryCode)
         {

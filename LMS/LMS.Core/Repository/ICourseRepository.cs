@@ -42,6 +42,8 @@ namespace LMS.Core.Repository
         public bool DeleteCoupon(int couponId);
         public List<Coupon> GetAllCoupons(int queryCody);
 
+        public bool ChangeCouponStatus(int couponId);
+
         //ReturnAllCoupon
         public List<CouponDTO> ReturnAllCoupon(int queryCode);
 

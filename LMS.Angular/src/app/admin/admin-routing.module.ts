@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { CalenderComponent } from './calender/calender.component';
 import { CategoryComponent } from './category/category.component';
 import { CouponComponent } from './coupon/coupon.component';
 import { CourseComponent } from './course/course.component';
 import { SectionComponent } from './section/section.component';
 import { TopicComponent } from './topic/topic.component';
+import { TraineeInfoComponent } from './trainee-info/trainee-info.component';
 import { TrainerInfoComponent } from './trainer-info/trainer-info.component';
 
 const routes: Routes = [
@@ -17,10 +19,18 @@ const routes: Routes = [
     path:'course',
     component:CourseComponent
   },
+  {
+    path:'calender',
+    component:CalenderComponent
+  },
 
   {
     path:'trainer-info',
     component:TrainerInfoComponent
+  },
+  {
+    path:'trainee-info',
+    component:TraineeInfoComponent
   },
   {
     path:'category',

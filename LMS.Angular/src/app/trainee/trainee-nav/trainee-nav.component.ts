@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { TraineeNavbarService } from 'src/app/Service/trainee-navbar.service';
 
 @Component({
   selector: 'app-trainee-nav',
@@ -8,12 +9,18 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class TraineeNavComponent implements OnInit {
 
-  constructor( private spinner: NgxSpinnerService) { }
+  constructor( private spinner: NgxSpinnerService,public traineeService:TraineeNavbarService) { }
 
   ngOnInit(): void {
+     this.getMyCartItem()
+     this.traineeService.getMyWishListItem(2)
   }
-  submit(){
 
+  getMyCartItem(){
+    this.traineeService.getMyCartItem2(2)
+  }
+
+  submit(){
     this.spinner.show();
 
     setTimeout(() => {
@@ -21,8 +28,6 @@ export class TraineeNavComponent implements OnInit {
 
       this.spinner.hide();
 
-    }, 1000);
-
-
+    }, 1820);
    }
 }

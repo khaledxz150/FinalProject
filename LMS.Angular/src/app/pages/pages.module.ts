@@ -20,8 +20,8 @@ import { FooterComponent } from '../footer/footer.component';
     CoursesComponent,
     SingleCourseComponent,
     CategoryCardComponent,
-    NavbarComponent,
-    FooterComponent
+    // NavbarComponent,
+    // FooterComponent
 
   ],
   imports: [
