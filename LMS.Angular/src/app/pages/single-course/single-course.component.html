@@ -1,2 +1,253 @@
 <app-navbar></app-navbar>
-<app-footer></app-footer> 
+
+    <!--====== COURSES SINGEl PART START ======-->
+    <section id="corses-singel" class="gray-bg">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-lg-9">
+                  <div class="corses-singel-left">
+
+
+                      <div class="corses-singel-image">
+                          <img class="panerImage" [src]="this.courseService.singleCourse.image" height="380" alt="Courses">
+                      </div> <!-- corses singel image -->
+                      <div class="title">
+                        <h3 class="nameBar">
+                          {{this.courseService.singleCourse.courseName}}
+                        </h3>
+                      </div> <!-- title -->
+                    <mat-tab-group>
+                      <mat-tab>
+                        <ng-template mat-tab-label>
+                          <mat-icon>bookmark</mat-icon>
+                          Description
+                        </ng-template>
+                        <div class="container height-100" style="margin-top: 10px;">
+                          <div class="form-floating w-100">
+                             <textarea class="form-control" [value]="this.courseService.singleCourse.courseDescription"
+                             readonly placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">
+                    </textarea>
+                          </div>
+                      </div>
+                      </mat-tab>
+
+                      <mat-tab>
+                        <ng-template mat-tab-label>
+                          <mat-icon>assignment_turned_in</mat-icon>
+                          Topics
+                        </ng-template>
+                         <ng-container >
+                          <div class="box_content">
+                            <ol class="rounded-list">
+                                <li>
+                                    <ol>
+                                        <li *ngFor="let topic of this.courseService.courseTopic">
+                                          <a href="#">{{topic.topicName}}    {{topic.description}}</a>
+                                        </li>
+
+                                    </ol>
+                                </li>
+                            </ol>
+                        </div>
+                         </ng-container>
+                      </mat-tab>
+
+                      <mat-tab>
+                        <ng-template mat-tab-label>
+                          <mat-icon> message</mat-icon>
+                          Comments
+                        </ng-template>
+
+                          <ng-container >
+
+
+
+                                <div class="row d-flex justify-content-center">
+                                  <div class="col-md-12 col-lg-10">
+                                    <div class="card text-dark">
+                                      <div class="card-body p-4">
+                                        <div class="row">
+                                          <div class="col-9">
+                                            <h4 class="mb-0">Recent comments</h4>
+                                            <p class="fw-light mb-4 pb-2">Latest Comments section by users</p>
+                                          </div>
+                                          <div class="col-3 buttons">
+                                            <button class="btn-hover color-10" >Add Comment</button>
+                                          </div>
+                                        </div>
+
+
+
+
+                                      <hr class="my-0" style="height: 1px;" />
+
+                                      <div class="card-body p-4" *ngFor="let comment of this.courseService.courseComment">
+                                        <div class="d-flex flex-start">
+                                          <img
+                                            class="rounded-circle shadow-1-strong me-3"
+                                            [src]="this.comment.image"
+                                            alt="avatar"
+                                            width="60"
+                                            height="60"
+                                          />
+                                          <div>
+                                            <h6 class="fw-bold mb-1">{{this.comment.traineeName}}</h6>
+                                            <div class="d-flex align-items-center mb-3">
+
+                                            </div>
+                                            <p class="mb-0">
+                                              {{this.comment.description}}
+                                            </p>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                      <hr class="my-0" />
+
+
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+
+                          </ng-container>
+                      </mat-tab>
+                      <mat-tab>
+                        <ng-template mat-tab-label>
+                          <mat-icon> present_to_all</mat-icon>
+                          Available Sections
+                        </ng-template>
+
+                           <ng-container >
+                            <div
+                            class="ava d-flex flex-wrap px-3 py-2 ng-star-inserted"
+                             *ngFor="let section of this.courseService.courseSection"
+                             (click)="GetSectionInfo(this.section.sectionId)">
+                              <div class="section-date col-md-2">
+                                <div class="color-red font-medium">
+                                  <mat-icon>calendar_today</mat-icon>
+                                  <b class="mx-1">Date</b>
+                                </div>
+                            <div >
+                              <span class="time-style">20/11/2021</span>
+
+
+                            </div>
+                            </div>
+                            <div class="section-date border-left border-right col-md-3">
+                            <div class="color-red font-medium">
+                              <mat-icon>account_circle</mat-icon>
+                              <b class="mx-1">Trainer</b>
+                            </div>
+                            <div class="d-flex flex-wrap">
+
+                              <span class="time-style">{{this.section.trainerName}}</span>
+                            </div>
+                            </div>
+                            <div class="section-date col-md-3 border-left">
+                            <div class="color-red font-medium">
+                              <mat-icon>access_time</mat-icon>
+                              <b class="mx-1">Time</b>
+                            </div>
+                            <div>
+                              <span class="time-style">8:00 AM</span>
+                              <span class="time-style color-red"> - </span>
+                              <span class="time-style">2:00 PM</span>
+                            </div>
+                            </div>
+                            <div class="section-date online-offline col-md-2 border-left">
+                            <div class="color-red font-medium">
+                              <mat-icon>turned_in_not</mat-icon>
+                              <b class="mx-1">Status</b>
+                            </div>
+                            <div class="color-green ng-star-inserted"> {{section.statusName}} </div>
+                            </div>
+                            <div class="section-date online-offline col-md-2 border-left">
+                            <div class="color-red font-medium">
+                              <mat-icon>folder_shared</mat-icon>
+                              <b class="mx-1">Capacity</b>
+                            </div>
+                            <div class="color-green"> {{section.sectionCapacity}} </div>
+                            </div>
+                            </div>
+
+                           </ng-container>
+                      </mat-tab>
+                    </mat-tab-group>
+                  </div> <!-- corses singel left -->
+
+              </div>
+              <div class="col-lg-3">
+                  <div class="row">
+                      <div class="col-lg-12 col-md-6">
+                          <div class="course-features mt-30">
+                             <h4>Course Features </h4>
+                              <ul>
+                                <li><mat-icon>label_important</mat-icon>Level :
+                                  <span>
+                                    {{this.courseService.singleCourse.levelName}}
+                                  </span></li>
+                                <li><mat-icon>devices</mat-icon>Type :
+                                  <span>
+                                    {{this.courseService.singleCourse.typeName}}
+                                  </span></li>
+                                <li><mat-icon>offline_pin</mat-icon>Pass Mark :
+                                  <span>
+                                    {{this.courseService.singleCourse.passMark}}
+                                  </span></li>
+
+
+                                  <li><mat-icon>school</mat-icon>Certificate at The End
+                                  <span class="badge badge-pill badge-success" style="margin-top: 10px;">
+                                    True
+                                  </span></li>
+                                  <li><mat-icon>flag</mat-icon> Category
+                                    <span>
+                                      {{this.courseService.singleCourse.categoryName}}
+                                    </span></li>
+                                   <li>
+                                    <mat-icon> attach_money</mat-icon>
+                                     Price
+                                     <span>
+                                      {{this.courseService.singleCourse.coursePrice}}
+                                     </span>
+                                   </li>
+                                   <li>
+                                    <mat-icon>videocam</mat-icon>
+                                     Preview Video
+                                     <video [src]="this.courseService.singleCourse.previewVideoUrl"  width="100%"
+                                     controls [poster]="this.courseService.singleCourse.image" height="180px">
+
+                                     </video>
+                                   </li>
+                                </ul>
+
+                              <div class="price-button pt-10">
+
+                                  <a href="#" class="main-btn">
+                                    Add To Cart
+
+                                    <mat-icon>add_box</mat-icon>
+
+                                  </a>
+                              </div>
+                          </div> <!-- course features -->
+                      </div>
+
+                  </div>
+              </div>
+          </div> <!-- row -->
+      </div> <!-- container -->
+  </section>
+
+  <!--====== COURSES SINGEl PART ENDS ======-->
+
+
+  <!--====== BACK TO TP PART START ======-->
+
+  <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+
+
+<app-footer></app-footer>
