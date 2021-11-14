@@ -39,12 +39,23 @@ import {TabViewModule} from 'primeng/tabview';
 import {MatRadioModule} from '@angular/material/radio';
 import { DataTablesModule } from 'angular-datatables';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FullCalendarModule } from '@fullcalendar/angular'; 
+import interactionPlugin from '@fullcalendar/interaction';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import { MbscModule } from 'ack-angular-mobiscroll';
+
+FullCalendarModule.registerPlugins([ 
+  interactionPlugin,
+  dayGridPlugin
+]);
 
 
 @NgModule({
   declarations: [
   ],
   imports: [
+    MbscModule,
+    FullCalendarModule,
     DataTablesModule,
     CommonModule,
     FormsModule,
@@ -78,6 +89,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
     ],
   exports:[
+    FullCalendarModule,
     Ng2SearchPipeModule,
     DataTablesModule,
     CommonModule,

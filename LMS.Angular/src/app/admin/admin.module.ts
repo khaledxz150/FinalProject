@@ -25,6 +25,7 @@ import { AddTraineeComponent } from './trainee-info/add-trainee/add-trainee.comp
 import { EditTraineeComponent } from './trainee-info/edit-trainee/edit-trainee.component';
 import { CreateCouponComponent } from './coupon/create-coupon/create-coupon.component';
 import { DateFormatPipe } from '../Pipeline/date-format.pipe';
+import { CalenderComponent } from './calender/calender.component';
 @NgModule({
   declarations: [
 
@@ -47,7 +48,8 @@ import { DateFormatPipe } from '../Pipeline/date-format.pipe';
       AddTraineeComponent,
       EditTraineeComponent,
       CreateCouponComponent,
-      DateFormatPipe
+      DateFormatPipe,
+      CalenderComponent
   ],
   imports: [
     CommonModule,

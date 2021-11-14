@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { CalenderComponent } from './calender/calender.component';
 import { CategoryComponent } from './category/category.component';
 import { CouponComponent } from './coupon/coupon.component';
 import { CourseComponent } from './course/course.component';
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path:'course',
     component:CourseComponent
+  },
+  {
+    path:'calender',
+    component:CalenderComponent
   },
 
   {
