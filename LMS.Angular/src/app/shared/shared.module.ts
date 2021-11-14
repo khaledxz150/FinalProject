@@ -38,15 +38,38 @@ import {PanelModule} from 'primeng/panel';
 import {TabViewModule} from 'primeng/tabview';
 import {MatRadioModule} from '@angular/material/radio';
 import { DataTablesModule } from 'angular-datatables';
-import { MatNativeDateModule } from '@angular/material/core';
 
 import { MatTimepickerModule } from 'mat-timepicker';
+
+import interactionPlugin from '@fullcalendar/interaction';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import { MbscModule } from 'ack-angular-mobiscroll';
+// Import ng-circle-progress
+import { NgxProgressModule } from '@ngx-lite/progress';
+import { NavbarComponent } from '../navbar/navbar.component';
+import { FooterComponent } from '../footer/footer.component';
+import { SharedRoutingModule } from './shared-routing.module';
+
+import {TableModule} from 'primeng/table';
+import {MatNativeDateModule} from '@angular/material/core';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
+
+FullCalendarModule.registerPlugins([
+  interactionPlugin,
+  dayGridPlugin
+]);
 
 
 @NgModule({
   declarations: [
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
+    MbscModule,
+    FullCalendarModule,
     DataTablesModule,
     CommonModule,
     FormsModule,
@@ -76,13 +99,18 @@ import { MatTimepickerModule } from 'mat-timepicker';
     PanelModule,
     TabViewModule,
     MatRadioModule,
-    MatNativeDateModule,MatTimepickerModule
-     
-  
-
+    MatNativeDateModule,
+    MatTimepickerModule,
+    Ng2SearchPipeModule,
+    NgxProgressModule,
+    SharedRoutingModule,
+    TabViewModule,
+    MatNativeDateModule
 
     ],
   exports:[
+    FullCalendarModule,
+    Ng2SearchPipeModule,
     DataTablesModule,
     CommonModule,
     FormsModule,
@@ -105,14 +133,19 @@ import { MatTimepickerModule } from 'mat-timepicker';
     FontAwesomeModule,
     ImageModule,
     MatTabsModule,
-    MatExpansionModule, MatDatepickerModule,MatTableModule,
+    MatExpansionModule, MatDatepickerModule,
+    MatTableModule,
     MatSelectModule,
     MatDialogModule,
     CardModule,
     PanelModule,
     TabViewModule,
     MatRadioModule,
-    MatTimepickerModule
+    MatTimepickerModule,
+    NgxProgressModule,
+    NavbarComponent,
+    FooterComponent,
+    MatNativeDateModule
   ]
 })
 export class SharedModule { }

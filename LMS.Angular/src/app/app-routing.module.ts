@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AccountantModule } from './accountant/accountant.module';
 import { AdminModule } from './admin/admin.module';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { ContactusComponent } from './pages/contactus/contactus.component';
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path:'trainer',
     loadChildren:()=>TrainerModule
+  },
+  {
+    path:'accountant',
+    loadChildren:()=>AccountantModule
   }
 ];
 

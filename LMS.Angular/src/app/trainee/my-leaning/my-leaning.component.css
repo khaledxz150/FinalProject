@@ -1,3 +1,6 @@
+
+
+
 .card {
   background-color: #fff;
   border-radius: 10px;
@@ -59,5 +62,35 @@
 .l-bg-cyan {
   background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
   color: #fff;
+}
+.course-card{
+  border : #12120f03 solid 1px;
+  background-color: #f8f9f3;
+  border-radius: 26px;
+  margin-top: 13px;
+}
+.course-card:hover{
+  border: #af1a2d solid 1px;
+  cursor: pointer;
+}
+.img{
+  border-radius: 13px;
+  padding: 3px;
+  border-right:#af1a2c 4px solid  ;
+}
+.card-title{
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.tages{
+  margin:12px 12px 2px 22px;
+}
+.Spantext{
+  position: absolute;
+   top: 37%;
+    left: 29%;
+    color: #af1a2c;
+    font-size: 25px;
+
 }
 

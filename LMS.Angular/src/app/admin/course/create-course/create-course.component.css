@@ -86,7 +86,7 @@ content: "\e90c";
 
 textarea {
   width: 400px;
-  height: 190px;
+  height: 210px;
 }
 mat-dialog-actions button:hover{
   border: 1px solid #af1a2d;
@@ -99,4 +99,40 @@ mat-dialog-actions button:enabled{
  background-color: #af1a2d;
   padding:5px;
   color:white
+}
+
+/* Upload Image */
+
+
+.dragBox {
+  /* width: 250px;
+  height: 100px; */
+  width: 300px;
+  height: 250px;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  font-weight: bold;
+  line-height: 95px;
+  color: #999;
+  border: 2px dashed #ccc;
+  display: inline-block;
+  transition: transform 0.3s;
+}
+.dragBox input[type="file"] {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  top: 0;
+  left: 0;
+}
+.draging {
+  transform: scale(1.1);
+}
+#preview {
+  text-align: center;
+}
+#preview img {
+  max-width: 100%;
 }

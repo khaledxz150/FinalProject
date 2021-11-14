@@ -82,6 +82,33 @@ namespace LMS.Infra.Repository
             IEnumerable<Checkout> result = dBContext.Connection.Query<Checkout>("ReturnCheckout", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
+
+        public List<EnrollmentDTO> ReturnEnrollmentCourses(int traineeId)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@P_TraineeId", traineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<EnrollmentDTO> result = dBContext.Connection.Query<EnrollmentDTO>("ReturnMyOwnCourses", parameters, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+
+
+        public List<LiveCourseDTO> ReturnLiveCourses(int traineeId)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@TraineeId", traineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<LiveCourseDTO> result = dBContext.Connection.Query<LiveCourseDTO>("ReturnMyLiveSection", parameters, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public List<MySectionsDTO> ReturnSection(int traineeId)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@P_TraineeId", traineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<MySectionsDTO> result = dBContext.Connection.Query<MySectionsDTO>("ReturnMyOwnSection", parameters, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
         //WishList
 
         public List<WishList> ReturnWishList(int traineeId)
@@ -150,6 +177,9 @@ namespace LMS.Infra.Repository
             return result.ToList();
         }
 
+
+
+
         public List<CouponDTO> ReturnAllCoupon(int queryCode)
         {
             var parm = new DynamicParameters();
@@ -167,12 +197,12 @@ namespace LMS.Infra.Repository
             return result.ToList();
         }
 
-        public List<TraineeInfoDTO> ReturnTraineeInfo(int traineeId)
+        public TraineeInfoDTO ReturnTraineeInfo(int traineeId)
         {
             var parm = new DynamicParameters();
             parm.Add("@TraineeId", traineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            IEnumerable<TraineeInfoDTO> result = dBContext.Connection.Query<TraineeInfoDTO>("ReturnTraineeInfo", commandType: CommandType.StoredProcedure);
-            return result.ToList();
+            TraineeInfoDTO result = dBContext.Connection.QuerySingle<TraineeInfoDTO>("ReturnTraineeInfo", parm, commandType: CommandType.StoredProcedure);
+            return result;
         }
 
 
@@ -186,7 +216,7 @@ namespace LMS.Infra.Repository
             parm.Add("@P_Nationality", trainee.Nationality, dbType: DbType.String, direction: ParameterDirection.Input);
             parm.Add("@P_Email", trainee.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             parm.Add("@P_ImageName", trainee.ImageName, dbType: DbType.String, direction: ParameterDirection.Input);
-            var result = dBContext.Connection.ExecuteAsync("InsertTrainee", parm, commandType: CommandType.StoredProcedure);
+            var result = dBContext.Connection.ExecuteAsync("InsertTrainee", commandType: CommandType.StoredProcedure);
             return true;
         }
 
@@ -232,22 +262,6 @@ namespace LMS.Infra.Repository
 
             parm.Add("@P_CertificateId", certificateId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = dBContext.Connection.ExecuteAsync("DeleteCertificate", commandType: CommandType.StoredProcedure);
-            return true;
-        }
-
-        public List<Trainee> ReturnAllTrainee(int queryCode)
-        {
-            var queryParameters = new DynamicParameters();
-            queryParameters.Add("@P_CODE", queryCode, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            IEnumerable<Trainee> result = dBContext.Connection.Query<Trainee>("ReturnTrainee", queryParameters, commandType: CommandType.StoredProcedure);
-            return result.ToList();
-        }
-
-        public bool ChangeTraineeStatus(long traieeId)
-        {
-            var queryParameters = new DynamicParameters();
-            queryParameters.Add("@TraineeId", traieeId, dbType: DbType.Int64, direction: ParameterDirection.Input);
-            var result = dBContext.Connection.ExecuteAsync("ChangeTraineeStatus", queryParameters, commandType: CommandType.StoredProcedure);
             return true;
         }
     }

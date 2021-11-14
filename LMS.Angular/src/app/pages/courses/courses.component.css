@@ -1,0 +1,41 @@
+.btn-circle {
+  width: 40px;
+  height: 40px;
+  line-height: 45px;
+  text-align: center;
+  padding: 3px;
+  border-radius: 50%;
+  border: gray solid 0.5px;
+  color: red;
+}
+.btn-circle:hover {
+  border: gray solid 0.5px;
+  color: white;
+  background-color: red;
+}
+.tag {
+	  position: absolute;
+    float: left;
+    left: 12%;
+    top: 11%;
+    background: #1ABC9C;
+    padding: 6px;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 4px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    transform: translate(-50%,-50%);
+}
+
+span h3{
+        font-size: 12px;
+        margin:0;
+        padding:10px 5px;
+         line-height: 0;
+}
+.star{
+  color:  #FFD700;
+}
