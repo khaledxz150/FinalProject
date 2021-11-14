@@ -12,6 +12,12 @@ import { CommentsComponent } from './comments/comments.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
 import { CertificationComponent } from './certification/certification.component';
 import { ExamInfoComponent } from './exam-info/exam-info.component';
+import { PurchaseComponent } from './purchase/purchase.component';
+import { QuestionsComponent } from './questions/questions.component';
+import { RateBoxComponent } from './rate-box/rate-box.component';
+import { RatesComponent } from './rates/rates.component';
+import { TaskInfoComponent } from './task-info/task-info.component';
+import { VideosComponent } from './videos/videos.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +30,12 @@ import { ExamInfoComponent } from './exam-info/exam-info.component';
     AddCommentComponent,
     CertificationComponent,
     ExamInfoComponent,
+    PurchaseComponent,
+    QuestionsComponent,
+    RateBoxComponent,
+    RatesComponent,
+    TaskInfoComponent,
+    VideosComponent,
   ],
   imports: [
     CommonModule,
