@@ -35,7 +35,7 @@ export class SectionComponent implements OnInit {
 
   sections:any=[{}];
   ngOnInit(): void {
-    this.sectionService.ReturnAllTrainerSections(5);
+    this.sectionService.ReturnAllTrainerSections(2);
   }
 
  
@@ -58,5 +58,7 @@ this.sectionService.SetSection(sectionId);
 
 ViewExam(sectionId:number) {
   this.examservice.GetExamBySection(sectionId);
+  this.sectionService.SetSection(sectionId);
+
 }
 }

@@ -1,5 +1,5 @@
 
-<h2 mat-dialog-title>add exam </h2>
+<h2 mat-dialog-title>Update exam </h2>
 <mat-dialog-content class="mat-typography">
 
   <div class="form" style="margin-top:50px">
@@ -18,8 +18,8 @@
       </mat-form-field>
 
       <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Start Time </mat-label>
-        <input type="datetime" matTimepicker formControlName="StartTime">
+        <mat-label>Current Start Time is: {{this.data.startTime | date : 'shortTime'}} </mat-label>
+        <input type="datetime" matTimepicker formControlName="StartTime" placeholder="{{this.data.startTime}}">
         <mat-error *ngIf="formGroup.controls.StartTime.hasError('required')">
         Last Name is <strong>required</strong>
       </mat-error>
@@ -29,8 +29,8 @@
 
 
       <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>EndTime </mat-label>
-        <input type="text" matTimepicker formControlName="EndTime">
+        <mat-label>Current end Time is:  {{this.data.endTime | date : 'shortTime'}} </mat-label>
+        <input type="text" matTimepicker formControlName="EndTime" placeholder="{{this.data.endTime}}">
         <mat-error *ngIf="formGroup.controls.EndTime.hasError('required')">
           EndTime is <strong>required</strong>
       </mat-error>

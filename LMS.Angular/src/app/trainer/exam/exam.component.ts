@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatAccordion } from '@angular/material/expansion';
 import { ExamServiceService } from 'src/app/Service/exam-service.service';
 import { CreateExamComponent } from './create-exam/create-exam.component';
+import { EditExamComponent } from './edit-exam/edit-exam.component';
 
 @Component({
   selector: 'app-exam',
@@ -36,6 +37,9 @@ export class ExamComponent implements OnInit {
   }
 
   EditExam(examId:number){
+  const item = this.examService.exam.find(x => x.examId == examId);
+  console.log("this is Item", item);
+  this.dialog.open(EditExamComponent, { data: item });
 
 
   }
