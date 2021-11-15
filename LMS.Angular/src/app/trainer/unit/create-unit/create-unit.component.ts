@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Unit } from 'src/app/models/unit';
 import { CategoryService } from 'src/app/Service/category.service';
 import { CourseService } from 'src/app/Service/course.service';
+import { SectionService } from 'src/app/Service/section.service';
 import { UnitService } from 'src/app/Service/unit.service';
 
 @Component({
@@ -21,7 +22,7 @@ export class CreateUnitComponent implements OnInit {
   FileSrc: string | undefined;
  
   constructor(private courseService: CourseService,
-    public categoryService:CategoryService, public unitService: UnitService) { }
+    public categoryService:CategoryService, public unitService: UnitService, public sectionService: SectionService) { }
 
   ngOnInit(): void {
     
@@ -33,7 +34,7 @@ debugger
   }
  
   
-  Uploadfile(event: any) {
+  Uploadfile(event: any, ) {
     const reader = new FileReader();
 
     if (event.target.files && event.target.files.length) {
@@ -44,7 +45,8 @@ debugger
         this.FileSrc = reader.result as string;    
 
 
-        this.Unit={SectionId: 1 , FilePath: this.FileSrc , isActive: true, CreationDate: new Date(), CreatedBy:1}
+        this.Unit={SectionId: this.sectionService.SelectedSection 
+          , FilePath: this.FileSrc , isActive: true, CreationDate: new Date(), CreatedBy:1}
    
       };
     }

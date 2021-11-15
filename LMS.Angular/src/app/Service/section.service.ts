@@ -17,6 +17,7 @@ export class SectionService {
    TrainerSection : any[]=[{}];
    sections: any[]=[{}];
    status: any[]=[{}];
+   SelectedSection:any|undefined;
 
 
 
@@ -196,5 +197,9 @@ deleteSection(sectionId:number){
 
 
  }
+
+ SetSection(sectionId:number){ this.SelectedSection = sectionId;}
+
+
 
 }
