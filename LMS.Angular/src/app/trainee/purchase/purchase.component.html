@@ -1,3 +1,4 @@
+<app-trainee-nav></app-trainee-nav>
 <br>
 <br>
 <br>
@@ -59,7 +60,9 @@
                                                   <td>{{this.record.creationDate}}</td>
 
                                                   <td class="text-right">{{this.record.coursePrice}}</td>
-                                                  <td class="text-right"><button class="btn btn-sm btn-danger">
+                                                  <td class="text-right"><button class="btn btn-sm btn-danger"
+                                                    (click)="CancelThisCourse(
+                                                      this.record.checkoutId,this.record.courseId)">
                                                     <i class="fa fa-window-close"></i> </button> </td>
                                               </tr>
                                           </tbody>

@@ -11,6 +11,8 @@ namespace LMS.Core.Services
 {
     public interface ISectionService
     {
+
+        public StudentCountDTO ReturnStudentCount(int sectionId);
         //Section
 
         public Task<bool> AddSection(Section section, int trainerId);

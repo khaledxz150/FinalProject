@@ -10,6 +10,7 @@ namespace LMS.Core.DTO
     {
         public int CheckoutId { get; set; }
         public int CartId { get; set; }
+        public int TraineeId { get; set; }  
         public int CartItemId { get; set; }
         public int CourseId { get; set; }
         public DateTime CreationDate { get; set; }

@@ -21,6 +21,12 @@ namespace LMS.Controllers
         {
             this.sectionService = sectionService;
         }
+        [HttpPost]
+        [Route("[action]/{sectionId}")]
+        public StudentCountDTO ReturnStudentCount(int sectionId)
+        {
+            return sectionService.ReturnStudentCount(sectionId);
+        }
         [HttpGet]
         [Route("[action]")]
         public List<Section> GetAllSection()
