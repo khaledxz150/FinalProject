@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { TraineeNavbarService } from 'src/app/Service/trainee-navbar.service';
 
@@ -10,12 +9,10 @@ import { TraineeNavbarService } from 'src/app/Service/trainee-navbar.service';
 })
 export class TraineeNavComponent implements OnInit {
 
-  constructor( private spinner: NgxSpinnerService,
-    public traineeService:TraineeNavbarService
-    ,public router:Router) { }
+  constructor( private spinner: NgxSpinnerService,public traineeService:TraineeNavbarService) { }
 
   ngOnInit(): void {
-
+     
      this.traineeService.getMyCartItem2(2)
      this.traineeService.getMyWishListItem(2)
   }
@@ -30,29 +27,4 @@ export class TraineeNavComponent implements OnInit {
 
     }, 1820);
    }
-   HomePage(){
-     this.router.navigate(['pages',''])
-    }
-    AboutUs(){
-      this.router.navigate(['pages','aboutus'])
-    }
-    Courses(){
-      this.router.navigate(['pages','courses'])
-    }
-    ContactUs(){
-      this.router.navigate(['pages','contactus'])
-    }
-    GoToPurches(){
-      this.router.navigate(['client','purchase'])
-    }
-    Profile(){
-      this.router.navigate(['client','purchase'])
-    }
-    Logout(){
-      this.router.navigate(['pages',''])
-    }
-    Learning(){
-      this.router.navigate(['client','learning'])
-    }
-
 }

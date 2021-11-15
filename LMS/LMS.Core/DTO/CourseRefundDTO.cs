@@ -13,10 +13,5 @@ namespace LMS.Core.DTO
         public double CoursePrice { get; set; }
         public string CreationDate { get; set; }
         public bool   IsApproved { get; set; }
-        public string TraineeName {  get; set; }
-        public string Email { get; set; }
-        public string ImageName {  get; set; }
-        public string Notes {  get; set; }
-
     }
 }

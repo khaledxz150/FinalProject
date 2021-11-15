@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { CourseService } from 'src/app/Service/course.service';
 import { PurchesService } from 'src/app/Service/purches.service';
 import { TraineeNavbarService } from 'src/app/Service/trainee-navbar.service';
-import { InsertRefundComponent } from './insert-refund/insert-refund.component';
+import { TraineeService } from 'src/app/Service/trainee.service';
 
 @Component({
   selector: 'app-purchase',
@@ -12,16 +11,18 @@ import { InsertRefundComponent } from './insert-refund/insert-refund.component';
   '../../../assets/css/default.css',
   '../../../assets/css/slick.css',
   '../../../assets/css/style.css'
+
   ,'../../../assets/css/animate.css'
 ]
 })
 export class PurchaseComponent implements OnInit {
+
   constructor(public purchesService:PurchesService,public traineeService:TraineeNavbarService
-    ,public courseService:CourseService,private dialog:MatDialog) { }
+    ,public courseService:CourseService) { }
 
   ngOnInit(): void {
     this.purchesService.GetMyPurshes();
-    this.purchesService.GetMyRefunds(2);
+    this.purchesService.GetMyRefunds();
     this.traineeService.getMyCartItem2(2)
     this.traineeService.getMyWishListItem(2)
     this.courseService.GetAvailableCartId(2)
@@ -42,14 +43,6 @@ export class PurchaseComponent implements OnInit {
     }
 
     this.courseService.AddCourseToCart(cartItem)
-  }
-
-  CancelThisCourse(checkoutId:number|undefined,courseId:number|undefined){
-    this.purchesService.maincheckoutId=checkoutId;
-    this.purchesService.maincourseId=courseId;
-    this.dialog.open(InsertRefundComponent,{
-      width:"80%"
-    })
   }
 
 }

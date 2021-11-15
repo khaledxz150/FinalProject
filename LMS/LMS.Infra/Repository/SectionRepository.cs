@@ -196,13 +196,7 @@ namespace LMS.Infra.Repository
             IEnumerable<SectionByCourseDTO> result = dBContext.Connection.Query<SectionByCourseDTO>("ReturnSectionByCourseId", parm, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
-        public StudentCountDTO ReturnStudentCount(int sectionId)
-        {
-            var parm = new DynamicParameters();
-            parm.Add("@SectionId", sectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            StudentCountDTO result = dBContext.Connection.QuerySingle<StudentCountDTO>("ReturnSectionStudentCount", parm, commandType: CommandType.StoredProcedure);
-            return result;
-        }
+
         public List<SectionOfTraineeDTO> ReturnSectionOfTrainee(int traineeId, int sectionId)
         {
             var parm = new DynamicParameters();
