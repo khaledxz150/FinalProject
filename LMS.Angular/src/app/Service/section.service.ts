@@ -27,7 +27,10 @@ export class SectionService {
   ReturnAllTrainerSections(TrainerId:any) {
     this.spinner.show();
    this.http.post(environment.apiUrl + 'Section/ReturnAllTrainerSections/'+TrainerId,TrainerId).subscribe((result:any)=>{
-this.TrainerSection = result;
+    console.log("Hello",result);
+   this.TrainerSection = result;
+   this.TrainerSection = this.TrainerSection.filter(x => x.isActive == true);
+
   this.spinner.hide();
   },err=>{
     this.spinner.hide();
@@ -35,6 +38,19 @@ this.TrainerSection = result;
   })
 }
 
+
+ReturnAllInactiveTrainerSections(TrainerId:any) {
+  this.spinner.show();
+ this.http.post(environment.apiUrl + 'Section/ReturnAllTrainerSections/'+TrainerId,TrainerId).subscribe((result:any)=>{
+  console.log("Hello",result);
+ this.section = result;
+ this.section = this.section.filter(x => x.isActive == false);
+ this.spinner.hide();
+},err=>{
+  this.spinner.hide();
+  this.toastr.warning('Something wrong');
+})
+}
 
 
 getSections(courseId:number){
