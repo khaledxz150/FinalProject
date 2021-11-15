@@ -12,6 +12,9 @@ import { EditUnitComponent } from './unit/edit-unit/edit-unit.component';
 import { CreateExamComponent } from './exam/create-exam/create-exam.component';
 import { MatTimepickerModule } from 'mat-timepicker';
 import { EditExamComponent } from './exam/edit-exam/edit-exam.component';
+import { StudentsComponent } from './students/students.component';
+import { AttendanceComponent } from './attendance/attendance.component';
+import { CreateLectureComponent } from './create-lecture/create-lecture.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,9 @@ import { EditExamComponent } from './exam/edit-exam/edit-exam.component';
     EditUnitComponent,
     CreateExamComponent,
     EditExamComponent,
+    StudentsComponent,
+    AttendanceComponent,
+    CreateLectureComponent,
     
     ],
   imports: [

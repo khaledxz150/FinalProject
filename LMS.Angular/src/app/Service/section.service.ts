@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, SecurityContext } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -8,10 +8,13 @@ import { environment } from 'src/environments/environment';
 import { AlertDialogComponent } from '../alert-dialog/alert-dialog.component';
 import { Section } from '../models/section';
 
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
 @Injectable({
   providedIn: 'root'
 })
 export class SectionService {
+  myBase64!: SafeResourceUrl;
 
    section: any[]=[{}];
    TrainerSection : any[]=[{}];
@@ -21,13 +24,22 @@ export class SectionService {
 
 
 
-  constructor(private http: HttpClient,private toastr:ToastrService, private spinner: NgxSpinnerService,private router:Router) { }
+  constructor(private http: HttpClient,private toastr:ToastrService, private spinner: NgxSpinnerService,private router:Router,
+    private sanitizer: DomSanitizer) { }
 
 
   ReturnAllTrainerSections(TrainerId:any) {
     this.spinner.show();
    this.http.post(environment.apiUrl + 'Section/ReturnAllTrainerSections/'+TrainerId,TrainerId).subscribe((result:any)=>{
 this.TrainerSection = result;
+     this.TrainerSection.forEach((element) => {  
+      this.myBase64 = this.sanitizer.bypassSecurityTrustResourceUrl(
+        `data:image/png;base64, ${element.courseImage}`
+      );
+     this.sanitizer.sanitize(SecurityContext.HTML,this.myBase64);
+      element.courseImage = this.myBase64;
+     }) ;
+
   this.spinner.hide();
   },err=>{
     this.spinner.hide();

@@ -16,11 +16,11 @@ namespace LMS.Core.DTO
         public string CategoryName { get; set; }
         public int NoLecture { get; set; }
         public int SectionCapacity { get; set; }
+        public int TraineeNumber { get; set; }
         public string StatusName { get; set; }
         public int? SectionId { get; set; }
         public DateTime SectionTimeStart { get; set; }
         public DateTime? SectionTimeEnd { get; set; }
-
         public bool? IsActive { get; set; }
 
     }

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Unit } from 'src/app/models/unit';
 import { CategoryService } from 'src/app/Service/category.service';
 import { CourseService } from 'src/app/Service/course.service';
@@ -22,7 +23,7 @@ export class CreateUnitComponent implements OnInit {
   FileSrc: string | undefined;
  
   constructor(private courseService: CourseService,
-    public categoryService:CategoryService, public unitService: UnitService, public sectionService: SectionService) { }
+    public categoryService:CategoryService, public unitService: UnitService, public sectionService: SectionService, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
     
@@ -45,7 +46,7 @@ debugger
         this.FileSrc = reader.result as string;    
 
 
-        this.Unit={SectionId: this.sectionService.SelectedSection 
+        this.Unit={SectionId: this.data.sectionId
           , FilePath: this.FileSrc , isActive: true, CreationDate: new Date(), CreatedBy:1}
    
       };

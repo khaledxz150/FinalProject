@@ -7,7 +7,13 @@ import { UnitService } from 'src/app/Service/unit.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateUnitComponent } from '../unit/create-unit/create-unit.component';
 import { ExamServiceService } from 'src/app/Service/exam-service.service';
+import { HttpClient } from '@angular/common/http';
 
+import { faAngleDoubleRight, faShoppingCart, faHeart, faQuoteRight, faStar, faUser, faBook, faTag, faChartLine, faCalendar, faDollarSign, faPercentage, faEdit, faInfoCircle, faTrashAlt, faPlus} from '@fortawesome/free-solid-svg-icons';
+import { AlertDialogComponent } from 'src/app/alert-dialog/alert-dialog.component';
+import { CourseService } from 'src/app/Service/course.service';
+import { CreateExamComponent } from '../exam/create-exam/create-exam.component';
+import { CreateLectureComponent } from '../create-lecture/create-lecture.component';
 
 
 @Component({
@@ -31,34 +37,49 @@ export class SectionComponent implements OnInit {
 // @Input () CreatedBy: number| undefined;
   
 
-  constructor(public sectionService: SectionService, private unitService: UnitService, private dialog:MatDialog,private examservice: ExamServiceService) { }
+  constructor(public sectionService: SectionService, private unitService: UnitService, private dialog:MatDialog,private examservice: ExamServiceService,
+     private http: HttpClient) { }
+
+  panelOpenState = false;
+
+  faAngleDoubleRight = faAngleDoubleRight
+  faShoppingCart = faShoppingCart
+  faHeart = faHeart
+  faQuoteRight = faQuoteRight
+  faStar = faStar
+  faUser = faUser
+  faBook = faBook
+  faTag = faTag
+  faChartLine = faChartLine
+  faCalendar = faCalendar
+  faDollarSign = faDollarSign
+  faPercentage = faPercentage
+  faEdit =faEdit
+  faInfoCircle = faInfoCircle
+  faTrashAlt = faTrashAlt
+  faPlus=faPlus
 
   sections:any=[{}];
   ngOnInit(): void {
     this.sectionService.ReturnAllTrainerSections(2);
+    this.http.get('assets/ChatLog/1.txt', { responseType: 'text' }).subscribe(data => {
+      const text = data;
+      console.log(JSON.parse(text));
+  });
+
+
   }
 
- 
-Change(e: any){
-  const cardInfoBtn = e.target.closest('.card__more-info');
-  const cardLessBtn = e.target.closest('.card__less-info');
-  if (cardInfoBtn) {
-    cardInfoBtn.parentNode.parentNode.classList.add('card--open')
-  }
-  if (cardLessBtn) {
-    cardLessBtn.parentNode.parentNode.classList.remove('card--open')
+  CreateExam(SectionId:any){
+    this.dialog.open(CreateExamComponent, {data : SectionId});
   }
   
-}
- 
-ViewUnit(sectionId:number){
-this.unitService.getAllTrainerSectionUnit(sectionId);
-this.sectionService.SetSection(sectionId);
-}
+  AddUnit(SectionId:any){
+    this.dialog.open(CreateUnitComponent, {data : SectionId});
+  }
 
-ViewExam(sectionId:number) {
-  this.examservice.GetExamBySection(sectionId);
-  this.sectionService.SetSection(sectionId);
 
-}
+  CreateMeeting(Section:any){
+   this.dialog.open(CreateLectureComponent,{data : Section});
+  }
 }

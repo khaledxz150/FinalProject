@@ -335,3 +335,4 @@ C:\Users\jasse\Desktop\stableVersion\LMS\LMS\obj\Debug\net5.0\ref\LMS.dll
 C:\Users\jasse\Desktop\stableVersion\LMS\LMS\obj\Debug\net5.0\LMS.pdb
 C:\Users\jasse\Desktop\stableVersion\LMS\LMS\obj\Debug\net5.0\LMS.genruntimeconfig.cache
 C:\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.csproj.CopyComplete
+C:\Github\FinalProject\LMS\LMS\obj\Debug\net5.0\staticwebassets\LMS.StaticWebAssets.xml
