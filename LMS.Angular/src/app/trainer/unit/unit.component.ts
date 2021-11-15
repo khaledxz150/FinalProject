@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatAccordion } from '@angular/material/expansion';
 import { UnitService } from 'src/app/Service/unit.service';
@@ -11,12 +11,15 @@ import { EditUnitComponent } from './edit-unit/edit-unit.component';
   styleUrls: ['./unit.component.css']
 })
 export class UnitComponent implements OnInit {
+  @Input() Sectionid = 0;
 
 
   constructor(public dialog: MatDialog, public unitService: UnitService) {}
   @ViewChild(MatAccordion) accordion!: MatAccordion;
 
   ngOnInit(): void {
+
+    this.ViewUnit(this.Sectionid);
   }
 
   addUnit(SectionID:number) {
@@ -46,19 +49,21 @@ export class UnitComponent implements OnInit {
   Create(){}
 
 
-  Change(e: any){
-    const cardInfoBtn = e.target.closest('.card__more-info')
-    const cardLessBtn = e.target.closest('.card__less-info')
-    
-    if (cardInfoBtn) {
-      cardInfoBtn.parentNode.parentNode.classList.add('card--open')
+
+
+  ViewUnit(sectionId:number){
+    this.unitService.getAllTrainerSectionUnit(sectionId);
     }
-    
-    if (cardLessBtn) {
-      cardLessBtn.parentNode.parentNode.classList.remove('card--open')
+
+    OpenPdf(data:any) {
+      var file = new Blob([data], {type: "application/pdf"});
+      
+      var fileURL = URL.createObjectURL(file);
+      window.open(fileURL);
+
+
+
     }
-    
-  }
 }
 
 

@@ -27,7 +27,6 @@ export class ExamServiceService {
       this.http.post(environment.apiUrl + 'exam/ReturnExamBySectionId/'+sectionId,sectionId).subscribe((res:any)=>{
       this.exam = res;
     
-      this.router.navigate(['trainer/exam']);
       this.spinner.hide();
   
     },err=>{
@@ -41,7 +40,6 @@ export class ExamServiceService {
       this.http.post(environment.apiUrl + 'exam/InsertExam',Exam).subscribe((res:any)=>{
       this.exam = res;
       this.GetExamBySection(this.secionService.SelectedSection);
-      this.router.navigate(['trainer/exam']);
       this.spinner.hide();
   
     },err=>{
@@ -56,7 +54,6 @@ export class ExamServiceService {
       this.http.put(environment.apiUrl + 'exam/UpdateExam',Exam).subscribe((res:any)=>{
         
       this.GetExamBySection(this.secionService.SelectedSection);
-      this.router.navigate(['trainer']);
       this.spinner.hide();
   
     },err=>{
