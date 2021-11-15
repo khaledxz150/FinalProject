@@ -245,6 +245,10 @@ namespace LMS.Infra.Repository
             return true;
         }
 
+        public bool AddThing()
+        {
+            return false;
+        }
         public bool InsertCertificate(Certificate certificate)
         {
             var parm = new DynamicParameters();

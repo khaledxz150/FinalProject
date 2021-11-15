@@ -20,6 +20,7 @@ namespace LMS.Core.Repository
         //CartItem
 
         public bool InsertCartItem(CartItem cartItem);
+        
         public bool DeleteCartItem(int cartItemId);
 
         //Checkout

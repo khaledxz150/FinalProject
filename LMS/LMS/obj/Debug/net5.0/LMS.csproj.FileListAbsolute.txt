@@ -263,7 +263,6 @@ C:\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.MvcApplicationPartsAssemblyI
 C:\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\scopedcss\bundle\LMS.styles.css
 C:\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\staticwebassets\LMS.StaticWebAssets.Manifest.cache
 C:\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.RazorTargetAssemblyInfo.cache
-C:\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.csproj.CopyComplete
 C:\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.dll
 C:\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\ref\LMS.dll
 C:\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.pdb
