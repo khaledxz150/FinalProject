@@ -1,0 +1,97 @@
+<div class="wrapper d-flex align-items-stretch"  style="background-color:#eee;">
+  <app-sidebar></app-sidebar>
+
+
+  <div class="container" >
+    <!-- <div class="test"></div> -->
+  <!-- <div class="container ">
+    <div class="row"> -->
+      <div id="content" class="px-3 p-md-5 pt-5">
+
+
+        <div class="d-flex" style="justify-content:space-between;">
+          <h3 class="mb-4">Manage Courses</h3>
+          <!-- <button class="add"><i class="pi pi-plus" style="font-size: 2rem"></i></button>
+          <button mat-fab color="primary">Warn</button> -->
+          <button mat-fab color="primary" class="create" (click)="createCourse()" >
+            <mat-icon>add</mat-icon>
+          </button>
+          <!-- <p-button icon="pi pi-plus" iconPos="right" class="p-button-success"></p-button> -->
+          <!-- <button pButton pRipple type="button" label="Success" class="p-button-success"></button> -->
+          <!-- <button pButton pRipple type="button" label="Create" class="p-button-rounded p-button-success"></button> -->
+
+        </div>
+      <div clas="card " style="display: flex;  flex-wrap: wrap;">
+        <mat-tab-group mat-align-tabs="center"  style="width: 100%; display: flex; padding-bottom: 5rem;" >
+
+          <mat-tab label="{{category.name}}" *ngFor="let category of categoryService.category" style="display: flex; padding-bottom: 5rem;">
+
+          <ng-container  class="container">
+               <div class="row">
+
+              <!-- card start -->
+                    <ng-container  *ngFor="let course of courseService.courses">
+                      <ng-container class="course-card" *ngIf = "category.name == course.categoryName">
+
+                  <div class="col-lg-3 col-md-4 col-sm-6 my-3 course-card"  style="height: 100%">
+                    <div class="type"><span>{{course.typeName}}</span></div>
+                      <div style="background-image:url({{course.image}}); background-repeat: no-repeat; background-size: cover;" class="course-card-img mt-2">
+
+                      </div>
+                      <div class="course-card-content">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <h4>{{course.courseName}}</h4>
+                          </div>
+                          <div class="col-lg-12">
+                            <h6>$ {{course.coursePrice}}</h6>
+                          </div>
+                          <div class="col-lg-12" style="display: flex; justify-content: end;">
+                          <fa-icon [icon] = "faInfoCircle" class="px-2" (click)="viewCourse(course.courseId)"></fa-icon>
+                          <fa-icon [icon] = "faEdit"class="px-2" (click)="updateCourse(course.courseId)"></fa-icon>
+                          <fa-icon [icon] = "faTrashAlt"class="px-2" (click)="deleteCourse(course.courseId)"></fa-icon>
+                          </div>
+                        </div>
+
+
+
+
+
+
+                      </div>
+
+                  </div>
+                </ng-container>
+
+                </ng-container>
+
+
+              <!-- card end -->
+          </div>
+          </ng-container>
+          </mat-tab>
+
+        </mat-tab-group>
+
+
+      </div>
+
+
+
+
+
+
+
+    </div>
+    </div>
+    </div>
+  <!-- <p-paginator [rows]="10" [totalRecords]="120" [rowsPerPageOptions]="[10,20,30]"></p-paginator> -->
+
+
+
+  <!-- </div>
+</div> -->
+
+
+<!-- p-card -->
+

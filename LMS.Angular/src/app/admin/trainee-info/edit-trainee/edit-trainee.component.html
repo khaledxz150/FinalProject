@@ -1,0 +1,70 @@
+
+<h2 mat-dialog-title>Edit Trainee</h2>
+<mat-dialog-content class="mat-typography">
+
+  <div class="form" style="margin-top:50px">
+  <form [formGroup] = "formGroup">
+
+
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>FirstName </mat-label>
+      <input type="text" matInput formControlName="firstName">
+      <!-- <mat-error *ngIf="formGroup.controls.courseName.hasError('required')">
+        Course Name is <strong>required</strong>
+      </mat-error> -->
+    </mat-form-field>
+    
+    
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>LastName </mat-label>
+      <input type="text" matInput formControlName="lastName">
+      <!-- <mat-error *ngIf="formGroup.controls.courseName.hasError('required')">
+        Course Name is <strong>required</strong>
+      </mat-error> -->
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Nationality </mat-label>
+      <input type="text" matInput formControlName="nationality">
+      <!-- <mat-error *ngIf="formGroup.controls.courseName.hasError('required')">
+        Course Name is <strong>required</strong>
+      </mat-error> -->
+    </mat-form-field>
+   
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Email </mat-label>
+      <input type="email" matInput formControlName="email">
+      <!-- <mat-error *ngIf="formGroup.controls.courseName.hasError('required')">
+        Course Name is <strong>required</strong>
+      </mat-error> -->
+    </mat-form-field>
+    <!-- <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Image</mat-label>
+      <input type="text" matInput formControlName="image">
+    </mat-form-field> -->
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Phone</mat-label>
+      <input type="text" matInput  formControlName="phoneNumber">
+ 
+    </mat-form-field>
+  <mat-card > 
+    <mat-label for="file">File</mat-label>
+    <input formControlName="file" id="file" type="file" class="form-control" (change)="onFileChange($event)">
+    <!-- <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
+      <div *ngIf="f.file.errors && f.file.errors.required">File is required.</div> -->
+   
+
+    <img  [src]="imageSrc" formControlName="imageName" style="height: 150px; width:150px">
+  </mat-card>
+   
+  
+  </form>
+
+</div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <!-- (click) ="Update()"  -->
+  <button mat-button [mat-dialog-close]="true"  (click) ="Update()" cdkFocusInitial [disabled]="!formGroup.valid">Edit</button>
+</mat-dialog-actions>

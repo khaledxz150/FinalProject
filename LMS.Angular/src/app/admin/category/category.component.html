@@ -1,0 +1,80 @@
+<div class="wrapper d-flex align-items-stretch"  style="background-color:#eee;">
+  <app-sidebar></app-sidebar>
+  <div class="container" >
+  <!-- <div class="container ">
+    <div class="row"> -->
+      <div id="content" class="px-3 p-md-5 pt-5 mt-5" style="background-color:white; height: 100%; border-radius: 5px; width: 100%;">
+
+
+        <div class="d-flex" style="justify-content:space-between;">
+          <h3 class="mb-4">Manage Categories</h3>
+          <!-- <button class="add"><i class="pi pi-plus" style="font-size: 2rem"></i></button>
+          <button mat-fab color="primary">Warn</button> -->
+          <button mat-fab color="primary" class="create" (click)="createCategory()" >
+            <mat-icon>add</mat-icon>
+          </button>
+          <!-- <p-button icon="pi pi-plus" iconPos="right" class="p-button-success"></p-button> -->
+          <!-- <button pButton pRipple type="button" label="Success" class="p-button-success"></button> -->
+          <!-- <button pButton pRipple type="button" label="Create" class="p-button-rounded p-button-success"></button> -->
+
+        </div>
+      <div clas="card " style="display: flex;  flex-wrap: wrap;">
+
+
+          <ng-container  class="container">
+               <div class="row">
+
+              <!-- card start -->
+              <mat-card class="card-content" *ngFor ="let category of categoryService.category">
+                <!-- <mat-card-title>{{category.name}}</mat-card-title> -->
+                <!-- <mat-card-subtitle>End</mat-card-subtitle> -->
+                <mat-card-content>
+
+                  <div class="card-item p-2">
+                    <img src="{{category.image}}" alt="" width="200" height="150">
+
+                   </div>
+
+                     <h3>{{category.name}}</h3>
+
+
+                </mat-card-content>
+
+                <mat-card-actions align="end">
+                  <button mat-button (click)="updateCategory(category.categoryId)">Update</button>
+                  <!-- <fa-icon [icon]="faEdit" style="font-size: 2rem" ></fa-icon> -->
+                  <button mat-button (click)="deleteCategory(category.categoryId)">Delete</button>
+                </mat-card-actions>
+              </mat-card>
+
+
+
+              <!-- card end -->
+          </div>
+          </ng-container>
+
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+    </div>
+    </div>
+    </div>
+  <!-- <p-paginator [rows]="10" [totalRecords]="120" [rowsPerPageOptions]="[10,20,30]"></p-paginator> -->
+
+
+
+  <!-- </div>
+</div> -->
+
+
+<!-- p-card -->
+

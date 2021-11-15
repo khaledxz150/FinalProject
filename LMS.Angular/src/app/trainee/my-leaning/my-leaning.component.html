@@ -1,0 +1,268 @@
+
+
+
+
+    <!--====== PRELOADER PART START ======-->
+
+
+    <!--====== SEARCH BOX PART START ======-->
+    <app-trainee-nav></app-trainee-nav>
+
+
+    <!--====== PAGE BANNER PART START ======-->
+
+    <section id="page-banner" class="pt-105 pb-110 bg_cover" data-overlay="8" style="background-image: url(../../../assets/image/slider.jpg)">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="page-banner-cont">
+                        <h2>My Learning</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Trainee</a></li>
+                                <li class="breadcrumb-item"><a href="#">Client</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">My Learning</li>
+                            </ol>
+                        </nav>
+                    </div>  <!-- page banner cont -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+
+    <!--====== PAGE BANNER PART ENDS ======-->
+
+    <!--====== COURSES SINGEl PART START ======-->
+
+    <section id="corses-singel" class="pt-90 pb-120 gray-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="corses-singel-left mt-30">
+                        <div class="title">
+                            <h3>My Learning</h3>
+                        </div> <!-- title -->
+
+                        <mat-tab-group>
+                          <mat-tab>
+                            <ng-template mat-tab-label>
+                              <mat-icon>view_week</mat-icon>
+                              All Course
+                            </ng-template>
+                            <ng-container >
+                              <div class="course-card" *ngFor="let course of this.learningService.myEnrollment">
+                                <div class="card">
+                              <div class="row no-gutters">
+                              <div class="col-md-4">
+                               <img [src]="course.image" class="img" alt="">
+                              </div>
+                              <div class="col-md-5 border-right">
+                               <div class="card-body">
+                                 <h5 class="card-title">{{course.courseName}}</h5>
+                                 <br>
+                                 <br>
+                                 <div class="row">
+                                  <span class="col-3 card-title"> Mark </span>
+                                  <span class="col-3 card-title"> Level </span>
+                                  <span class="col-5 card-title">Type</span>
+                                  <span class="badge badge-pill badge-success tages">{{course.passMark}}</span>
+                                  <span class="badge badge-pill badge-danger tages">{{course.levelName}}</span>
+                                  <span class="badge badge-pill badge-warning tages">{{course.typeName}}</span>
+                                 </div>
+
+                               </div>
+                              </div>
+                                 <div class="col-md-3" style="margin-top: 15px; padding-left:4px;">
+                                  <ngx-progress-circle style="color: #af1a2c;" [value]="23" >
+                                  </ngx-progress-circle>
+
+                                  <span class="Spantext">23</span>
+                                 </div>
+                              </div>
+                              </div>
+                              </div>
+                            </ng-container>
+
+
+                          </mat-tab>
+
+                          <mat-tab>
+                            <ng-template mat-tab-label>
+                              <mat-icon>new_releases</mat-icon>
+                              Newest
+                            </ng-template>
+                            <ng-container >
+
+                            </ng-container>
+                          </mat-tab>
+
+                          <mat-tab>
+                            <ng-template mat-tab-label>
+                              <mat-icon>devices</mat-icon>
+                              In Progress
+                            </ng-template>
+
+                            <ng-container >
+
+                              <div class="course-card" *ngFor="let course of this.learningService.myLiveSections">
+                                <div class="card">
+                              <div class="row no-gutters">
+                              <div class="col-md-4">
+                               <img [src]="course.image" class="img" alt="">
+                              </div>
+                              <div class="col-md-5 border-right">
+                               <div class="card-body">
+                                 <h5 class="card-title">{{course.courseName}}</h5>
+                                 <br>
+                                 <h6 style="">Trainer : </h6>
+                                 <h6> {{course.trainerName}}</h6>
+
+                                 <h6></h6>
+                                 <br>
+                                 <br>
+                                 <div class="row">
+                                  <span class="col-6 card-title"> Level </span>
+                                  <span class="col-6 card-title">Status</span>
+
+                                  <span class="badge badge-pill badge-danger tages " style="margin-left: 55px;">{{course.level}}</span>
+                                  <span class="badge badge-pill badge-warning tages" style="margin-left: 55px;">{{course.statusName}}</span>
+                                 </div>
+
+                               </div>
+                              </div>
+                                 <div class="col-md-3" style="margin-top: 15px; padding-left:4px;">
+                                  <ngx-progress-circle style="color: #af1a2c;" [value]="23" >
+                                  </ngx-progress-circle>
+
+                                  <span class="Spantext">23</span>
+                                 </div>
+                              </div>
+                              </div>
+                              </div>
+                            </ng-container>
+                          </mat-tab>
+                          <mat-tab>
+                            <ng-template mat-tab-label>
+                              <mat-icon>play_circle_outline</mat-icon>
+                              Online Course
+                            </ng-template>
+
+                            <ng-container >
+                              <div class="course-card" *ngFor="let course of this.learningService.myOnlineCourses">
+                                <div class="card">
+                              <div class="row no-gutters">
+                              <div class="col-md-4">
+                               <img [src]="course.image" class="img" alt="">
+                              </div>
+                              <div class="col-md-5 border-right">
+                               <div class="card-body">
+                                 <h5 class="card-title">{{course.courseName}}</h5>
+                                 <br>
+                                 <br>
+                                 <div class="row">
+                                  <span class="col-3 card-title"> Mark </span>
+                                  <span class="col-3 card-title"> Level </span>
+                                  <span class="col-5 card-title">Type</span>
+                                  <span class="badge badge-pill badge-success tages">{{course.passMark}}</span>
+                                  <span class="badge badge-pill badge-danger tages">{{course.levelName}}</span>
+                                  <span class="badge badge-pill badge-warning tages">{{course.typeName}}</span>
+                                 </div>
+
+                               </div>
+                              </div>
+                                 <div class="col-md-3" style="margin-top: 15px; padding-left:4px;">
+                                  <ngx-progress-circle style="color: #af1a2c;" [value]="23" >
+                                  </ngx-progress-circle>
+
+                                  <span class="Spantext">23</span>
+                                 </div>
+                              </div>
+                              </div>
+                              </div>
+                            </ng-container>
+                          </mat-tab>
+                        </mat-tab-group>
+
+                    </div> <!-- corses singel left -->
+
+                </div>
+                <div class="col-lg-3">
+<br>
+<br>
+    <div class="row ">
+      <div class="col-xl-12 col-lg-12">
+          <div class="card l-bg-cherry">
+              <div class="card-statistic-3 p-4">
+                  <div class="card-icon card-icon-large"><i class="fas fa-shopping-cart"></i></div>
+                  <div class="mb-4">
+                      <h5 class="card-title mb-0">Newest Courses</h5>
+                  </div>
+                  <div class="row align-items-center mb-2 d-flex">
+                      <div class="col-8">
+                          <h2 class="d-flex align-items-center mb-0">
+                              {{this.learningService.myEnrollment.length-this.learningService.myLiveSections.length-this.learningService.myOnlineCourses.length}}
+                          </h2>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-xl-12 col-lg-12">
+          <div class="card l-bg-green-dark">
+              <div class="card-statistic-3 p-4">
+                  <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i></div>
+                  <div class="mb-4">
+                      <h5 class="card-title mb-0">In Progress Course</h5>
+                  </div>
+                  <div class="row align-items-center mb-2 d-flex">
+                      <div class="col-8">
+                          <h2 class="d-flex align-items-center mb-0">
+                            {{this.learningService.myLiveSections.length}}
+
+
+                          </h2>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-xl-12 col-lg-12">
+          <div class="card l-bg-orange-dark">
+              <div class="card-statistic-3 p-4">
+                  <div class="card-icon card-icon-large"><i class="fas fa-dollar-sign"></i></div>
+                  <div class="mb-4">
+                      <h5 class="card-title mb-0">Online Course</h5>
+                  </div>
+                  <div class="row align-items-center mb-2 d-flex">
+                      <div class="col-8">
+                          <h2 class="d-flex align-items-center mb-0">
+                            {{this.learningService.myOnlineCourses.length}}
+                          </h2>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+
+    <!--====== COURSES SINGEl PART ENDS ======-->
+
+
+
+    <!--====== BACK TO TP PART START ======-->
+
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+    <!--====== BACK TO TP PART ENDS ======-->
+
+
+
+
+
+
+
+

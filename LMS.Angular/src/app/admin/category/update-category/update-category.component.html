@@ -1,0 +1,52 @@
+<div class="d-flex" style="justify-content: space-between;">
+  <h3 class="mb-3" style="font-weight: bold; ">Manage Category</h3>
+  <fa-icon [icon]="faTimes" style="font-size: 30px;"  mat-dialog-close></fa-icon>
+</div>
+<mat-dialog-content class="mat-typography">
+
+  <div class="form" style="margin-top:50px">
+  <form [formGroup] = "formGroup">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <mat-form-field class="example-full-width" >
+          <mat-label>Category Name</mat-label>
+          <input type="text" matInput   formControlName="name">
+          <mat-error *ngIf="formGroup.controls.name.hasError('required')">
+            Category Name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+
+        <mat-card>
+          <mat-label for="file">File</mat-label>
+          <input formControlName="file" id="file" type="file" class="form-control" (change)="onFileChange($event)">
+          <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
+            <div *ngIf="f.file.errors && f.file.errors.required">File is required.</div>
+          </div>
+
+
+          <div style="border: 1px dotted;" class="mt-5 p-5">
+            <img [src]="imageSrc" *ngIf="imageSrc" height="250" width="300">
+            <img src="{{formGroup.controls.image.value}}" *ngIf="!imageSrc" height="250" width="300">
+          </div>
+
+        </mat-card>
+
+
+      </div>
+
+
+
+    </div>
+
+  </form>
+
+</div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <!-- <button mat-button mat-dialog-close>Cancel</button> -->
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click) ="updateCategory()" [disabled]="!formGroup.valid">Save</button>
+</mat-dialog-actions>
+

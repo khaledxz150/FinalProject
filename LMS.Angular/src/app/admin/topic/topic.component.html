@@ -1,0 +1,124 @@
+
+
+        <div class="wrapper d-flex align-items-stretch"  style="background-color:#eee;">
+          <app-sidebar></app-sidebar>
+
+
+          <div class="container" >
+            <!-- <div class="test"></div> -->
+          <!-- <div class="container ">
+            <div class="row"> -->
+              <div id="content" class="px-3 p-md-5 pt-5 mt-5">
+
+
+                <div class="d-flex" style="justify-content:space-between;">
+                  <h3 class="mb-4">Topics</h3>
+
+                  <button mat-fab color="primary" class="create" (click)="createTopic()">
+                    <mat-icon>add</mat-icon>
+                  </button>
+
+                </div>
+              <div clas="card ">
+
+
+
+                  <ng-container  class="container">
+                       <div class="row mt-5">
+
+                      <!-- card start -->
+
+                      <div class="col-md-12 mt-3"  *ngFor="let course of courseService.courses">
+                        <mat-accordion>
+
+                          <mat-expansion-panel (opened)="panelOpenState = true"
+                                               (closed)="panelOpenState = false">
+                            <mat-expansion-panel-header>
+                              <mat-panel-title>
+                                {{course.courseName}}
+                              </mat-panel-title>
+                              <!-- <mat-panel-description>
+                                Currently I am {{panelOpenState ? 'open' : 'closed'}}
+
+
+                              </mat-panel-description> -->
+                              <!-- <mat-icon class="mr-2">trash</mat-icon> -->
+
+                            </mat-expansion-panel-header>
+                           <!-- topic start -->
+
+                            <ng-container class="mt-3"  *ngFor="let topic of courseService.topic">
+                           <mat-accordion *ngIf="course.courseId == topic.courseId">
+                            <!-- <ng-container  *ngIf="course.courseId == topic.courseId"> -->
+                            <mat-expansion-panel>
+                              <mat-expansion-panel-header *ngIf="topic.isActive">
+                                <mat-panel-title>
+                                  {{topic.topicName}}
+                                </mat-panel-title>
+                                <!-- <mat-panel-description>
+                                  Currently I am {{panelOpenState ? 'open' : 'closed'}}
+                                </mat-panel-description> -->
+
+                              </mat-expansion-panel-header>
+                              <div class="d-flex" style="justify-content: space-between;">
+                                <p>{{topic.description}}</p>
+
+                                  <div>
+                                    <fa-icon [icon] = "faEdit"class="px-2" (click)="updateTopic(topic.topicId)"></fa-icon>
+                                    <fa-icon [icon] = "faTrashAlt"class="px-2" (click)="deleteTopic(topic.topicId)"></fa-icon>
+                                  </div>
+
+                              </div>
+
+                            </mat-expansion-panel>
+                            <!-- </ng-container> -->
+
+                            <!-- <ng-container class="pt-2" *ngIf="course.courseId == topic.courseId">
+                              <mat-expansion-panel disabled *ngIf="!topic.isActive">
+                                <mat-expansion-panel-header >
+                                  <mat-panel-title>
+                                    {{topic.topicName}}
+                                  </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <fa-icon [icon] = "faInfoCircle"class="px-2" ></fa-icon>
+                                  <fa-icon [icon] = "faEdit"class="px-2"></fa-icon>
+                                  <fa-icon [icon] = "faTrashAlt"class="px-2" (click)="deleteTopic(topic.topicId)"></fa-icon>
+                                <p>{{topic.description}}</p>
+                              </mat-expansion-panel>
+                              </ng-container> -->
+                          </mat-accordion>
+                        </ng-container>
+                           <!-- topic end -->
+                          </mat-expansion-panel>
+                        </mat-accordion>
+                      </div>
+
+
+
+                      <!-- card end -->
+                  </div>
+                  </ng-container>
+
+
+
+              </div>
+
+
+
+
+
+
+
+            </div>
+            </div>
+            </div>
+          <!-- <p-paginator [rows]="10" [totalRecords]="120" [rowsPerPageOptions]="[10,20,30]"></p-paginator> -->
+
+
+
+          <!-- </div>
+        </div> -->
+
+
+        <!-- p-card -->
+

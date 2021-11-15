@@ -1,0 +1,120 @@
+
+
+
+
+
+
+
+  <div class="wrapper d-flex align-items-stretch"  style="background-color:#eee;">
+    <app-sidebar></app-sidebar>
+    <div class="container" >
+    <!-- <div class="container ">
+      <div class="row"> -->
+        <div id="content" class="px-3 p-md-5 pt-5 mt-5" style="background-color:white; height: 100%; border-radius: 5px; width: 100%;">
+
+
+          <div class="d-flex" style="justify-content:space-between;">
+            <h3 class="mb-4">Manage Sections</h3>
+            <!-- <button class="add"><i class="pi pi-plus" style="font-size: 2rem"></i></button>
+            <button mat-fab color="primary">Warn</button> -->
+            <button mat-fab color="primary" class="create" (click) = "createSection()">
+              <mat-icon>add</mat-icon>
+            </button>
+            <!-- <p-button icon="pi pi-plus" iconPos="right" class="p-button-success"></p-button> -->
+            <!-- <button pButton pRipple type="button" label="Success" class="p-button-success"></button> -->
+            <!-- <button pButton pRipple type="button" label="Create" class="p-button-rounded p-button-success"></button> -->
+
+          </div>
+        <div clas="card " style="display: flex;  flex-wrap: wrap;">
+          <mat-tab-group mat-align-tabs="center"  style="width: 100%; display: flex; padding-bottom: 5rem;" >
+
+            <mat-tab label="{{course.courseName}}" *ngFor ="let course of courseService.courses" style="display: flex; padding-bottom: 5rem;">
+
+
+              <ng-container  class="container">
+                <div class="row">
+
+              <ng-container *ngFor ="let section of sectionService.sections">
+                <div class=" card card-margin col-lg-5 m-2 mt-3" *ngIf = "course.courseName == section.courseName">
+                <div>
+                  <ng-container class="course-card" *ngIf = "course.courseName == section.courseName">
+
+                  <div class="card-header no-border ">
+                      <h5 class="card-title">{{section.courseName}}</h5>
+                  </div>
+                  <div class="card-body pt-0">
+                      <div class="widget-49">
+                          <div class="widget-49-title-wrapper">
+                              <div class="widget-49-date-primary">
+                                  <span class="widget-49-date-day" style="color: #0e903a;"># {{section.sectionId}}</span>
+                                  <!-- <span class="widget-49-date-month">id</span> -->
+                              </div>
+                              <div class="widget-49-meeting-info">
+                                <span class="widget-49-pro-title"><i class="pi pi-user pr-1" style="color:#af1a2d;"></i>{{section.trainerName}}</span>
+                                  <span class="widget-49-meeting-time">{{section.sectionTimeStart}} to {{section.sectionTimeEnd}}Hrs</span>
+                              </div>
+                          </div>
+                          <div class="row pt-3">
+                            <div class="col-4">
+                               <fa-icon [icon]="faInfoCircle" style="color:#af1a2d;"></fa-icon><span  class="ml-2">{{section.statusName}}</span>
+                            </div>
+                            <div class="col-4">
+                              <fa-icon [icon]="faUsers" style="color:#af1a2d;"></fa-icon><span  class="ml-2">{{section.sectionCapacity}}</span>
+
+                            </div>
+                            <div class="col-4">
+                              <fa-icon [icon]="faHashtag" style="color:#af1a2d;"></fa-icon><span  class="ml-2">{{section.noLecture}}</span>
+
+                            </div>
+                            <!-- <fa-icon [icon]="faInfoCircle"></fa-icon><span>{{section.statusName}}</span>
+                            <fa-icon [icon]="faUsers"></fa-icon><span>{{section.sectionCapacity}}</span>
+                            <fa-icon [icon]="faHashtag"></fa-icon><span>{{section.noLecture}}</span> -->
+                          </div>
+                          <!-- <ol class="widget-49-meeting-points">
+                              <li class="widget-49-meeting-item"><span>Expand module is removed</span></li>
+                              <li class="widget-49-meeting-item"><span>Data migration is in scope</span></li>
+                              <li class="widget-49-meeting-item"><span>Session timeout increase to 30 minutes</span></li>
+                          </ol> -->
+                          <div class="widget-49-meeting-action mt-5">
+                              <!-- <a href="#" class="btn btn-sm btn-flash-border-primary">update</a> -->
+                              <fa-icon [icon]="faEdit" style="font-size: 1.3rem; color:#af1a2d;" (click)="updateSection(section.sectionId)"></fa-icon>
+                              <fa-icon [icon] = "faTrashAlt" style="font-size: 1.3rem;  color:#af1a2d" class="px-3 pt-0" (click)="deleteSection(section.sectionId)"></fa-icon>
+                              <!-- <i class="pi pi-trash px-3 pt-0"  style="font-size: 1.3rem;"></i> -->
+                          </div>
+                      </div>
+                  </div>
+
+                  </ng-container>
+                </div>
+              </div>
+                <!-- <div *ngIf = "course.courseName == null">test</div> -->
+              </ng-container>
+            </div>
+            </ng-container>
+
+            </mat-tab>
+
+          </mat-tab-group>
+
+
+        </div>
+
+
+
+
+
+
+
+      </div>
+      </div>
+      </div>
+    <!-- <p-paginator [rows]="10" [totalRecords]="120" [rowsPerPageOptions]="[10,20,30]"></p-paginator> -->
+
+
+
+    <!-- </div>
+  </div> -->
+
+
+  <!-- p-card -->
+

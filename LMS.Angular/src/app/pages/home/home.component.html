@@ -1,0 +1,282 @@
+<app-navbar></app-navbar>
+
+
+<!--====== SLIDER PART START ======-->
+
+  <section id="carouselExampleSlidesOnly" class="carousel slide slider-active slider" data-ride="carousel">
+    <div class="carousel-inner test">
+      <div class="single-slider bg_cover pt-150 carousel-item active" style="background-image: url(../../assets/image/slider.jpg); background-repeat: no-repeat; background-size:cover;" data-overlay="4">
+        <div class="container">
+              <div class="row">
+                  <div class="col-xl-7 col-lg-9">
+                      <div class="slider-cont">
+                          <h1 data-animation="bounceInLeft" data-delay="1s">Tahaluf Training Centre</h1>
+                          <p data-animation="fadeInUp" data-delay="1.3s">Welcome to Tahaluf Learning Managment System, discover our courses now</p>
+                          <ul>
+                              <li><a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="#">Read More</a></li>
+                              <li><a data-animation="fadeInUp" data-delay="1.9s" class="main-btn main-btn-2" href="#">Get Started</a></li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>  <!--row -->
+         </div> <!-- container -->
+     </div> <!-- single slider -->
+     <div class="single-slider bg_cover pt-150 carousel-item" style="background-image: url(../../assets/image/ele.jpg); background-repeat: no-repeat; background-size: cover;" data-overlay="4">
+      <div class="container">
+          <div class="row">
+              <div class="col-xl-7 col-lg-9">
+                  <div class="slider-cont">
+                    <h1 data-animation="bounceInLeft" data-delay="1s">Tahaluf Training Centre</h1>
+                    <p data-animation="fadeInUp" data-delay="1.3s">Welcome to Tahaluf Learning Managment System, discover our courses now</p>
+                      <ul>
+                          <li><a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="#">Read More</a></li>
+                          <li><a data-animation="fadeInUp" data-delay="1.9s" class="main-btn main-btn-2" href="#">Get Started</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div> <!-- row -->
+      </div> <!-- container -->
+     </div> <!-- single slider -->
+
+    <div class="single-slider bg_cover pt-150 carousel-item" style="background-image: url(../../assets/image/slider-3.jpg); background-repeat: no-repeat; background-size: cover;" data-overlay="4">
+      <div class="container">
+          <div class="row">
+              <div class="col-xl-7 col-lg-9">
+                  <div class="slider-cont">
+                    <h1 data-animation="bounceInLeft" data-delay="1s">Tahaluf Training Centre</h1>
+                    <p data-animation="fadeInUp" data-delay="1.3s">Welcome to Tahaluf Learning Managment System, discover our courses now</p>
+                      <ul>
+                          <li><a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="#">Read More</a></li>
+                          <li><a data-animation="fadeInUp" data-delay="1.9s" class="main-btn main-btn-2" href="#">Get Started</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div> <!-- row -->
+      </div> <!-- container -->
+    </div> <!-- single slider -->
+    </div>
+
+  </section>
+
+<!--====== SLIDER PART ENDS ======-->
+
+
+
+
+<!--====== ABOUT PART START ======-->
+
+<section id="about-part" class="pt-65">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-5">
+              <div class="section-title mt-50">
+                  <h5>About us</h5>
+                  <h2>Welcome to Training Centre </h2>
+              </div> <!-- section title -->
+              <div class="about-cont">
+                  <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet . Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt  mauris. <br> <br> auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet . Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt  mauris</p>
+                  <a routerLink="../aboutus" class="main-btn mt-55">Learn More</a>
+              </div>
+          </div> <!-- about cont -->
+
+      </div> <!-- row -->
+  </div> <!-- container -->
+  <div class="about-bg">
+      <img src="../../assets/image/bg-1.png" alt="About">
+  </div>
+</section>
+
+<!--====== ABOUT PART ENDS ======-->
+
+    <!--====== CATEGORY PART START ======-->
+
+  <section id="category-3" class="category-2-items pt-50 pb-80 gray-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-8 col-sm-7">
+            <div class="section-title pb-60">
+                <h5>Our Category</h5>
+                <h2>Discover Categories </h2>
+            </div> <!-- section title -->
+        </div>
+        </div>
+          <div class="row">
+            <div class="cards">
+              <app-category-card *ngFor="let card of categoryService.category"
+
+              [categoryId] = "card.categoryId"
+              [categoryName]="card.name"
+              [categoryImage]="card.image"
+            >
+            </app-category-card>
+            </div>
+
+
+
+
+
+          </div> <!-- row -->
+      </div> <!-- container -->
+  </section>
+
+  <!--====== CATEGORY PART ENDS ======-->
+
+
+
+
+
+    <!--====== COURSE PART START ======-->
+
+  <section id="course-part" class="pt-115 pb-120 gray-bg">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-6">
+                  <div class="section-title pb-45">
+                      <h5>Our course</h5>
+                      <h2>Featured courses </h2>
+                  </div> <!-- section title -->
+              </div>
+          </div> <!-- row -->
+          <p-carousel [value]="courseService.courses" styleClass="custom-carousel" [numVisible]="3" [numScroll]="3" [circular]="true" [autoplayInterval]="5000" [responsiveOptions]="responsiveOptions">
+
+            <ng-template let-course pTemplate="item">
+                <div class="product-item">
+                    <div class="product-item-content mx-4">
+                      <div class="row course-slied mt-30">
+                        <div>
+
+                            <div class="singel-course">
+                                <div class="thum">
+                                  <div class="type"><span>{{course.typeName}}</span></div>
+
+                                    <div class="image">
+
+                                        <img src="../../../assets/image/course/cu-1.jpg" alt="Course">
+                                    </div>
+                                    <div class="price">
+                                        <span>$ {{course.coursePrice}}</span>
+                                    </div>
+                                </div>
+                                <div class="cont">
+                                    <ul class="faStar">
+                                        <li> <fa-icon [icon]="faStar"></fa-icon></li>
+                                        <li> <fa-icon [icon]="faStar"></fa-icon></li>
+                                        <li> <fa-icon [icon]="faStar"></fa-icon></li>
+                                        <li> <fa-icon [icon]="faStar"></fa-icon></li>
+                                        <li> <fa-icon [icon]="faStar"></fa-icon></li>
+                                        <!-- <fa-icon [icon]="faStar"></fa-icon>
+                                        <fa-icon [icon]="faStar"></fa-icon>
+                                        <fa-icon [icon]="faStar"></fa-icon>
+                                        <fa-icon [icon]="faStar"></fa-icon>
+                                        <fa-icon [icon]="faStar"></fa-icon> -->
+                                    </ul>
+                                    <!-- <span>(20 Reviws)</span> -->
+                                    <div style="height: 100px;">
+                                      <a href="courses-singel.html"><h4>{{course.courseName}}</h4></a>
+
+                                    </div>
+                                    <div class="course-teacher">
+                                        <!-- <div class="thum">
+                                            <a href="#"><img src="images/course/teacher/t-1.jpg" alt="teacher"></a>
+                                        </div> -->
+                                        <div class="name">
+                                            <!-- <a href="#"><h6>Mark anthem</h6></a> -->
+                                            <div>
+                                              <fa-icon [icon]="faBook"></fa-icon><span class="pl-2">{{course.categoryName}}</span>
+                                            </div>
+                                            <div>
+                                              <fa-icon [icon]="faTag"></fa-icon><span class="pl-2 pt-2"> {{course.tagName}}</span>
+
+                                            </div>
+                                            <div>
+                                              <fa-icon [icon]="faChartLine"></fa-icon><span class="pl-2 pt-2"> {{course.levelName}}</span>
+
+                                            </div>
+
+                                        </div>
+                                        <!-- <div class="admin">
+                                            <ul>
+
+                                                <li><a href="#"><fa-icon [icon]="faUser"></fa-icon><span>31</span></a></li>
+                                                <li><a href="#"><fa-icon [icon]="faHeart"></fa-icon><span>10</span></a></li>
+                                            </ul>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div> <!-- singel course -->
+                        </div>
+
+                    </div> <!-- course slied -->
+                    </div>
+                </div>
+
+            </ng-template>
+
+            <ng-template pTemplate="footer">
+              <div class="moreCat">
+                <!-- <fa-icon [icon]="faAngleDoubleRight"></fa-icon> <span style="padding-right: 10px; cursor: pointer;">For more</span> -->
+
+              </div>
+              <!-- <h5>Circular, AutoPlay, 3 Items per Page and Scroll by 1</h5> -->
+              <!-- <span class="moreCat">more</span> <i class="pi pi-angle-double-right moreCat"></i> -->
+          </ng-template>
+
+        </p-carousel>
+
+      </div> <!-- container -->
+  </section>
+
+  <!--====== COURSE PART ENDS ======-->
+
+
+    <!--====== TEASTIMONIAL PART START ======-->
+
+  <section id="testimonial" class="bg_cover pt-70 pb-70" data-overlay="8" style="background-image: url(../../../assets/image/bg-2.jpg)">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-6">
+                  <div class="section-title pb-40">
+                      <h5>Testimonial</h5>
+                      <h2>What they say</h2>
+                  </div> <!-- section title -->
+              </div>
+          </div> <!-- row -->
+          <div class="row testimonial-slied mt-40">
+            <p-carousel [value]="testimonialService.testimonial" styleClass="custom-carousel"  [numVisible]="2"  [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+
+              <ng-template let-testimonial pTemplate="item">
+                  <div class="product-item">
+                      <div class="carousel">
+                        <div>
+                          <div class="singel-testimonial">
+                              <div class="testimonial-thum">
+                                  <img src="../../assets/image/trainer/t-1.jpg" alt="Testimonial" width="90" height="90">
+                                  <div class="quote">
+                                      <i class="fa fa-quote-right"><fa-icon [icon]="faQuoteRight"></fa-icon></i>
+                                  </div>
+                              </div>
+                              <div class="testimonial-cont">
+                                  <p>{{testimonial.description}}</p>
+                                  <h6>{{testimonial.traineeName}}</h6>
+                                  <span>Trainee</span>
+                              </div>
+                          </div> <!-- singel testimonial -->
+                      </div>
+                      </div>
+                  </div>
+
+              </ng-template>
+
+
+          </p-carousel>
+          </div> <!-- testimonial slied -->
+      </div> <!-- container -->
+  </section>
+
+  <!--====== TEASTIMONIAL PART ENDS ======-->
+
+
+
+
+
+  <app-footer></app-footer> 
