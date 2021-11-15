@@ -16,8 +16,7 @@ namespace LMS.Core.Repository
 
         public Task<bool> UpdateSection(Section section, int trainerId);
         public bool DeleteSection(int SectionId);
-        //Student Count
-        public StudentCountDTO ReturnStudentCount(int sectionId);
+
         public List<Section> GetAllSection();
 
         //Status

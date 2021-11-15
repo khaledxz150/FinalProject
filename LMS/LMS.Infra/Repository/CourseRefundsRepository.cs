@@ -32,8 +32,9 @@ namespace LMS.Infra.Repository
         public bool InsertCourseRefunds(CourseRefund courseRefund)
         {
             var queryParameters = new DynamicParameters();
-            queryParameters.Add("@TraineeBuyCourseId", courseRefund.CheckoutId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            queryParameters.Add("@courseId", courseRefund.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            queryParameters.Add("@TraineeBuyCourseId", courseRefund.TraineeByCourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            queryParameters.Add("@RefundsReasonsId", courseRefund.RefundsReasonsId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+           
             queryParameters.Add("@notes",courseRefund.RefundsNotes, dbType: DbType.String, direction: ParameterDirection.Input);
             //execute proc
             var result = dbContext.Connection.ExecuteAsync("InsertCourseRefunds", queryParameters, commandType: CommandType.StoredProcedure);
