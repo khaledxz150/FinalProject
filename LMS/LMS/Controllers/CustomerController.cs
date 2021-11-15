@@ -35,7 +35,7 @@ namespace LMS.Controllers
             return customerService.ReturnCart(queryCode, trineeId);
         }
 
-        [HttpPut]
+        [HttpPost]
         [Route("[action]")]
         public bool InsertCart([FromBody] Cart cart)
         {
@@ -61,11 +61,11 @@ namespace LMS.Controllers
         }
 
 
-        [HttpPut]
-        [Route("[action]/{cartItemId}")]
-        public bool DeleteCartItem(int cartItemId)
+        [HttpDelete]
+        [Route("[action]")]
+        public bool DeleteCartItem([FromQuery]int cartId)
         {
-            return customerService.DeleteCartItem(cartItemId);
+            return customerService.DeleteCartItem(cartId);
         }
 
 
@@ -130,11 +130,11 @@ namespace LMS.Controllers
         {
             return customerService.InsertWishListItem(wishListItem);
         }
-        [HttpPut]
-        [Route("[action]/{wishListItemId}")]
-        public bool DeleteWishListItem(int wishListItemId)
+        [HttpDelete]
+        [Route("[action]")]
+        public bool DeleteWishListItem([FromQuery]int wishListId, [FromQuery] int courseId)
         {
-            return customerService.DeleteWishListItem(wishListItemId);
+            return customerService.DeleteWishListItem(wishListId,courseId);
         }
 
 

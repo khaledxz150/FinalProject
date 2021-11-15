@@ -1,5 +1,5 @@
 export class CartItem{
-  cartItemId: number|undefined;
+  cartItemId: number=0;
   creationDate:string|undefined;
   courseName:string|undefined;
   coursePrice:number|undefined;

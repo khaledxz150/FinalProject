@@ -21,7 +21,7 @@ namespace LMS.Core.Services
 
         //public List<CartItem> ReturnCartItem(int queryCode);
         public bool InsertCartItem(CartItem cartItem);
-        public bool DeleteCartItem(int cartItemId);
+        public bool DeleteCartItem(int cartId);
 
         //Checkout
         public List<Checkout> ReturnCheckout();
@@ -47,7 +47,7 @@ namespace LMS.Core.Services
         //WithListItem
 
         public bool InsertWishListItem(WishListItem wishListItem);
-        public bool DeleteWishListItem(int wishListItemId);
+        public bool DeleteWishListItem(int wishListId, int courseId);
 
 
         //ReturnAllCartItem

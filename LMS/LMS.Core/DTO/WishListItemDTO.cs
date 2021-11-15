@@ -11,5 +11,8 @@ namespace LMS.Core.DTO
         public int CourseId { get; set; }
         public string CourseName { get; set; }
         public decimal CoursePrice { get; set; }
+
+        public string CourseImage { get; set;  }
     }
+
 }

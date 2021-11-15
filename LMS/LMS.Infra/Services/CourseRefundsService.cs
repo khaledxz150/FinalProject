@@ -1,4 +1,5 @@
-﻿using LMS.Core.Repository;
+﻿using LMS.Core.DTO;
+using LMS.Core.Repository;
 using LMS.Core.Services;
 using LMS.Data;
 using System;
@@ -32,7 +33,10 @@ namespace LMS.Infra.Services
         {
             return _courseRefundsRepository.UpdateCourseRefunds(courseRefund);
         }
-
+        public List<CourseRefundDTO> ReturnCourseRefund(int traineeId)
+        {
+            return _courseRefundsRepository.ReturnCourseRefund(traineeId);
+        }
         public bool DeleteRefundReason(int reasonId)
         {
             return _courseRefundsRepository.DeleteRefundReason(reasonId);

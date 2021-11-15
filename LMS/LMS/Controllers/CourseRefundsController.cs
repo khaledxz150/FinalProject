@@ -1,4 +1,5 @@
-﻿using LMS.Core.Services;
+﻿using LMS.Core.DTO;
+using LMS.Core.Services;
 using LMS.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -37,6 +38,12 @@ namespace LMS.Controllers
         public bool DeleteCourseRefunds(int courseRefundId)
         {
             return _courseRefundsService.DeleteCourseRefunds(courseRefundId);
+        }
+        [HttpPost]
+        [Route("[action]/{traineeId}")]
+        public List<CourseRefundDTO> ReturnCourseRefund(int traineeId)
+        {
+            return _courseRefundsService.ReturnCourseRefund(traineeId);
         }
 
         [HttpPost]

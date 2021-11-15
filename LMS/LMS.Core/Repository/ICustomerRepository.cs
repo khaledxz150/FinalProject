@@ -20,8 +20,8 @@ namespace LMS.Core.Repository
         //CartItem
 
         public bool InsertCartItem(CartItem cartItem);
-        
-        public bool DeleteCartItem(int cartItemId);
+
+        public bool DeleteCartItem(int cartId);
 
         //Checkout
         public List<Checkout> ReturnCheckout();
@@ -49,7 +49,7 @@ namespace LMS.Core.Repository
         //WithListItem
 
         public bool InsertWishListItem(WishListItem wishListItem);
-        public bool DeleteWishListItem(int wishListItemId);
+        public bool DeleteWishListItem(int wishListId,int courseId);
 
 
         //ReturnAllCartItem
