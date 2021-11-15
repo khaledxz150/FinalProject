@@ -46,10 +46,10 @@
 
                                   <ul class="shopping-cart-items">
                                     <li class="clearfix" *ngFor="let item of traineeService.wishList">
-                                      <img src="{{item.CourseImage}}" alt="item" />
-                                      <span class="item-name">{{item.CourseName}}</span>
-                                      <span class="item-price">{{item.CoursePrice}}</span>
-
+                                      <img src="{{item.courseId}}" alt="item" />
+                                      <span class="item-name">{{item.courseName}}</span>
+                                      <span class="item-price">{{item.coursePrice}}</span>
+                                    
                                         </li>
                                         <hr>
                                     </ul>

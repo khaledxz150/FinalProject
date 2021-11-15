@@ -93,7 +93,8 @@
                                                 </button>
                                               </li>
                                               <li>
-                                                <button class="btn  btn-circle m-1"  [value]="course.courseId">
+                                                <button class="btn  btn-circle m-1"  [value]="course.courseId"
+                                                (click)="AddToWishList(course.courseId)">
                                                   <mat-icon>favorite</mat-icon>
                                                 </button>
                                               </li>

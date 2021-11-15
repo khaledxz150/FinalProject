@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using First.Core.Common;
+using LMS.Core.DTO;
 using LMS.Core.Repository;
 using LMS.Data;
 using System;
@@ -49,6 +50,14 @@ namespace LMS.Infra.Repository
             //execute proc
             var result = dbContext.Connection.ExecuteAsync("UpdateCourseRefunds", queryParameters, commandType: CommandType.StoredProcedure);
             return true;
+        }
+        public List<CourseRefundDTO> ReturnCourseRefund(int traineeId)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@TraineeId", traineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            IEnumerable<CourseRefundDTO> result = dbContext.Connection.Query<CourseRefundDTO>("ReturnAllCourseRefunds", parm, commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
         public bool DeleteRefundReason(int reasonId)
         {

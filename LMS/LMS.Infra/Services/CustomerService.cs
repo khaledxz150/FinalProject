@@ -35,9 +35,9 @@ namespace LMS.Infra.Services
             return customerRepository.DeleteCart(cartId);
         }
 
-        public bool DeleteCartItem(int cartItemId)
+        public bool DeleteCartItem(int cartId)
         {
-            return customerRepository.DeleteCartItem(cartItemId);
+            return customerRepository.DeleteCartItem(cartId);
         }
 
         public bool InsertCheckout(Checkout checkout)
@@ -92,9 +92,9 @@ namespace LMS.Infra.Services
         {
             return customerRepository.InsertWishListItem(wishListItem);
         }
-        public bool DeleteWishListItem(int wishListItemId)
+        public bool DeleteWishListItem(int wishListId, int courseId)
         {
-            return customerRepository.DeleteWishListItem(wishListItemId);
+            return customerRepository.DeleteWishListItem(wishListId,courseId);
         }
 
         public List<SoldCourseDTO> ReturnSoldCourses()

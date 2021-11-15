@@ -24,6 +24,7 @@ export class CourseService {
   finalRate:number=0;
   summationRate:number=0;
   cartId:number=0;
+  wishListId:number=0;
 
   constructor(private http: HttpClient,private toastr:ToastrService) { }
 
@@ -440,10 +441,29 @@ export class CourseService {
     GetAvailableWishListId(traineeId:number){
       this.http.post('http://localhost:54921/api/Customer/ReturnWishList/'+traineeId,null)
       .subscribe((res:any)=>{
+        if(res.length>0){
+          this.wishListId=res[0].wishListId;
+        }else{
+          //create New Wish List
+
+          this.http.post('http://localhost:54921/api/Customer/InsertWishList',{
+            traineeId: traineeId,
+          }).subscribe((res)=>{
+            this.GetAvailableWishListId(traineeId)
+          })
+        }
 
       })
     }
 
+    AddCourseToWishList(wishListItem:any){
+
+        this.http.post('http://localhost:54921/api/Customer/InsertWishListItem',wishListItem).subscribe((res)=>{
+          if(res){
+            this.toastr.success('Added To Wish List')
+          }
+        })
+    }
      AddCourseToCart(cartItem:any){
 
       this.http.post('http://localhost:54921/api/Customer/InsertCartItem', cartItem).subscribe((res)=>{

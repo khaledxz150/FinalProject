@@ -18,8 +18,9 @@ export class CoursesComponent implements OnInit {
   constructor(public courseService:CourseService,public router:Router) { }
 
   ngOnInit(): void {
-    this.courseService.GetAvailableCartId(4)
+    this.courseService.GetAvailableCartId(2)
     this.courseService.getAllAvailableCourse()
+    this.courseService.GetAvailableWishListId(2)
   }
   getLink(coureId:number|undefined){
     navigator.clipboard.writeText
@@ -38,6 +39,13 @@ export class CoursesComponent implements OnInit {
 
     this.courseService.AddCourseToCart(cartItem)
   }
-
+  AddToWishList(courseId:number|undefined){
+    const wishListItem:any={
+      wishListId: this.courseService.wishListId,
+      courseId: courseId,
+      createdBy: "System",
+    }
+    this.courseService.AddCourseToWishList(wishListItem)
+  }
 
 }

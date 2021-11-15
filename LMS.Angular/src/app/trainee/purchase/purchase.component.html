@@ -133,7 +133,9 @@
 
                                                 <td class="text-right">{{item.coursePrice}}</td>
                                                 <td class="text-right">
-                                                <button  class="btn btn-sm btn-danger">
+                                                <button  class="btn btn-sm btn-danger"
+                                                (click)="DeleteCartItem(item.cartItemId)"
+                                                >
                                                 <i class="fa fa-window-close"></i> </button> </td>
                                             </tr>
                                         </tbody>
@@ -171,14 +173,21 @@
                                           <tbody>
                                               <tr  *ngFor="let item of traineeService.wishList">
                                                   <td><img src="{{item.CourseImage}}" width="70" height="70"/> </td>
-                                                  <td>{{item.CourseName}}</td>
+                                                  <td>{{item.courseName}}</td>
 
 
-                                                  <td class="text-right">{{item.CoursePrice}}</td>
-                                                  <td class="text-right"><button class="btn btn-sm btn-danger">
-                                                    <i class="fa fa-window-close"></i> </button> </td>
-                                                    <td class="text-right"><button class="btn btn-sm btn-danger">
-                                                      <i class="fas fa-cart-plus"></i> </button> </td>
+                                                  <td class="text-right">{{item.courseId}}</td>
+                                                  <td class="text-center"><button class="btn btn-sm btn-danger"
+                                                    (click)="AddToCart(item.courseId)">
+                                                    <i class="fa fa-cart-plus"></i>
+                                                    </button>
+                                                  </td>
+                                                    <td class="text-center">
+                                                      <button class="btn btn-sm btn-danger" [value]="item.courseId"
+                                                      (click)="DeleteWishListItem(item.courseId)"
+                                                      >
+
+                                                      <i class="fa fa-window-close"></i></button> </td>
                                               </tr>
                                           </tbody>
                                       </table>
