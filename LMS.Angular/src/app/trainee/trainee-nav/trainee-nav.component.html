@@ -15,19 +15,19 @@
                       </div>
                       <ul class="navbar-nav mr-auto">
                           <li class="nav-item">
-                              <a routerLink="../pages/home" (click)="submit()" routerLinkActive="active">Home</a>
+                              <a  (click)="HomePage()" routerLinkActive="active">Home</a>
 
                           </li>
                           <li class="nav-item">
-                              <a routerLink="../pages/aboutus" (click)="submit()" routerLinkActive="active">About us</a>
+                              <a  (click)="AboutUs()" routerLinkActive="active">About us</a>
                           </li>
                           <li class="nav-item">
-                            <a routerLink="../pages/courses" (click)="submit()" routerLinkActive="active">Courses</a>
+                            <a  (click)="Courses()" routerLinkActive="active">Courses</a>
 
                           </li>
 
                           <li class="nav-item">
-                              <a routerLink="../pages/contactus" (click) ="submit()" routerLinkActive="active">Contact Us</a>
+                              <a  (click) ="ContactUs()" routerLinkActive="active">Contact Us</a>
 
                           </li>
                           <li class="nav-item"></li>
@@ -46,15 +46,15 @@
 
                                   <ul class="shopping-cart-items">
                                     <li class="clearfix" *ngFor="let item of traineeService.wishList">
-                                      <img src="{{item.courseId}}" alt="item" />
+                                      <img src="{{item.courseId}}" alt="item" style="border-radius: 15px; margin-left: 3px;"  width="42px" height="50"/>
                                       <span class="item-name">{{item.courseName}}</span>
                                       <span class="item-price">{{item.coursePrice}}</span>
-                                    
+
                                         </li>
                                         <hr>
                                     </ul>
 
-                                     <a routerLink="" (click) ="submit()" routerLinkActive="active" class="button">Go To Wish List</a>
+                                     <a  (click) ="GoToPurches()" routerLinkActive="active" class="button">Go To Wish List</a>
                                   </div>
                               </div>
                             </div>
@@ -72,7 +72,7 @@
 
                             <ul class="shopping-cart-items" >
                                  <li class="clearfix" *ngFor="let item of traineeService.cartItem">
-                                <img src="{{item.image}}" alt="item" />
+                                <img src="{{item.image}}" alt="item" style="border-radius: 15px; margin-left: 3px;"  width="42px" height="50"/>
                                 <span class="item-name">{{item.courseName}}</span>
                                 <span class="item-price">{{item.coursePrice}}</span>
 
@@ -81,7 +81,7 @@
                               </ul>
 
 
-                               <a   (click) ="submit()" routerLinkActive="active" class="button">Go To Cart</a>
+                               <a   (click) ="GoToPurches()" routerLinkActive="active" class="button">Go To Cart</a>
                             </div>
 
                               </div>
@@ -92,13 +92,13 @@
                             <div class="dropdown">
                               <img src="../../../assets/image/profile.png" width="40" height="40" alt="te" class="profileImage">
                               <div class="dropdown-content">
-                              <a  routerLink="" (click) ="submit()" routerLinkActive="active" >My Profile</a>
+                              <a  routerLink="" (click) ="Profile()" routerLinkActive="active" >My Profile</a>
                               <hr>
-                              <a  routerLink="" (click) ="submit()" routerLinkActive="active" >My Learning</a>
+                              <a  routerLink="" (click) ="Learning()" routerLinkActive="active" >My Learning</a>
                               <hr>
-                              <a  routerLink="" (click) ="submit()" routerLinkActive="active" >My Purches</a>
+                              <a  routerLink="" (click) ="GoToPurches()" routerLinkActive="active" >My Purches</a>
                               <hr>
-                              <a  routerLink="" (click) ="submit()" routerLinkActive="active" class="">Log Out</a>
+                              <a  routerLink="" (click) ="Logout()" routerLinkActive="active" class="">Log Out</a>
                               </div>
                             </div>
                           </li>

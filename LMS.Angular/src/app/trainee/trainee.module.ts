@@ -18,6 +18,7 @@ import { RateBoxComponent } from './rate-box/rate-box.component';
 import { RatesComponent } from './rates/rates.component';
 import { TaskInfoComponent } from './task-info/task-info.component';
 import { VideosComponent } from './videos/videos.component';
+import { InsertRefundComponent } from './purchase/insert-refund/insert-refund.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { VideosComponent } from './videos/videos.component';
     RatesComponent,
     TaskInfoComponent,
     VideosComponent,
+    InsertRefundComponent,
   ],
   imports: [
     CommonModule,
