@@ -11,6 +11,7 @@ import { TrainerComponent } from './trainer.component';
 import { EditUnitComponent } from './unit/edit-unit/edit-unit.component';
 import { CreateExamComponent } from './exam/create-exam/create-exam.component';
 import { MatTimepickerModule } from 'mat-timepicker';
+import { EditExamComponent } from './exam/edit-exam/edit-exam.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { MatTimepickerModule } from 'mat-timepicker';
     TrainerComponent,
     EditUnitComponent,
     CreateExamComponent,
+    EditExamComponent,
     
     ],
   imports: [

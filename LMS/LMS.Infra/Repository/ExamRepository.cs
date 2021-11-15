@@ -62,7 +62,6 @@ namespace LMS.Infra.Repository
             parameters.Add("@EndTime", exam.EndTime, dbType: DbType.DateTime, direction: ParameterDirection.Input);
             parameters.Add("@Mark", exam.Weight, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameters.Add("@Weight", exam.Mark, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parameters.Add("@isActive", exam.IsActive, dbType: DbType.Boolean, direction: ParameterDirection.Input);
 
             var result = dBContext.Connection.ExecuteAsync("UpdateExam", parameters, commandType: CommandType.StoredProcedure);
             return true;
