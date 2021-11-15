@@ -22,7 +22,7 @@ import { MatTimepickerModule } from 'mat-timepicker';
     TrainerComponent,
     EditUnitComponent,
     CreateExamComponent,
-    
+
     ],
   imports: [
     CommonModule,

@@ -29,7 +29,7 @@ export class SingleCourseComponent implements OnInit {
 
   }
   GetSectionInfo(sectionId:number|undefined){
-    this.router.navigate(['pages','sectionInfo',sectionId])
+    this.router.navigate(['client','sectionInfo',sectionId])
   }
 
 }

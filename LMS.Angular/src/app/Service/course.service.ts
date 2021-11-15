@@ -18,6 +18,7 @@ export class CourseService {
   courseTopic:Topic[]=[];
   courseComment:any[]=[];
   courseSection:any[]=[];
+  sectionStudents:any[]=[];
   singleCourse:any={};
   coursesActualRating:any[]=[];
   coursesSumationOfReview:any[]=[]
@@ -25,6 +26,7 @@ export class CourseService {
   summationRate:number=0;
   cartId:number=0;
   wishListId:number=0;
+  
 
   constructor(private http: HttpClient,private toastr:ToastrService) { }
 
@@ -299,10 +301,6 @@ export class CourseService {
        }
 
 
-       getALlRefund(){
-
-       }
-
 
        //Checkout
 
@@ -417,6 +415,15 @@ export class CourseService {
      GetCourseSections(P_courseId:number|undefined){
        this.http.post('http://localhost:54921/api/Section/ReturnSectionByCourseId/'+P_courseId,null).subscribe((res:any)=>{
          this.courseSection=res;
+         for(let section of res ){
+           this.GetStudentCountInSection(section.sectionId)
+         }
+
+       })
+     }
+     GetStudentCountInSection(sectionId:number){
+       this.http.post('http://localhost:54921/api/Section/ReturnStudentCount/'+sectionId,null).subscribe((res:any)=>{
+        this.sectionStudents.push(res.student)
        })
      }
      GetAvailableCartId(traineeId:number){

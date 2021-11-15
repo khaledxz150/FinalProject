@@ -60,7 +60,7 @@ export class TraineeNavbarService {
       console.log(cartItemId)
       if(res){
         this.toastr.warning('removed Succesfuly')
-
+        window.location.reload()
       }
 
 

@@ -19,7 +19,10 @@ namespace LMS.Infra.Services
         {
             this.sectionRepository = sectionRepository;
         }
-
+        public StudentCountDTO ReturnStudentCount(int sectionId)
+        {
+            return sectionRepository.ReturnStudentCount(sectionId);
+        }
         //// Section 
         ///Start
                 //Status
