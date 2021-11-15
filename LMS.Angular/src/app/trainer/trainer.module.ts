@@ -26,10 +26,6 @@ import { CreateLectureComponent } from './create-lecture/create-lecture.componen
     TrainerComponent,
     EditUnitComponent,
     CreateExamComponent,
-    EditExamComponent,
-    StudentsComponent,
-    AttendanceComponent,
-    CreateLectureComponent,
     
     ],
   imports: [
