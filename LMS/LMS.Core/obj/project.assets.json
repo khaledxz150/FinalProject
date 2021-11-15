@@ -117,11 +117,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jasse\\Desktop\\stableVersion\\LMS\\LMS.Core\\LMS.Core.csproj",
+      "projectUniqueName": "C:\\GitHub\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj",
       "projectName": "LMS.Core",
-      "projectPath": "C:\\Users\\jasse\\Desktop\\stableVersion\\LMS\\LMS.Core\\LMS.Core.csproj",
+      "projectPath": "C:\\GitHub\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj",
       "packagesPath": "C:\\Users\\jasse\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jasse\\Desktop\\stableVersion\\LMS\\LMS.Core\\obj\\",
+      "outputPath": "C:\\GitHub\\FinalProject\\LMS\\LMS.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",

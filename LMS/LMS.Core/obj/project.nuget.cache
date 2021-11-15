@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YzCtnYB56G20y5QGWJo0x3AutrrM2Onv4r9zmMzKZ1+J+hH0T5D8lYNnLdCnWyozgupM7g47V6vQa8ZEYwiMgg==",
+  "dgSpecHash": "1eRk4NQtOB9j9012BOzIQJqeFRB/SKzIcvm6vOWzh8ltURlq3bATFP83o9IkNofDSDab+BFDpQRZqmXGjTQAZQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jasse\\Desktop\\stableVersion\\LMS\\LMS.Core\\LMS.Core.csproj",
+  "projectFilePath": "C:\\GitHub\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jasse\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.12\\microsoft.aspnetcore.http.features.5.0.12.nupkg.sha512",
     "C:\\Users\\jasse\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
