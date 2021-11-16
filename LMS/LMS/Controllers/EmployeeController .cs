@@ -4,6 +4,7 @@ using LMS.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace LMS.Controllers
 {
@@ -20,7 +21,7 @@ namespace LMS.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public bool AddNewEmployee([FromBody] Employee employee)
+        public Task<bool> AddNewEmployee([FromBody] EmployeeInfoDTO employee)
         {
             return _employeeService.AddNewEmployee(employee);
         }

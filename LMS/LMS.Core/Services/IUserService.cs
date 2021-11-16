@@ -1,4 +1,5 @@
-﻿using LMS.Data;
+﻿using LMS.Core.DTO;
+using LMS.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace LMS.Core.Services
         public List<Login> ReturnLogin();
         public bool Register(Login login);
         public bool DeleteLogin(int loginId);
-        public string Authentiaction(Login login);
+        public string Authentiaction(LoginDTO login);
 
     }
 

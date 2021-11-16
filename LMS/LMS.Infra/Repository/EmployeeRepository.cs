@@ -20,18 +20,31 @@ namespace LMS.Infra.Repository
             _dbContext = dbContext;
         }
 
-        public bool AddNewEmployee(Employee employee)
+        public async Task<bool> AddNewEmployee(EmployeeInfoDTO employee)
         {
             var queryParameters = new DynamicParameters();
             queryParameters.Add("@ssn", employee.NationalSecurutiyNumber, dbType: DbType.String, direction: ParameterDirection.Input);
-            queryParameters.Add("@fname", employee.Fname, dbType: DbType.String, direction: ParameterDirection.Input);
-            queryParameters.Add("@lname", employee.Lname, dbType: DbType.String, direction: ParameterDirection.Input);
+            queryParameters.Add("@fname", employee.FName, dbType: DbType.String, direction: ParameterDirection.Input);
+            queryParameters.Add("@lname", employee.LName, dbType: DbType.String, direction: ParameterDirection.Input);
             queryParameters.Add("@email", employee.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             queryParameters.Add("@phone", employee.PhoneNumber, dbType: DbType.String, direction: ParameterDirection.Input);
-            queryParameters.Add("@imagepath", employee.Image, dbType: DbType.String, direction: ParameterDirection.Input);
+            queryParameters.Add("@imagepath", employee.EmployeeImage, dbType: DbType.String, direction: ParameterDirection.Input);
             queryParameters.Add("@salary", employee.BasicSalary, dbType: DbType.Double, direction: ParameterDirection.Input);
             //execute proc
-            var result = _dbContext.Connection.ExecuteAsync("InsertEmployee", queryParameters, commandType: CommandType.StoredProcedure);
+            var result = await _dbContext.Connection.ExecuteAsync("InsertEmployee", queryParameters, commandType: CommandType.StoredProcedure);
+
+
+
+            var employeeId = GetAllEmployess(1).OrderByDescending(x => x.EmployeeId).FirstOrDefault().EmployeeId;
+
+            var parameters = new DynamicParameters();
+            parameters.Add("@username", employee.Username, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameters.Add("@pass", employee.Password, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameters.Add("@P_EmployeeId", employeeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parameters.Add("@P_TraineeId", null, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parameters.Add("@P_RoleId", employee.RoleId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result1 = await _dbContext.Connection.ExecuteAsync("InsertLogin", parameters, commandType: CommandType.StoredProcedure);
+
             return true;
         }
 

@@ -17,5 +17,8 @@ namespace LMS.Core.DTO
         public string PhoneNumber { get; set; }
         public double BasicSalary { get; set; }
         public string NationalSecurutiyNumber { get; set; }
+        public string Password { get; set; }
+        public int RoleId { get; set; }
+        public string RoleName { get; set; }
     }
 }

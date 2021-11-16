@@ -1,4 +1,6 @@
-﻿using LMS.Core.Repository;
+﻿using LMS.Core.CustomClaim;
+using LMS.Core.DTO;
+using LMS.Core.Repository;
 using LMS.Core.Services;
 using LMS.Data;
 using Microsoft.IdentityModel.Tokens;
@@ -21,7 +23,7 @@ namespace LMS.Infra.Services
             this.userRepository = userRepository;
         }
 
-        public string Authentiaction(Login login)
+        public string Authentiaction(LoginDTO login)
         {
             var result = userRepository.Authentiaction(login);
             if (result == null)
@@ -36,7 +38,10 @@ namespace LMS.Infra.Services
                 {
                     Subject = new ClaimsIdentity(new Claim[] {
                     new Claim(ClaimTypes.Name, login.Username),
-                    //new Claim(ClaimTypes., result.),
+                    new Claim(ClaimTypes.Role, result.RoleName),
+                    new Claim(CustomClaimTypes.EmployeeId, result.EmployeeId.ToString()),
+                    new Claim(CustomClaimTypes.TraineeId, result.TraineeId.ToString())
+
                 }),
                     Expires = DateTime.UtcNow.AddHours(1),
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256Signature)

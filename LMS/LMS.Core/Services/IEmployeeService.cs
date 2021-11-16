@@ -13,7 +13,7 @@ namespace LMS.Core.Services
         public List<Employee> GetAllEmployess(int queryCode);
 
         public Employee GetEmployee(Int64 employeeId);
-        public bool AddNewEmployee(Employee employee);
+        public Task<bool> AddNewEmployee(EmployeeInfoDTO employee);
         public bool UpdateEmployee(Employee employee);
         public bool DeleteEmployee(Int64 employeeId);
         //Role Type

@@ -123,7 +123,8 @@ namespace LMS.Infra.Services
             return customerRepository.ReturnTraineeInfo(traineeId);
         }
 
-        public bool InsertTrainee(Trainee trainee)
+
+        public Task<bool> InsertTrainee(TraineeInfoDTO trainee)
         {
             return customerRepository.InsertTrainee(trainee);
         }
@@ -149,6 +150,11 @@ namespace LMS.Infra.Services
         public bool DeleteCertificate(int certificateId)
         {
             return customerRepository.DeleteCertificate(certificateId);
+        }
+
+        public List<Trainee> ReturnTrainee(int queryCode)
+        {
+            return customerRepository.ReturnTrainee(queryCode);
         }
     }
 

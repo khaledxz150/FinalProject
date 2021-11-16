@@ -191,7 +191,7 @@ namespace LMS.Controllers
         [HttpPost]
         [Route("[action]")]
         // Add New Trainee 
-        public bool InsertTrainee([FromBody] Trainee trainee)
+        public Task<bool> InsertTrainee([FromBody] TraineeInfoDTO trainee)
         {
             return customerService.InsertTrainee(trainee);
         }

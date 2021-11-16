@@ -1,4 +1,5 @@
-﻿using LMS.Core.Services;
+﻿using LMS.Core.DTO;
+using LMS.Core.Services;
 using LMS.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -45,10 +46,23 @@ namespace LMS.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public string Authentiaction([FromBody] Login login)
+        public IActionResult Authentiaction([FromBody] LoginDTO login)
         {
-            return userService.Authentiaction(login);
+
+            var token = userService.Authentiaction(login);
+
+
+            if (token == null)
+            {
+                return Unauthorized();
+            }
+            else
+            {
+                return Ok(token);
+
+            }
         }
+
     }
 
 }
