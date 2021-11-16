@@ -29,6 +29,7 @@ export class UpdateSectionComponent implements OnInit {
     sectionTimeEnd: new FormControl(''),
     trainerId : new FormControl('',[Validators.required]),
     courseId: new FormControl('',[Validators.required]),
+    meetingURL: new FormControl(''),
     // categoryId: new FormControl('', [Validators.required]),
     // tagId: new FormControl('', [Validators.required]),
     // createdBy: new FormControl('', [Validators.required])
@@ -75,7 +76,8 @@ export class UpdateSectionComponent implements OnInit {
       this.formGroup.controls.trainerId.setValue(this.data.trainerId);
       this.formGroup.controls.courseId.setValue(this.data.courseId);
       this.formGroup.controls.statusId.setValue(this.data.statusId);
-      console.log("this.data.trainerId = ",this.data.trainerId)
+      this.formGroup.controls.meetingURL.setValue(this.data.meetingURL);
+      console.log("this.data.trainerId = ",this.data.meetingURL)
     }
 
   }
