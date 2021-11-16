@@ -35,6 +35,15 @@ namespace LMS.Controllers
             return customerService.ReturnCart(queryCode, trineeId);
         }
 
+
+        [HttpPost]
+        [Route("[action]/{queryCode}")]
+        public List<Trainee> ReturnTrainee(int queryCode)
+        {
+            return customerService.ReturnTrainee(queryCode);
+        }
+
+
         [HttpPost]
         [Route("[action]")]
         public bool InsertCart([FromBody] Cart cart)

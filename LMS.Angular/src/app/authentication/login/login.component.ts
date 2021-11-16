@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { AuthenticationService } from 'src/app/Service/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -10,46 +11,33 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class LoginComponent implements OnInit {
 
-  email = new FormControl(localStorage.getItem('email'),[Validators.required,Validators.email]);
-  password = new FormControl(localStorage.getItem('password'),[Validators.required,Validators.minLength(8)]);
-  // rememberMe = new FormControl(false);
-  // checked = false;
-  // indeterminate = false;
+  //   formGroup = new FormGroup({
+    //     username:new FormControl(''),
+    //     password:new FormControl('')
 
-  // labelPosition: 'before' | 'after' = 'after';
-  // disabled = false;
+    // })
 
-  constructor(
-    private spinner: NgxSpinnerService,
-    private router: Router) { }
+    username = new FormControl('');
+    password = new FormControl('');
 
-  ngOnInit(): void {
-  }
-  submit(){
+      // constructor(
+      //   public loginService:LoginService
+      //   ) { }
 
-    console.log(`Email: ${this.email.value}`);
-    console.log(`Password:  ${this.password.value}`);
- /** spinner starts on init */
- this.spinner.show();
+      ngOnInit(): void {
 
- setTimeout(() => {
-   /** spinner ends after 5 seconds */
-  //Go to home page
-   this.router.navigate(['client']);
-   this.spinner.hide();
+      }
 
- }, 5000);
+      //  UN = 'superadmin'; 
+      //  pass = 's@admin1122'; 
+       constructor(   public rout: Router,    public loginService:AuthenticationService) {​​​​​​ }​​​​​​
 
 
-    // if (this.checked == true) {
+      LogIn(){
+       this.loginService.submit()
+        // let user: User = this.formGroup.value;
+        // this.loginService.signIn(user);
+      }
 
-    // const email =  localStorage.setItem('email', this.email.value);
-    //  const pass = localStorage.setItem('password', this.password.value);
-
-
-
-    // }
-
-  }
 
 }

@@ -66,15 +66,13 @@
                               <fa-icon [icon]="faHashtag" style="color:#af1a2d;"></fa-icon><span  class="ml-2">{{section.noLecture}}</span>
 
                             </div>
-                            <!-- <fa-icon [icon]="faInfoCircle"></fa-icon><span>{{section.statusName}}</span>
-                            <fa-icon [icon]="faUsers"></fa-icon><span>{{section.sectionCapacity}}</span>
-                            <fa-icon [icon]="faHashtag"></fa-icon><span>{{section.noLecture}}</span> -->
+
                           </div>
-                          <!-- <ol class="widget-49-meeting-points">
-                              <li class="widget-49-meeting-item"><span>Expand module is removed</span></li>
-                              <li class="widget-49-meeting-item"><span>Data migration is in scope</span></li>
-                              <li class="widget-49-meeting-item"><span>Session timeout increase to 30 minutes</span></li>
-                          </ol> -->
+                          <div class="row pt-3">
+                            <img class="ml-2" src="../../../assets/image/teams.png" alt="meetingURL" width="30" height="30">
+                            <a href="{{section.meetingURL}}" target="_blank"><span class="ml-2 mt-1">{{section.meetingURL}}</span></a>
+                          </div>
+
                           <div class="widget-49-meeting-action mt-5">
                               <!-- <a href="#" class="btn btn-sm btn-flash-border-primary">update</a> -->
                               <fa-icon [icon]="faEdit" style="font-size: 1.3rem; color:#af1a2d;" (click)="updateSection(section.sectionId)"></fa-icon>

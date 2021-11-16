@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { faArrowUp, faShoppingCart, faUsers, faTicketAlt, faDollarSign, faBook} from '@fortawesome/free-solid-svg-icons';
+import { FormControl } from '@angular/forms';
+import { faArrowUp, faShoppingCart, faUsers, faTicketAlt, faDollarSign, faBook, faSearch} from '@fortawesome/free-solid-svg-icons';
 import { CourseService } from 'src/app/Service/course.service';
 
 @Component({
@@ -15,9 +16,24 @@ export class AdminDashboardComponent implements OnInit {
   faTicketAlt = faTicketAlt
   faDollarSign = faDollarSign
   faBook = faBook
-  constructor(public courseService:CourseService) { }
+  faSearch = faSearch
+  
+  constructor(public courseService:CourseService) {
+
+    this.courseService.returnSoldCourses;
+   }
 
   ngOnInit(): void {
+    this.courseService.returnSoldCourses();
+    this.courseService.getCourses();
   }
 
+  startDate = new FormControl('');
+  endDate = new FormControl('');
+
+  filterSoldCourseBetweenDate(){
+
+    this.courseService.filterSoldCourseBetweenDate(this.startDate,this.endDate);
+
+  }
 }

@@ -60,6 +60,12 @@ export class UpdateSectionComponent implements OnInit {
   ngOnInit(): void {
 
     if (this.data) {
+
+      let _courseId
+      this.courseService.courses.filter(i=>i.courseName == this.data.courseName).map((i =>{
+         const [{courseId}] = this.courseService.courses
+           _courseId = courseId;
+       }));
       debugger
       // this.formGroup.controls.noLecture.setValue(this.data.noLecture);
       this.formGroup.controls.noLecture.setValue(this.data.noLecture);

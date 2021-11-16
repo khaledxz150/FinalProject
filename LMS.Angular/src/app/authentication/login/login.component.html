@@ -20,25 +20,25 @@
             <form class="form" style="margin-top:50px">
               <!-- <h2 *ngIf = "email.hasError('required')">Email Is Required</h2> -->
               <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Email</mat-label>
-                <input type="email" matInput  placeholder="Ex. pat@example.com" [formControl]="email">
-                <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+                <mat-label>UserName</mat-label>
+                <input type="text" matInput  placeholder="Ex. pat@example.com" [formControl]="loginService.username">
+                <!-- <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
                   Please enter a valid email address
                 </mat-error>
                 <mat-error *ngIf="email.hasError('required')">
                   Email is <strong>required</strong>
-                </mat-error>
+                </mat-error> -->
               </mat-form-field>
 
               <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Password</mat-label>
-                <input type="password"  matInput [formControl]="password" >
-                <mat-error *ngIf="password.hasError('minlength') && !password.hasError('required')">
+                <input type="password"  matInput [formControl]="loginService.password" >
+                <!-- <mat-error *ngIf="password.hasError('minlength') && !password.hasError('required')">
                  Please Enter Strong Password
-                </mat-error>
-                <mat-error *ngIf="password.hasError('required')">
+                </mat-error> -->
+                <!-- <mat-error *ngIf="password.hasError('required')">
                   Password is <strong>required</strong>
-                </mat-error>
+                </mat-error> -->
               </mat-form-field>
 
               <!-- <mat-card class="result">
@@ -60,13 +60,13 @@
               </mat-card> -->
 
               <!-- <button (click)="submit()" [disabled]="!email.valid || !password.valid">Login</button> -->
-              <button (click)="submit()" mat-raised-button style="flex: 1; width:100%; margin-top: 50px;" [disabled]="!email.valid || !password.valid">
+              <button (click)="LogIn()" mat-raised-button style="flex: 1; width:100%; margin-top: 50px;" [disabled]="!loginService.username.valid || !loginService.password.valid">
 
                 Login
               </button>
 
 
-              <!-- <p routerLink="/register" style="text-align: center; font-size: 1em; margin-top: 30px; cursor: pointer; ">Create New Account</p> -->
+              <p routerLink="../register" style="text-align: center; font-size: 1em; margin-top: 30px; cursor: pointer; ">Create New Account</p>
 
 
             </form>

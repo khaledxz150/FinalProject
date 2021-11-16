@@ -29,7 +29,7 @@ export class CreateSectionComponent implements OnInit {
     sectionTimeEnd: new FormControl(''),
     trainerId : new FormControl('',[Validators.required]),
     courseId: new FormControl('',[Validators.required]),
-    // categoryId: new FormControl('', [Validators.required]),
+    meetingURL: new FormControl(''),
     // tagId: new FormControl('', [Validators.required]),
     // createdBy: new FormControl('', [Validators.required])
   });
@@ -81,6 +81,7 @@ createSection(){
     if (result == 'confirm') {
 
       const section : Section = this.formGroup.value;
+
       // const trainerId:number = this.formGroup.controls.trainerId.value;
       let trainerId = this.formGroup.controls.trainerId.value;
       debugger
@@ -92,6 +93,7 @@ createSection(){
     })
 
 }
+
 
 
 }

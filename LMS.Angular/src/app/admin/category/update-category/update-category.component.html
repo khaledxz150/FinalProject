@@ -18,20 +18,43 @@
         </mat-form-field>
 
 
-        <mat-card>
-          <mat-label for="file">File</mat-label>
-          <input formControlName="file" id="file" type="file" class="form-control" (change)="onFileChange($event)">
-          <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
-            <div *ngIf="f.file.errors && f.file.errors.required">File is required.</div>
-          </div>
 
 
-          <div style="border: 1px dotted;" class="mt-5 p-5">
-            <img [src]="imageSrc" *ngIf="imageSrc" height="250" width="300">
+
+
+        <div class="col-md-6 course-info mb-4 ">
+
+          <div class="dragBox" >
+            <!-- <div class="d-flex mt-0" style="justify-content: end;">
+              <fa-icon [icon]="faTimes" class="pr-2" style="font-size: 15px;" (click)="deleteImage()"  *ngIf="imageSrc"></fa-icon>
+            </div> -->
+
+            <!-- <div > -->
+
+              <span  *ngIf="!imageSrc">
+
+                Darg and Drop image here
+              <input type="file" (change)="onFileChange($event)"  ondragover="drag()" ondrop="drop()" id="uploadFile"  />
+              <!-- <fa-icon [icon]="faImages" class="pl-5" style="font-size: 100px;" *ngIf="imageSrc == ''"></fa-icon> -->
+
+            </span>
+            <div class="d-flex  flex-direction" style="flex-direction: column; align-items: center;">
+
+            <img [src]="imageSrc" class="pt-2" *ngIf="imageSrc" height="150" width="150">
             <img src="{{formGroup.controls.image.value}}" *ngIf="!imageSrc" height="250" width="300">
-          </div>
 
-        </mat-card>
+            <fa-icon [icon]="faTimes" class="pr-2" style="font-size: 15px;" (click)="deleteImage()"  *ngIf="imageSrc"></fa-icon>
+
+          </div>
+              <!-- <input formControlName="file" id="file" type="file" (change)="onFileChange($event)" *ngIf="!imageSrc"> -->
+              <!-- <button  formControlName="file" (change)="onFileChange($event)">test</button> -->
+              <!-- <fa-icon [icon]="faImages" class="pl-5" style="font-size: 100px;" *ngIf="imageSrc == ''"></fa-icon> -->
+            <!-- </div> -->
+
+
+
+          </div>
+        </div>
 
 
       </div>
