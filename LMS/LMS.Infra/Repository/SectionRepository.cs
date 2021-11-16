@@ -298,5 +298,14 @@ namespace LMS.Infra.Repository
             IEnumerable<Section> result = dBContext.Connection.Query<Section>("ReturnAllSection", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
+
+        public List<TraineeSectionDTO> ReturnTraineeSection(int trainerId)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@TrainerId", trainerId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<TraineeSectionDTO> result = dBContext.Connection.Query<TraineeSectionDTO>("ReturnTraineeSection", parm, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }

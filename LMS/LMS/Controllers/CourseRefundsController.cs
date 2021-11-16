@@ -74,5 +74,13 @@ namespace LMS.Controllers
             return _courseRefundsService.DeleteRefundReason(reasonId);
         }
 
+
+        [HttpPut]
+        [Route("[action]/{CourseRefundsId}")]
+        public bool ApproveRefundReason(int CourseRefundsId)
+        {
+            return _courseRefundsService.ApproveRefundReason(CourseRefundsId);
+        }
+
     }
 }

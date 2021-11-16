@@ -19,5 +19,9 @@ namespace LMS.Core.Services
         public bool InsertRefundReason(RefundReason refundReason);
         public bool UpdateRefundReason(RefundReason refundReason);
         public bool DeleteRefundReason(int reasonId);
+
+        public bool ApproveRefundReason(int CourseRefundsId);
+
+
     }
 }

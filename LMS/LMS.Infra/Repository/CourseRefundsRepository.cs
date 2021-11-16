@@ -93,5 +93,14 @@ namespace LMS.Infra.Repository
             var result = dbContext.Connection.ExecuteAsync("UpdateRefundReason", parameters, commandType: CommandType.StoredProcedure);
             return true;
         }
+
+        public bool ApproveRefundReason(int CourseRefundsId)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@CourseRefundsId", CourseRefundsId, dbType: DbType.String, direction: ParameterDirection.Input);
+
+            var result = dbContext.Connection.ExecuteAsync("ApproveRefundReason", parameters, commandType: CommandType.StoredProcedure);
+            return true;
+        }
     }
 }
