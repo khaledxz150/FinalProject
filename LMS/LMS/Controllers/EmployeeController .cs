@@ -1,4 +1,5 @@
-﻿using LMS.Core.DTO;
+﻿using LMS.Core.Data;
+using LMS.Core.DTO;
 using LMS.Core.Services;
 using LMS.Data;
 using Microsoft.AspNetCore.Http;
@@ -90,6 +91,29 @@ namespace LMS.Controllers
         {
             return _employeeService.DeleteEmployeeFromDatabase(employeeId);
         }
+
+
+        [HttpPost]
+        [Route("[action]/{sectionId}")]
+        public List<TraineeAttendanceDTO> ReturnTrainneeBySectionId(int sectionId)
+        {
+            return _employeeService.ReturnTrainneeBySectionId(sectionId);
+        }
+        [HttpPost]
+        [Route("[action]")]
+        public bool AddAttendanceTrainee(List<Attendance_Tup> att)
+
+        {
+            return _employeeService.AddAttendanceTrainee(att);
+
+        }
+
+
+
+
+
+
+
 
     }
 }

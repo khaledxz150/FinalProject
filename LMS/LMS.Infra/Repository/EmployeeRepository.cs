@@ -1,8 +1,10 @@
 ﻿using Dapper;
 using First.Core.Common;
+using LMS.Core.Data;
 using LMS.Core.DTO;
 using LMS.Core.Repository;
 using LMS.Data;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -58,7 +60,7 @@ namespace LMS.Infra.Repository
 
         public Employee GetEmployee(long employeeId)
         {
-            
+
             var queryParameters = new DynamicParameters();
             queryParameters.Add("@employeeId", employeeId, dbType: DbType.Int64, direction: ParameterDirection.Input);
             Employee result = _dbContext.Connection.QuerySingle<Employee>("SearchForEmployee", queryParameters, commandType: CommandType.StoredProcedure);
@@ -97,7 +99,7 @@ namespace LMS.Infra.Repository
         {
 
             var queryParameters = new DynamicParameters();
-            queryParameters.Add("@RoleName",roleType.RoleName,dbType: DbType.String, direction: ParameterDirection.Input);
+            queryParameters.Add("@RoleName", roleType.RoleName, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = _dbContext.Connection.ExecuteAsync("InsertRoleType", queryParameters, commandType: CommandType.StoredProcedure);
             return true;
         }
@@ -140,5 +142,60 @@ namespace LMS.Infra.Repository
             var result = _dbContext.Connection.ExecuteAsync("DeleteEmployeeFromDatabase", queryParameters, commandType: CommandType.StoredProcedure);
             return true;
         }
+
+        public List<Employee> GetAllAttendance(int queryCode)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool AddAttendanceTrainee(List<Attendance_Tup> att)
+        {
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("LectureId", typeof(int));
+            dt.Columns.Add("IsPresent", typeof(bool));
+            dt.Columns.Add("IsActive", typeof(bool));
+            dt.Columns.Add("CreationDate", typeof(DateTime));
+            dt.Columns.Add("CreatedBy", typeof(long));
+            dt.Columns.Add("traineeId", typeof(int));
+            for (int i = 0; i < att.Count; i++)
+            {
+                dt.Rows.Add(att[i].LectureId, att[i].IsPresent, att[i].IsActive, att[i].CreationDate, att[i].CreatedBy, att[i].traineeId);
+            }
+            using (_dbContext.Connection)
+            {
+                SqlCommand sql_cmnd = new SqlCommand("AddTraineeAttendance", (SqlConnection)_dbContext.Connection);
+                SqlParameter Parameter = new SqlParameter();
+                Parameter.ParameterName = "@TraineeList";
+                Parameter.SqlDbType = SqlDbType.Structured;
+                Parameter.Value = dt;
+                sql_cmnd.CommandType = CommandType.StoredProcedure;
+                sql_cmnd.Parameters.Add(Parameter);
+                sql_cmnd.ExecuteNonQuery();
+                //string msg = sql_cmnd.ExecuteScalar().ToString();
+            }
+
+
+            //var parameters = new DynamicParameters();
+            //parameters.Add("@TraineeList", att, dbType: DbType.Object, direction: ParameterDirection.Input); ;
+            //var result = _dbContext.Connection.ExecuteAsync("AddTraineeAttendance", parameters, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        public bool StatusEmployee(int empId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<TraineeAttendanceDTO> ReturnTrainneeBySectionId(int sectionId)
+        {
+            var queryParameters = new DynamicParameters();
+            queryParameters.Add("@P_SectionId ", sectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<TraineeAttendanceDTO> result = _dbContext.Connection.Query<TraineeAttendanceDTO>("ReturnTraineeBySectionId_Test", queryParameters, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+
+        }
+
+
     }
 }

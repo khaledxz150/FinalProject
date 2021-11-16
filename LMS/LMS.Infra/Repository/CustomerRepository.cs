@@ -292,6 +292,11 @@ namespace LMS.Infra.Repository
             var result = dBContext.Connection.ExecuteAsync("DeleteCertificate", commandType: CommandType.StoredProcedure);
             return true;
         }
+
+        public bool StatusStudent(int stdId)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

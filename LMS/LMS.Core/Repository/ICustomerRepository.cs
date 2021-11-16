@@ -84,6 +84,7 @@ namespace LMS.Core.Repository
         public bool InsertCertificate(Certificate certificate);
 
         public bool DeleteCertificate(int certificateId);
+        public bool StatusStudent(int stdId);
     }
 
 }

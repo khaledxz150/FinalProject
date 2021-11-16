@@ -1,4 +1,5 @@
-﻿using LMS.Core.DTO;
+﻿using LMS.Core.Data;
+using LMS.Core.DTO;
 using LMS.Core.Repository;
 using LMS.Core.Services;
 using LMS.Data;
@@ -71,6 +72,21 @@ namespace LMS.Infra.Services
         public bool DeleteEmployeeFromDatabase(long employeeId)
         {
             return _employeeRepository.DeleteEmployeeFromDatabase(employeeId);
+        }
+
+
+
+        public bool AddAttendanceTrainee(List<Attendance_Tup> att)
+
+        {
+            return _employeeRepository.AddAttendanceTrainee(att);
+        }
+
+       
+
+        public List<TraineeAttendanceDTO> ReturnTrainneeBySectionId(int sectionId)
+        {
+            return _employeeRepository.ReturnTrainneeBySectionId(sectionId);
         }
     }
 }

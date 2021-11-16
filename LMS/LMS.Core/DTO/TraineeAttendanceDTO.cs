@@ -8,8 +8,7 @@ namespace LMS.Core.DTO
 {
     public class TraineeAttendanceDTO
     {
-        public int TraineeAttendanceId { get; set; }
+        public int TraineeId { get; set; }
         public string TraineeName { get; set; }
-        public string Status { get; set; }
     }
 }

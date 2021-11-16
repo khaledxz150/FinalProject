@@ -11,6 +11,7 @@ namespace LMS.Data
         public int TraineeSectionId { get; set; }
         public bool Status { get; set; }
         public bool IsActive { get; set; }
+
         public DateTime CreationDate { get; set; }
         public long CreatedBy { get; set; }
 

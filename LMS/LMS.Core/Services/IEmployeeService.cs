@@ -1,4 +1,5 @@
-﻿using LMS.Core.DTO;
+﻿using LMS.Core.Data;
+using LMS.Core.DTO;
 using LMS.Data;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace LMS.Core.Services
         public List<Employee> GetAllEmployess(int queryCode);
 
         public Employee GetEmployee(Int64 employeeId);
+        public bool AddAttendanceTrainee(List<Attendance_Tup> att);
         public Task<bool> AddNewEmployee(EmployeeInfoDTO employee);
         public bool UpdateEmployee(Employee employee);
         public bool DeleteEmployee(Int64 employeeId);
@@ -27,5 +29,8 @@ namespace LMS.Core.Services
         //ReturnEmployeeInfo
         public List<EmployeeInfoDTO> ReturnEmployeeInfo(int employeeId);
         public bool DeleteEmployeeFromDatabase(long employeeId);
+
+   
+        public List<TraineeAttendanceDTO> ReturnTrainneeBySectionId(int sectionId);
     }
 }

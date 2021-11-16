@@ -1,19 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "g3LzdAUt+Qc5GaMDOGvCg8UdSmPWRcdz7OsDHYuCqjwsw80MTAb9T9T4QOtvXEM6/VjtFmnb8Y5b6PGdLoazHg==",
+  "dgSpecHash": "oz2sLyb+ECB9XAjyRV/U1Tl2y9ZCduLITBBpBbgai6fxvIM3GuNLQM9Zu73vzTblUFf28F0ZnvX/g1e4beMYOA==",
   "success": true,
-  "projectFilePath": "C:\\Github\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj",
+  "projectFilePath": "C:\\Users\\HP\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\khale\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.12\\microsoft.aspnetcore.http.features.5.0.12.nupkg.sha512",
-    "C:\\Users\\khale\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
-    "C:\\Users\\khale\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512"
+    "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.12\\microsoft.aspnetcore.http.features.5.0.12.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Github\\FinalProject\\LMS\\LMS.Core\\obj\\project.nuget.cache : After parsing a value an unexpected character was encountered: \". Path 'expectedPackageFiles[2]', line 12, position 2."
-    }
-  ]
+  "logs": []
 }
