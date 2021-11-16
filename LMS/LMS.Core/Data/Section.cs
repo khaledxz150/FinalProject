@@ -19,6 +19,7 @@ namespace LMS.Data
         public bool IsActive { get; set; }
         public DateTime CreationDate { get; set; }
         public long CreatedBy { get; set; }
+        public string MeetingURL { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<CourseRating> CourseRatings { get; set; }

@@ -18,5 +18,6 @@ namespace LMS.Core.DTO
         public int TrainerId { get; set; }
         public string CourseName { get; set; }
         public int StatusId { get; set; }
+        public string MeetingURL { get; set; }
     }
 }

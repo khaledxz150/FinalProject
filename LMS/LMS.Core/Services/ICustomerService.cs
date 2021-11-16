@@ -63,8 +63,9 @@ namespace LMS.Core.Services
 
         //ReturnTraineeInfo
         public TraineeInfoDTO ReturnTraineeInfo(int traineeId);
-        public bool InsertTrainee(Trainee trainee);
 
+        public List<Trainee> ReturnTrainee(int queryCode);
+        public Task<bool> InsertTrainee(TraineeInfoDTO trainee);
         //Update Trainee 
         public bool UpdateTrainee(Trainee trainee);
 

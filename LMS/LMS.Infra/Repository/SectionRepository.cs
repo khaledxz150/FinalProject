@@ -50,11 +50,12 @@ namespace LMS.Infra.Repository
 
             parm.Add("@P_CourseId", section.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parm.Add("@P_SectionTimeEnd", section.SectionTimeEnd, dbType: DbType.DateTime, direction: ParameterDirection.Input);
-            parm.Add("@P_SectionCapacity", section.SectionCapacity, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parm.Add("@P_SectionTimeStart", section.SectionTimeStart, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            parm.Add("@P_SectionCapacity", section.SectionCapacity, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parm.Add("@P_NoLecture", section.NoLecture, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parm.Add("@P_Status", section.StatusId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parm.Add("@P_CreatedBy", section.CreatedBy, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@P_CreatedBy", 1, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@P_MeetingURL", section.MeetingURL, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = await dBContext.Connection.ExecuteAsync("InsertSection", parm, commandType: CommandType.StoredProcedure);
 
             var sectionId = GetAllSection().OrderByDescending(x => x.SectionId).FirstOrDefault().SectionId;
@@ -62,7 +63,7 @@ namespace LMS.Infra.Repository
             var parm1 = new DynamicParameters();
             parm1.Add("@P_TrainerId", trainerId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parm1.Add("@P_SectionId", sectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parm1.Add("@P_CreatedBy", section.CreatedBy, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm1.Add("@P_CreatedBy", 1, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result1 = await dBContext.Connection.ExecuteAsync("InsertTrainerSection", parm1, commandType: CommandType.StoredProcedure);
             return true;
         }
@@ -81,13 +82,10 @@ namespace LMS.Infra.Repository
             parm.Add("@P_SectionId", section.SectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parm.Add("@P_CourseId", section.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parm.Add("@P_SectionCapacity", section.SectionCapacity, dbType: DbType.Int32, direction: ParameterDirection.Input);
-
             parm.Add("@P_NoLecture", section.NoLecture, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parm.Add("@P_Status", section.StatusId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@P_MeetingURL", section.MeetingURL, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = await dBContext.Connection.ExecuteAsync("UpdateSection", parm, commandType: CommandType.StoredProcedure);
-
-
-
             var parm1 = new DynamicParameters();
             parm1.Add("@P_SectionId", section.SectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parm1.Add("@P_TrainerId", trainerId, dbType: DbType.Int32, direction: ParameterDirection.Input);

@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using First.Core.Common;
+using LMS.Core.DTO;
 using LMS.Core.Repository;
 using LMS.Data;
 using System;
@@ -45,12 +46,12 @@ namespace LMS.Infra.Repository
             return result.ToList();
         }
 
-        public Login Authentiaction(Login login)
+        public LoginDTO Authentiaction(LoginDTO login)
         {
             var parm = new DynamicParameters();
             parm.Add("@username", login.Username, dbType: DbType.String, direction: ParameterDirection.Input);
             parm.Add("@pass", login.Password, dbType: DbType.String, direction: ParameterDirection.Input);
-            var result = dBContext.Connection.Query<Login>("LoginElerning", parm, commandType: CommandType.StoredProcedure);
+            var result = dBContext.Connection.Query<LoginDTO>("LoginToLMS", parm, commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
         }
 
