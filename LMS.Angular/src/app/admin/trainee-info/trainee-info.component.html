@@ -16,7 +16,7 @@
           <button mat-fab color="primary" class="create" (click)="AddTrainee()">
             <mat-icon>add</mat-icon>
           </button><button (click)="printPage()">print</button>
-         
+          <button class="btn btn-primary" (click)="downloadAsPDF();">Export To PDF</button>
           <!-- <div>
             <input #mindate class="form-control" type="date" [max]="maxDate" (change)="MinDateVal(mindate.value)">
             <input #maxdate class="form-control" type="date" [min]="minDate" (change)="MaxDateVal(maxdate.value)">
@@ -29,7 +29,8 @@
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="filterTerm">
                 </div>
-                <table class="table table-responsive-xl"
+                <!-- <input type="button" value="Download PDF" class="btn btn-success" (click)="SavePDF()">   -->
+                <table class="table table-responsive-xl"  id="pdfTable" #pdfTable
                   class="table table-striped table-bordered table-sm row-border hover" datatable
                   [dtOptions]="dtOptions">
                   <thead>
@@ -98,6 +99,8 @@
           </div>
         </div>
       </div>
+    
     </form>
+  
   </div>
 </mat-dialog-content>

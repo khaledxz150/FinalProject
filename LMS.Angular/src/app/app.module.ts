@@ -18,6 +18,7 @@ import { AddTrainerComponent } from './admin/trainer-info/add-trainer/add-traine
 import { EditTrainerComponent } from './admin/trainer-info/edit-trainer/edit-trainer.component';
 import { AlertDialogComponent } from './alert-dialog/alert-dialog.component';
 import { DateFormatPipe } from './Pipeline/date-format.pipe';
+import { PaypalComponent } from './paypal/paypal.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { DateFormatPipe } from './Pipeline/date-format.pipe';
     EditTrainerComponent,
     DeleteTrainerComponent,
     AlertDialogComponent,
+    PaypalComponent,
     // DateFormatPipe,
     // FooterComponent,
     // NavbarComponent,

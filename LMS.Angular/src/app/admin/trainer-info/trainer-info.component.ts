@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
@@ -11,6 +11,10 @@ import { EditTrainerComponent } from './edit-trainer/edit-trainer.component';
 import { DataTablesModule } from 'angular-datatables'
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import * as pdfFonts from "pdfmake/build/vfs_fonts";
+import * as pdfMake  from 'pdfmake/build/pdfmake';
+const htmlToPdfmake = require("html-to-pdfmake");
+(pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
 @Component({
   selector: 'app-trainer-info',
   templateUrl: './trainer-info.component.html',
@@ -26,6 +30,17 @@ export class TrainerInfoComponent implements OnInit {
   // options: Trainer[] = [];
   // filteredOptions: Observable<Trainer[]>;
   dtOptions: any = {};
+
+   
+  @ViewChild('pdfTable')
+  pdfTable!: ElementRef;
+  downloadAsPDF() {
+    const pdfTable = this.pdfTable.nativeElement;
+    var html = htmlToPdfmake(pdfTable.innerHTML);
+    const documentDefinition = { content: html };
+    pdfMake.createPdf(documentDefinition).download(); 
+     
+  }
 
   ngOnInit(): void {
     this.trainer.getTrainer();

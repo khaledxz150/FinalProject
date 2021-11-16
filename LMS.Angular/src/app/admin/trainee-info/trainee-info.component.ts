@@ -1,4 +1,4 @@
-import { Component, OnInit, VERSION } from '@angular/core';
+import { Component, ElementRef, OnInit, VERSION, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { AlertDialogComponent } from 'src/app/alert-dialog/alert-dialog.component';
@@ -7,6 +7,11 @@ import { AddTrainerComponent } from '../trainer-info/add-trainer/add-trainer.com
 import { EditTrainerComponent } from '../trainer-info/edit-trainer/edit-trainer.component';
 import { AddTraineeComponent } from './add-trainee/add-trainee.component';
 import { EditTraineeComponent } from './edit-trainee/edit-trainee.component';
+// import * as pdfMake from "pdfmake/build/pdfmake";
+import * as pdfFonts from "pdfmake/build/vfs_fonts";
+import * as pdfMake  from 'pdfmake/build/pdfmake';
+const htmlToPdfmake = require("html-to-pdfmake");
+(pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'app-trainee-info',
@@ -14,10 +19,18 @@ import { EditTraineeComponent } from './edit-trainee/edit-trainee.component';
   styleUrls: ['./trainee-info.component.css', '../../../assets/css/tstyle.css']
 })
 export class TraineeInfoComponent implements OnInit {
+  
+  @ViewChild('pdfTable')
+  pdfTable!: ElementRef;
+  downloadAsPDF() {
+    const pdfTable = this.pdfTable.nativeElement;
+    var html = htmlToPdfmake(pdfTable.innerHTML);
+    const documentDefinition = { content: html };
+    pdfMake.createPdf(documentDefinition).download(); 
+     
+  }
 
   constructor(public Servicetrainee: TraineeService, private dialog: MatDialog) {
-
-
   }
   faEdit = faEdit
   faTrashAlt = faTrashAlt;
