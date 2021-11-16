@@ -18,8 +18,7 @@ export class ExamServiceService {
     constructor(  private http: HttpClient,
     private spinner:NgxSpinnerService,
     private toastr:ToastrService,
-    private router:Router,
-    private secionService:SectionService) {
+    private router:Router) {
      }
 
      GetExamBySection(sectionId:number){
@@ -39,7 +38,6 @@ export class ExamServiceService {
       this.spinner.show();
       this.http.post(environment.apiUrl + 'exam/InsertExam',Exam).subscribe((res:any)=>{
       this.exam = res;
-      this.GetExamBySection(this.secionService.SelectedSection);
       this.spinner.hide();
   
     },err=>{
@@ -53,7 +51,6 @@ export class ExamServiceService {
       
       this.http.put(environment.apiUrl + 'exam/UpdateExam',Exam).subscribe((res:any)=>{
         
-      this.GetExamBySection(this.secionService.SelectedSection);
       this.spinner.hide();
   
     },err=>{

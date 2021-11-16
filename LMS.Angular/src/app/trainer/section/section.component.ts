@@ -66,8 +66,6 @@ export class SectionComponent implements OnInit {
       const text = data;
       console.log(JSON.parse(text));
   });
-
-
   }
 
   CreateExam(SectionId:any){

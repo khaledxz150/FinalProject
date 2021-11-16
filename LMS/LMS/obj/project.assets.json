@@ -2621,26 +2621,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\user\\.nuget\\packages\\": {}
-   
+    "C:\\Users\\khale\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-
-      "projectUniqueName": "C:\\GitHub\\FinalProject\\FinalProject\\LMS\\LMS\\LMS.csproj",
+      "projectUniqueName": "C:\\Github\\FinalProject\\LMS\\LMS\\LMS.csproj",
       "projectName": "LMS",
-      "projectPath": "C:\\GitHub\\FinalProject\\FinalProject\\LMS\\LMS\\LMS.csproj",
-      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\GitHub\\FinalProject\\FinalProject\\LMS\\LMS\\obj\\",
+      "projectPath": "C:\\Github\\FinalProject\\LMS\\LMS\\LMS.csproj",
+      "packagesPath": "C:\\Users\\khale\\.nuget\\packages\\",
+      "outputPath": "C:\\Github\\FinalProject\\LMS\\LMS\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config", 
+        "C:\\Users\\khale\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-   ],
+      ],
       "originalTargetFrameworks": [
         "net5.0"
-    ],
+      ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
@@ -2649,19 +2647,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-
-            "C:\\GitHub\\FinalProject\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj": {
-              "projectPath": "C:\\GitHub\\FinalProject\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj"
+            "C:\\Github\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj": {
+              "projectPath": "C:\\Github\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj"
             },
-            "C:\\GitHub\\FinalProject\\FinalProject\\LMS\\LMS.Infra\\LMS.Infra.csproj": {
-              "projectPath": "C:\\GitHub\\FinalProject\\FinalProject\\LMS\\LMS.Infra\\LMS.Infra.csproj"
-
-           , "C:\\Users\\HP\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj": {
-              "projectPath": "C:\\Users\\HP\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj"
-            },
-            "C:\\Users\\HP\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Infra\\LMS.Infra.csproj": {
-              "projectPath": "C:\\Users\\HP\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Infra\\LMS.Infra.csproj"
-
+            "C:\\Github\\FinalProject\\LMS\\LMS.Infra\\LMS.Infra.csproj": {
+              "projectPath": "C:\\Github\\FinalProject\\LMS\\LMS.Infra\\LMS.Infra.csproj"
             }
           }
         }
@@ -2671,6 +2661,58 @@
           "NU1605"
         ]
       }
+    },
+    "frameworks": {
+      "net5.0": {
+        "targetAlias": "net5.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": {
+            "target": "Package",
+            "version": "[5.0.11, )"
+          },
+          "Microsoft.EntityFrameworkCore.SqlServer": {
+            "target": "Package",
+            "version": "[5.0.11, )"
+          },
+          "Microsoft.EntityFrameworkCore.Tools": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[5.0.11, )"
+          },
+          "Swashbuckle.AspNetCore": {
+            "target": "Package",
+            "version": "[5.6.3, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.AspNetCore.App": {
+            "privateAssets": "none"
+          },
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+      }
     }
-
-    }}}
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Github\\FinalProject\\LMS\\LMS\\obj\\project.nuget.cache : After parsing a value an unexpected character was encountered: \". Path 'expectedPackageFiles[63]', line 71, position 4."
+    }
+  ]
+}

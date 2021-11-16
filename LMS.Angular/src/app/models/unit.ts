@@ -4,5 +4,4 @@ export class Unit {
     isActive: boolean | undefined;
     CreationDate: Date | undefined;
     CreatedBy: number | undefined;
-
 }

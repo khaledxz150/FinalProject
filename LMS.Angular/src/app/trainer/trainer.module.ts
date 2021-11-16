@@ -15,6 +15,7 @@ import { EditExamComponent } from './exam/edit-exam/edit-exam.component';
 import { StudentsComponent } from './students/students.component';
 import { AttendanceComponent } from './attendance/attendance.component';
 import { CreateLectureComponent } from './create-lecture/create-lecture.component';
+import { ExamQuestionsAnswersComponent } from './exam/exam-questions-answers/exam-questions-answers.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { CreateLectureComponent } from './create-lecture/create-lecture.componen
     StudentsComponent,
     AttendanceComponent,
     CreateLectureComponent,
+    ExamQuestionsAnswersComponent,
     
     ],
   imports: [

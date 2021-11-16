@@ -12,7 +12,9 @@ import { EditExamComponent } from './edit-exam/edit-exam.component';
 })
 export class ExamComponent implements OnInit {
 @Input() Sectionid = 0;
-  constructor(public examService:ExamServiceService, private dialog: MatDialog, private sectionService: SectionService) { }
+
+  constructor(public examService:ExamServiceService, private dialog: MatDialog) { }
+
   ngOnInit(): void {
     this.ViewExam(this.Sectionid);
 
@@ -26,14 +28,11 @@ export class ExamComponent implements OnInit {
 
   EditExam(examId:number){
   const item = this.examService.exam.find(x => x.examId == examId);
-  console.log("this is Item", item);
   this.dialog.open(EditExamComponent, { data: item });
   }
 
   ViewExam(sectionId:number) {
     this.examService.GetExamBySection(sectionId);
-    this.sectionService.SetSection(sectionId);
-  
   }
 
 }

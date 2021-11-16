@@ -1,22 +1,19 @@
 {
   "version": 2,
-
-  "dgSpecHash": "Ad7QVlbMAP+BGZvICVFJ3CT6mpcl6gY3OHtDiDAZV8vUS6N/MqtH9YYossI9QO+0XogTT/eoZCPseaZdHiCj8Q==",
+  "dgSpecHash": "g3LzdAUt+Qc5GaMDOGvCg8UdSmPWRcdz7OsDHYuCqjwsw80MTAb9T9T4QOtvXEM6/VjtFmnb8Y5b6PGdLoazHg==",
   "success": true,
-  "projectFilePath": "C:\\GitHub\\FinalProject\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj",
+  "projectFilePath": "C:\\Github\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.12\\microsoft.aspnetcore.http.features.5.0.12.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512"
-
-  "dgSpecHash": "oz2sLyb+ECB9XAjyRV/U1Tl2y9ZCduLITBBpBbgai6fxvIM3GuNLQM9Zu73vzTblUFf28F0ZnvX/g1e4beMYOA==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\HP\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.12\\microsoft.aspnetcore.http.features.5.0.12.nupkg.sha512",
-    "C:\\Users\\HP\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
-    "C:\\Users\\HP\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512"
-
+    "C:\\Users\\khale\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.12\\microsoft.aspnetcore.http.features.5.0.12.nupkg.sha512",
+    "C:\\Users\\khale\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\khale\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Github\\FinalProject\\LMS\\LMS.Core\\obj\\project.nuget.cache : After parsing a value an unexpected character was encountered: \". Path 'expectedPackageFiles[2]', line 12, position 2."
+    }
+  ]
 }
