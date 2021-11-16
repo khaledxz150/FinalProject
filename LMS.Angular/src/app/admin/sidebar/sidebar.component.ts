@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from 'src/app/Service/authentication.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -12,7 +13,7 @@ export class SidebarComponent implements OnInit {
    closeBtn:Element | null = null;
    searchBtn:Element | null = null;
 
-  constructor() {
+  constructor(public loginService:AuthenticationService) {
 
    }
    ngOnInit(): void {
@@ -33,6 +34,11 @@ export class SidebarComponent implements OnInit {
    }else {
      this.closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
    }
+  }
+
+
+  logout(){
+    this.loginService.logout();
   }
 }
 
