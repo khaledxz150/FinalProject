@@ -27,7 +27,10 @@ namespace LMS.Core.Repository
         public bool AddTraineeSection(TraineeSection traineeSection);
         public bool DeleteTraineeSection(int traineeSectionId);
         public bool UpdateTraineeSection(TraineeSection traineeSection);
-               
+        public List<TraineeSectionDTO> ReturnTraineeSection(int trainerId);
+
+
+
         //Trainee Section Task 
         public bool InsertTraineeTask(TraineeSectionTask traineeSectionTask);
         public bool UpdateTraineeTask(TraineeSectionTask traineeSectionTask);

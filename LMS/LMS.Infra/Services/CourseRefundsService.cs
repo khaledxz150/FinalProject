@@ -56,5 +56,10 @@ namespace LMS.Infra.Services
         {
             return _courseRefundsRepository.UpdateRefundReason(refundReason);
         }
+
+        public bool ApproveRefundReason(int CourseRefundsId)
+        {
+            return _courseRefundsRepository.ApproveRefundReason(CourseRefundsId);
+        }
     }
 }

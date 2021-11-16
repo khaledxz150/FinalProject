@@ -20,5 +20,8 @@ namespace LMS.Core.Repository
         public bool UpdateRefundReason(RefundReason refundReason);
         public bool DeleteRefundReason(int reasonId);
 
+
+        public bool ApproveRefundReason(int CourseRefundsId);
+
     }
 }

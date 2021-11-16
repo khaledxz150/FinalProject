@@ -164,5 +164,10 @@ namespace LMS.Infra.Services
         {
             return sectionRepository.GetAllSection();     
         }
+
+        public List<TraineeSectionDTO> ReturnTraineeSection(int trainerId)
+        {
+            return sectionRepository.ReturnTraineeSection(trainerId);
+        }
     }
 }

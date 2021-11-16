@@ -25,6 +25,7 @@ namespace LMS.Core.Services
         public bool DeleteTraineeSection(int traineeSectionId);
       
         public bool UpdateTraineeSection(TraineeSection traineeSection);
+        public List<TraineeSectionDTO> ReturnTraineeSection(int trainerId);
 
 
         //Trainee Section Task 
@@ -32,6 +33,7 @@ namespace LMS.Core.Services
         public bool UpdateTraineeTask(TraineeSectionTask traineeSectionTask);
         public bool DeleteTraineeSectionTask(int traineeSectionTaskId);
 
+      
         //Unit 
         public bool InsertUnit(Unit unit);
         public bool DeleteUnit(int unitId);
