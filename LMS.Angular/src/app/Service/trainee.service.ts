@@ -16,7 +16,7 @@ export class TraineeService {
   ) { }
 
   dtOptions: any = {};
- 
+
  ngOnInit(): void {
 
 
@@ -36,7 +36,7 @@ export class TraineeService {
     debugger;
     //  this.spinner.show();
 
-    this.http.post(environment.apiUrl + 'Customer/ReturnAllTrainee/0', 0).subscribe((res: any) => {
+    this.http.post(environment.apiUrl + 'Customer/ReturnTrainee/0', 0).subscribe((res: any) => {
       debugger
       // this.spinner.hide();
       debugger
@@ -95,7 +95,7 @@ export class TraineeService {
   EditTrainee(trainee: any) {
 
     this.http.put(environment.apiUrl + 'Customer/UpdateTrainee', trainee).subscribe((res: any) => {
-    
+
       // this.spiner.hide();
       this.toastr.success('Trainee edit successfully !!!');
       window.location.reload();

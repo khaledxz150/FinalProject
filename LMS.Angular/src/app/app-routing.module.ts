@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccountantModule } from './accountant/accountant.module';
 import { AdminModule } from './admin/admin.module';
 import { AuthenticationModule } from './authentication/authentication.module';
+import { AuthorizationGuard } from './guard/authorization.guard';
 import { ContactusComponent } from './pages/contactus/contactus.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PagesModule } from './pages/pages.module';
@@ -29,15 +30,18 @@ const routes: Routes = [
   }
   ,{
     path:'admin',
-    loadChildren:()=>AdminModule
+    loadChildren:()=>AdminModule,
+    canActivate: [AuthorizationGuard]
   },
   {
     path:'trainer',
-    loadChildren:()=>TrainerModule
+    loadChildren:()=>TrainerModule,
+    canActivate: [AuthorizationGuard]
   },
   {
     path:'accountant',
-    loadChildren:()=>AccountantModule
+    loadChildren:()=>AccountantModule,
+    canActivate: [AuthorizationGuard]
   }
 ];
 

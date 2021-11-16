@@ -9,6 +9,7 @@ export class Section{
   courseName:string | undefined;
   trainerId:number|undefined;
   statusId:number|undefined;
+  meetingURL:string|undefined
 }
 /*
         public int SectionId { get; set; }

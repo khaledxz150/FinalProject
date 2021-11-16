@@ -172,3 +172,12 @@
     margin-top: 0.5rem;
  }
 }
+
+.search{
+  background-color: #8a1525;
+   border: #8a1525;
+   border-radius: 2px;
+   width: 50px;
+   padding: 8px;
+}
+

@@ -18,6 +18,11 @@ import { AddTrainerComponent } from './admin/trainer-info/add-trainer/add-traine
 import { EditTrainerComponent } from './admin/trainer-info/edit-trainer/edit-trainer.component';
 import { AlertDialogComponent } from './alert-dialog/alert-dialog.component';
 import { DateFormatPipe } from './Pipeline/date-format.pipe';
+import { JwtModule, JwtModuleOptions } from '@auth0/angular-jwt';
+
+const JWT_Module_Options:JwtModuleOptions={
+  config:{}
+};
 
 @NgModule({
   declarations: [
@@ -41,7 +46,8 @@ import { DateFormatPipe } from './Pipeline/date-format.pipe';
     SharedModule,
     NgHttpLoaderModule.forRoot(),
     ToastrModule.forRoot(),
-    CommonModule
+    CommonModule,
+    JwtModule.forRoot(JWT_Module_Options)
   ],
   providers: [],
   bootstrap: [AppComponent]

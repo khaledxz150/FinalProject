@@ -1,0 +1,139 @@
+
+
+<!--
+    username: new FormControl(''),
+  firstName: new FormControl(''),
+  lastName: new FormControl(''),
+  email: new FormControl(''),
+  imageName: new FormControl(''),
+  nationality : new FormControl(''),
+  phoneNumber: new FormControl(''),
+  password: new FormControl(''),
+ -->
+ <app-navbar></app-navbar>
+
+ <div class="content">
+   <div class="container">
+     <div class="row">
+
+       <div class="col-md-6">
+         <img src="../../../assets/image/undraw_remotely_2j6y.svg" alt="Image" class="img-fluid animation fade-in" ng-class="{'fade-in': true }">
+
+       </div>
+      <div class="col-md-6 move">
+        <div class="row justify-content-center" style="margin-left: 20%; width: 80%;">
+          <div class="col-md-8">
+            <div class="mb-4">
+              <h3>Sign Up</h3>
+            </div>
+          </div>
+
+            <!-- <h3 style="font-size:2em; text-align:center; margin-top:40px;">Login</h3> -->
+            <form class="form" style="margin-top:50px" [formGroup]="loginService.formGroup">
+              <!-- <h2 *ngIf = "email.hasError('required')">Email Is Required</h2> -->
+
+
+              <mat-form-field appearance="fill" class="example-full-width ml-5">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput  formControlName="email">
+                <!-- <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+                  Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="email.hasError('required')">
+                  Email is <strong>required</strong>
+                </mat-error> -->
+              </mat-form-field>
+
+              <mat-form-field appearance="fill" class="example-full-width">
+                <mat-label>Enter your password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" >
+                <span mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </span>
+              </mat-form-field>
+
+              <mat-form-field  appearance="fill">
+                <mat-label>FirstName</mat-label>
+                <input type="text"  matInput formControlName="firstName" >
+                <!-- <mat-error *ngIf="password.hasError('minlength') && !password.hasError('required')">
+                 Please Enter Strong Password
+                </mat-error> -->
+                <!-- <mat-error *ngIf="password.hasError('required')">
+                  Password is <strong>required</strong>
+                </mat-error> -->
+              </mat-form-field>
+
+              <mat-form-field  appearance="fill">
+                <mat-label>LastName</mat-label>
+                <input type="text"  matInput formControlName="lastName" >
+                <!-- <mat-error *ngIf="password.hasError('minlength') && !password.hasError('required')">
+                 Please Enter Strong Password
+                </mat-error> -->
+                <!-- <mat-error *ngIf="password.hasError('required')">
+                  Password is <strong>required</strong>
+                </mat-error> -->
+              </mat-form-field>
+
+              <mat-form-field  appearance="fill">
+                <mat-label>Nationality</mat-label>
+                <input type="text"  matInput formControlName="nationality" >
+                <!-- <mat-error *ngIf="password.hasError('minlength') && !password.hasError('required')">
+                 Please Enter Strong Password
+                </mat-error> -->
+                <!-- <mat-error *ngIf="password.hasError('required')">
+                  Password is <strong>required</strong>
+                </mat-error> -->
+              </mat-form-field>
+<!--
+              <mat-select-country appearance="outline"
+              label="Country"
+              [formControl]="countryFormControl"
+              (onCountrySelected)="onCountrySelected($event)">
+              </mat-select-country> -->
+
+              <mat-form-field  appearance="fill">
+                <mat-label>PhoneNumber</mat-label>
+                <input type="text"  matInput formControlName="phoneNumber" (input)="inputValidator($event)">
+                <!-- <mat-error *ngIf="password.hasError('minlength') && !password.hasError('required')">
+                 Please Enter Strong Password
+                </mat-error> -->
+                <!-- <mat-error *ngIf="password.hasError('required')">
+                  Password is <strong>required</strong>
+                </mat-error> -->
+              </mat-form-field>
+
+              <!-- <mat-form-field appearance="fill">
+                <mat-label>Phone number</mat-label>
+                <example-tel-input formControlName="phoneNumber" required ></example-tel-input>
+                <mat-icon matSuffix>phone</mat-icon>
+                <mat-hint>Include area code</mat-hint>
+              </mat-form-field> -->
+
+              <!-- <button (click)="submit()" [disabled]="!email.valid || !password.valid">Login</button> -->
+              <button (click)="SignUp()" mat-raised-button style="flex: 1; width:100%; margin-top: 50px;" [disabled]="!loginService.username.valid || !loginService.password.valid">
+
+                SignUp
+              </button>
+
+
+              <p routerLink="../login" style="text-align: center; font-size: 1em; margin-top: 30px; cursor: pointer; ">Already have an account</p>
+
+
+            </form>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+
+  </div>
+</div>
+
+<!-- <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-triangle-path" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner> -->
+
+
+<app-footer></app-footer>
+
