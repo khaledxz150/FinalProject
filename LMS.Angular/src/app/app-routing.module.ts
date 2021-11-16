@@ -7,6 +7,7 @@ import { AuthorizationGuard } from './guard/authorization.guard';
 import { ContactusComponent } from './pages/contactus/contactus.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PagesModule } from './pages/pages.module';
+import { PaypalComponent } from './paypal/paypal.component';
 import { TraineeModule } from './trainee/trainee.module';
 import { TrainerModule } from './trainer/trainer.module';
 
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path:'pages',
     loadChildren: ()=>PagesModule
+  }
+  ,{
+    path:'paypal',
+    loadChildren:()=>PaypalComponent
   }
   ,{
     path:'client',

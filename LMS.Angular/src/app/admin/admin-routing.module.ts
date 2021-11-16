@@ -5,7 +5,10 @@ import { CalenderComponent } from './calender/calender.component';
 import { CategoryComponent } from './category/category.component';
 import { CouponComponent } from './coupon/coupon.component';
 import { CourseComponent } from './course/course.component';
+import { EditComponent } from './profile/edit/edit.component';
+import { ProfileComponent } from './profile/profile.component';
 import { SectionComponent } from './section/section.component';
+import { TestmonialComponent } from './testmonial/testmonial.component';
 import { TopicComponent } from './topic/topic.component';
 import { TraineeInfoComponent } from './trainee-info/trainee-info.component';
 import { TrainerInfoComponent } from './trainer-info/trainer-info.component';
@@ -43,10 +46,25 @@ const routes: Routes = [
   {
     path:'topic',
     component:TopicComponent
+  }
+  ,
+  {
+    path:'test',
+    component:TestmonialComponent
   },
   {
     path:'coupon',
     component:CouponComponent
+  }
+  ,
+  {
+    path:'profile',
+    component:ProfileComponent
+  },
+  
+  {
+    path:'profile/edit',
+    component:EditComponent
   }
 ];
 

@@ -1,0 +1,36 @@
+<div class="wrapper d-flex align-items-stretch">
+
+    <app-sidebar></app-sidebar>
+    <button (click)="showMessageSoon()">Show Message</button>
+<p *ngIf="showMyMessage">hello there</p>
+
+<div class="container mt-12" style="margin-left: 6%;margin-top: 5%;">
+  <div class="row">
+      <div class="col-md-4" *ngFor="let test of testService.testimonial">
+          <div class="card p-3">
+              <div class="d-flex flex-row mb-3"><img src="{{test.imageName}}" width="70">
+                  <div class="d-flex flex-column ml-2">{{test.traineeName}}</div>
+              </div>
+              <h3>{{test.description}}</h3>
+              <div class="d-flex justify-content-between install mt-3"><small>{{test.creationDate}}</small></div>
+          </div>
+      </div>
+
+  </div>
+<!-- 
+</div> 
+<div class="card" style="width: 18rem;"  *ngFor="let test of testService.testimonial">
+    <img class="card-img-top" src="{{test.imageName}}" width="70"alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{test.traineeName}}</h5>
+      <p class="card-text">{{test.description}}.</p>
+      <a href="#" class="btn btn-primary">{{test.creationDate}}</a>
+    </div>
+  </div>
+<div class="alert alert-warning alert-dismissible fade show" role="alert" *ngFor="let test of testService.testimonial">
+    <img src="{{test.imageName}}" width="70">
+    <strong>{{test.traineeName}}</strong>{{test.description}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;<small>{{test.creationDate}}</small></span>
+    </button>
+  </div> -->
