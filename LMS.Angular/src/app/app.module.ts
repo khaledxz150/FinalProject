@@ -24,7 +24,6 @@ import { JwtModule, JwtModuleOptions } from '@auth0/angular-jwt';
 const JWT_Module_Options:JwtModuleOptions={
   config:{}
 };
-import { PaypalComponent } from './paypal/paypal.component';
 
 
 @NgModule({
@@ -35,7 +34,7 @@ import { PaypalComponent } from './paypal/paypal.component';
     EditTrainerComponent,
     DeleteTrainerComponent,
     AlertDialogComponent,
-    PaypalComponent,
+
     // DateFormatPipe,
     // FooterComponent,
     // NavbarComponent,

@@ -1,0 +1,36 @@
+<h1>Angular PayPal</h1>
+
+<div class="mt-2" *ngIf="showSuccess">
+  <div class="alert alert-success mt-2">
+    Yeah! Your <em>Payment</em> transaction was successful.
+  </div>
+</div>
+
+<div class="mt-2" *ngIf="showError">
+  <div class="alert alert-danger mt-2">
+    Oh no! Your <em>Payment</em> transaction failed.
+  </div>
+</div>
+
+<div class="mt-2" *ngIf="showCancel">
+  <div class="alert alert-info mt-2">
+    Your transaction was cancelled.
+  </div>
+</div>
+
+
+
+
+
+<h2 class="mt-4">
+  Price
+</h2>
+
+<div class="mt-2">
+  Price: <input [value]="defaultPrice" type="text" #priceElem> <button (click)="changePrice()">Set</button>
+</div>
+
+
+
+
+
