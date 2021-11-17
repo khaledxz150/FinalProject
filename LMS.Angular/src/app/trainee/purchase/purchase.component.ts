@@ -22,7 +22,7 @@ export class PurchaseComponent implements OnInit {
 
   ngOnInit(): void {
     this.purchesService.GetMyPurshes();
-    this.purchesService.GetMyRefunds();
+    this.purchesService.GetMyRefunds(2);
     this.traineeService.getMyCartItem2(2)
     this.traineeService.getMyWishListItem(2)
     this.courseService.GetAvailableCartId(2)

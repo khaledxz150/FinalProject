@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faCog, faUser } from '@fortawesome/free-solid-svg-icons';
 import { AuthenticationService } from 'src/app/Service/authentication.service';
 
 @Component({
@@ -11,6 +12,11 @@ export class SideBarComponent implements OnInit {
   sidebar:Element | null = null;
   closeBtn:Element | null = null;
   searchBtn:Element | null = null;
+
+
+   //Icons
+   faCog= faCog
+   faUser = faUser
 
  constructor(public loginService:AuthenticationService) {
 

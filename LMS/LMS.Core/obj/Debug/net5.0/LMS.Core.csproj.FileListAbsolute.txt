@@ -46,3 +46,15 @@ C:\GitHub\FinalProject\LMS\LMS.Core\obj\Debug\net5.0\ref\LMS.Core.dll
 C:\GitHub\FinalProject\LMS\LMS.Core\obj\Debug\net5.0\LMS.Core.pdb
 C:\GitHub\FinalProject\LMS\LMS.Core\obj\Debug\net5.0\LMS.Core.csproj.AssemblyReference.cache
 C:\GitHub\FinalProject\FinalProject\LMS\LMS.Core\obj\Debug\net5.0\LMS.Core.csproj.AssemblyReference.cache
+C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS.Core\bin\Debug\net5.0\LMS.Core.deps.json
+C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS.Core\bin\Debug\net5.0\LMS.Core.dll
+C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS.Core\bin\Debug\net5.0\ref\LMS.Core.dll
+C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS.Core\bin\Debug\net5.0\LMS.Core.pdb
+C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS.Core\obj\Debug\net5.0\LMS.Core.csproj.AssemblyReference.cache
+C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS.Core\obj\Debug\net5.0\LMS.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS.Core\obj\Debug\net5.0\LMS.Core.AssemblyInfoInputs.cache
+C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS.Core\obj\Debug\net5.0\LMS.Core.AssemblyInfo.cs
+C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS.Core\obj\Debug\net5.0\LMS.Core.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS.Core\obj\Debug\net5.0\LMS.Core.dll
+C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS.Core\obj\Debug\net5.0\ref\LMS.Core.dll
+C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS.Core\obj\Debug\net5.0\LMS.Core.pdb

@@ -9,6 +9,7 @@ import { AuthenticationService } from 'src/app/Service/authentication.service';
 })
 export class RegisterComponent implements OnInit {
 
+
   hide = true;
 
   ngOnInit(): void {

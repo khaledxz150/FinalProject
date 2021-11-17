@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { Purches } from '../models/purches';
 import { CourseRefund } from '../models/CourseRefund';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,10 +24,24 @@ export class PurchesService {
       }
     });
   }
-  GetMyRefunds(){
-    this.http.post('http://localhost:54921/api/CourseRefunds/ReturnCourseRefund/2',null).subscribe((res:any)=>{
+
+  
+  GetMyRefunds(traineeId:number){
+    this.http.post(environment.apiUrl + 'CourseRefunds/ReturnCourseRefund/'+traineeId,traineeId).subscribe((res:any)=>{
+
       this.myRefunds=res;
     });
   }
 
+
+
+  ApproveRefundReason(courseRefundsId:number){
+    debugger
+    this.http.put(environment.apiUrl + 'CourseRefunds/ApproveRefundReason/'+courseRefundsId,courseRefundsId).subscribe((res:any)=>{
+
+      this.myRefunds=res;
+
+      window.location.reload()
+    });
+  }
 }
