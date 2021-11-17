@@ -23,7 +23,7 @@ export class AuthenticationService {
 
   username = new FormControl('', [Validators.required]);
   password = new FormControl('', [Validators.required]);
-  // response:any;
+
   submit(){
   var response1:any;
         var body ={

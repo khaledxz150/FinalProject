@@ -69,9 +69,12 @@
 
 
 
-        <div class="col-md-12">
+        <div class="col-md-12" #TABLE #table>
                <!-- Sold Courses -->
                 <div class="card">
+
+                  <fa-icon [icon]="faFileExcel" style="font-size: 2rem; margin-bottom: 1rem;" (click)="ExportTOExcel()"></fa-icon>
+
                   <div class="d-flex" style="justify-content: space-between;">
                   <h3>Orders</h3>
 
