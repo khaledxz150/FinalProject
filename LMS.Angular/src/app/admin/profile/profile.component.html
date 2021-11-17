@@ -14,15 +14,15 @@
             </nav>
             <!-- /Breadcrumb -->
 
-            <div class="row gutters-sm">
+            <div class="row gutters-sm" *ngFor="let employee of trainerService.employee">
               <div class="col-md-4 mb-3">
                 <div class="card"  style="height: 335px">
                   <div class="card-body">
                     <div class="d-flex flex-column align-items-center text-center">
-                      <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                      <img src="{{employee.employeeImage}}" alt="Admin" class="rounded-circle" width="150">
                       <div class="mt-3">
-                        <h4>esraa smadi</h4>
-                        <p class="text-secondary mb-1">Full Stack Developer</p>
+                        <h4>{{employee.fName}} {{employee.lName}}</h4>
+                        <p class="text-secondary mb-1">Manager</p>
                         <p class="text-muted font-size-sm"> Jordan , Irbid , citycenter</p>
                         <!-- <button class="btn btn-primary" style="background-color: rgb(170, 14, 14);">Follow</button> -->
                         <!-- <button class="btn btn-outline-primary" style="color:wheat; background-color: rgb(170, 14, 14);">Message</button> -->
@@ -53,7 +53,7 @@
                         <h6 class="mb-0">Full Name</h6>
                       </div>
                       <div class="col-sm-9 text-secondary">
-                        Esraa Smadi
+                        {{employee.fName}} {{employee.lName}}
                       </div>
                     </div>
                     <hr>
@@ -62,8 +62,8 @@
                         <h6 class="mb-0">Email</h6>
                       </div>
                       <div class="col-sm-9 text-secondary">
-                        esraasmadi25@gmail.com
-                      </div>
+                        {{employee.email}}
+                                            </div>
                     </div>
                     <hr>
                     <div class="row">
@@ -71,7 +71,7 @@
                         <h6 class="mb-0">Phone</h6>
                       </div>
                       <div class="col-sm-9 text-secondary">
-                        (+962) 792 792 168
+                        {{employee.phoneNumber}}
                       </div>
                     </div>
                     <hr>
