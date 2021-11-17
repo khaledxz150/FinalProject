@@ -1,0 +1,62 @@
+
+
+<div class="row">
+
+  <div class="card">
+    <div class="d-flex" style="justify-content: space-between;">
+    <h3>Refunds</h3>
+
+
+    <div>
+
+
+    </div>
+
+  </div>
+
+
+
+
+    <p-table [value]="purchesService.myRefunds" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[5,10,15]">
+        <ng-template pTemplate="header">
+
+            <tr>
+
+                <th>Id</th>
+
+                <th>Name</th>
+                <th>CourseName</th>
+                <th>CoursePrice</th>
+                <th>RefundReson</th>
+                <th>Date</th>
+                <th>IsApproved</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-course>
+
+            <tr>
+
+                <td>{{course.courseRefundsId}}</td>
+                <td>{{course.traineeName}}</td>
+                <td>{{course.courseName}}</td>
+                <td>$ {{course.coursePrice}}</td>
+                <td>{{course.notes}}</td>
+                <td>{{course.creationDate | date}}</td>
+                <td><p-inputSwitch [(ngModel)]="course.isApproved" (click)="ApproveRefundReason(course.courseRefundsId)"></p-inputSwitch>
+                 </td>
+
+
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="paginatorleft">
+            <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+        </ng-template>
+        <ng-template pTemplate="paginatorright">
+            <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+        </ng-template>
+    </p-table>
+</div>
+
+
+</div>

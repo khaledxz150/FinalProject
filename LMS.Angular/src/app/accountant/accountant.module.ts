@@ -6,13 +6,17 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SalesComponent } from './sales/sales.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { SharedModule } from '../shared/shared.module';
+import { CourserefundComponent } from './courserefund/courserefund.component';
+import { PurchaseComponent } from './purchase/purchase.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
     SalesComponent,
-    SideBarComponent
+    SideBarComponent,
+    CourserefundComponent,
+    PurchaseComponent
   ],
   imports: [
     CommonModule,

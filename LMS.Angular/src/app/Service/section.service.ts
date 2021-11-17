@@ -32,7 +32,7 @@ export class SectionService {
     this.spinner.show();
    this.http.post(environment.apiUrl + 'Section/ReturnAllTrainerSections/'+TrainerId,TrainerId).subscribe((result:any)=>{
 this.TrainerSection = result;
-     this.TrainerSection.forEach((element) => {  
+     this.TrainerSection.forEach((element) => {
       this.myBase64 = this.sanitizer.bypassSecurityTrustResourceUrl(
         `data:image/png;base64, ${element.courseImage}`
       );
@@ -197,5 +197,31 @@ deleteSection(sectionId:number){
  SetSection(sectionId:number){ this.SelectedSection = sectionId;}
 
 
+ traineeSection:any[]=[{}]
+ filterTraineeSection:any[]=[{}]
+ ReturnTraineeSection(sectionId:number){
+  debugger
+  this.http.post(environment.apiUrl + 'Section/ReturnTraineeSection/'+sectionId,null).subscribe((res:any)=>{
+    // debugger
+    // this.spinner.hide();
+    // this.toastr.success('Send Message successfully, Thank You :)');
+    debugger
+    this.traineeSection = res
+    this.filterTraineeSection =  res
+    // console.log( "test",this.courses)
+    this.toastr.success('Data Retrived !!!');
 
+
+  },err=>{
+    // this.spinner.hide();
+    this.toastr.warning('Something wrong');
+  })
+ }
+
+ TraineeSection(sectionId:any){
+   debugger
+  this.filterTraineeSection =  this.traineeSection.filter(i=>i.sectionId == sectionId.value)
+
+  debugger
+ }
 }

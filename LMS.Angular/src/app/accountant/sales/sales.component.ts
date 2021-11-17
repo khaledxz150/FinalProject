@@ -21,9 +21,6 @@ export class SalesComponent implements OnInit {
   faSearch = faSearch
 
 
-  // campaignOne: FormGroup;
-  // campaignTwo: FormGroup;
-
   availableYears:any[]=[{}]
   constructor( private dialog:MatDialog, public courseService:CourseService) {
 
@@ -37,27 +34,12 @@ export class SalesComponent implements OnInit {
     debugger
 
 
-
-    // const today = new Date();
-    // const month = today.getMonth();
-    // const year = today.getFullYear();
-
-  //   this.campaignOne = new FormGroup({
-  //     start: new FormControl(new Date(year, month, 13)),
-  //     end: new FormControl(new Date(year, month, 16)),
-  // });
-
-  // this.campaignTwo = new FormGroup({
-  //   start: new FormControl(new Date(year, month, 15)),
-  //   end: new FormControl(new Date(year, month, 19)),
-  // });
   }
   ngOnInit(): void {
           this.courseService.returnSoldCourses();
           this.courseService.getCourses();
   }
 
-  // name:new FormControl('', [Validators.required]),
   year = new FormControl('');
 
   filterSoldCourse(){
