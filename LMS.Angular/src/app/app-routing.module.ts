@@ -3,12 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccountantModule } from './accountant/accountant.module';
 import { AdminModule } from './admin/admin.module';
 import { AuthenticationModule } from './authentication/authentication.module';
-import { ChatComponent } from './chat/chat.component';
 import { AuthorizationGuard } from './guard/authorization.guard';
 import { ContactusComponent } from './pages/contactus/contactus.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PagesModule } from './pages/pages.module';
 import { PaypalComponent } from './paypal/paypal.component';
+import { SharedModule } from './shared/shared.module';
 import { TraineeModule } from './trainee/trainee.module';
 import { TrainerModule } from './trainer/trainer.module';
 
@@ -48,12 +48,12 @@ const routes: Routes = [
     path:'accountant',
     loadChildren:()=>AccountantModule,
     canActivate: [AuthorizationGuard]
-  }
-  ,
+  },
   {
-    path:'chat',
-    component:ChatComponent
+    path:'shared',
+    loadChildren:()=>SharedModule,
   }
+  
 ];
 
 @NgModule({

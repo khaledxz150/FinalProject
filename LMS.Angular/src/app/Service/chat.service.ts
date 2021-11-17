@@ -13,10 +13,8 @@ export class ChatService {
   data: Message | undefined;
 
  public hubConnection: signalR.HubConnection | undefined
- constructor() {
-this.startConnection();
 
- }
+ 
 
    startConnection() {
      this.hubConnection = 
@@ -30,15 +28,12 @@ this.startConnection();
        .start()
        .then(() => console.log('Connection started'))
        .catch(err => console.log('Error while starting connection: ' + err))
-       this.addDataListener();
    }
  
    addDataListener()  {
      this.hubConnection!.on('ReceiveOne', (data,data2) => {
-       this.data = data;
-       console.log(data);
-       console.log(data2);
-
+       debugger
+       console.log(data, data2);
      });
    }
  }

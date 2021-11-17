@@ -1,6 +1,5 @@
 import { Component, NgZone, OnInit } from '@angular/core';
-import { Message } from '../models/Message';
-import { ChatService } from '../Service/chat.service';
+import { ChatService } from 'src/app/Service/chat.service';
 
 @Component({
   selector: 'app-chat',
@@ -14,7 +13,6 @@ export class ChatComponent implements OnInit {
   ngOnInit(): void {
     this.chatService.startConnection();
     this.chatService.addDataListener();
-
   }
   sendMessage(){
     this.chatService.hubConnection!.invoke("SendRequest", [1, "p1"]);
