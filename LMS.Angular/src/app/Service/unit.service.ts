@@ -41,10 +41,8 @@ sectionID:any = 0;
  insertUnit(unit:Unit) {
   this.spinner.show();
       this.http.post(environment.apiUrl + 'Section/InsertUnit',unit).subscribe((res:any)=>{
-      this.units = res;
-      debugger
+        this.router.navigate(['trainer']);
       this.spinner.hide();
-  
     },err=>{
       this.spinner.hide();
       this.toastr.warning('Something wrong');

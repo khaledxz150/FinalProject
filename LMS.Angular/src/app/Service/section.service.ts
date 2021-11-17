@@ -17,7 +17,7 @@ export class SectionService {
   myBase64!: SafeResourceUrl;
 
    section: any[]=[{}];
-   TrainerSection : any[]=[{}];
+   TrainerSection : any;
    sections: any[]=[{}];
    status: any[]=[{}];
    SelectedSection:any|undefined;
@@ -32,7 +32,7 @@ export class SectionService {
     this.spinner.show();
    this.http.post(environment.apiUrl + 'Section/ReturnAllTrainerSections/'+TrainerId,TrainerId).subscribe((result:any)=>{
 this.TrainerSection = result;
-     this.TrainerSection.forEach((element) => {
+     this.TrainerSection.forEach((element: { courseImage: SafeResourceUrl; }) => {
       this.myBase64 = this.sanitizer.bypassSecurityTrustResourceUrl(
         `data:image/png;base64, ${element.courseImage}`
       );

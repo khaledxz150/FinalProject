@@ -19,8 +19,8 @@
 
                       <!-- card start -->
 
-                      <div class="col-md-12 mt-3"  *ngFor="let course of sectionService.TrainerSection">
-                        
+                      <div class="col-md-12 mt-3"  *ngFor="let course of sectionService.TrainerSection; index as i;">
+                        {{course.sectionId}}
 
                         <mat-accordion>
 
@@ -66,7 +66,7 @@
                               </div>
 
                             </mat-expansion-panel>
-
+                            {{course.sectionId}}
                             <mat-expansion-panel>
                               <mat-expansion-panel-header>
                                 <mat-panel-title>
@@ -77,6 +77,7 @@
                               </mat-expansion-panel-header>
                               <div >
                                 <app-exam [Sectionid]="course.sectionId"></app-exam>
+                                {{course.sectionId}}
                                   
 
                               </div>
@@ -96,6 +97,7 @@
                               </mat-expansion-panel-header>
                               <div >
                                 <app-unit [Sectionid]="course.sectionId"></app-unit>
+                                {{course.sectionId}}
                                   <div>
                                     <mat-icon class="pointer fancy-link"  (click)="AddUnit(course.sectionId)">add_circle</mat-icon>                                
 

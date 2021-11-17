@@ -35,7 +35,7 @@ debugger
   }
  
   
-  Uploadfile(event: any, ) {
+  Uploadfile(event: any) {
     const reader = new FileReader();
 
     if (event.target.files && event.target.files.length) {
@@ -44,10 +44,7 @@ debugger
 
       reader.onload = () => {
         this.FileSrc = reader.result as string;    
-
-
-        this.Unit={SectionId: this.data.sectionId
-          , FilePath: this.FileSrc , isActive: true, CreationDate: new Date(), CreatedBy:1}
+        this.Unit={SectionId: this.data, FilePath: this.FileSrc , isActive: true, CreationDate: new Date(), CreatedBy:1}
    
       };
     }

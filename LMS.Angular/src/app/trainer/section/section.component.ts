@@ -62,6 +62,7 @@ export class SectionComponent implements OnInit {
   sections:any=[{}];
   ngOnInit(): void {
     this.sectionService.ReturnAllTrainerSections(2);
+    
     this.http.get('assets/ChatLog/1.txt', { responseType: 'text' }).subscribe(data => {
       const text = data;
       console.log(JSON.parse(text));

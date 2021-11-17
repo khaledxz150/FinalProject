@@ -20,6 +20,7 @@ export class UnitComponent implements OnInit {
   ngOnInit(): void {
 
     this.ViewUnit(this.Sectionid);
+   
   }
 
   addUnit(SectionID:number) {
@@ -52,7 +53,9 @@ export class UnitComponent implements OnInit {
 
 
   ViewUnit(sectionId:number){
+    debugger
     this.unitService.getAllTrainerSectionUnit(sectionId);
+    
     }
 
     OpenPdf(data:any) {
