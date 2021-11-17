@@ -99,6 +99,8 @@ formGroup: FormGroup = new FormGroup({
 
 
 register(){
+
+  debugger
   const user : User = this.formGroup.value;
   user.username = user.email;
   user.roleId = 5;
@@ -120,4 +122,25 @@ register(){
   debugger;
 }
 
+login:any[]=[];
+ReturnLogin(){
+  this.http.get(environment.apiUrl + 'User/ReturnLogin').subscribe((res:any)=>{
+    // debugger
+
+    this.login = res;
+  })
+
+
+}
+
+checkUserName(){
+  debugger
+  let check = this.login.find(i=>i.username == this.formGroup.controls.email.value);
+  if(check){
+    this.toastr.warning("This email is used")
+  }else{
+    this.register()
+  }
+  debugger
+}
 }
