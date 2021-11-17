@@ -12,7 +12,7 @@ import { SectionService } from 'src/app/Service/section.service';
 export class CreateExamComponent implements OnInit {
 
   formGroup: FormGroup = new FormGroup({
-    SectionId: new FormControl(this.data.sectionId),
+    SectionId: new FormControl(this.data),
     ExamDate: new FormControl('', [Validators.required]),
     StartTime: new FormControl('', [Validators.required]),
     EndTime: new FormControl('', [Validators.required]),
@@ -32,6 +32,7 @@ export class CreateExamComponent implements OnInit {
   Create(){
     const values = this.formGroup.value
     console.log(values);
+    
     this.examService.CreatExam(values);
   }
 }

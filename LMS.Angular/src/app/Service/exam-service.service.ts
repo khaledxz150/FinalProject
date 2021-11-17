@@ -5,15 +5,24 @@ import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from 'src/environments/environment';
+import { Question } from '../models/ExamQuestion';
 import { SectionService } from './section.service';
 @Injectable({
   providedIn: 'root'
 })
 export class ExamServiceService {
+  CreateAnswer(Answer: import("../models/QuestnAnswer").Answer[]) {
+    throw new Error('Method not implemented.');
+  }
+  CurrentQuestionId: String | undefined;
+  CreateQuestion(Question: Question) {
+    throw new Error('Method not implemented.');
+  }
 
     exam:any[]=[{}];
     SelectedExam:any;
     SelectedExamByID:any[]=[];
+    currentExamId:any|undefined;
 
     constructor(  private http: HttpClient,
     private spinner:NgxSpinnerService,
@@ -22,6 +31,7 @@ export class ExamServiceService {
      }
 
      GetExamBySection(sectionId:number){
+      console.log(sectionId)
       this.spinner.show();
       this.http.post(environment.apiUrl + 'exam/ReturnExamBySectionId/'+sectionId,sectionId).subscribe((res:any)=>{
       this.exam = res;

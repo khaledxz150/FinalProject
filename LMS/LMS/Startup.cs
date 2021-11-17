@@ -2,6 +2,7 @@ using First.Core.Common;
 using First.Infra.Common;
 using LMS.Core.Repository;
 using LMS.Core.Services;
+using LMS.Hubs;
 using LMS.Infra.Repository;
 using LMS.Infra.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -9,6 +10,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -20,6 +22,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Builder;
 
 namespace LMS
 {
@@ -39,14 +46,10 @@ namespace LMS
             {
                 corsOptions.AddPolicy("x",
                 builder =>
-                {
-                    //builder.WithOrigins("http://127.0.0.1:4200", "http://localhost:4200", "https://localhost:4200")
-                    // .AllowAnyHeader()
-                    // .AllowAnyMethod();
-
-
-
-                    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                { builder
+                     .AllowAnyMethod().AllowAnyOrigin()
+                    .AllowAnyHeader().AllowCredentials().
+                    WithOrigins("http://localhost:4200");
                 });
             });
 
@@ -72,6 +75,8 @@ namespace LMS
             services.AddScoped<IEvaluationService, EvaluationService>();
             services.AddScoped<ICourseRefundsRepository,CourseRefundsRepository>();
             services.AddScoped<ICourseRefundsService,CourseRefundsService>();
+            services.AddSignalR();            // Add this service too
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             services.AddSwaggerGen(c =>
             {
@@ -122,11 +127,16 @@ namespace LMS
             app.UseRouting();
 
             app.UseAuthorization();
-
+      
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<ChatHub>("/chatsocke");     // path will look like this https://localhost:44379/chatsocket 
+
             });
+
+
+
         }
     }
 }

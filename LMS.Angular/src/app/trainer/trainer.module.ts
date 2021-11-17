@@ -16,6 +16,7 @@ import { StudentsComponent } from './students/students.component';
 import { AttendanceComponent } from './attendance/attendance.component';
 import { CreateLectureComponent } from './create-lecture/create-lecture.component';
 import { ExamQuestionsAnswersComponent } from './exam/exam-questions-answers/exam-questions-answers.component';
+import { ExamInfoComponent } from './exam/exam-info/exam-info.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ExamQuestionsAnswersComponent } from './exam/exam-questions-answers/exa
     AttendanceComponent,
     CreateLectureComponent,
     ExamQuestionsAnswersComponent,
+    ExamInfoComponent,
     
     ],
   imports: [

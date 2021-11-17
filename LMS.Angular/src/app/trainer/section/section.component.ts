@@ -14,6 +14,7 @@ import { AlertDialogComponent } from 'src/app/alert-dialog/alert-dialog.componen
 import { CourseService } from 'src/app/Service/course.service';
 import { CreateExamComponent } from '../exam/create-exam/create-exam.component';
 import { CreateLectureComponent } from '../create-lecture/create-lecture.component';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 
 @Component({
@@ -23,7 +24,8 @@ import { CreateLectureComponent } from '../create-lecture/create-lecture.compone
 })
 
 export class SectionComponent implements OnInit {
- 
+  myBase64!: SafeResourceUrl;
+
 @ViewChild(MatAccordion) accordion!: MatAccordion;
 // @Input () SectionId: string| undefined;
 // @Input () CourseId: string| undefined;
@@ -38,7 +40,7 @@ export class SectionComponent implements OnInit {
   
 
   constructor(public sectionService: SectionService, private unitService: UnitService, private dialog:MatDialog,private examservice: ExamServiceService,
-     private http: HttpClient) { }
+     private http: HttpClient, private examService:ExamServiceService, private sanitizer: DomSanitizer) { }
 
   panelOpenState = false;
 
@@ -67,6 +69,14 @@ export class SectionComponent implements OnInit {
       console.log(JSON.parse(text));
   });
   }
+
+
+  ViewUnit(sectionId:number){
+    this.unitService.getAllTrainerSectionUnit(sectionId);
+    }
+    ViewExam(sectionId:number) {
+      this.examService.GetExamBySection(sectionId);
+    }
 
   CreateExam(SectionId:any){
     this.dialog.open(CreateExamComponent, {data : SectionId});

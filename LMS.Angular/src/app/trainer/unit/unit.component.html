@@ -6,9 +6,10 @@
                       <table>
                           <thead>
                               <tr class="row100 head">
-                                  <th class="cell100 column5">unit ID</th>
-                                  <th class="cell100 column2">Section ID</th>
-                                  <th class="cell100 column1">File</th>                                  
+                                  <th class="cell100 column4">Title</th> 
+                                  <th class="cell100 column1">File</th>   
+                                                                   
+                               
                                   <th class="cell100 column5">  
                                  Edit unit
                                   </th>
@@ -23,9 +24,8 @@
                       <table>
                           <tbody *ngFor="let data of unitService.units">
                               <tr>
-                                  <td class="cell100 column5 fancy-link">{{data.id}}</td>
-                                  <td class="cell100 column2 fancy-link" >{{data.sectionId}}</td>
-                                  <td class="cell100 column1 fancy-link" (click)="OpenPdf(data.filePath)">{{data.filePath}}</td>
+                                  <td class="cell100 column2 fancy-link" >{{data.title}}</td>
+                                  <td class="cell100 column1 fancy-link" (click)="OpenPdf(data.filePath, data.fileType)">{{data.title}}</td>
                                   <td class="cell100 column5 fancy-link"><mat-icon class="pointer fancy-link" (click)="editUnit(data.unitId)">delete</mat-icon>
                                   </td>  
                                   <td class="cell100 column5 fancy-link">   <mat-icon class="pointer fancy-link" (click)="deleteUnit(data.unitId)">Book</mat-icon></td>   

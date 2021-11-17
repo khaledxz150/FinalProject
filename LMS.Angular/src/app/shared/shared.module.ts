@@ -53,6 +53,8 @@ import {TableModule} from 'primeng/table';
 import {MatNativeDateModule} from '@angular/material/core';
 import {InputSwitchModule} from 'primeng/inputswitch';
 
+
+
 FullCalendarModule.registerPlugins([
   interactionPlugin,
   dayGridPlugin
@@ -101,7 +103,7 @@ FullCalendarModule.registerPlugins([
     SharedRoutingModule,
     TableModule,
     MatNativeDateModule,
-    InputSwitchModule
+    InputSwitchModule,
     ],
   exports:[
     FullCalendarModule,
@@ -142,7 +144,8 @@ FullCalendarModule.registerPlugins([
     FooterComponent,
     TableModule,
     MatNativeDateModule,
-    InputSwitchModule
+    InputSwitchModule,
+    
   ]
 })
 export class SharedModule { }

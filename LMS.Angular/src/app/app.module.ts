@@ -25,6 +25,7 @@ const JWT_Module_Options:JwtModuleOptions={
   config:{}
 };
 import { PaypalComponent } from './paypal/paypal.component';
+import { ChatComponent } from './chat/chat.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { PaypalComponent } from './paypal/paypal.component';
     DeleteTrainerComponent,
     AlertDialogComponent,
     PaypalComponent,
+    ChatComponent,
     // DateFormatPipe,
     // FooterComponent,
     // NavbarComponent,
@@ -51,7 +53,8 @@ import { PaypalComponent } from './paypal/paypal.component';
     NgHttpLoaderModule.forRoot(),
     ToastrModule.forRoot(),
     CommonModule,
-    JwtModule.forRoot(JWT_Module_Options)
+    JwtModule.forRoot(JWT_Module_Options),
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

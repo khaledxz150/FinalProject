@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccountantModule } from './accountant/accountant.module';
 import { AdminModule } from './admin/admin.module';
 import { AuthenticationModule } from './authentication/authentication.module';
+import { ChatComponent } from './chat/chat.component';
 import { AuthorizationGuard } from './guard/authorization.guard';
 import { ContactusComponent } from './pages/contactus/contactus.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -47,6 +48,11 @@ const routes: Routes = [
     path:'accountant',
     loadChildren:()=>AccountantModule,
     canActivate: [AuthorizationGuard]
+  }
+  ,
+  {
+    path:'chat',
+    component:ChatComponent
   }
 ];
 

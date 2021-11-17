@@ -19,10 +19,9 @@
 
                       <!-- card start -->
 
-                      <div class="col-md-12 mt-3"  *ngFor="let course of sectionService.TrainerSection">
+                      <div class="col-md-12 mt-3"  *ngFor="let course of sectionService.TrainerSection; let i = index;">
                         
-
-                        <mat-accordion>
+                        <mat-accordion >
 
                           <div class="full-withradius border">
                             <img src="{{course.courseImage}}"  width="400" height="300" >
@@ -68,7 +67,7 @@
                             </mat-expansion-panel>
 
                             <mat-expansion-panel>
-                              <mat-expansion-panel-header>
+                              <mat-expansion-panel-header (click)="ViewExam(course.sectionId)">
                                 <mat-panel-title>
                                 Exam
                                 </mat-panel-title>
@@ -87,7 +86,7 @@
                             <!-- </ng-container> -->
 
                             <mat-expansion-panel>
-                              <mat-expansion-panel-header>
+                              <mat-expansion-panel-header (click)="ViewUnit(course.sectionId)">
                                 <mat-panel-title>
                                 Unit
                                 </mat-panel-title>
@@ -108,7 +107,6 @@
                           </mat-accordion>
                         </ng-container>
                            <!-- topic end -->
-                           <mat-icon  class="pointer fancy-link" (click)="CreateMeeting(course)">add_circle</mat-icon>
 
                           </mat-expansion-panel>
                           

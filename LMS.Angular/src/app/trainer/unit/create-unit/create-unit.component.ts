@@ -16,7 +16,8 @@ export class CreateUnitComponent implements OnInit {
 
   selectedFile: File|null=null;
   formGroup: FormGroup = new FormGroup({
-    FilePath: new FormControl('', [Validators.required])
+    FilePath: new FormControl('', [Validators.required]),
+    Title: new FormControl('', [Validators.required]),
   });
 
   Unit: Unit=new Unit();
@@ -35,7 +36,7 @@ debugger
   }
  
   
-  Uploadfile(event: any, ) {
+  Uploadfile(event: any ) {
     const reader = new FileReader();
 
     if (event.target.files && event.target.files.length) {
@@ -43,17 +44,19 @@ debugger
       reader.readAsDataURL(file);
 
       reader.onload = () => {
-        this.FileSrc = reader.result as string;    
+        this.FileSrc = reader.result as string;  
 
 
-        this.Unit={SectionId: this.data.sectionId
-          , FilePath: this.FileSrc , isActive: true, CreationDate: new Date(), CreatedBy:1}
-   
+        const type= event.target.files[0].name.substring(event.target.files[0].name.lastIndexOf('.'));
+      this.Unit={SectionId: this.data,FilePath: this.FileSrc , isActive: true, CreationDate: new Date(), CreatedBy:1,  Title:this.formGroup.controls['Title'].value,
+      FileType:type}
       };
+      
+      console.log(this.Unit);
+
     }
     
   }
-  
 }
 
 

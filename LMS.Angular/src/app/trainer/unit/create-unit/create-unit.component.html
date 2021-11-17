@@ -4,6 +4,17 @@
 
 
         <form [formGroup]="formGroup" >
+
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Title </mat-label>
+            <input type="email" matInput formControlName="Title">
+            <mat-error *ngIf="formGroup.controls.Title.hasError('required')">
+              Title is <strong>required</strong>
+          </mat-error>
+          </mat-form-field>
+
+
+
                 <div class="custom-file" STYLE="width: 100%;">
                     <label for="exampleFormControlFile1">Upload unit</label>
     <input type="file" class="form-control-file" id="exampleFormControlFile1"  formControlName="FilePath" (change)="Uploadfile($event)">

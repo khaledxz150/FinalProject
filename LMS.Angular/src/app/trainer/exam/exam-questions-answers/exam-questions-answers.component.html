@@ -4,15 +4,52 @@
 
   <div class="form" style="margin-top:50px">
     <form [formGroup]="formGroup">
-        
+
+      <div formGroupName="Question">
       <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Mark </mat-label>
-        <input type="email" matInput formControlName="Mark">
-        <mat-error *ngIf="formGroup.controls.Mark.hasError('required')">
+        <mat-label>Question </mat-label>
+        <input type="email" matInput formControlName="description">
+        <mat-error *ngIf="this.formGroup.get('description')?.hasError('required')">
           Mark is <strong>required</strong>
       </mat-error>
       </mat-form-field>
+      </div>
 
+      <div formGroupName="Answer">
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Mark </mat-label>
+        <input type="email" matInput formControlName="Answer1"  class="correct">
+        <mat-error *ngIf="this.formGroup.get('Answer1')?.hasError('required')">
+          Mark is <strong>required</strong>
+      </mat-error>
+      </mat-form-field>  
+      
+
+       <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Mark </mat-label>
+        <input type="email" matInput formControlName="Answer2" class="false">
+        <mat-error *ngIf="this.formGroup.get('Answer2')?.hasError('required')">
+          Mark is <strong>required</strong>
+      </mat-error>
+      </mat-form-field>  
+      
+      <mat-form-field class="example-full-width" appearance="fill" class="false">
+        <mat-label>Mark </mat-label>
+        <input type="email" matInput formControlName="Answer3">
+        <mat-error *ngIf="this.formGroup.get('Answer3')?.hasError('required')">
+          Mark is <strong>required</strong>
+      </mat-error>
+      </mat-form-field> 
+      
+      <mat-form-field class="example-full-width" appearance="fill" class="false">
+        <mat-label>Mark </mat-label>
+        <input type="email" matInput formControlName="Answer4">
+        <mat-error *ngIf="this.formGroup.get('Answer4')?.hasError('required')">
+          Mark is <strong>required</strong>
+      </mat-error>
+      </mat-form-field>
+</div>
     </form>
   </div>
 </mat-dialog-content>

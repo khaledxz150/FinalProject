@@ -23,13 +23,18 @@ export class UnitService {
      }
   section:any=[{}];
   units: any=[{}];
-sectionID:any = 0;
  
     getAllTrainerSectionUnit(SectionId:any){
-      this.sectionID=SectionId;
+      
       this.spinner.show();
-      this.http.post(environment.apiUrl + 'Section/ReturnSectionUnits/'+SectionId,SectionId).subscribe((res:any)=>{
-      this.units = res;
+      this.http.post(environment.apiUrl + 'Section/ReturnSectionUnits/'+SectionId,null).subscribe((res:any)=>{
+          if(res.length==0)
+           {
+             this.units =null;
+          } 
+           else{  
+              this.units = res;
+            }
       this.spinner.hide();
     },err=>{
       this.spinner.hide();
@@ -42,9 +47,7 @@ sectionID:any = 0;
   this.spinner.show();
       this.http.post(environment.apiUrl + 'Section/InsertUnit',unit).subscribe((res:any)=>{
       this.units = res;
-      debugger
       this.spinner.hide();
-  
     },err=>{
       this.spinner.hide();
       this.toastr.warning('Something wrong');

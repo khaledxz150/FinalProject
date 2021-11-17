@@ -51,7 +51,7 @@
                   <table>
                       <thead>
                           <tr class="row100 head">
-                              <th class="cell100 column1">Exam ID</th>
+                              <th class="cell100 column1">Exam Info</th>
                               <th class="cell100 column2">Section ID</th>
                               <th class="cell100 column4">Exam Date</th>
                               <th class="cell100 column4">Start Time</th>
@@ -64,6 +64,7 @@
                               <th class="cell100 column4">
                                   Delete Exam
                               </th>
+                            
                           </tr>
                       </thead>
                   </table>
@@ -72,7 +73,7 @@
                   <table>
                       <tbody *ngFor="let data of examService.exam">
                           <tr>
-                              <td class="cell100 column1 fancy-link">{{data.examId}}</td>
+                              <td class="cell100 column1 fancy-link pointer" (click)="viewExamInfo(data.examId)">Exam Questions</td>
                               <td class="cell100 column2 fancy-link">{{data.sectionId}}</td>
                               <td class="cell100 column3 fancy-link">{{data.examDate | date : 'shortDate'}}</td>
                               <td class="cell100 column5 fancy-link">{{data.startTime | date : 'shortTime'}}</td>
@@ -80,6 +81,7 @@
                               <td class="cell100 column3 fancy-link">{{data.mark}}</td>
                               <td class="cell100 column5 fancy-link">{{data.weight}}%</td>
                               <td class="cell100 column1 fancy-link">   <mat-icon class="pointer fancy-link" (click)="EditExam(data.examId)">library_books</mat-icon></td>   
+                           
                               <td class="cell100 column1 fancy-link">   <mat-icon class="pointer fancy-link" (click)="DeleteExam(data.examId)">Book</mat-icon></td>
                           </tr>
                       </tbody>

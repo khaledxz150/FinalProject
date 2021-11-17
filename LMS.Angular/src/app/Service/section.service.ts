@@ -32,12 +32,14 @@ export class SectionService {
     this.spinner.show();
    this.http.post(environment.apiUrl + 'Section/ReturnAllTrainerSections/'+TrainerId,TrainerId).subscribe((result:any)=>{
 this.TrainerSection = result;
+this.spinner.hide();
      this.TrainerSection.forEach((element) => {
       this.myBase64 = this.sanitizer.bypassSecurityTrustResourceUrl(
         `data:image/png;base64, ${element.courseImage}`
       );
      this.sanitizer.sanitize(SecurityContext.HTML,this.myBase64);
       element.courseImage = this.myBase64;
+     
      }) ;
 
   this.spinner.hide();
