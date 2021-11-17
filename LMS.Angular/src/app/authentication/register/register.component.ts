@@ -17,11 +17,15 @@ export class RegisterComponent implements OnInit {
   }
 
 
-   constructor(   public rout: Router,    public loginService:AuthenticationService) {​​​​​​ }​​​​​​
+   constructor(   public rout: Router,    public loginService:AuthenticationService) {​​​​​​
+  this.loginService.ReturnLogin()
+}​​​​​​
 
 
   SignUp(){
-   this.loginService.register()
+    this.loginService.checkUserName();
+
+  //  this.loginService.register()
 
   }
 
