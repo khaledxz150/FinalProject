@@ -46,7 +46,7 @@ export class TraineeNavComponent implements OnInit {
       this.router.navigate(['client','purchase'])
     }
     Profile(){
-      this.router.navigate(['client','purchase'])
+      this.router.navigate(['client','profile'])
     }
     Logout(){
       this.router.navigate(['pages',''])

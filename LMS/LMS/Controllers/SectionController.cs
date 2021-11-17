@@ -66,9 +66,9 @@ namespace LMS.Controllers
         /// Start
         [HttpPost]
         [Route("[action]")]
-        public bool AddTraineeSection(TraineeSection AddTraineeSection)
+        public bool InsertTraineeSection([FromBody]TraineeSection TraineeSection)
         {
-            return sectionService.AddTraineeSection(AddTraineeSection);
+            return sectionService.AddTraineeSection(TraineeSection);
         }
 
         [HttpPost]
@@ -196,7 +196,7 @@ namespace LMS.Controllers
 
         [HttpGet]
         [Route("[action]")]
-        public List<TraineeSectionTask> SelectTraineeSectionTaskId()
+        public List<Task> SelectTraineeSectionTaskId()
         {
             return sectionService.SelectTraineeSectionTaskId();
         }
@@ -214,6 +214,7 @@ namespace LMS.Controllers
 
 
 
-       
+
+
     }
 }

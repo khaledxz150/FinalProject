@@ -26,7 +26,7 @@ export class CourseService {
   summationRate:number=0;
   cartId:number=0;
   wishListId:number=0;
-  
+
 
   constructor(private http: HttpClient,private toastr:ToastrService) { }
 
@@ -395,8 +395,7 @@ export class CourseService {
              console.log(this.singleCourse)
            }
          }
-      })
-
+          })
      }
 
      GetCourseTopic(P_courseId:number|undefined){
@@ -427,7 +426,7 @@ export class CourseService {
        })
      }
      GetAvailableCartId(traineeId:number){
-      this.http.post('http://localhost:54921/api/Customer/ReturnCart?queryCode=0&trineeId='+traineeId,null)
+      this.http.post('http://localhost:54921/api/Customer/ReturnCart?queryCode=1&trineeId='+traineeId,null)
       .subscribe((res:any)=>{
         if(res.length>0){
           this.cartId=res[0].cartId

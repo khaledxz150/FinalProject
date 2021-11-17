@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MySectionService } from 'src/app/Service/my-section.service';
 
 @Component({
   selector: 'app-task-info',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskInfoComponent implements OnInit {
 
-  constructor() { }
+  constructor(public mySectionService:MySectionService) { }
 
   ngOnInit(): void {
+    
   }
 
 }

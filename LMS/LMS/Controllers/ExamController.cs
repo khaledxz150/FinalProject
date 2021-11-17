@@ -52,7 +52,7 @@ namespace LMS.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public bool AddTraineeSectionExam(TraineeSectionExam traineeSectionExam)
+        public bool AddTraineeSectionExam([FromBody]TraineeSectionExam traineeSectionExam)
         {
             return examService.AddTraineeSectionExam(traineeSectionExam);
         }

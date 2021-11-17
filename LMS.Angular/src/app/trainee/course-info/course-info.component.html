@@ -121,7 +121,8 @@
                            <ng-container >
                             <div
                             class="ava d-flex flex-wrap px-3 py-2 ng-star-inserted"
-                             *ngFor="let section of this.courseService.courseSection;let indexOfelement=index;">
+                             *ngFor="let section of this.courseService.courseSection;let indexOfelement=index;"
+                             (click)="GetSectionInfo(section.sectionId)">
                               <div class="section-date col-md-2">
                                 <div class="color-red font-medium">
                                   <mat-icon>calendar_today</mat-icon>
@@ -215,12 +216,7 @@
 
                               <div class="price-button pt-10">
 
-                                  <a href="#" class="main-btn">
-                                    Add To Cart
 
-                                    <mat-icon>add_box</mat-icon>
-
-                                  </a>
                               </div>
                           </div> <!-- course features -->
                       </div>

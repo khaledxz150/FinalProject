@@ -24,5 +24,12 @@ export class SectionInfoComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  InsertTraineeSection(sectionId:number){
+    const object:any={
+      traineeId: 2,
+      sectionId: sectionId,
+    }
+    this.sectionService.RegisterInSection(object)
+  }
 
 }

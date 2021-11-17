@@ -1,18 +1,19 @@
+<form [formGroup] = "formGroup">
 <div class="container">
 
   <div class="feedback">
 
     <div class="rating">
 
-      <input type="radio" name="rating" id="rating-5">
+      <input type="radio" name="rating" value="5" formControlName="star" id="rating-5">
       <label for="rating-5"></label>
-      <input type="radio" name="rating" id="rating-4">
+      <input type="radio" name="rating" value="4" formControlName="star" id="rating-4">
       <label for="rating-4"></label>
-      <input type="radio" name="rating" id="rating-3">
+      <input type="radio" name="rating" value="3" formControlName="star" id="rating-3">
       <label for="rating-3"></label>
-      <input type="radio" name="rating" id="rating-2">
+      <input type="radio" name="rating" value="2" formControlName="star" id="rating-2">
       <label for="rating-2"></label>
-      <input type="radio" name="rating" id="rating-1">
+      <input type="radio" name="rating" value="1" formControlName="star" id="rating-1">
       <label for="rating-1"></label>
 
       <div class="emoji-wrapper">
@@ -106,9 +107,10 @@
     </div>
   </div>
   <div class="row">
-   <input type="text" class="inpur offset-1 col-10 offset-1" >
-   <button style="margin-top: 19px;" class="btn main-btn offset-4 col-4 offset-4" type="submit">Save</button>
+   <input type="text" formControlName="note" class="inpur offset-1 col-10 offset-1" >
+   <button style="margin-top: 19px;" class="btn main-btn offset-4 col-4 offset-4"
+    type="submit" (click)="Rate()">Save</button>
 
   </div>
   </div>
-
+</form>

@@ -11,7 +11,6 @@ namespace LMS.Core.Services
 {
     public interface ISectionService
     {
-
         public StudentCountDTO ReturnStudentCount(int sectionId);
         //Section
 
@@ -65,7 +64,7 @@ namespace LMS.Core.Services
 
 
 
-        public List<TraineeSectionTask> SelectTraineeSectionTaskId();
+        public List<Task> SelectTraineeSectionTaskId();
 
         //ReturnTasksOfSection
         public List<Task> ReturnTasksOfSection(int sectionTrainerId);

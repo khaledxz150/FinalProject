@@ -16,7 +16,7 @@
                   <div class="voutcher-divider">
                       <div class="voutcher-left text-center">
                         <span class="voutcher-name">Date</span>
-                          <h5 class="voutcher-code">23/11/2021</h5>
+                          <h5 class="voutcher-code">{{this.mySectionService.taskInfo.date}}</h5>
                       </div>
                       <div class="voutcher-right text-center border-left">
                           <h5 class="discount-percent">
@@ -36,7 +36,7 @@
                   <div class="voutcher-divider">
                       <div class="voutcher-left text-center">
                         <span class="voutcher-name"> Daed Line</span>
-                          <h5 class="voutcher-code">25/11/2021</h5>
+                          <h5 class="voutcher-code">{{this.mySectionService.taskInfo.deadline}}</h5>
                       </div>
                       <div class="voutcher-right text-center border-left">
                           <h5 class="discount-percent">
@@ -83,7 +83,7 @@
                       </div>
                       <div class="voutcher-right text-center border-left">
                           <button class="discount-percent" style="color: white;">
-
+                              <a href="{{this.mySectionService.taskInfo.fileUrl}}" download></a>
                             <mat-icon>assignment_returned</mat-icon>
                           </button>
                       </div>
@@ -99,7 +99,7 @@
                 <div class="card voutchers">
                     <div class="voutcher-divider">
                         <div class="voutcher-left text-center"> <span class="voutcher-name">Mark</span>
-                            <h5 class="voutcher-code">20</h5>
+                            <h5 class="voutcher-code">{{this.mySectionService.taskInfo.mark}}</h5>
                         </div>
                         <div class="voutcher-right text-center border-left">
                             <h5 class="discount-percent">
@@ -118,7 +118,7 @@
                 <div class="card voutchers">
                     <div class="voutcher-divider">
                         <div class="voutcher-left text-center"> <span class="voutcher-name">Weight</span>
-                            <h5 class="voutcher-code">20</h5>
+                            <h5 class="voutcher-code">{{this.mySectionService.taskInfo.weight}}</h5>
                         </div>
                         <div class="voutcher-right text-center border-left">
                             <h5 class="discount-percent">
@@ -132,31 +132,35 @@
   </div>
 
       <div class="row">
-         <h6 class="text" style="display: inline;">Desctiption / Trainer Notes</h6>
+         <h6 class="text" style="display: inline;">{{this.mySectionService.taskInfo.note}}</h6>
       </div>
-
-      <div class="row">
-        <div class="col-9">
-          <input type="file" class="form-control" id="customFile" placeholder="Upload Your File Here" />
-        </div>
-       <div class="container mt-5">
-      <div class="row">
-
-          <div class="col-md-9 d-flex justify-content-center">
-             <textarea id="summary" onkeyup="validate()" class="form-control textarea" placeholder="Type Here Your Notes.."></textarea>
+      <form action="">
+        <div class="row">
+          <div class="col-9">
+            <input type="file" class="form-control" id="customFile" placeholder="Upload Your File Here" />
           </div>
-      </div>
-     </div>
-     </div>
+         <div class="container mt-5">
+        <div class="row">
 
-     <div class="row" style="margin-top: 20px;">
+            <div class="col-md-9 d-flex justify-content-center">
+               <textarea id="summary" onkeyup="validate()" class="form-control textarea" placeholder="Type Here Your Notes.."></textarea>
+            </div>
+        </div>
+       </div>
+       </div>
 
-        <button role="button" class="offset-7 col-2  btn-outline-danger">Save</button>
-     </div>
+       <div class="row" style="margin-top: 20px;">
+
+          <button role="button" class="offset-7 col-2  btn-outline-danger">Save</button>
+       </div>
+      </form>
+
      </div>
   </div>
 
-      <div class="col-lg-2 col-md-2" style="margin-top: 24px; margin-left: 46px; padding: 2px;">
+      <div class="col-lg-2 col-md-2" style="
+      display: none;
+      margin-top: 24px; margin-left: 46px; padding: 2px;">
         <div class="alert alert-gradient shadow" role="alert">
           <div class="row">
             <div class="col-10" style="text-align: center; margin-left: 20px;">
@@ -174,7 +178,7 @@
         </div>
 
 
- </div>
+      </div>
 
 </div>
 </div>

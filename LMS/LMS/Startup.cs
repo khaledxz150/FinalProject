@@ -49,7 +49,7 @@ namespace LMS
                     builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
                 });
             });
-
+            services.AddSignalR();
             services.AddControllers();
             services.AddScoped<IDbContext, DbContext>();
             services.AddScoped<IExamRepository, ExamRepository>();
@@ -120,12 +120,15 @@ namespace LMS
             app.UseCors("x");
 
             app.UseRouting();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+               
             });
         }
     }

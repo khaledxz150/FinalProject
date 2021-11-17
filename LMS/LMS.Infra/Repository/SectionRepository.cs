@@ -245,12 +245,6 @@ namespace LMS.Infra.Repository
 
 
 
-        public List<Task> ReturnAllTask()
-        {
-            IEnumerable<Task> result = dBContext.Connection.Query<Task>("ReturnAllTask", commandType: CommandType.StoredProcedure);
-            return result.ToList();
-
-        }
 
         public bool UpdateTask(Task task)
         {
@@ -276,10 +270,10 @@ namespace LMS.Infra.Repository
 
 
       
-        public List<TraineeSectionTask> SelectTraineeSectionTaskId()
+        public List<Task> SelectTraineeSectionTaskId()
         {
 
-            IEnumerable<TraineeSectionTask> result = dBContext.Connection.Query<TraineeSectionTask>("SelectTraineeSectionTaskId", commandType: CommandType.StoredProcedure);
+            IEnumerable<Task> result = dBContext.Connection.Query<Task>("SelectTraineeSectionTaskId", commandType: CommandType.StoredProcedure);
 
             return result.ToList();
         }

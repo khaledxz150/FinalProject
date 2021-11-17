@@ -57,13 +57,9 @@ namespace LMS.Core.Repository
 
         public bool AddTask(Task task);
         public bool UpdateTask(Task task);
-        public List<Task> ReturnAllTask();
 
 
-
-       
-
-        public List<TraineeSectionTask> SelectTraineeSectionTaskId();
+        public List<Task> SelectTraineeSectionTaskId();
 
 
 

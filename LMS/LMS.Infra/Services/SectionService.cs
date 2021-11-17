@@ -148,7 +148,7 @@ namespace LMS.Infra.Services
         }
 
 
-        public List<TraineeSectionTask> SelectTraineeSectionTaskId()
+        public List<Task> SelectTraineeSectionTaskId()
         {
             return sectionRepository.SelectTraineeSectionTaskId();
         }
@@ -167,5 +167,7 @@ namespace LMS.Infra.Services
         {
             return sectionRepository.GetAllSection();     
         }
+
+
     }
 }

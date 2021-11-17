@@ -1,7 +1,16 @@
-img{
-  width: 86%;
-  height: 7%;
-  margin-left: 50px;
+
+.course-image{
+  height:300px;
+  padding: 5px;
+  margin-top: 15px;
+  border: #455A64 2px solid;
+  border-radius: 15px;
+  margin-bottom: 12px;
+}
+.image{
+  text-align: center;
+  width:900px;
+  height: 250px;
 }
 .panerImage
 {
@@ -84,66 +93,102 @@ button:hover {
 /* Units Section Design */
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 
-
-
-nav {
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #f8f9fa;
-    width: 280px;
-    line-height: 40px;
-    padding: 8px 25px;
-    border-radius: 5px;
-    color: #1b1b1b;
-    border:#af1a2d solid 1px;
-}
-
-nav label {
-    color: #1b1b1b;
-    font-size: 15px;
-    font-weight: bold;
-    display: block;
-    cursor: pointer;
-    font-style: normal;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-
-.button span {
-    float: right;
-    line-height: 40px;
-    transition: 0.5s
-}
-
-.button span.rotate {
-    transform: rotate(-180deg)
-}
-.btn-danger {
-  font-family: Raleway-SemiBold;
-  font-size: 13px;
-  color: rgba(217, 83, 78, 0.75);
-  letter-spacing: 1px;
-  line-height: 15px;
-  border: 2px solid rgba(217, 83, 78, 0.75);
-  border-radius: 40px;
-  background: transparent;
-  transition: all 0.3s ease 0s;
-}
-nav ul {
-    position: absolute;
-    background: #f8f9fa;
-    list-style: none;
-    top: 66px;
-    left: 0;
-    width: 100%;
-    border-radius: 5px;
-    display: none;
-}
-
 [id^=btn]:checked+ul {
     display: block
 }
+summary{
+  border:black 1px solid;
+  padding:10px;
+  border-radius:10px;
+  width: 100%;
+  text-align: center;
+  margin-left: 2%;
+  background-color: #e9ecef;
+}
+
+ul{
+  list-style:none;
+
+}
+.downloadButton{
+  width: 70px;
+  margin-left: 50%;
+  background-color: #af1a2d;
+  color: #e9ecef;
+}
+.downloadButton:hover{
+  background-color: #e9ecef;
+  color: #af1a2d;
+  border: 1px #af1a2d solid;
+
+}
+.link-muted { color: #aaa; }
+.link-muted:hover { color: #1266f1; }
+button{
+  float: right;
+  display: inline;
+  margin-bottom: 50px;
+}
+h4 p{
+  display: inline;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.buttons {
+  display: inline;
+  text-align: center;
+}
+
+.btn-hover {
+  width: 200px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  margin: 20px;
+  height: 55px;
+  text-align:center;
+  border: none;
+  background-size: 300% 100%;
+
+  border-radius: 50px;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.btn-hover:hover {
+  background-position: 100% 0;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.btn-hover:focus {
+  outline: none;
+}
+.btn-hover.color-10 {
+      background-image: linear-gradient(to right, #b12f2f, #af1a2d, #af1a2d , #770521);
+  box-shadow: 0 4px 15px 0 rgba(190, 25, 69, 0.75);
+}
+
+li{
+  width: 100%;
+  background-color: #e9ecef;
+  border:black 1px solid;
+  padding:4px;
+  border-radius:10px;
+  margin-left: 1%;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
 
 .index-content .blue-button{
   width: 100px;

@@ -11,6 +11,9 @@ namespace LMS.Core.Services
 {
     public interface ICustomerService
     {
+
+        public SectionCountDTO ReturnSectionCount(int traineeId, int courseId);
+
         //Cart
 
         public List<Cart> ReturnCart(int queryCode, int trineeId);

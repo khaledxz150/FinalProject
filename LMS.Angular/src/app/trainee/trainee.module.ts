@@ -8,7 +8,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { MyLeaningComponent } from './my-leaning/my-leaning.component';
 import { SectionInfoComponent } from './section-info/section-info.component';
 import { MySectionsComponent } from './my-sections/my-sections.component';
-import { CommentsComponent } from './comments/comments.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
 import { CertificationComponent } from './certification/certification.component';
 import { ExamInfoComponent } from './exam-info/exam-info.component';
@@ -19,6 +18,7 @@ import { RatesComponent } from './rates/rates.component';
 import { TaskInfoComponent } from './task-info/task-info.component';
 import { VideosComponent } from './videos/videos.component';
 import { InsertRefundComponent } from './purchase/insert-refund/insert-refund.component';
+import { CourseInfoComponent } from './course-info/course-info.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,6 @@ import { InsertRefundComponent } from './purchase/insert-refund/insert-refund.co
     MyLeaningComponent,
     SectionInfoComponent,
     MySectionsComponent,
-    CommentsComponent,
     AddCommentComponent,
     CertificationComponent,
     ExamInfoComponent,
@@ -38,6 +37,7 @@ import { InsertRefundComponent } from './purchase/insert-refund/insert-refund.co
     TaskInfoComponent,
     VideosComponent,
     InsertRefundComponent,
+    CourseInfoComponent,
   ],
   imports: [
     CommonModule,

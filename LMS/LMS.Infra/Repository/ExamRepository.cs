@@ -75,7 +75,6 @@ namespace LMS.Infra.Repository
             parm.Add("@P_ExamId", traineeSectionExam.ExamId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parm.Add("@P_Mark", traineeSectionExam.Mark, dbType: DbType.Decimal, direction: ParameterDirection.Input);
             parm.Add("@P_TraineeId", traineeSectionExam.TraineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parm.Add("@CreatedBy", traineeSectionExam.CreatedBy, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             var result = dBContext.Connection.ExecuteAsync("InsertTraineeSectionExam", parm, commandType: CommandType.StoredProcedure);
             return true;
