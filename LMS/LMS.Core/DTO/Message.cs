@@ -7,15 +7,10 @@ using System.Threading.Tasks;
 namespace LMS.Core.Data
 {
    public class Message
-    {
-
-        public int User { get; set; }
+    {  
+        public int userId { get; set; }
+        public string traineeName { get; set; }
         public string message { get; set; }
-
-
-
-
-
-
+        public DateTime date { get; set; }
     }
 }

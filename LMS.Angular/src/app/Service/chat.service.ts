@@ -1,20 +1,24 @@
 import { Injectable, OnInit } from '@angular/core';
 import * as signalR from '@microsoft/signalr';          // import signalR
 import { HttpClient } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
 import { Message } from '../models/Message';
-import { HttpClientModule } from '@angular/common/http';
+
+import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
+import { environment } from 'src/environments/environment';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChatService {
  connection:signalR.HubConnection | undefined;
-  data: Message | undefined;
+  data: Message [] = [];
+ public hubConnection: signalR.HubConnection | undefined;
 
- public hubConnection: signalR.HubConnection | undefined
-
- 
+ constructor(private http: HttpClient,private toastr:ToastrService, private spinner: NgxSpinnerService,private router:Router,
+  private sanitizer: DomSanitizer) { }
 
    startConnection() {
      this.hubConnection = 
@@ -31,9 +35,18 @@ export class ChatService {
    }
  
    addDataListener()  {
-     this.hubConnection!.on('ReceiveOne', (data,data2) => {
-       debugger
-       console.log(data, data2);
+     this.hubConnection!.on('ReceiveOne', (message: Message) => {
+      this.data.push(message);
      });
+   }
+
+   SendMessage(msg: Message) {
+    this.http.post(environment.apiUrl + 'chat/send',msg).subscribe((res:any)=>{
+    },err=>{
+      // this.spinner.hide();
+      // this.toastr.warning('Something wrong');
+    })
+
+
    }
  }

@@ -1,4 +1,5 @@
 import { Component, NgZone, OnInit } from '@angular/core';
+import { Message } from 'src/app/models/Message';
 import { ChatService } from 'src/app/Service/chat.service';
 
 @Component({
@@ -8,14 +9,34 @@ import { ChatService } from 'src/app/Service/chat.service';
 })
 export class ChatComponent implements OnInit {
 
-  constructor(private chatService: ChatService) {}
-
+  constructor(public chatService: ChatService) {}
+  msgDto:any;
+  Userid =2;
   ngOnInit(): void {
     this.chatService.startConnection();
     this.chatService.addDataListener();
   }
   sendMessage(){
-    this.chatService.hubConnection!.invoke("SendRequest", [1, "p1"]);
+
+  }
+  
+  send(){
+    const currentElememnt = document.getElementById("inputbox");
+   const message :Message= {
+     userId: 2,
+     message: this.msgDto,
+     traineeName: "Khaled",
+     date: new Date()
+   }
+
+   this.chatService.SendMessage(message);
+    
+
+
+
+
+
+
   }
 }
 

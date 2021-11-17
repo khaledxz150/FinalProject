@@ -1,9 +1,8 @@
 export class Message {
-    user:number|undefined;
+    userId:number|undefined;
     message: String | undefined;
-    
-
-    
+    traineeName: String | undefined;
+    date:Date|undefined;
 
 }
 

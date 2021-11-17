@@ -31,12 +31,12 @@ h2 {
     color: #fdffff;
 }
 .ud-body {
-    position: fixed;
+    position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    margin: 9vh 10% 2vh;
+    margin: 20% 10% 2vh;
     padding: 0 10% 0;
 }
 .ud-body .msg-box {

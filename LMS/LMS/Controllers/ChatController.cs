@@ -21,10 +21,10 @@ namespace LMS.Controllers
         }
 
         [Route("send")]                                           //path looks like this: https://localhost:44379/api/chat/send
-        [HttpPost]
+        [HttpPost]  
         public IActionResult SendRequest([FromBody] Message msg)
         {
-            _hubContext.Clients.All.SendAsync("ReceiveOne", msg.User, msg.message);
+            _hubContext.Clients.All.SendAsync("ReceiveOne", msg);
             return Ok();
         }
     }
