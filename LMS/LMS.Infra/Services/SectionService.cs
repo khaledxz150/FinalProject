@@ -20,7 +20,7 @@ namespace LMS.Infra.Services
             this.sectionRepository = sectionRepository;
         }
 
-        //// Section 
+        //// Section
         ///Start
                 //Status
 
@@ -40,7 +40,7 @@ namespace LMS.Infra.Services
             return sectionRepository.DeleteSection(SectionId);
         }
 
-       
+
 
        //// Section
        ///End
@@ -74,7 +74,7 @@ namespace LMS.Infra.Services
         ///End
         ///
 
-        //Trainee Section Task 
+        //Trainee Section Task
         public bool InsertTraineeTask(TraineeSectionTask traineeSectionTask)
         {
             return sectionRepository.InsertTraineeTask(traineeSectionTask);
@@ -87,7 +87,7 @@ namespace LMS.Infra.Services
         {
             return sectionRepository.DeleteTraineeSectionTask(traineeSectionTaskId);
         }
-        //Unit 
+        //Unit
         public bool InsertUnit(Unit unit)
         {
             return sectionRepository.InsertUnit(unit);
@@ -97,12 +97,12 @@ namespace LMS.Infra.Services
             return sectionRepository.DeleteUnit(unitId);
         }
 
-        public List<Unit> ReturnSectionUnits(int sectionId) { 
+        public List<Unit> ReturnSectionUnits(int sectionId) {
             return sectionRepository.ReturnSectionUnits(sectionId);
-         
+
         }
 
-       
+
 
 
         public List<TrainerSectionDTO> ReturnAllTrainerSections(int trainerId)
@@ -145,7 +145,7 @@ namespace LMS.Infra.Services
         }
 
 
-        public List<TraineeSectionTask> SelectTraineeSectionTaskId()
+        public List<Task> SelectTraineeSectionTaskId()
         {
             return sectionRepository.SelectTraineeSectionTaskId();
         }
@@ -162,12 +162,9 @@ namespace LMS.Infra.Services
 
         public List<Section> GetAllSection()
         {
-            return sectionRepository.GetAllSection();     
+            return sectionRepository.GetAllSection();
         }
 
-        public List<TraineeSectionDTO> ReturnTraineeSection(int trainerId)
-        {
-            return sectionRepository.ReturnTraineeSection(trainerId);
-        }
+
     }
 }

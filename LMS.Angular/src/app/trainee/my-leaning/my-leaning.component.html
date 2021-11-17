@@ -93,6 +93,36 @@
                             </ng-template>
                             <ng-container >
 
+                              <div class="course-card" *ngFor="let course of this.learningService.myNewestCourses"
+                              (click)="DisplayCourseInfo(course.courseID)"
+                              >
+                                <div class="card">
+                              <div class="row no-gutters">
+                              <div class="col-md-4">
+                               <img [src]="course.image" class="img" alt="">
+                              </div>
+                              <div class="col-md-5 border-right">
+                               <div class="card-body">
+                                 <h5 class="card-title">{{course.courseName}}</h5>
+                                 <br>
+                                 <h6 style=""> Book Your Seat Now </h6>
+                                 <h6> And Start Your Learning Journiy</h6>
+
+                                 <h6></h6>
+                                 <br>
+                                 <br>
+
+                               </div>
+                              </div>
+                                 <div class="col-md-3" style="margin-top: 15px; padding-left:4px;">
+                                  <ngx-progress-circle style="color: #af1a2c;" [value]="0" >
+                                  </ngx-progress-circle>
+
+                                  <span class="Spantext">0</span>
+                                 </div>
+                              </div>
+                              </div>
+                              </div>
                             </ng-container>
                           </mat-tab>
 
@@ -104,7 +134,7 @@
 
                             <ng-container >
 
-                              <div class="course-card" *ngFor="let course of this.learningService.myLiveSections">
+                              <div class="course-card" (click)="MovingToLiveCourses()" *ngFor="let course of this.learningService.myLiveSections">
                                 <div class="card">
                               <div class="row no-gutters">
                               <div class="col-md-4">
@@ -148,7 +178,7 @@
                             </ng-template>
 
                             <ng-container >
-                              <div class="course-card" *ngFor="let course of this.learningService.myOnlineCourses">
+                              <div class="course-card" (click)="MoveToRecordingCourses()" *ngFor="let course of this.learningService.myOnlineCourses">
                                 <div class="card">
                               <div class="row no-gutters">
                               <div class="col-md-4">
@@ -200,7 +230,7 @@
                   <div class="row align-items-center mb-2 d-flex">
                       <div class="col-8">
                           <h2 class="d-flex align-items-center mb-0">
-                              {{this.learningService.myEnrollment.length-this.learningService.myLiveSections.length-this.learningService.myOnlineCourses.length}}
+                              {{this.learningService.myNewestCourses.length}}
                           </h2>
                       </div>
                   </div>

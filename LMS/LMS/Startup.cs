@@ -52,7 +52,7 @@ namespace LMS
                     WithOrigins("http://localhost:4200");
                 });
             });
-
+            services.AddSignalR();
             services.AddControllers();
             services.AddScoped<IDbContext, DbContext>();
             services.AddScoped<IExamRepository, ExamRepository>();
@@ -125,13 +125,15 @@ namespace LMS
             app.UseCors("x");
 
             app.UseRouting();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
 
             app.UseAuthorization();
-      
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHub<ChatHub>("/chatsocke");     // path will look like this https://localhost:44379/chatsocket 
+                endpoints.MapHub<ChatHub>("/chatsocke");     // path will look like this https://localhost:44379/chatsocket
 
             });
 

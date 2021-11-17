@@ -87,7 +87,7 @@ getSectionsById(courseId:number){
       console.log( "test",this.section)
       this.toastr.success('Data Retrived !!!');
 
-
+///jjk
     },err=>{
       // this.spinner.hide();
       // this.toastr.warning('Something wrong');

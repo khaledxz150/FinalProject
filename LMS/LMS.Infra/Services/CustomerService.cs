@@ -40,6 +40,11 @@ namespace LMS.Infra.Services
             return customerRepository.DeleteCartItem(cartId);
         }
 
+        public SectionCountDTO ReturnSectionCount(int traineeId, int courseId)
+        {
+            return customerRepository.ReturnSectionCount(traineeId, courseId);
+        }
+
         public bool InsertCheckout(Checkout checkout)
         {
             return customerRepository.InsertCheckout(checkout);

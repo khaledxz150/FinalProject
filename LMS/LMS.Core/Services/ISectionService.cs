@@ -11,6 +11,7 @@ namespace LMS.Core.Services
 {
     public interface ISectionService
     {
+        public StudentCountDTO ReturnStudentCount(int sectionId);
         //Section
 
         public Task<bool> AddSection(Section section, int trainerId);
@@ -23,18 +24,18 @@ namespace LMS.Core.Services
         //Trainee Section
         public bool AddTraineeSection(TraineeSection traineeSection);
         public bool DeleteTraineeSection(int traineeSectionId);
-      
+
         public bool UpdateTraineeSection(TraineeSection traineeSection);
         public List<TraineeSectionDTO> ReturnTraineeSection(int trainerId);
 
 
-        //Trainee Section Task 
+        //Trainee Section Task
         public bool InsertTraineeTask(TraineeSectionTask traineeSectionTask);
         public bool UpdateTraineeTask(TraineeSectionTask traineeSectionTask);
         public bool DeleteTraineeSectionTask(int traineeSectionTaskId);
 
-      
-        //Unit 
+
+        //Unit
         public bool InsertUnit(Unit unit);
         public bool DeleteUnit(int unitId);
 
@@ -60,12 +61,12 @@ namespace LMS.Core.Services
         public List<Unit> ReturnUnitBySectionId(int sectionId);
 
         public bool AddTask(Task task);
-        
+
         public bool UpdateTask(Task task);
 
 
 
-        public List<TraineeSectionTask> SelectTraineeSectionTaskId();
+        public List<Task> SelectTraineeSectionTaskId();
 
         //ReturnTasksOfSection
         public List<Task> ReturnTasksOfSection(int sectionTrainerId);

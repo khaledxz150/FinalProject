@@ -13,24 +13,33 @@ export class LearningService {
   GetAllEnrollmentCourses(traineeId:number|undefined){
     this.http.post('http://localhost:54921/api/Customer/ReturnEnrollmentCourses/'+traineeId,null).subscribe((res:any)=>{
       this.myEnrollment=res;
+      console.log(res);
+      this.GetNewsetCoursesAndOnline(res)
     })
   }
 
-  GetAllLiveCourses(traineeId:number|undefined){
-    this.myNewestCourses=this.myEnrollment
-    this.http.post('http://localhost:54921/api/Customer/ReturnLiveCourses/'+traineeId,null).subscribe((res:any)=>{
-      this.myLiveSections=res;
-    })
-  }
-  GetOnlineCourses(){
+  GetNewsetCoursesAndOnline(array:any){
+    this.myLiveSections=[];
+    this.myNewestCourses=[];
+    this.myOnlineCourses=[];
+    for(let course of array){
+      console.log(course)
 
-    for(let course of this.myEnrollment){
-      if(course.typeName=="Online"){
-        this.myOnlineCourses.push(course)
+     this.http.post('http://localhost:54921/api/Customer/ReturnSectionCount?traineeId='+2+'&courseId='+course.courseID,null).subscribe((res:any)=>{
+        if(res.sectionCount==0&&course.typeName!="Online"){
+          console.log("New Course Need To Book Seat In Section")
+          this.myNewestCourses.push(course)
+          console.log(this.myNewestCourses)
 
-        this.myNewestCourses.splice(this.myNewestCourses.indexOf(course),1);
+        }else if(course.typeName=="Online"){
+          this.myOnlineCourses.push(course)
 
-      }
-    }
+        }else{
+          this.myLiveSections.push(course)
+        }
+
+
+      })
+   }
   }
 }

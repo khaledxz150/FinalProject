@@ -38,6 +38,8 @@ namespace LMS.Core.Repository
 
         public List<MySectionsDTO> ReturnSection(int traineeId);
 
+        //GetSectionCount
+        public SectionCountDTO ReturnSectionCount(int traineeId,int courseId);
 
 
         //WishList

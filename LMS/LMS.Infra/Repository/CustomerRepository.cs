@@ -75,7 +75,15 @@ namespace LMS.Infra.Repository
             return true;
         }
 
+        public SectionCountDTO ReturnSectionCount(int traineeId, int courseId)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@TraineeId",traineeId , dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parameters.Add("@CourseId",courseId , dbType: DbType.Int32, direction: ParameterDirection.Input);
+            SectionCountDTO result = dBContext.Connection.QuerySingle<SectionCountDTO>("ReturnMyNewestCourse",parameters, commandType: CommandType.StoredProcedure);
+            return result;
 
+        }
 
         public List<Checkout> ReturnCheckout()
         {

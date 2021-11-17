@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CertificationComponent } from './certification/certification.component';
+import { CourseInfoComponent } from './course-info/course-info.component';
 import { ExamInfoComponent } from './exam-info/exam-info.component';
 import { MyLeaningComponent } from './my-leaning/my-leaning.component';
 import { MySectionsComponent } from './my-sections/my-sections.component';
@@ -29,6 +30,10 @@ const routes: Routes = [
   },{
     path:'questions',
     component:QuestionsComponent
+  }
+  ,{
+    path:'courseInfo/:id',
+    component:CourseInfoComponent
   }
   ,{
     path:'purchase',

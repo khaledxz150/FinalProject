@@ -14,6 +14,8 @@ export class PurchesService {
   purchesAmount:number=0;
   constructor(private http: HttpClient,private toastr:ToastrService) {}
   GetMyPurshes(){
+    this.myPurshes=[];
+     console.log("resa")
     this.http.get('http://localhost:54921/api/Customer/ReturnSoldCourses').subscribe((res:any)=>{
       for(let record of res){
         if(record.traineeId==2){

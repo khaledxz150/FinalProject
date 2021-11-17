@@ -93,6 +93,13 @@ namespace LMS.Controllers
         {
             return customerService.ReturnEnrollmentCourses(traineeId);
         }
+
+        [HttpPost]
+        [Route("[action]")]
+        public SectionCountDTO ReturnSectionCount([FromQuery]int traineeId, [FromQuery] int courseId)
+        {
+            return customerService.ReturnSectionCount(traineeId, courseId);
+        }
         [HttpPost]
         [Route("[action]/{traineeId}")]
         public List<MySectionsDTO> ReturnSection(int traineeId)

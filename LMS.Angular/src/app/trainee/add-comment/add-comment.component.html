@@ -6,23 +6,27 @@
         <div class="card">
           <div class="card-body p-4">
             <div class="d-flex flex-start w-100">
-
+           <form action="" [formGroup] = "formGroup">
               <div class="w-100">
                 <h5>Add a comment</h5>
                 <div class="form-outline">
-                  <textarea class="form-control" id="textAreaExample" rows="4"></textarea>
+                  <input style="width: 100%; height: auto; border: 1px black solid; border-radius:13px;" class="form-control" id="textAreaExample"
+                  matInput   formControlName="comment"
+                  rows="4" cols="100"/>
                   <label class="form-label" for="textAreaExample"
                     >What is your view?</label
                   >
                 </div>
                 <div class="d-flex justify-content-between mt-3">
 
-                  <button type="button" class="btn btn-danger">
+                  <button type="button" class="btn btn-danger" (click)="Close()">
                     Cancel <i class="fas fa-long-arrow-alt-right ms-1"></i>
                   </button>
-                                    <button type="button" class="btn btn-success">Post Comment </button>
+                 <button type="button" class="btn btn-success"
+                 (click)="PostComment()">Post Comment </button>
                 </div>
               </div>
+          </form>
             </div>
           </div>
         </div>

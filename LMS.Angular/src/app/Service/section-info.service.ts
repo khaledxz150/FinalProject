@@ -25,5 +25,14 @@ export class SectionInfoService {
       }
     }
   }
+  RegisterInSection(traineeSection:any){
+    this.http.post('http://localhost:54921/api/Section/InsertTraineeSection',traineeSection).subscribe((res)=>{
+      if(res){
+        this.toastr.success('Added Successfly')
+      }else{
+        this.toastr.error('Failed Operation')
+      }
+    })
+  }
 
 }
