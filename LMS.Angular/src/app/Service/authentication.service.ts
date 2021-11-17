@@ -92,7 +92,7 @@ formGroup: FormGroup = new FormGroup({
   email: new FormControl('', [Validators.required,Validators.email]),
   imageName: new FormControl(''),
   nationality : new FormControl('', [Validators.required]),
-  phoneNumber: new FormControl('', [Validators.required]),
+  phoneNumber: new FormControl('', [Validators.required,Validators.pattern("^[0-9]*$")]),
   password: new FormControl('', [Validators.required,Validators.minLength(8)]),
 
 });
