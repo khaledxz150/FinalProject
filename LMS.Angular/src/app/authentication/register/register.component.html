@@ -66,7 +66,13 @@
 
               <mat-form-field  appearance="fill">
                 <mat-label>Nationality</mat-label>
-                <input type="text"  matInput formControlName="nationality" >
+                <mat-select formControlName="nationality">
+                    <mat-option *ngFor="let country of myData" [value]="country.text">
+
+                      {{country.text}}
+                    </mat-option>
+                </mat-select>
+                <!-- <input type="text"  matInput formControlName="nationality" > -->
 
                 <mat-error *ngIf="loginService.formGroup.controls.nationality.hasError('required')">
                   Nationality is <strong>required</strong>
@@ -75,7 +81,10 @@
 
               <mat-form-field  appearance="fill">
                 <mat-label>PhoneNumber</mat-label>
-                <input type="text"  matInput formControlName="phoneNumber" (input)="inputValidator($event)">
+                <input type="text"  matInput formControlName="phoneNumber">
+                <mat-error *ngIf="loginService.formGroup.controls.phoneNumber.hasError('pattern') && !loginService.formGroup.controls.phoneNumber.hasError('required')">
+                  Enter Just Numbers
+                 </mat-error>
                 <mat-error *ngIf="loginService.formGroup.controls.phoneNumber.hasError('required')">
                   PhoneNumber is <strong>required</strong>
                 </mat-error>

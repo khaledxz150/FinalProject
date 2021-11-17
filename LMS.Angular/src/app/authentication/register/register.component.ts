@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/Service/authentication.service';
@@ -9,15 +10,25 @@ import { AuthenticationService } from 'src/app/Service/authentication.service';
 })
 export class RegisterComponent implements OnInit {
 
+  myData: any;
 
   hide = true;
 
   ngOnInit(): void {
 
+    this.http.get('https://trial.mobiscroll.com/content/countries.json').subscribe((resp: any) => {
+      const countries = [];
+      for (let i = 0; i < resp.length; ++i) {
+          const country = resp[i];
+          countries.push({ text: country.text, value: country.value });
+      }
+      this.myData = countries;
+  });
+
   }
 
 
-   constructor(   public rout: Router,    public loginService:AuthenticationService) {​​​​​​
+   constructor(   public rout: Router,    public loginService:AuthenticationService, private http: HttpClient) {​​​​​​
   this.loginService.ReturnLogin()
 }​​​​​​
 
@@ -40,4 +51,7 @@ export class RegisterComponent implements OnInit {
 
     }
   }
+
+
+
 }
