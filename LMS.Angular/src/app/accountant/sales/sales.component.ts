@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CourseService } from 'src/app/Service/course.service';
-import { faArrowUp, faShoppingCart, faUsers, faTicketAlt, faDollarSign, faTimes, faSearch} from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp, faShoppingCart, faUsers, faTicketAlt, faDollarSign, faTimes, faSearch, faFileExcel} from '@fortawesome/free-solid-svg-icons';
 import { AlertDialogComponent } from 'src/app/alert-dialog/alert-dialog.component';
 import { FormControl, FormGroup } from '@angular/forms';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-sales',
@@ -19,6 +20,7 @@ export class SalesComponent implements OnInit {
   faDollarSign = faDollarSign
   faTimes = faTimes
   faSearch = faSearch
+  faFileExcel = faFileExcel
 
 
   availableYears:any[]=[{}]
@@ -88,6 +90,17 @@ export class SalesComponent implements OnInit {
 
   clear(){
     this.courseService.soldCourse = this.courseService.annualSoldCourses;
+  }
+
+  @ViewChild('TABLE', { static: false }) TABLE: ElementRef | undefined;
+  title = 'Excel';
+  ExportTOExcel() {
+    if(this.TABLE){
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(this.TABLE.nativeElement);
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    XLSX.writeFile(wb, 'Sales.xlsx');
+    }
   }
 
 }

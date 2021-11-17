@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from 'src/environments/environment';
 import { Coupon, Course, SoldCourse } from '../models/course';
@@ -26,35 +27,28 @@ export class CourseService {
   cartId:number=0;
   wishListId:number=0;
 
-  constructor(private http: HttpClient,private toastr:ToastrService) { }
+  constructor(private http: HttpClient,private toastr:ToastrService, private spinner:NgxSpinnerService) { }
 
 //get course
 
   getCourses(){
 
 
-    // const contactUs : ContactUs = this.contactUsForm.value;
 
     // debugger;
-    //  this.spinner.show();
+    this.spinner.show();
 
      this.http.post(environment.apiUrl + 'Course/ReturnAllCourses/1',1).subscribe((res:any)=>{
-      // debugger
-      // this.spinner.hide();
-      // this.toastr.success('Send Message successfully, Thank You :)');
       debugger
       console.log(res)
       this.courses = res;
       this.countOfCourses = res.length;
-      // this.cor  = res;
-      // window.location.reload();
-      // console.log( "test",this.courses)
-      // this.toastr.success('Data Retrived !!!');
+      this.spinner.hide();
 
 
     },err=>{
-      // this.spinner.hide();
-      // this.toastr.warning('Something wrong');
+      this.spinner.hide();
+      this.toastr.warning('Something wrong');
     })
     debugger;
 
@@ -70,17 +64,19 @@ export class CourseService {
     // const contactUs : ContactUs = this.contactUsForm.value;
 
     // debugger;
-    //  this.spinner.show();
+     this.spinner.show();
 
     this.http.put(environment.apiUrl + 'Course/DeleteCourse/'+courseId,courseId).subscribe((res:any)=>{
       // debugger
-      // this.spinner.hide();
       // this.toastr.success('Send Message successfully, Thank You :)');
       debugger
       console.log(res)
       this.courses = res;
+
       // console.log( "test",this.courses)
       window.location.reload();
+      this.spinner.hide();
+
       this.toastr.success('Course Deleted successfully !!!');
 
     },err=>{
@@ -94,15 +90,16 @@ export class CourseService {
 
   createCourse(course:any){
     debugger
+    this.spinner.show();
     this.http.post(environment.apiUrl + 'Course/InsertCourse/',course).subscribe((res:any)=>{
       debugger
-      // this.spiner.hide();
+      this.spinner.hide();
       this.toastr.success('Course Created successfully !!!');
 
       window.location.reload()
 
     },err=>{
-      // this.spiner.hide();
+      this.spinner.hide();
       this.toastr.error('Something Wrong, Try Again!');
     })
   }
@@ -113,17 +110,18 @@ export class CourseService {
   updateCourse(course:any){
 
      debugger;
-    //  this.spinner.show();
+     this.spinner.show();
 
     this.http.put(environment.apiUrl + 'Course/UpdateCourse',course).subscribe((res:any)=>{
       debugger
-      // this.spinner.hide();
-
-      this.toastr.success('Course Updated successfully !!!');
       window.location.reload();
 
+      this.spinner.hide();
+
+      this.toastr.success('Course Updated successfully !!!');
+
     },err=>{
-      // this.spinner.hide();
+      this.spinner.hide();
       this.toastr.error('Something Wrong, Try Again!');
     })
     debugger;
@@ -190,8 +188,17 @@ export class CourseService {
 
     deleteTopic(topicId:number){
 
+      this.spinner.show()
       this.http.put(environment.apiUrl + 'Course/DeleteTopic/'+topicId,topicId).subscribe((res:any)=>{
-      })
+
+        this.spinner.hide();
+
+        this.toastr.error('Topic deleted Successfully !');
+
+      },err=>{
+      this.spinner.hide();
+      this.toastr.error('Something Wrong, Try Again!');
+    })
 
     }
 
@@ -199,14 +206,18 @@ export class CourseService {
 
 
     debugger
+    this.spinner.show()
+
       this.http.post(environment.apiUrl + 'Course/InsertTopic/',topic).subscribe((res:any)=>{
 
 
         window.location.reload()
+        this.spinner.hide()
+
         this.toastr.success('Topic Created successfully !!!');
 
       },err=>{
-        // this.spiner.hide();
+        this.spinner.hide();
         this.toastr.error('Something Wrong, Try Again!');
       })
 
@@ -216,12 +227,19 @@ export class CourseService {
     updateTopic(topic:any){
 
       debugger
+      this.spinner.show();
             this.http.put(environment.apiUrl + 'Course/UpdateTopic/',topic).subscribe((res:any)=>{
 
+
+              this.spinner.hide();
 
               this.toastr.success('Topic updated successfully !!!');
 
               window.location.reload()
+            },err=>{
+              this.spinner.hide()
+              this.toastr.warning('something Wrong   !!!');
+
             })
 
             debugger
@@ -255,7 +273,7 @@ export class CourseService {
 
        },err=>{
          // this.spiner.hide();
-         this.toastr.error('Something Wrong, Try Again!');
+         this.toastr.warning('Something Wrong, Try Again!');
        })
 
        debugger
@@ -266,15 +284,18 @@ export class CourseService {
 
 
          debugger
+
+         this.spinner.show()
          this.http.put(environment.apiUrl + 'Course/ChangeCouponStatus/'+couponId,couponId).subscribe((res:any)=>{
 
 
            window.location.reload()
+           this.spinner.hide()
            this.toastr.success('Coupon Updated successfully !!!');
 
          },err=>{
-           // this.spiner.hide();
-           this.toastr.error('Something Wrong, Try Again!');
+           this.spinner.hide();
+           this.toastr.warning('Something Wrong, Try Again!');
          })
 
          debugger
@@ -284,14 +305,16 @@ export class CourseService {
 
 
          debugger
+         this.spinner.show()
          this.http.put(environment.apiUrl + 'Course/UpdateCoupon/',updatedCoupon).subscribe((res:any)=>{
 
 
            window.location.reload()
+           this.spinner.hide()
            this.toastr.success('Coupon Updated successfully !!!');
 
          },err=>{
-           // this.spiner.hide();
+          this.spinner.hide()
            this.toastr.error('Something Wrong, Try Again!');
          })
 
