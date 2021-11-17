@@ -1,9 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { faArrowUp, faShoppingCart, faUsers, faTicketAlt, faDollarSign, faBook, faSearch, faFileExcel} from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp, faShoppingCart, faUsers, faTicketAlt, faDollarSign, faBook, faSearch, faFileExcel, faFilePdf} from '@fortawesome/free-solid-svg-icons';
 import { CourseService } from 'src/app/Service/course.service';
 import * as XLSX from 'xlsx';
-
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable"
 @Component({
   selector: 'app-admin-dashboard',
   templateUrl: './admin-dashboard.component.html',
@@ -19,7 +20,7 @@ export class AdminDashboardComponent implements OnInit {
   faBook = faBook
   faSearch = faSearch
   faFileExcel = faFileExcel
-  
+  faFilePdf = faFilePdf
   constructor(public courseService:CourseService) {
 
     this.courseService.returnSoldCourses;
@@ -55,5 +56,35 @@ export class AdminDashboardComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
     XLSX.writeFile(wb, 'Sales.xlsx');
     }
+  }
+
+
+
+  columns = [
+    { title: "Id", dataKey: "checkoutId" },
+    { title: "Image", dataKey: "traineeImage" },
+    { title: "FirstName", dataKey: "firstName" },
+    { title: "LastName", dataKey: "lastName" },
+    { title: "PhoneNumber", dataKey: "phoneNumber" },
+    { title: "PhoneNumber", dataKey: "courseName" },
+    { title: "CoursePrice", dataKey: "coursePrice" },
+    { title: "Date", dataKey: "creationDate" }
+  ];
+
+  soldCourses:any[]=[]
+
+  exportPdf() {
+
+    this.soldCourses = this.courseService.soldCourse
+    const doc = new jsPDF('p','pt');
+
+    autoTable(doc, {
+      columns: this.columns,
+      body: this.soldCourses,
+      didDrawPage: (dataArg) => {
+       doc.text('Sales', dataArg.settings.margin.left, 10);
+      }
+  });
+    doc.save('sales.pdf');
   }
 }

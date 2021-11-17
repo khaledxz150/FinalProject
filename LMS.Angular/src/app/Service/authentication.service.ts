@@ -108,8 +108,9 @@ register(){
 
    this.http.post(environment.apiUrl + 'Customer/InsertTrainee',user).subscribe((res:any)=>{
     // debugger
-    this.spinner.hide();
+
     this.router.navigate(['auth/login'])
+    this.spinner.hide();
     this.toastr.success('Created Account Successfully!');
 
   },err=>{

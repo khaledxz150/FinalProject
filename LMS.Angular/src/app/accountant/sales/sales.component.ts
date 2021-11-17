@@ -1,10 +1,13 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CourseService } from 'src/app/Service/course.service';
-import { faArrowUp, faShoppingCart, faUsers, faTicketAlt, faDollarSign, faTimes, faSearch, faFileExcel} from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp, faShoppingCart, faUsers, faTicketAlt, faDollarSign, faTimes, faSearch, faFileExcel, faFilePdf} from '@fortawesome/free-solid-svg-icons';
 import { AlertDialogComponent } from 'src/app/alert-dialog/alert-dialog.component';
 import { FormControl, FormGroup } from '@angular/forms';
 import * as XLSX from 'xlsx';
+
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable"
 
 @Component({
   selector: 'app-sales',
@@ -21,7 +24,7 @@ export class SalesComponent implements OnInit {
   faTimes = faTimes
   faSearch = faSearch
   faFileExcel = faFileExcel
-
+  faFilePdf = faFilePdf
 
   availableYears:any[]=[{}]
   constructor( private dialog:MatDialog, public courseService:CourseService) {
@@ -103,4 +106,32 @@ export class SalesComponent implements OnInit {
     }
   }
 
+
+  columns = [
+    { title: "Id", dataKey: "checkoutId" },
+    { title: "Image", dataKey: "traineeImage" },
+    { title: "FirstName", dataKey: "firstName" },
+    { title: "LastName", dataKey: "lastName" },
+    { title: "PhoneNumber", dataKey: "phoneNumber" },
+    { title: "PhoneNumber", dataKey: "courseName" },
+    { title: "CoursePrice", dataKey: "coursePrice" },
+    { title: "Date", dataKey: "creationDate" }
+  ];
+
+  soldCourses:any[]=[]
+
+  exportPdf() {
+
+    this.soldCourses = this.courseService.soldCourse
+    const doc = new jsPDF('p','pt');
+
+    autoTable(doc, {
+      columns: this.columns,
+      body: this.soldCourses,
+      didDrawPage: (dataArg) => {
+       doc.text('Sales', dataArg.settings.margin.left, 10);
+      }
+  });
+    doc.save('sales.pdf');
+  }
 }

@@ -331,7 +331,7 @@ export class CourseService {
 
        soldCourse:SoldCourse[]=[]
        countOfSoldCourses = 0;
-       totalSales:number = 0
+       totalSales:any = 0
        recentSoldCourses:any[] =[]
        annualSoldCourses:any[]=[]
 
@@ -345,7 +345,7 @@ export class CourseService {
 
           this.soldCourse.forEach((total) => {
 
-           this.totalSales =this.totalSales + total.coursePrice;
+           this.totalSales =this.totalSales + total.coursePrice
 
            // let date = new Date();
            const date=new Date();
@@ -355,6 +355,7 @@ export class CourseService {
 
 
           });
+          this.totalSales = (Math.round( this.totalSales * 100) / 100).toFixed(2);
 
          })
        }

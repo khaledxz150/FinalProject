@@ -73,8 +73,10 @@
                <!-- Sold Courses -->
                 <div class="card">
 
-                  <fa-icon [icon]="faFileExcel" style="font-size: 2rem; margin-bottom: 1rem;" (click)="ExportTOExcel()"></fa-icon>
-
+                  <div class="d-flex justify-content-end">
+                    <fa-icon [icon]="faFileExcel" style="font-size: 2rem; margin-bottom: 1rem; margin-right: 20px; color: #115c34;" (click)="ExportTOExcel()"></fa-icon>
+                    <fa-icon [icon]="faFilePdf" style="font-size: 2rem; margin-bottom: 1rem;" (click)="exportPdf()"></fa-icon>
+                  </div>
                   <div class="d-flex" style="justify-content: space-between;">
                   <h3>Orders</h3>
 
