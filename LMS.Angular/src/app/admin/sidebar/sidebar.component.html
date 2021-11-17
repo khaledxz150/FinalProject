@@ -15,46 +15,40 @@
           <i class='bx bx-menu' id="btn"></i>
       </div>
       <ul class="nav-list">
-          <li>
+          <!-- <li>
               <i class='bx bx-search'></i>
               <input type="text" placeholder="Search...">
               <span class="tooltip">Search</span>
-          </li>
+          </li> -->
           <li>
               <a routerLink="/admin">
                   <i class='bx bx-grid-alt'></i>
-                  <span class="links_name">Section Dashboard</span>
+                  <span class="links_name">Dashboard</span>
               </a>
-              <span class="tooltip">Section Dashboard</span>
+              <span class="tooltip">Dashboard</span>
           </li>
           <li>
-              <a href="#">
+              <a routerLink="/admin/profile" routerLinkActive="active">
                   <i class='bx bx-user'></i>
-                  <span class="links_name">User</span>
+                  <span class="links_name">My Profile</span>
               </a>
-              <span class="tooltip">User</span>
+              <span class="tooltip">My Profile</span>
           </li>
           <li>
-              <a href="#">
+              <a routerLink="/admin/trainee-info" routerLinkActive="active">
                   <i class='bx bx-chat'></i>
-                  <span class="links_name">Messages</span>
+                  <span class="links_name">Trainee</span>
               </a>
-              <span class="tooltip">Messages</span>
+              <span class="tooltip">Trainee</span>
           </li>
           <li>
-              <a href="#">
+              <a routerLink="/admin/trainer-info" routerLinkActive="active">
                   <i class='bx bx-pie-chart-alt-2'></i>
-                  <span class="links_name">Analytics</span>
+                  <span class="links_name">Trainer</span>
               </a>
-              <span class="tooltip">Analytics</span>
+              <span class="tooltip">Trainer</span>
           </li>
-          <li>
-              <a href="#">
-                  <i class='bx bx-folder'></i>
-                  <span class="links_name">File Manager</span>
-              </a>
-              <span class="tooltip">Files</span>
-          </li>
+
           <li>
               <a routerLink="/admin/category" routerLinkActive="active">
                   <i class='bx bx-bookmark'></i>
@@ -84,6 +78,14 @@
               </a>
               <span class="tooltip">Sections</span>
           </li>
+
+          <li>
+            <a   routerLink="/admin/coupon" routerLinkActive="active">
+                <i class='bx bxs-discount'></i>
+                <span class="links_name">Coupons</span>
+            </a>
+            <span class="tooltip">Coupons</span>
+        </li>
           <li class="profile">
               <div class="profile-details">
                   <img src="../../../assets/image/profile.png" alt="profileImg">

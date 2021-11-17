@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import jwtDecode from 'jwt-decode';
@@ -13,7 +13,6 @@ import { User } from '../models/User';
   providedIn: 'root'
 })
 export class AuthenticationService {
-
   constructor(    private http:HttpClient,
     public jwtHelper: JwtHelperService,
     private router: Router,
@@ -22,8 +21,8 @@ export class AuthenticationService {
     ) { }
 
 
-  username = new FormControl('');
-  password = new FormControl('');
+  username = new FormControl('', [Validators.required]);
+  password = new FormControl('', [Validators.required]);
   // response:any;
   submit(){
   var response1:any;
@@ -33,19 +32,10 @@ export class AuthenticationService {
 
         };
 
-  // const headerDict={
-  //   'Content-Type':'application/json',
-  //   'Accept':'appliaction/json'
-  // }
-  // const requestOption = {
-  //   headers:new HttpHeaders(headerDict)
-  // }
 
-  // localStorage.setItem('token','response.token');
-//{ responseType: 'text' }
-  // this.spinner.show();
+  this.spinner.show();
   this.http.post('http://localhost:54921/api/User/Authentiaction/',body,{ responseType: 'text' }).subscribe((res:any)=>{
-  // this.spinner.hide();
+
     debugger
   response1 = res;
   const response = {
@@ -77,10 +67,10 @@ export class AuthenticationService {
      }
 
 
-
+ this.spinner.hide();
   console.log(data);
   },err=>{
-    // this.spinner.hide();
+    this.spinner.hide();
     this.toastr.error(err.status);
   })
 }
@@ -95,15 +85,15 @@ logout() {
 }
 
 formGroup: FormGroup = new FormGroup({
-  // courseId: new FormControl('', [Validators.required]),
+
   username: new FormControl(''),
-  firstName: new FormControl(''),
-  lastName: new FormControl(''),
-  email: new FormControl(''),
+  firstName: new FormControl('', [Validators.required]),
+  lastName: new FormControl('', [Validators.required]),
+  email: new FormControl('', [Validators.required,Validators.email]),
   imageName: new FormControl(''),
-  nationality : new FormControl(''),
-  phoneNumber: new FormControl(''),
-  password: new FormControl(''),
+  nationality : new FormControl('', [Validators.required]),
+  phoneNumber: new FormControl('', [Validators.required]),
+  password: new FormControl('', [Validators.required,Validators.minLength(8)]),
 
 });
 

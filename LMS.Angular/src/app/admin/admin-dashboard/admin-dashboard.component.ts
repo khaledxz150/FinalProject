@@ -17,7 +17,7 @@ export class AdminDashboardComponent implements OnInit {
   faDollarSign = faDollarSign
   faBook = faBook
   faSearch = faSearch
-  
+
   constructor(public courseService:CourseService) {
 
     this.courseService.returnSoldCourses;
@@ -35,5 +35,11 @@ export class AdminDashboardComponent implements OnInit {
 
     this.courseService.filterSoldCourseBetweenDate(this.startDate,this.endDate);
 
+  }
+
+
+
+  clear(){
+    this.courseService.soldCourse = this.courseService.annualSoldCourses;
   }
 }

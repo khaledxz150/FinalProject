@@ -123,10 +123,10 @@
               </div>
           </div> <!-- row -->
           <div class="row">
-            <div class="col-lg-3 col-sm-6" *ngFor="let trainer of trainerService.trainer">
+            <div class="col-lg-3 col-sm-6" *ngFor="let trainer of trainerService.top4Trainer">
                 <div class="singel-teachers mt-30 text-center">
                     <div class="image">
-                        <img src="../../assets/image/trainer/{{trainer.image}}" alt="Teachers">
+                        <img src="{{trainer.image}}" alt="Teachers" width="200" height="300">
                     </div>
                     <div class="cont">
                         <a href="teachers-singel.html"><h6>{{trainer.fname}} {{trainer.lname}}</h6></a>
@@ -142,5 +142,5 @@
 
   <!--====== TEACHERS PART ENDS ======-->
 
-  <app-footer></app-footer> 
+  <app-footer></app-footer>
 

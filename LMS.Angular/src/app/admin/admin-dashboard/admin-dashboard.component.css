@@ -181,3 +181,25 @@
    padding: 8px;
 }
 
+
+
+
+.filter{
+  border: #af1a2d;
+  background-color: #af1a2d;
+  margin-left: 10px;
+  color: white;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.clear{
+
+  border: #a29d9d;
+  background-color: #a29d9d;
+  margin-left: 10px;
+  color: white;
+  padding: 5px;
+  border-radius: 3px;
+
+}

@@ -84,4 +84,10 @@ export class SalesComponent implements OnInit {
       return this.courseService.soldCourse ? this.first === 0 : true;
   }
 
+
+
+  clear(){
+    this.courseService.soldCourse = this.courseService.annualSoldCourses;
+  }
+
 }
