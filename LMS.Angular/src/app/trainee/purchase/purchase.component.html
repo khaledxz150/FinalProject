@@ -146,8 +146,10 @@
                         </div>
                         <div class="row">
                              <h5 style="margin-left: 50px;">Total Price = <span>{{this.traineeService.totalPrice}}$</span></h5>
-
-                             <button class="main-btn" style="margin-top: 25px; margin-left: 70px;">Check Out</button>
+                             <!-- <div class="col-md-4 mb-3">
+                                <button  class="btn btn-primary btn-block"> $20</button>
+                              </div> -->
+                             <button (click)="checkout(this.traineeService.totalPrice)" class="main-btn" style="margin-top: 25px; margin-left: 70px;">Check Out</button>
                         </div>
                     </div>
                     </mat-tab>

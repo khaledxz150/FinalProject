@@ -1,15 +1,4 @@
 
-
-<!--
-    username: new FormControl(''),
-  firstName: new FormControl(''),
-  lastName: new FormControl(''),
-  email: new FormControl(''),
-  imageName: new FormControl(''),
-  nationality : new FormControl(''),
-  phoneNumber: new FormControl(''),
-  password: new FormControl(''),
- -->
  <app-navbar></app-navbar>
 
  <div class="content">
@@ -28,20 +17,18 @@
             </div>
           </div>
 
-            <!-- <h3 style="font-size:2em; text-align:center; margin-top:40px;">Login</h3> -->
             <form class="form" style="margin-top:50px" [formGroup]="loginService.formGroup">
-              <!-- <h2 *ngIf = "email.hasError('required')">Email Is Required</h2> -->
 
 
               <mat-form-field appearance="fill" class="example-full-width ml-5">
                 <mat-label>Email</mat-label>
                 <input type="email" matInput  formControlName="email">
-                <!-- <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+                <mat-error *ngIf="loginService.formGroup.controls.email.hasError('email') && !loginService.formGroup.controls.email.hasError('required')">
                   Please enter a valid email address
                 </mat-error>
-                <mat-error *ngIf="email.hasError('required')">
+                <mat-error *ngIf="loginService.formGroup.controls.email.hasError('required')">
                   Email is <strong>required</strong>
-                </mat-error> -->
+                </mat-error>
               </mat-form-field>
 
               <mat-form-field appearance="fill" class="example-full-width">
@@ -50,67 +37,64 @@
                 <span mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </span>
+
+                  <mat-error *ngIf="loginService.formGroup.controls.password.hasError('minlength') && !loginService.formGroup.controls.password.hasError('required')">
+                 Please Enter Strong Password
+                </mat-error>
+                <mat-error *ngIf="loginService.formGroup.controls.password.hasError('required')">
+                  Password is <strong>required</strong>
+                </mat-error>
               </mat-form-field>
 
               <mat-form-field  appearance="fill">
                 <mat-label>FirstName</mat-label>
                 <input type="text"  matInput formControlName="firstName" >
-                <!-- <mat-error *ngIf="password.hasError('minlength') && !password.hasError('required')">
-                 Please Enter Strong Password
-                </mat-error> -->
-                <!-- <mat-error *ngIf="password.hasError('required')">
-                  Password is <strong>required</strong>
-                </mat-error> -->
+
+                <mat-error *ngIf="loginService.formGroup.controls.firstName.hasError('required')">
+                  First Name is <strong>required</strong>
+                </mat-error>
               </mat-form-field>
 
               <mat-form-field  appearance="fill">
                 <mat-label>LastName</mat-label>
                 <input type="text"  matInput formControlName="lastName" >
-                <!-- <mat-error *ngIf="password.hasError('minlength') && !password.hasError('required')">
-                 Please Enter Strong Password
-                </mat-error> -->
-                <!-- <mat-error *ngIf="password.hasError('required')">
-                  Password is <strong>required</strong>
-                </mat-error> -->
+
+                <mat-error *ngIf="loginService.formGroup.controls.lastName.hasError('required')">
+                  LastName is <strong>required</strong>
+                </mat-error>
               </mat-form-field>
 
               <mat-form-field  appearance="fill">
                 <mat-label>Nationality</mat-label>
-                <input type="text"  matInput formControlName="nationality" >
-                <!-- <mat-error *ngIf="password.hasError('minlength') && !password.hasError('required')">
-                 Please Enter Strong Password
-                </mat-error> -->
-                <!-- <mat-error *ngIf="password.hasError('required')">
-                  Password is <strong>required</strong>
-                </mat-error> -->
+                <mat-select formControlName="nationality">
+                    <mat-option *ngFor="let country of myData" [value]="country.text">
+
+                      {{country.text}}
+                    </mat-option>
+                </mat-select>
+                <!-- <input type="text"  matInput formControlName="nationality" > -->
+
+                <mat-error *ngIf="loginService.formGroup.controls.nationality.hasError('required')">
+                  Nationality is <strong>required</strong>
+                </mat-error>
               </mat-form-field>
-<!--
-              <mat-select-country appearance="outline"
-              label="Country"
-              [formControl]="countryFormControl"
-              (onCountrySelected)="onCountrySelected($event)">
-              </mat-select-country> -->
 
               <mat-form-field  appearance="fill">
                 <mat-label>PhoneNumber</mat-label>
-                <input type="text"  matInput formControlName="phoneNumber" (input)="inputValidator($event)">
-                <!-- <mat-error *ngIf="password.hasError('minlength') && !password.hasError('required')">
-                 Please Enter Strong Password
-                </mat-error> -->
-                <!-- <mat-error *ngIf="password.hasError('required')">
-                  Password is <strong>required</strong>
-                </mat-error> -->
+                <input type="text"  matInput formControlName="phoneNumber">
+                <mat-error *ngIf="loginService.formGroup.controls.phoneNumber.hasError('pattern') && !loginService.formGroup.controls.phoneNumber.hasError('required')">
+                  Enter Just Numbers
+                 </mat-error>
+                <mat-error *ngIf="loginService.formGroup.controls.phoneNumber.hasError('required')">
+                  PhoneNumber is <strong>required</strong>
+                </mat-error>
+
+
               </mat-form-field>
 
-              <!-- <mat-form-field appearance="fill">
-                <mat-label>Phone number</mat-label>
-                <example-tel-input formControlName="phoneNumber" required ></example-tel-input>
-                <mat-icon matSuffix>phone</mat-icon>
-                <mat-hint>Include area code</mat-hint>
-              </mat-form-field> -->
 
-              <!-- <button (click)="submit()" [disabled]="!email.valid || !password.valid">Login</button> -->
-              <button (click)="SignUp()" mat-raised-button style="flex: 1; width:100%; margin-top: 50px;" [disabled]="!loginService.username.valid || !loginService.password.valid">
+
+              <button (click)="SignUp()" mat-raised-button style="flex: 1; width:100%; margin-top: 50px;" [disabled]="!loginService.formGroup.valid">
 
                 SignUp
               </button>
@@ -132,7 +116,6 @@
   </div>
 </div>
 
-<!-- <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-triangle-path" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner> -->
 
 
 <app-footer></app-footer>

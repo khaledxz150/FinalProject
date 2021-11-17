@@ -25,7 +25,7 @@ export class PurchesService {
     });
   }
 
-  
+
   GetMyRefunds(traineeId:number){
     this.http.post(environment.apiUrl + 'CourseRefunds/ReturnCourseRefund/'+traineeId,traineeId).subscribe((res:any)=>{
 
@@ -42,6 +42,11 @@ export class PurchesService {
       this.myRefunds=res;
 
       window.location.reload()
+      this.toastr.success("Aprroved Refund Reason!")
+
+    },err=>{
+      this.toastr.warning("Somthing Wrong!")
+
     });
   }
 }

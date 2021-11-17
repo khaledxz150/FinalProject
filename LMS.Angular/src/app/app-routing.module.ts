@@ -7,7 +7,7 @@ import { AuthorizationGuard } from './guard/authorization.guard';
 import { ContactusComponent } from './pages/contactus/contactus.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PagesModule } from './pages/pages.module';
-import { PaypalComponent } from './paypal/paypal.component';
+import { PaymantModule } from './paymant/paymant.module';
 import { TraineeModule } from './trainee/trainee.module';
 import { TrainerModule } from './trainer/trainer.module';
 
@@ -23,10 +23,10 @@ const routes: Routes = [
   }
   ,{
     path:'paypal',
-    loadChildren:()=>PaypalComponent
+    loadChildren:()=>PaymantModule
   }
   ,{
-    path:'client',
+    path:'trainee',
     loadChildren:()=>TraineeModule
   }
   ,{
@@ -42,7 +42,8 @@ const routes: Routes = [
     path:'trainer',
     loadChildren:()=>TrainerModule,
     canActivate: [AuthorizationGuard]
-  },
+  }
+  ,
   {
     path:'accountant',
     loadChildren:()=>AccountantModule,

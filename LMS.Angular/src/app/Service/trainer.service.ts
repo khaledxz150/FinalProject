@@ -5,12 +5,14 @@ import { ToastrService } from 'ngx-toastr';
 import { environment } from 'src/environments/environment';
 import { AlertDialogComponent } from '../alert-dialog/alert-dialog.component';
 import {DataTablesModule} from 'angular-datatables'
+import { Employee } from '../models/Trainer';
 @Injectable({
   providedIn: 'root'
 })
 export class TrainerService {
   dtOptions: any []=[{}]
   trainer: any[] = [{}]
+  top4Trainer:any[]=[]
 
   constructor(
     private http: HttpClient,
@@ -30,6 +32,8 @@ export class TrainerService {
       debugger
       console.log(res)
       this.trainer = res;
+      this.top4Trainer = res.slice(0,4)
+
       // console.log( "test",this.courses)
       // this.toastr.success('Data Retrived !!!');
      }, err => {
@@ -110,4 +114,14 @@ export class TrainerService {
       this.toastr.error('Something Wrong, Try Again!');
     })
   }
+
+  employee:Employee[]=[]
+  ReturnEmployeeInfo(employeeId:number){
+
+    this.http.post(environment.apiUrl + 'Employee/ReturnEmployeeInfo/'+employeeId,employeeId).subscribe((res: any) => {
+
+      this.employee = res;
+      })
+}
+
 }

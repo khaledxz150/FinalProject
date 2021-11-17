@@ -35,7 +35,11 @@ this.TrainerSection = result;
      this.TrainerSection.forEach((element: { courseImage: SafeResourceUrl; }) => {
       this.myBase64 = this.sanitizer.bypassSecurityTrustResourceUrl(
         `data:image/png;base64, ${element.courseImage}`
-      );
+
+
+        );
+        this.spinner.hide();
+
      this.sanitizer.sanitize(SecurityContext.HTML,this.myBase64);
       element.courseImage = this.myBase64;
      }) ;
@@ -62,7 +66,7 @@ getSections(courseId:number){
     console.log(res)
     this.sections = res;
     // console.log( "test",this.courses)
-    this.toastr.success('Data Retrived !!!');
+    // this.toastr.success('Data Retrived !!!');
 
 
   },err=>{
@@ -78,20 +82,18 @@ getSections(courseId:number){
 /////////
 getSectionsById(courseId:number){
 
-     this.spinner.show();
+    //  this.spinner.show();
 
      this.http.post(environment.apiUrl + 'Section/ReturnSectionByCourseId/'+courseId,courseId).subscribe((res:any)=>{
-       this.spinner.hide();
-      this.toastr.success('Send Message successfully, Thank You :)');
+      //  this.spinner.hide();
       console.log(res)
       this.section = res;
-      console.log( "test",this.section)
-      this.toastr.success('Data Retrived !!!');
+      // this.toastr.success('Data Retrived !!!');
 
 
     },err=>{
       // this.spinner.hide();
-      // this.toastr.warning('Something wrong');
+      this.toastr.warning('Something wrong');
     })
     debugger;
 
@@ -132,19 +134,20 @@ createSection(section:Section,trainerId:number){
 
 
    debugger
+   this.spinner.show()
   this.http.post(environment.apiUrl + 'Section/AddSection/'+trainerId,section).subscribe((res:any)=>{
     // debugger
-    // this.spinner.hide();
-    // this.toastr.success('Send Message successfully, Thank You :)');
+    this.spinner.hide();
+    this.toastr.success('Section Created Successfully');
     debugger
 
 
     // console.log( "test",this.courses)
-    this.toastr.success('Data Retrived !!!');
+    // this.toastr.success('Data Retrived !!!');
 
 
   },err=>{
-    // this.spinner.hide();
+    this.spinner.hide();
     this.toastr.warning('Something wrong');
   })
   debugger;;
@@ -153,15 +156,17 @@ createSection(section:Section,trainerId:number){
 }
 
 deleteSection(sectionId:number){
+  this.spinner.show();
   this.http.delete(environment.apiUrl + 'Section/DeleteSection/'+sectionId).subscribe((res:any)=>{
      debugger
-    // this.spinner.hide();
 
     window.location.reload();
+    this.spinner.hide();
+
     this.toastr.success('Course Deleted successfully !!!');
 
   },err=>{
-    // this.spinner.hide();
+    this.spinner.hide();
     this.toastr.error('Something Wrong, Try Again!');
   })
   debugger;
@@ -173,20 +178,22 @@ deleteSection(sectionId:number){
 
 
   debugger
+  this.spinner.show();
  this.http.put(environment.apiUrl + 'Section/UpdateSection/'+trainerId,section).subscribe((res:any)=>{
    // debugger
-   // this.spinner.hide();
-   // this.toastr.success('Send Message successfully, Thank You :)');
+
+   window.location.reload();
+   this.spinner.hide();
+   this.toastr.success('Section Updated Successfully');
    debugger
 
 
    // console.log( "test",this.courses)
-   window.location.reload();
-   this.toastr.success('Data Retrived !!!');
+  //  this.toastr.success('Data Retrived !!!');
 
 
  },err=>{
-   // this.spinner.hide();
+   this.spinner.hide();
    this.toastr.warning('Something wrong');
  })
  debugger;;

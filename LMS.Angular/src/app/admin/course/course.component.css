@@ -236,7 +236,7 @@ left: 0;
   position: relative;
   z-index: 1;
 }
-.wrapper::before{
+/* .wrapper::before{
   content: '';
   position:absolute;
   top:0;
@@ -245,7 +245,7 @@ left: 0;
   z-index: -1;
   height: 12%;
   width: 100%;
-}
+} */
 #content{
  background-color:white;
  height: 100%;

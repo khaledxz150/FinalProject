@@ -2,12 +2,15 @@
        <div class="row">
 
 
-        <div class="card">
+        <div class="card" #TABLE #table>
+          <div class="d-flex justify-content-end">
+            <fa-icon [icon]="faFileExcel" style="font-size: 2rem; margin-bottom: 1rem; margin-right: 20px; color: #115c34;" (click)="ExportTOExcel()"></fa-icon>
+            <fa-icon [icon]="faFilePdf" style="font-size: 2rem; margin-bottom: 1rem;" (click)="exportPdf()"></fa-icon>
+          </div>
+
           <div class="d-flex" style="justify-content: space-between;">
           <h3>Orders</h3>
-
-
-
+          <!-- <button class="btn btn-primary" (click)="downloadAsPDF();">Export To PDF</button> -->
           <div>
             <mat-form-field >
               <mat-label>Enter a date range</mat-label>
@@ -18,8 +21,10 @@
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-date-range-picker #picker></mat-date-range-picker>
             </mat-form-field>
-            <button class="ml-2 search" (click)="filterSoldCourseBetweenDate()"><fa-icon [icon]="faSearch" style="font-size: 1rem; color: white;"></fa-icon>
-            </button>
+            <!-- <button class="ml-2 search" (click)="filterSoldCourseBetweenDate()"><fa-icon [icon]="faSearch" style="font-size: 1rem; color: white;"></fa-icon>
+            </button> -->
+            <button class="filter" (click)="filterSoldCourseBetweenDate()">Search</button>
+            <button class="clear" (click)="clear()">Clear</button>
 
             <!-- <mat-form-field>
               <mat-label>Year</mat-label>
@@ -34,8 +39,8 @@
 
         </div>
 
-          <p-table [value]="courseService.soldCourse" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
-              currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[5,10,15]">
+          <p-table #dt [value]="courseService.soldCourse" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+              currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[5,10,15]" >
               <ng-template pTemplate="header">
 
                   <tr>

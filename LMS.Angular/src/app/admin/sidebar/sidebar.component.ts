@@ -13,6 +13,8 @@ export class SidebarComponent implements OnInit {
    closeBtn:Element | null = null;
    searchBtn:Element | null = null;
 
+
+
   constructor(public loginService:AuthenticationService) {
 
    }
