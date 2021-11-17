@@ -26,7 +26,7 @@ const routes: Routes = [
     loadChildren:()=>PaymantModule
   }
   ,{
-    path:'client',
+    path:'trainee',
     loadChildren:()=>TraineeModule
   }
   ,{

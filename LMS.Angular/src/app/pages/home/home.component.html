@@ -145,13 +145,14 @@
                       <div class="row course-slied mt-30">
                         <div>
 
-                            <div class="singel-course">
+                            <div class="singel-course" style="width:300px">
                                 <div class="thum">
                                   <div class="type"><span>{{course.typeName}}</span></div>
 
                                     <div class="image">
+                                      <img src="{{course.image}}" alt="Course" height="200">
 
-                                        <img src="../../../assets/image/course/cu-1.jpg" alt="Course">
+                                        <!-- <img src="../../../assets/image/course/cu-1.jpg" alt="Course"> -->
                                     </div>
                                     <div class="price">
                                         <span>$ {{course.coursePrice}}</span>
@@ -164,11 +165,7 @@
                                         <li> <fa-icon [icon]="faStar"></fa-icon></li>
                                         <li> <fa-icon [icon]="faStar"></fa-icon></li>
                                         <li> <fa-icon [icon]="faStar"></fa-icon></li>
-                                        <!-- <fa-icon [icon]="faStar"></fa-icon>
-                                        <fa-icon [icon]="faStar"></fa-icon>
-                                        <fa-icon [icon]="faStar"></fa-icon>
-                                        <fa-icon [icon]="faStar"></fa-icon>
-                                        <fa-icon [icon]="faStar"></fa-icon> -->
+                                
                                     </ul>
                                     <!-- <span>(20 Reviws)</span> -->
                                     <div style="height: 100px;">
@@ -279,4 +276,4 @@
 
 
 
-  <app-footer></app-footer> 
+  <app-footer></app-footer>

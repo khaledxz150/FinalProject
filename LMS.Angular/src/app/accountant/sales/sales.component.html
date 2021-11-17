@@ -18,8 +18,10 @@
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-date-range-picker #picker></mat-date-range-picker>
             </mat-form-field>
-            <button class="ml-2 search" (click)="filterSoldCourseBetweenDate()"><fa-icon [icon]="faSearch" style="font-size: 1rem; color: white;"></fa-icon>
-            </button>
+            <!-- <button class="ml-2 search" (click)="filterSoldCourseBetweenDate()"><fa-icon [icon]="faSearch" style="font-size: 1rem; color: white;"></fa-icon>
+            </button> -->
+            <button class="filter" (click)="filterSoldCourseBetweenDate()">Search</button>
+            <button class="clear" (click)="clear()">Clear</button>
 
             <!-- <mat-form-field>
               <mat-label>Year</mat-label>

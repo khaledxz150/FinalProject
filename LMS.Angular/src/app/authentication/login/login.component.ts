@@ -17,9 +17,8 @@ export class LoginComponent implements OnInit {
 
     // })
 
-    username = new FormControl('');
-    password = new FormControl('');
-
+    username = new FormControl('', [Validators.required]);
+    password = new FormControl('', [Validators.required]);
       // constructor(
       //   public loginService:LoginService
       //   ) { }

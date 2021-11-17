@@ -35,7 +35,11 @@ this.TrainerSection = result;
      this.TrainerSection.forEach((element) => {
       this.myBase64 = this.sanitizer.bypassSecurityTrustResourceUrl(
         `data:image/png;base64, ${element.courseImage}`
-      );
+
+
+        );
+        this.spinner.hide();
+
      this.sanitizer.sanitize(SecurityContext.HTML,this.myBase64);
       element.courseImage = this.myBase64;
      }) ;

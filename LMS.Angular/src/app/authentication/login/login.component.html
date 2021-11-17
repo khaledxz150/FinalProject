@@ -21,13 +21,13 @@
               <!-- <h2 *ngIf = "email.hasError('required')">Email Is Required</h2> -->
               <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>UserName</mat-label>
-                <input type="text" matInput  placeholder="Ex. pat@example.com" [formControl]="loginService.username">
-                <!-- <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+                <input type="text" matInput [formControl]="loginService.username">
+                <!-- <mat-error *ngIf="username.hasError('email') && !username.hasError('required')">
                   Please enter a valid email address
-                </mat-error>
-                <mat-error *ngIf="email.hasError('required')">
-                  Email is <strong>required</strong>
                 </mat-error> -->
+                <mat-error *ngIf="loginService.username.hasError('required')">
+                  UserName is <strong>required</strong>
+                </mat-error>
               </mat-form-field>
 
               <mat-form-field class="example-full-width" appearance="fill">
@@ -36,9 +36,9 @@
                 <!-- <mat-error *ngIf="password.hasError('minlength') && !password.hasError('required')">
                  Please Enter Strong Password
                 </mat-error> -->
-                <!-- <mat-error *ngIf="password.hasError('required')">
+                <mat-error *ngIf="loginService.password.hasError('required')">
                   Password is <strong>required</strong>
-                </mat-error> -->
+                </mat-error>
               </mat-form-field>
 
               <!-- <mat-card class="result">
