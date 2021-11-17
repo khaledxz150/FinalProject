@@ -14,13 +14,11 @@ export class UnitComponent implements OnInit {
   @Input() Sectionid = 0;
 
 
-  constructor(public dialog: MatDialog, public unitService: UnitService) {}
+  constructor(public dialog: MatDialog, public unitService: UnitService) {
+  }
   @ViewChild(MatAccordion) accordion!: MatAccordion;
 
   ngOnInit(): void {
-
-    this.ViewUnit(this.Sectionid);
-   
   }
 
   addUnit(SectionID:number) {
@@ -58,14 +56,16 @@ export class UnitComponent implements OnInit {
     
     }
 
-    OpenPdf(data:any) {
-      var file = new Blob([data], {type: "application/pdf"});
-      
-      var fileURL = URL.createObjectURL(file);
-      window.open(fileURL);
-
-
-
+    OpenPdf(data:any, fileType:any) {
+     const linkElement = document.createElement('a');
+     linkElement.setAttribute('href', data);
+     linkElement.setAttribute('download', `Unit${fileType}`);
+     const clickEvent = new MouseEvent('click', {
+      'view': window,
+      'bubbles': true,
+     'cancelable': false
+    });
+    linkElement.dispatchEvent(clickEvent);
     }
 }
 

@@ -19,10 +19,9 @@
 
                       <!-- card start -->
 
-                      <div class="col-md-12 mt-3"  *ngFor="let course of sectionService.TrainerSection; index as i;">
-                        {{course.sectionId}}
-
-                        <mat-accordion>
+                      <div class="col-md-12 mt-3"  *ngFor="let course of sectionService.TrainerSection; let i = index;">
+                        
+                        <mat-accordion >
 
                           <div class="full-withradius border">
                             <img src="{{course.courseImage}}"  width="400" height="300" >
@@ -66,9 +65,9 @@
                               </div>
 
                             </mat-expansion-panel>
-                            {{course.sectionId}}
+
                             <mat-expansion-panel>
-                              <mat-expansion-panel-header>
+                              <mat-expansion-panel-header (click)="ViewExam(course.sectionId)">
                                 <mat-panel-title>
                                 Exam
                                 </mat-panel-title>
@@ -77,7 +76,6 @@
                               </mat-expansion-panel-header>
                               <div >
                                 <app-exam [Sectionid]="course.sectionId"></app-exam>
-                                {{course.sectionId}}
                                   
 
                               </div>
@@ -88,7 +86,7 @@
                             <!-- </ng-container> -->
 
                             <mat-expansion-panel>
-                              <mat-expansion-panel-header>
+                              <mat-expansion-panel-header (click)="ViewUnit(course.sectionId)">
                                 <mat-panel-title>
                                 Unit
                                 </mat-panel-title>
@@ -97,7 +95,6 @@
                               </mat-expansion-panel-header>
                               <div >
                                 <app-unit [Sectionid]="course.sectionId"></app-unit>
-                                {{course.sectionId}}
                                   <div>
                                     <mat-icon class="pointer fancy-link"  (click)="AddUnit(course.sectionId)">add_circle</mat-icon>                                
 
@@ -110,7 +107,6 @@
                           </mat-accordion>
                         </ng-container>
                            <!-- topic end -->
-                           <mat-icon  class="pointer fancy-link" (click)="CreateMeeting(course)">add_circle</mat-icon>
 
                           </mat-expansion-panel>
                           

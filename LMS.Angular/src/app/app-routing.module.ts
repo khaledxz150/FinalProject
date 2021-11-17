@@ -7,7 +7,8 @@ import { AuthorizationGuard } from './guard/authorization.guard';
 import { ContactusComponent } from './pages/contactus/contactus.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PagesModule } from './pages/pages.module';
-import { PaymantModule } from './paymant/paymant.module';
+import { PaypalComponent } from './paypal/paypal.component';
+import { SharedModule } from './shared/shared.module';
 import { TraineeModule } from './trainee/trainee.module';
 import { TrainerModule } from './trainer/trainer.module';
 
@@ -23,10 +24,10 @@ const routes: Routes = [
   }
   ,{
     path:'paypal',
-    loadChildren:()=>PaymantModule
+    loadChildren:()=>PaypalComponent
   }
   ,{
-    path:'trainee',
+    path:'client',
     loadChildren:()=>TraineeModule
   }
   ,{
@@ -42,13 +43,17 @@ const routes: Routes = [
     path:'trainer',
     loadChildren:()=>TrainerModule,
     canActivate: [AuthorizationGuard]
-  }
-  ,
+  },
   {
     path:'accountant',
     loadChildren:()=>AccountantModule,
     canActivate: [AuthorizationGuard]
+  },
+  {
+    path:'shared',
+    loadChildren:()=>SharedModule,
   }
+  
 ];
 
 @NgModule({

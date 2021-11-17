@@ -41,6 +41,7 @@ namespace LMS.Infra.Repository
             parameters.Add("@Weight", exam.Weight, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             var result = dBContext.Connection.ExecuteAsync("InsertExam", parameters, commandType: CommandType.StoredProcedure);
+
             return true;
         }
 
@@ -97,7 +98,6 @@ namespace LMS.Infra.Repository
             var parameters = new DynamicParameters();
             parameters.Add("@Description", examQuestion.Description, dbType: DbType.String, direction: ParameterDirection.Input);
             parameters.Add("@ImageName", examQuestion.ImageName, dbType: DbType.String, direction: ParameterDirection.Input);
-            parameters.Add("@CourseId", examQuestion.CourseId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameters.Add("@CreatedBy", examQuestion.CreatedBy, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             var result = dBContext.Connection.ExecuteAsync("InsertExamQuestion", parameters, commandType: CommandType.StoredProcedure);

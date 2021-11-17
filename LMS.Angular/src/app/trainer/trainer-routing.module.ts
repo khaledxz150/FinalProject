@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ExamInfoComponent } from './exam/exam-info/exam-info.component';
 import { ExamComponent } from './exam/exam.component';
 import { SectionComponent } from './section/section.component';
-import { StudentsComponent } from './students/students.component';
 import { UnitComponent } from './unit/unit.component';
 
 const routes: Routes = [
@@ -15,10 +15,9 @@ const routes: Routes = [
     component:UnitComponent
   },
   {path:'exam',
-component:ExamComponent}
-,
-  {path:'student',
-component:StudentsComponent}
+component:ExamComponent},
+{path:'examInfo',
+ component:ExamInfoComponent}
 ];
 
 @NgModule({

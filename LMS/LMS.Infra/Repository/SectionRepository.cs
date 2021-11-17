@@ -158,7 +158,10 @@ namespace LMS.Infra.Repository
             parm.Add("@P_SectionId",unit.SectionId , dbType: DbType.Int32, direction: ParameterDirection.Input);
             parm.Add("@P_FilePath", unit.FilePath, dbType: DbType.String, direction: ParameterDirection.Input);
             parm.Add("@P_CreatedBy",unit.CreatedBy , dbType: DbType.Int64, direction: ParameterDirection.Input);
-            var result = dBContext.Connection.ExecuteAsync("InsertUnit", parm, commandType: CommandType.StoredProcedure);
+            parm.Add("@P_Title", unit.Title, dbType: DbType.String, direction: ParameterDirection.Input);
+            parm.Add("@P_FileType", unit.FileType, dbType: DbType.String, direction: ParameterDirection.Input);
+            var result = dBContext.Connection.ExecuteAsync("InsertUnit", parm, commandType: CommandType.StoredProcedure); 
+            
             return true;
         }
         public bool DeleteUnit(int unitId)

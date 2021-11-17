@@ -11,7 +11,6 @@ namespace LMS.Data
         public int QuestionId { get; set; }
         public string Description { get; set; }
         public string ImageName { get; set; }
-        public int CourseId { get; set; }
         public bool IsActive { get; set; }
         public DateTime CreationDate { get; set; }
         public long CreatedBy { get; set; }

@@ -214,7 +214,6 @@ C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\Azure.Identity.dll
 C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\Dapper.dll
 C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\Humanizer.dll
 C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.dll
 C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
 C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
@@ -223,7 +222,6 @@ C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.De
 C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
-C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
 C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\Microsoft.Identity.Client.dll
 C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\Microsoft.Identity.Client.Extensions.Msal.dll
 C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
@@ -238,7 +236,6 @@ C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI
 C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
 C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
 C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
-C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\System.IO.Pipelines.dll
 C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\System.Runtime.Caching.dll
 C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
 C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
@@ -260,8 +257,6 @@ C:\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.AssemblyInfo.cs
 C:\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.csproj.CoreCompileInputs.cache
 C:\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.MvcApplicationPartsAssemblyInfo.cs
 C:\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.MvcApplicationPartsAssemblyInfo.cache
-C:\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\scopedcss\bundle\LMS.styles.css
-C:\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\staticwebassets\LMS.StaticWebAssets.Manifest.cache
 C:\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.RazorTargetAssemblyInfo.cache
 C:\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.dll
 C:\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\ref\LMS.dll
@@ -335,7 +330,6 @@ C:\Users\jasse\Desktop\stableVersion\LMS\LMS\obj\Debug\net5.0\ref\LMS.dll
 C:\Users\jasse\Desktop\stableVersion\LMS\LMS\obj\Debug\net5.0\LMS.pdb
 C:\Users\jasse\Desktop\stableVersion\LMS\LMS\obj\Debug\net5.0\LMS.genruntimeconfig.cache
 C:\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.csproj.CopyComplete
-C:\Github\FinalProject\LMS\LMS\obj\Debug\net5.0\staticwebassets\LMS.StaticWebAssets.xml
 C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.csproj.CopyComplete
 C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\appsettings.json
@@ -406,3 +400,7 @@ C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.dll
 C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\ref\LMS.dll
 C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.pdb
 C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.genruntimeconfig.cache
+C:\Github\FinalProject\LMS\LMS\bin\Debug\net5.0\Microsoft.AspNetCore.SpaServices.Extensions.dll
+C:\Github\FinalProject\LMS\LMS\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Github\FinalProject\LMS\LMS\bin\Debug\net5.0\System.Net.WebSockets.WebSocketProtocol.dll
+C:\Github\FinalProject\LMS\LMS\bin\Debug\net5.0\libman.json

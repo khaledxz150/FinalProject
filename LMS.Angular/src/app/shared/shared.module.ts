@@ -52,7 +52,9 @@ import { SharedRoutingModule } from './shared-routing.module';
 import {TableModule} from 'primeng/table';
 import {MatNativeDateModule} from '@angular/material/core';
 import {InputSwitchModule} from 'primeng/inputswitch';
-import { NgxPayPalModule } from 'ngx-paypal';
+import { ChatComponent } from './chat/chat.component';
+
+
 
 FullCalendarModule.registerPlugins([
   interactionPlugin,
@@ -63,10 +65,10 @@ FullCalendarModule.registerPlugins([
 @NgModule({
   declarations: [
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    ChatComponent
   ],
   imports: [
-    NgxPayPalModule,
     MbscModule,
     FullCalendarModule,
     DataTablesModule,
@@ -103,7 +105,7 @@ FullCalendarModule.registerPlugins([
     SharedRoutingModule,
     TableModule,
     MatNativeDateModule,
-    InputSwitchModule
+    InputSwitchModule,
     ],
   exports:[
     FullCalendarModule,
@@ -144,7 +146,8 @@ FullCalendarModule.registerPlugins([
     FooterComponent,
     TableModule,
     MatNativeDateModule,
-    InputSwitchModule
+    InputSwitchModule,
+    ChatComponent
   ]
 })
 export class SharedModule { }

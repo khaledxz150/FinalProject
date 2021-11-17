@@ -1,6 +1,5 @@
-export class Unit {
+export class Question {
     description: number | undefined;
     ImageName: String | undefined;
-    CourseId: boolean | undefined;
     CreatedBy: number | undefined;
 }

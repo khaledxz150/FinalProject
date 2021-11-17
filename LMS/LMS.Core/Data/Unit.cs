@@ -14,6 +14,9 @@ namespace LMS.Data
         public bool IsActive { get; set; }
         public DateTime CreationDate { get; set; }
         public long CreatedBy { get; set; }
+        public string Title { get; set; }
+        public string FileType { get; set; }
+
 
         public virtual Employee CreatedByNavigation { get; set; }
         public virtual Section Section { get; set; }

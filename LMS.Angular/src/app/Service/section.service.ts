@@ -17,7 +17,7 @@ export class SectionService {
   myBase64!: SafeResourceUrl;
 
    section: any[]=[{}];
-   TrainerSection : any;
+   TrainerSection : any[]=[{}];
    sections: any[]=[{}];
    status: any[]=[{}];
    SelectedSection:any|undefined;
@@ -32,16 +32,14 @@ export class SectionService {
     this.spinner.show();
    this.http.post(environment.apiUrl + 'Section/ReturnAllTrainerSections/'+TrainerId,TrainerId).subscribe((result:any)=>{
 this.TrainerSection = result;
-     this.TrainerSection.forEach((element: { courseImage: SafeResourceUrl; }) => {
+this.spinner.hide();
+     this.TrainerSection.forEach((element) => {
       this.myBase64 = this.sanitizer.bypassSecurityTrustResourceUrl(
         `data:image/png;base64, ${element.courseImage}`
-
-
-        );
-        this.spinner.hide();
-
+      );
      this.sanitizer.sanitize(SecurityContext.HTML,this.myBase64);
       element.courseImage = this.myBase64;
+     
      }) ;
 
   this.spinner.hide();
@@ -55,19 +53,16 @@ this.TrainerSection = result;
 
 getSections(courseId:number){
 
-  // debugger;
-  //  this.spinner.show();
+
+   this.spinner.show();
 
    this.http.post(environment.apiUrl + 'Section/ReturnSectionByCourseId/'+courseId,courseId).subscribe((res:any)=>{
-    // debugger
-    // this.spinner.hide();
-    // this.toastr.success('Send Message successfully, Thank You :)');
+   
     debugger
     console.log(res)
     this.sections = res;
-    // console.log( "test",this.courses)
-    // this.toastr.success('Data Retrived !!!');
-
+    this.toastr.success('Data Retrived !!!');
+    this.spinner.hide();
 
   },err=>{
     // this.spinner.hide();
@@ -82,18 +77,20 @@ getSections(courseId:number){
 /////////
 getSectionsById(courseId:number){
 
-    //  this.spinner.show();
+     this.spinner.show();
 
      this.http.post(environment.apiUrl + 'Section/ReturnSectionByCourseId/'+courseId,courseId).subscribe((res:any)=>{
-      //  this.spinner.hide();
+       this.spinner.hide();
+      this.toastr.success('Send Message successfully, Thank You :)');
       console.log(res)
       this.section = res;
-      // this.toastr.success('Data Retrived !!!');
+      console.log( "test",this.section)
+      this.toastr.success('Data Retrived !!!');
 
 
     },err=>{
       // this.spinner.hide();
-      this.toastr.warning('Something wrong');
+      // this.toastr.warning('Something wrong');
     })
     debugger;
 
@@ -134,20 +131,19 @@ createSection(section:Section,trainerId:number){
 
 
    debugger
-   this.spinner.show()
   this.http.post(environment.apiUrl + 'Section/AddSection/'+trainerId,section).subscribe((res:any)=>{
     // debugger
-    this.spinner.hide();
-    this.toastr.success('Section Created Successfully');
+    // this.spinner.hide();
+    // this.toastr.success('Send Message successfully, Thank You :)');
     debugger
 
 
     // console.log( "test",this.courses)
-    // this.toastr.success('Data Retrived !!!');
+    this.toastr.success('Data Retrived !!!');
 
 
   },err=>{
-    this.spinner.hide();
+    // this.spinner.hide();
     this.toastr.warning('Something wrong');
   })
   debugger;;
@@ -156,17 +152,15 @@ createSection(section:Section,trainerId:number){
 }
 
 deleteSection(sectionId:number){
-  this.spinner.show();
   this.http.delete(environment.apiUrl + 'Section/DeleteSection/'+sectionId).subscribe((res:any)=>{
      debugger
+    // this.spinner.hide();
 
     window.location.reload();
-    this.spinner.hide();
-
     this.toastr.success('Course Deleted successfully !!!');
 
   },err=>{
-    this.spinner.hide();
+    // this.spinner.hide();
     this.toastr.error('Something Wrong, Try Again!');
   })
   debugger;
@@ -178,22 +172,20 @@ deleteSection(sectionId:number){
 
 
   debugger
-  this.spinner.show();
  this.http.put(environment.apiUrl + 'Section/UpdateSection/'+trainerId,section).subscribe((res:any)=>{
    // debugger
-
-   window.location.reload();
-   this.spinner.hide();
-   this.toastr.success('Section Updated Successfully');
+   // this.spinner.hide();
+   // this.toastr.success('Send Message successfully, Thank You :)');
    debugger
 
 
    // console.log( "test",this.courses)
-  //  this.toastr.success('Data Retrived !!!');
+   window.location.reload();
+   this.toastr.success('Data Retrived !!!');
 
 
  },err=>{
-   this.spinner.hide();
+   // this.spinner.hide();
    this.toastr.warning('Something wrong');
  })
  debugger;;
