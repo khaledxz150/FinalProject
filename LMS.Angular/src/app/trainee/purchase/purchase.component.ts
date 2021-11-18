@@ -5,6 +5,7 @@ import { PurchesService } from 'src/app/Service/purches.service';
 import { TraineeNavbarService } from 'src/app/Service/trainee-navbar.service';
 import { InsertRefundComponent } from './insert-refund/insert-refund.component';
 
+//Update Purches
 @Component({
   selector: 'app-purchase',
   templateUrl: './purchase.component.html',

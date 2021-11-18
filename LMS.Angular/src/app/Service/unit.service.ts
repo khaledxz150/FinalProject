@@ -7,13 +7,14 @@ import { environment } from 'src/environments/environment';
 import { Course } from '../models/course';
 import { Unit } from '../models/unit';
 
+//Update Unit
 
 @Injectable({
   providedIn: 'root'
 })
 export class UnitService {
-  
- 
+
+
 
   constructor(  private http: HttpClient,
     private spinner:NgxSpinnerService,
@@ -23,7 +24,7 @@ export class UnitService {
   section:any=[{}];
   units: any=[{}];
 sectionID:any = 0;
- 
+
     getAllTrainerSectionUnit(SectionId:any){
       this.sectionID=SectionId;
       this.spinner.show();
@@ -35,7 +36,7 @@ sectionID:any = 0;
       this.spinner.hide();
       this.toastr.warning('Something wrong');
     })
-  } 
+  }
 
 
  insertUnit(unit:Unit) {
@@ -45,13 +46,13 @@ sectionID:any = 0;
       debugger
       this.router.navigate(['trainer/unit'])
       this.spinner.hide();
-  
+
     },err=>{
       this.spinner.hide();
       this.toastr.warning('Something wrong');
     })
   }
-  
+
   uploadFile(selectedFile: File) {
     throw new Error('Method not implemented.');
   }

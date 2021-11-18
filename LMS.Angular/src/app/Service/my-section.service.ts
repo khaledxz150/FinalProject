@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 @Injectable({
   providedIn: 'root'
 })
+//Update Jasser
 export class MySectionService {
   mySections:any[]=[];
   sectionUnits:any[]=[];
@@ -63,7 +64,7 @@ export class MySectionService {
         if(exam.examId==examId){
           this.singleSectionExam=exam;
 
-          
+
         }
       }
     })

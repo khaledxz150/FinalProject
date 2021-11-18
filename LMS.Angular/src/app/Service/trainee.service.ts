@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class TraineeService {
-
+//update
   trainee: any[] = [{}]
 
   constructor(
@@ -16,7 +16,7 @@ export class TraineeService {
   ) { }
 
   dtOptions: any = {};
- 
+
  ngOnInit(): void {
 
 
@@ -95,7 +95,7 @@ export class TraineeService {
   EditTrainee(trainee: any) {
 
     this.http.put(environment.apiUrl + 'Customer/UpdateTrainee', trainee).subscribe((res: any) => {
-    
+
       // this.spiner.hide();
       this.toastr.success('Trainee edit successfully !!!');
       window.location.reload();
