@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp, faDollarSign, faEdit, faFileExcel, faFilePdf, faSearch, faShoppingCart, faTicketAlt, faTimes, faTrash, faTrashAlt, faUserCog, faUserEdit, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 import { AlertDialogComponent } from 'src/app/alert-dialog/alert-dialog.component';
 import { Trainer } from 'src/app/models/Trainer';
@@ -12,7 +12,10 @@ import { DataTablesModule } from 'angular-datatables'
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import * as pdfFonts from "pdfmake/build/vfs_fonts";
-import * as pdfMake  from 'pdfmake/build/pdfmake';
+import * as pdfMake from 'pdfmake/build/pdfmake';
+import autoTable from 'jspdf-autotable';
+import jsPDF from 'jspdf';
+import * as XLSX from 'xlsx';
 const htmlToPdfmake = require("html-to-pdfmake");
 (pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
 @Component({
@@ -26,20 +29,17 @@ export class TrainerInfoComponent implements OnInit {
   faTrashAlt = faTrashAlt
   trainerArr: any[] = [{}];
   filterTerm: any;
-  // myControl = new FormControl();
-  // options: Trainer[] = [];
-  // filteredOptions: Observable<Trainer[]>;
   dtOptions: any = {};
 
-   
+
   @ViewChild('pdfTable')
   pdfTable!: ElementRef;
   downloadAsPDF() {
     const pdfTable = this.pdfTable.nativeElement;
     var html = htmlToPdfmake(pdfTable.innerHTML);
     const documentDefinition = { content: html };
-    pdfMake.createPdf(documentDefinition).download(); 
-     
+    pdfMake.createPdf(documentDefinition).download();
+
   }
 
   ngOnInit(): void {
@@ -59,20 +59,11 @@ export class TrainerInfoComponent implements OnInit {
 
   getTrainer() {
 
-    // debugger;
-    // //  this.spinner.show();
 
     this.http.post(environment.apiUrl + 'Employee/GetAllEmployess/0', 0).subscribe((res: any) => {
-      // debugger
-      // this.spinner.hide();
-      // debugger
       console.log(res)
       this.trainerArr = res;
-      // console.log( "test",this.courses)
-      // this.toastr.success('Data Retrived !!!');
     }, err => {
-      // this.spinner.hide();
-      // this.toastr.warning('Something wrong');
     })
     debugger;
 
@@ -100,6 +91,66 @@ export class TrainerInfoComponent implements OnInit {
     })
 
   }
+  faArrowUp = faArrowUp
+  faShoppingCart = faShoppingCart
+  faUsers = faUsers
+  faTicketAlt = faTicketAlt
+  faDollarSign = faDollarSign
+  faTimes = faTimes
+  faSearch = faSearch
+  faFileExcel = faFileExcel
+  faFilePdf = faFilePdf
+  fatrash = faTrash
+  faedit = faUserEdit
+  fausercog=faUserCog
+  @ViewChild('TABLE', { static: false }) TABLE: ElementRef | undefined;
+  title = 'Excel';
+  ExportTOExcel() {
+    if (this.TABLE) {
+      const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(this.TABLE.nativeElement);
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+      XLSX.writeFile(wb, 'employee.xlsx');
+    }
+  }
+
+
+
+  columns = [
+    { title: "SSN", dataKey: "nationalSecurutiyNumber" },
+    { title: "Image", dataKey: "image" },
+    { title: "FirstName", dataKey: "fname" },
+    // { title: "LastName", dataKey: "lname" },
+    { title: "Email", dataKey: "email" },
+    { title: "PhoneNumber", dataKey: "phoneNumber" },
+    // { title: "Salary", dataKey: "BasicSalary" },
+    // { title: "Status", dataKey: "status" },
+
+  ];
+
+  trainers: any[] = []
+
+  exportPdf() {
+
+    this.trainers = this.trainer.trainer
+    const doc = new jsPDF('p', 'pt');
+
+    autoTable(doc, {
+      columns: this.columns,
+      body: this.trainers,
+      didDrawPage: (dataArg) => {
+        doc.text('employee', dataArg.settings.margin.left, 10);
+      }
+    });
+    doc.save('employee.pdf');
+  }
+
+
+
+
+
+
+
 
 
 
@@ -113,7 +164,9 @@ export class TrainerInfoComponent implements OnInit {
         const item = this.trainer.trainer.find(i => i.employeeId == empId);
 
 
-        this.dialog.open(EditTrainerComponent, { data: item })
+        this.dialog.open(EditTrainerComponent, { data: item },
+          )
+         
       }
     })
   }
@@ -149,6 +202,6 @@ export class TrainerInfoComponent implements OnInit {
   //   return this.options.filter(option => option.name.toLowerCase().includes(filterValue));
   // }
 
- 
+
 }
 

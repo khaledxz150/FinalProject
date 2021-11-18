@@ -9,6 +9,7 @@ import { AlertDialogComponent } from '../alert-dialog/alert-dialog.component';
 import { Section } from '../models/section';
 
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Attendance } from '../models/Attendance';
 
 @Injectable({
   providedIn: 'root'
@@ -150,6 +151,35 @@ createSection(section:Section,trainerId:number){
 
 
 }
+arr : Attendance =new Attendance();
+
+
+AddAttendance(trainerId:number){
+
+
+
+  debugger
+  this.spinner.show()
+ this.http.post(environment.apiUrl + 'Employee/AddAttendanceTrainee/',trainerId).subscribe((res:any)=>{
+   // debugger
+   this.spinner.hide();
+   this.toastr.success('Section Created Successfully');
+   debugger
+
+
+   // console.log( "test",this.courses)
+   // this.toastr.success('Data Retrived !!!');
+
+
+ },err=>{
+   this.spinner.hide();
+   this.toastr.warning('Something wrong');
+ })
+ debugger;;
+
+
+}
+
 
 deleteSection(sectionId:number){
   this.http.delete(environment.apiUrl + 'Section/DeleteSection/'+sectionId).subscribe((res:any)=>{
