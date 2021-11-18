@@ -25,7 +25,6 @@ export class ExamComponent implements OnInit {
 
   viewExamInfo(examId:any){
     this.examService.currentExamId = examId;
-    debugger
     this.router.navigate(['trainer/examInfo'])
   }
   EditExam(examId:number){

@@ -44,25 +44,11 @@ formGroup: FormGroup;
   }
 
   Create(){
-    console.log(this.formGroup.get('Answer1')?.hasError);
-    // this.Question={ description: this.formGroup.controls.Question.value.description, ImageName:undefined, CreatedBy: 2};
-    // this.examService.CreateQuestion(this.Question);
-    // this.Answer1 ={ description:this.formGroup.controls.Answer1.value.description , 
-    //   questionId:this.examService.CurrentQuestionId, isCorrect: true, createdBy:2}
-    //   this.Answer2 ={ description:this.formGroup.controls.Answer1.value.description , 
-    //     questionId:this.examService.CurrentQuestionId, isCorrect: false, createdBy:2}
-    //     this.Answer3 ={ description:this.formGroup.controls.Answer1.value.description , 
-    //       questionId:this.examService.CurrentQuestionId, isCorrect: false, createdBy:2}
-    //       this.Answer4 ={ description:this.formGroup.controls.Answer1.value.description , 
-    //         questionId:this.examService.CurrentQuestionId, isCorrect: false, createdBy:2}
-    //     this.Answer.push(this.Answer1);
-    //     this.Answer.push(this.Answer2);
-    //     this.Answer.push(this.Answer3);
-    //     this.Answer.push(this.Answer4);
-    //     this.examService.CreateAnswer(this.Answer);
-
-    // const values = this.formGroup.controls;
-    // console.log(values);
+     this.Question={ description: this.formGroup.controls.Question.value.description, examId:this.examService.currentExamId,
+      CorrectAnswer: this.formGroup.controls.Answer.value.Answer1, Option1:this.formGroup.controls.Answer.value.Answer2,
+       Option2:this.formGroup.controls.Answer.value.Answer2, Option3:this.formGroup.controls.Answer.value.Answer3};
+       debugger
+      this.examService.InsertExamQuestion(this.Question);
   }
 
 }

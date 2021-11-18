@@ -50,27 +50,19 @@ export class CreateTaskComponent implements OnInit {
       isActive: true,
       creationDate: "2021-11-18T17:06:19.320Z"
     }
-
-    console.log(taskData)
-
-    this.sectionService.CreateNewTaskForSection(taskData)
+    console.log(taskData);
+    this.sectionService.CreateNewTaskForSection(taskData);
   }
-
   Uploadfile(event: any ) {
     const reader = new FileReader();
 
     if (event.target.files && event.target.files.length) {
       const [file] = event.target.files;
       reader.readAsDataURL(file);
-
       reader.onload = () => {
         this.FileSrc = reader.result as string;
         console.log(this.FileSrc)
-       
-
     }
-
   }
-
 }
 }

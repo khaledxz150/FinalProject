@@ -1,4 +1,5 @@
-﻿using LMS.Core.Services;
+﻿using LMS.Core.Data;
+using LMS.Core.Services;
 using LMS.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -128,6 +129,30 @@ namespace LMS.Controllers
         public List<Exam> ReturnExamBySectionId(int sectionId)
         {
             return examService.ReturnExamBySectionId(sectionId);
+        }
+
+
+        [HttpDelete]
+        [Route("[action]/{examQuestionAnswerId}")]
+        public bool DeleteExamQuestionAnswer(int examQuestionAnswerId)
+        {
+            return examService.DeleteExamQuestionAnswer(examQuestionAnswerId);
+        }
+
+
+        [HttpPost]
+        [Route("[action]")]
+        public bool InsertExamQuestionAnswer(ExamQuestionAnswer examQuestionAnswer)
+        {
+            return examService.InsertExamQuestionAnswer(examQuestionAnswer);
+        }
+
+
+        [HttpPost]
+        [Route("[action]/{examId}")]
+        public List<ExamQuestionAnswer> ReturnExamQuestionAnswer(int examId)
+        {
+            return examService.ReturnExamQuestionAnswer(examId);
         }
 
     }

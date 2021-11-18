@@ -53,18 +53,12 @@ this.spinner.hide();
 
 
 getSections(courseId:number){
-
-
    this.spinner.show();
-
    this.http.post(environment.apiUrl + 'Section/ReturnSectionByCourseId/'+courseId,courseId).subscribe((res:any)=>{
-
     debugger
-    console.log(res)
     this.sections = res;
     this.toastr.success('Data Retrived !!!');
     this.spinner.hide();
-
   },err=>{
     // this.spinner.hide();
     // this.toastr.warning('Something wrong');

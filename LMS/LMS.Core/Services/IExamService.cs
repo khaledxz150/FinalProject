@@ -50,5 +50,14 @@ namespace LMS.Core.Services
 
         public List<ExamAnswersDTO> GetExamAnswersDTOs(int sectionId);
 
+
+
+        // ExamQuestionANswer
+        public bool InsertExamQuestionAnswer(ExamQuestionAnswer examQuestionAnswer);
+
+        public bool DeleteExamQuestionAnswer(int examId);
+
+        public List<ExamQuestionAnswer> ReturnExamQuestionAnswer(int examId);
+
     }
 }
