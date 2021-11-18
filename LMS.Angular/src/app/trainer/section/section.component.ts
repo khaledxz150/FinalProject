@@ -15,6 +15,7 @@ import { CourseService } from 'src/app/Service/course.service';
 import { CreateExamComponent } from '../exam/create-exam/create-exam.component';
 import { CreateLectureComponent } from '../create-lecture/create-lecture.component';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { CreateTaskComponent } from '../task/create-task/create-task.component';
 
 
 @Component({
@@ -37,7 +38,7 @@ export class SectionComponent implements OnInit {
 // @Input () IsActive: boolean| undefined;
 // @Input () CreationDate:Date| undefined;
 // @Input () CreatedBy: number| undefined;
-  
+
 
   constructor(public sectionService: SectionService, private unitService: UnitService, private dialog:MatDialog,private examservice: ExamServiceService,
      private http: HttpClient, private examService:ExamServiceService, private sanitizer: DomSanitizer) { }
@@ -64,7 +65,7 @@ export class SectionComponent implements OnInit {
   sections:any=[{}];
   ngOnInit(): void {
     this.sectionService.ReturnAllTrainerSections(2);
-    
+
     this.http.get('assets/ChatLog/1.txt', { responseType: 'text' }).subscribe(data => {
       const text = data;
       console.log(JSON.parse(text));
@@ -82,7 +83,7 @@ export class SectionComponent implements OnInit {
   CreateExam(SectionId:any){
     this.dialog.open(CreateExamComponent, {data : SectionId});
   }
-  
+
   AddUnit(SectionId:any){
     this.dialog.open(CreateUnitComponent, {data : SectionId});
   }
@@ -91,4 +92,9 @@ export class SectionComponent implements OnInit {
   CreateMeeting(Section:any){
    this.dialog.open(CreateLectureComponent,{data : Section});
   }
+
+  CreateTask(sectionId:any){
+    this.dialog.open(CreateTaskComponent, {data : sectionId});
+  }
+  
 }

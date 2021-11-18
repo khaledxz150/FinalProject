@@ -13,7 +13,7 @@ import { UnitService } from 'src/app/Service/unit.service';
   styleUrls: ['./create-unit.component.css']
 })
 export class CreateUnitComponent implements OnInit {
-
+   
   selectedFile: File|null=null;
   formGroup: FormGroup = new FormGroup({
     FilePath: new FormControl('', [Validators.required]),
@@ -22,20 +22,20 @@ export class CreateUnitComponent implements OnInit {
 
   Unit: Unit=new Unit();
   FileSrc: string | undefined;
- 
+
   constructor(private courseService: CourseService,
     public categoryService:CategoryService, public unitService: UnitService, public sectionService: SectionService, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
-    
-  } 
+
+  }
 
   Create(){
 this.unitService.insertUnit(this.Unit);
 debugger
   }
- 
-  
+
+
   Uploadfile(event: any ) {
     const reader = new FileReader();
 
@@ -44,21 +44,21 @@ debugger
       reader.readAsDataURL(file);
 
       reader.onload = () => {
-        this.FileSrc = reader.result as string;  
+        this.FileSrc = reader.result as string;
 
 
         const type= event.target.files[0].name.substring(event.target.files[0].name.lastIndexOf('.'));
       this.Unit={SectionId: this.data,FilePath: this.FileSrc , isActive: true, CreationDate: new Date(), CreatedBy:1,  Title:this.formGroup.controls['Title'].value,
       FileType:type}
       };
-      
+
       console.log(this.Unit);
 
     }
-    
+
   }
 }
 
 
- 
+
 

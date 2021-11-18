@@ -82,8 +82,9 @@
                           <h5 class="voutcher-code">click to download</h5>
                       </div>
                       <div class="voutcher-right text-center border-left">
-                          <button class="discount-percent" style="color: white;">
-                              <a href="{{this.mySectionService.taskInfo.fileUrl}}" download></a>
+                          <button class="discount-percent" style="color: white;"
+                            (click)="OpenPdf(this.mySectionService.taskInfo.fileUrl,'.pdf')">
+
                             <mat-icon>assignment_returned</mat-icon>
                           </button>
                       </div>
@@ -134,16 +135,21 @@
       <div class="row">
          <h6 class="text" style="display: inline;">{{this.mySectionService.taskInfo.note}}</h6>
       </div>
-      <form action="">
+      <form action="" [formGroup]="formGroup">
         <div class="row">
           <div class="col-9">
-            <input type="file" class="form-control" id="customFile" placeholder="Upload Your File Here" />
+            <input type="file"
+            formControlName="FilePath" (change)="Uploadfile($event)"
+            class="form-control" id="customFile" placeholder="Upload Your File Here" />
           </div>
          <div class="container mt-5">
         <div class="row">
 
             <div class="col-md-9 d-flex justify-content-center">
-               <textarea id="summary" onkeyup="validate()" class="form-control textarea" placeholder="Type Here Your Notes.."></textarea>
+               <textarea id="summary" onkeyup="validate() "
+               formControlName="Note"
+                class="form-control textarea"
+                placeholder="Type Here Your Notes.."></textarea>
             </div>
         </div>
        </div>
@@ -151,7 +157,9 @@
 
        <div class="row" style="margin-top: 20px;">
 
-          <button role="button" class="offset-7 col-2  btn-outline-danger">Save</button>
+          <button role="button" class="offset-7 col-2  btn-outline-danger"
+              (click)="UploadTaskSoultion()" type="submit"
+          >Save</button>
        </div>
       </form>
 

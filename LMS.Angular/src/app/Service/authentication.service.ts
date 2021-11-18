@@ -74,10 +74,6 @@ export class AuthenticationService {
     this.toastr.error(err.status);
   })
 }
-
-
-
-
 logout() {
   // call api => logout
   localStorage.clear();

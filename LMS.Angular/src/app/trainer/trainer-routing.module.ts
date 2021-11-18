@@ -6,15 +6,15 @@ import { SectionComponent } from './section/section.component';
 import { UnitComponent } from './unit/unit.component';
 
 const routes: Routes = [
-  {
+{
     path:'',
     component:SectionComponent
-  },
-  {
+},
+{
     path:'unit',
     component:UnitComponent
-  },
-  {path:'exam',
+},
+{path:'exam',
 component:ExamComponent},
 {path:'examInfo',
  component:ExamInfoComponent}

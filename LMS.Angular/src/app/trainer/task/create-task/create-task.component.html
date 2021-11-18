@@ -1,0 +1,47 @@
+<h2 mat-dialog-title>Upload New Task</h2>
+<mat-dialog-content class="mat-typography">
+
+
+
+        <form [formGroup]="formGroup" >
+
+            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Notes </mat-label>
+            <input type="email" matInput formControlName="Title">
+            <mat-error *ngIf="formGroup.controls.Title.hasError('required')">
+              Title is <strong>required</strong>
+          </mat-error>
+            </mat-form-field>
+             <div class="custom-file" STYLE="width: 100%;">
+
+                    <div class="upload-btn-wrapper">
+
+                      <button class="btn">Upload a file
+
+                        <i class="fa fa-upload"></i>
+                      </button>
+                      <input type="file" class="form-control-file" id="exampleFormControlFile1"  formControlName="FilePath" (change)="Uploadfile($event)">
+                    </div>
+
+             </div>
+               <mat-error *ngIf="formGroup.controls.FilePath.hasError('required')">
+                 File <strong>required</strong>
+               </mat-error>
+        </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="Create()" [disabled]="!formGroup.valid">Save</button>
+</mat-dialog-actions>
+
+    <!--===============================================================================================-->
+    <script src="../../../assets/jquery/jquery-3.2.1.min.js "></script>
+    <!--===============================================================================================-->
+    <script src="../../../assets/bootstrap/js/popper.js "></script>
+    <script src="../../../assets/bootstrap/js/bootstrap.min.js "></script>
+    <!--===============================================================================================-->
+    <!--===============================================================================================-->
+
+    <!--===============================================================================================-->
+    <script src="../../../assets/js/main.js "></script>
