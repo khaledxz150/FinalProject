@@ -7,7 +7,7 @@ import { AuthorizationGuard } from './guard/authorization.guard';
 import { ContactusComponent } from './pages/contactus/contactus.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PagesModule } from './pages/pages.module';
-import { PaypalComponent } from './paypal/paypal.component';
+import { PaypalComponent } from '';
 import { SharedModule } from './shared/shared.module';
 import { TraineeModule } from './trainee/trainee.module';
 import { TrainerModule } from './trainer/trainer.module';
@@ -53,7 +53,7 @@ const routes: Routes = [
     path:'shared',
     loadChildren:()=>SharedModule,
   }
-  
+
 ];
 
 @NgModule({

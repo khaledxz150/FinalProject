@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { TraineeNavbarService } from 'src/app/Service/trainee-navbar.service';
 
@@ -9,7 +10,7 @@ import { TraineeNavbarService } from 'src/app/Service/trainee-navbar.service';
 })
 export class TraineeNavComponent implements OnInit {
 
-  constructor( private spinner: NgxSpinnerService,public traineeService:TraineeNavbarService) { }
+  constructor( private spinner: NgxSpinnerService,public router:Router,public traineeService:TraineeNavbarService) { }
 
   ngOnInit(): void {
 
