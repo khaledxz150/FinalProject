@@ -21,6 +21,7 @@ export class SectionService {
    sections: any[]=[{}];
    status: any[]=[{}];
    SelectedSection:any|undefined;
+   tasks:any[]=[];
 
 
 
@@ -96,11 +97,7 @@ getSectionsById(courseId:number){
 
 
 
-  }
-
-
-
-
+}
   getStatus(){
 
     // debugger;
@@ -124,8 +121,6 @@ this.http.get(environment.apiUrl + 'Section/GetAllStatus/').subscribe((res:any)=
 debugger;
 
 }
-
-
 createSection(section:Section,trainerId:number){
 
 
@@ -222,5 +217,24 @@ deleteSection(sectionId:number){
   this.filterTraineeSection =  this.traineeSection.filter(i=>i.sectionId == sectionId.value)
 
   debugger
+ }
+
+ CreateNewTaskForSection(object:any){
+   this.http.post('http://localhost:54921/api/Section/InsertTask',object).subscribe((res)=>{
+     if(res){
+       this.toastr.success('uploaded Success')
+     }else{
+       this.toastr.error('Failed Operation')
+     }
+   })
+   window.location.reload();
+ }
+
+
+ GetTrainerSectionTask(){
+  this.http.post('http://localhost:54921/api/Section/ReturnTasksOfSection?sectionTrainerId=1',null)
+  .subscribe((res:any)=>{
+     this.tasks=res;
+  })
  }
 }

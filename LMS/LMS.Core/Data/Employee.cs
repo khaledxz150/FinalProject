@@ -38,7 +38,7 @@ namespace LMS.Data
         public virtual ICollection<Login> Logins { get; set; }
         public virtual ICollection<OffLineLecture> OffLineLectures { get; set; }
         public virtual ICollection<Tag> Tags { get; set; }
-        public virtual ICollection<Task> Tasks { get; set; }
+        public virtual ICollection<Tasks> Tasks { get; set; }
         public virtual ICollection<Testimonial> TestimonialApprovedEmployees { get; set; }
         public virtual ICollection<Testimonial> TestimonialCreatedByNavigations { get; set; }
         public virtual ICollection<Topic> Topics { get; set; }

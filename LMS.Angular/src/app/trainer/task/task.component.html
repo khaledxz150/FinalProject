@@ -8,27 +8,34 @@
 						<table class="table">
 						  <thead class="thead-dark">
 						    <tr>
-						      <th class="col-2">First Name</th>
-						      <th class="col-1">Last Name</th>
-						      <th class="col-1">Email</th>
+						      <th class="col-2">Title</th>
+						      <th class="col-1">Dead Line</th>
+
 						      <th class="col-1">edit</th>
                   <th class="col-1">Delete</th>
-                  <th class="col-1">Answers</th>
+                  <th class="col-1">Student Answers</th>
 						    </tr>
 						  </thead>
 						  <tbody>
-						    <tr class="alert" role="alert">
-						      <td class="col-2">Title</td>
-						      <td class="col-1">DeadLine</td>
-						      <td class="col-1">Mark</td>
+						    <tr class="alert" role="alert" *ngFor="let data of sections.tasks">
+						      <td class="col-2">{{data.taskTitle}}</td>
+						      <td class="col-1">{{data.deadline}}</td>
 						      <td class="col-1">
-                    edit
+
+                    <button class="btn btn-outline-info">
+                      Edit
+                    </button>
 				        	</td>
                   <td class="col-1">
-                    Delete
+
+                    <button class="btn btn-outline-danger">
+                      Delete
+                    </button>
 				        	</td>
                   <td class="col-1">
-                    Students Answers
+                   <button class="btn btn-outline-primary">
+                     Get Answers
+                   </button>
 				        	</td>
 						    </tr>
 						  </tbody>

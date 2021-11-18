@@ -18,6 +18,6 @@ namespace LMS.Data
 
         public virtual Employee CreatedByNavigation { get; set; }
         public virtual Employee Trainer { get; set; }
-        public virtual ICollection<Task> Tasks { get; set; }
+        public virtual ICollection<Tasks> Tasks { get; set; }
     }
 }

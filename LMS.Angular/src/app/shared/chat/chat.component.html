@@ -1,5 +1,5 @@
 
-  <div class="ud-body">
+<div class="ud-body">
     <div class="msg-box">
       <ul>
         <li *ngFor="let mObj of chatService.data" [ngClass]="mObj.userId === Userid ? 'in-msg' : 'ex-msg'">{{mObj.traineeName}} :<br /><span class="msg-italic-style">{{mObj.message}}</span></li>
@@ -9,5 +9,5 @@
       <input type="text" placeholder="Type message here"  id="inputbox" class="msg-input" [(ngModel)]="msgDto"  />
       <button class="send-btn" (click)= "send()"><i class="fa fa-paper-plane"></i></button>
     </div>
-  </div>
+</div>
 

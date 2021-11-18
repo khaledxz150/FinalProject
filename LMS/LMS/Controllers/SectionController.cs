@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Task = LMS.Data.Task;
 
 namespace LMS.Controllers
 {
@@ -178,9 +177,9 @@ namespace LMS.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public bool AddTask(Task task)
+        public bool InsertTask(Tasks task)
         {
-            return sectionService.AddTask(task);
+            return sectionService.InsertTask(task);
         }
 
 
@@ -188,7 +187,7 @@ namespace LMS.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public bool UpdateTask(Task task)
+        public bool UpdateTask(Tasks task)
         {
             return sectionService.UpdateTask(task);
         }
@@ -197,7 +196,7 @@ namespace LMS.Controllers
 
         [HttpGet]
         [Route("[action]")]
-        public List<Task> SelectTraineeSectionTaskId()
+        public List<Tasks> SelectTraineeSectionTaskId()
         {
             return sectionService.SelectTraineeSectionTaskId();
         }
@@ -208,7 +207,7 @@ namespace LMS.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public List<Task> ReturnTasksOfSection(int sectionTrainerId)
+        public List<Tasks> ReturnTasksOfSection([FromQuery]int sectionTrainerId)
         {
             return sectionService.ReturnTasksOfSection(sectionTrainerId);
         }

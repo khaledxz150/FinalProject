@@ -78,6 +78,9 @@ body {
     bottom: 25px;
     left: 25px;
     right: 25px;
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
 }
 
 .card__title {
@@ -88,6 +91,9 @@ body {
     position: absolute;
     top: 25px;
     left: 25px;
+}
+.example-full-width {
+  width: 100%;
 }
 
 .card__more-info,
@@ -245,21 +251,11 @@ body {
   overflow: hidden;
   display: inline-block;
 }
-
-.btn {
-  border: 2px solid gray;
-  color: gray;
-  background-color: white;
-  padding: 8px 20px;
-  border-radius: 8px;
-  font-size: 20px;
-  font-weight: bold;
+td {
+  padding-right: 8px;
 }
 
-.upload-btn-wrapper input[type=file] {
-  font-size: 100px;
-  position: absolute;
-  left: 0;
+.btn {
   top: 0;
   opacity: 0;
 }
