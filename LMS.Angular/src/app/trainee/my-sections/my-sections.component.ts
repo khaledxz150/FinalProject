@@ -9,7 +9,6 @@ import { AddCommentComponent } from '../add-comment/add-comment.component';
 import { ExamInfoComponent } from '../exam-info/exam-info.component';
 import { RateBoxComponent } from '../rate-box/rate-box.component';
 import { TaskInfoComponent } from '../task-info/task-info.component';
-
 @Component({
   selector: 'app-my-sections',
   templateUrl: './my-sections.component.html',

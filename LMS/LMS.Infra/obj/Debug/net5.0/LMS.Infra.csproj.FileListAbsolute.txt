@@ -56,3 +56,4 @@ C:\GitHub\FinalProject\LMS\LMS.Infra\obj\Debug\net5.0\LMS.Infra.csproj.CoreCompi
 C:\GitHub\FinalProject\LMS\LMS.Infra\obj\Debug\net5.0\LMS.Infra.dll
 C:\GitHub\FinalProject\LMS\LMS.Infra\obj\Debug\net5.0\ref\LMS.Infra.dll
 C:\GitHub\FinalProject\LMS\LMS.Infra\obj\Debug\net5.0\LMS.Infra.pdb
+C:\GitHub\FinalProject\LMS\LMS.Infra\obj\Debug\net5.0\LMS.Infra.csproj.CopyComplete

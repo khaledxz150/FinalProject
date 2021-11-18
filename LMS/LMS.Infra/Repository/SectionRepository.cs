@@ -42,6 +42,14 @@ namespace LMS.Infra.Repository
             IEnumerable<CommentDTO> result = dBContext.Connection.Query<CommentDTO>("ReturnAllComments", parm, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+        public List<SectionOfTraineeDTO> ReturnSectionOfTrainee(int traineeId, int sectionId)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@TraineeId", traineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@SectionId", sectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<SectionOfTraineeDTO> result = dBContext.Connection.Query<SectionOfTraineeDTO>("ReturnSectionOfTrainee", parm, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
 
         public async Task<bool> AddSection(Section section, int trainerId)
         {
@@ -198,14 +206,7 @@ namespace LMS.Infra.Repository
             return result.ToList();
         }
 
-        public List<SectionOfTraineeDTO> ReturnSectionOfTrainee(int traineeId, int sectionId)
-        {
-            var parm = new DynamicParameters();
-            parm.Add("@TraineeId", traineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parm.Add("@SectionId", sectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            IEnumerable<SectionOfTraineeDTO> result = dBContext.Connection.Query<SectionOfTraineeDTO>("ReturnSectionOfTrainee", parm,commandType: CommandType.StoredProcedure);
-            return result.ToList();
-        }
+
 
         public List<CommentDTO> ReturnAllComments(int sectionId)
         {
@@ -303,6 +304,14 @@ namespace LMS.Infra.Repository
             parm.Add("@TrainerId", trainerId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             IEnumerable<TraineeSectionDTO> result = dBContext.Connection.Query<TraineeSectionDTO>("ReturnTraineeSection", parm, commandType: CommandType.StoredProcedure);
             return result.ToList();
+        }
+
+        public StudentCountDTO ReturnStudentCount(int sectionId)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@SectionId", sectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            StudentCountDTO result = dBContext.Connection.QuerySingle<StudentCountDTO>("ReturnSectionStudentCount", parm, commandType: CommandType.StoredProcedure);
+            return result;
         }
     }
 }

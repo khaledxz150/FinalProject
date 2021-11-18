@@ -56,6 +56,7 @@ import { ChatComponent } from './chat/chat.component';
 
 
 
+
 FullCalendarModule.registerPlugins([
   interactionPlugin,
   dayGridPlugin
@@ -106,6 +107,7 @@ FullCalendarModule.registerPlugins([
     TableModule,
     MatNativeDateModule,
     InputSwitchModule,
+    MatIconModule
     ],
   exports:[
     FullCalendarModule,
@@ -147,7 +149,8 @@ FullCalendarModule.registerPlugins([
     TableModule,
     MatNativeDateModule,
     InputSwitchModule,
-    ChatComponent
+    ChatComponent,
+    MatIconModule
   ]
 })
 export class SharedModule { }
