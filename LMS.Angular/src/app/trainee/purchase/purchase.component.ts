@@ -4,6 +4,7 @@ import { PurchesService } from 'src/app/Service/purches.service';
 import { TraineeNavbarService } from 'src/app/Service/trainee-navbar.service';
 import { TraineeService } from 'src/app/Service/trainee.service';
 
+//Update Purches
 @Component({
   selector: 'app-purchase',
   templateUrl: './purchase.component.html',
