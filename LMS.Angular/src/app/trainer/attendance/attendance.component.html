@@ -1,1 +1,80 @@
-<p>attendance works!</p>
+<div class="wrapper d-flex align-items-stretch" style="background-color:#eee; height: 100%;">
+    <app-trainer-side-bar></app-trainer-side-bar>
+
+
+    <div class="container">
+
+        <div id="content" class="pt-5 mt-5">
+
+
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="row d-flex m-3" style="justify-content: space-between;">
+                            <h2>Trainee</h2>
+                            <div>
+
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>CourseName</mat-label>
+                                    <mat-select [formControl]="sectionId">
+                                        <mat-option *ngFor="let section of this.sectionService.TrainerSection"
+                                            [value]="section.sectionId">
+
+                                            {{section.courseName}} {{section.sectionTimeStart | date:'shortTime'}} -
+                                            {{section.sectionTimeEnd | date:'shortTime'}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <button class="filter" (click)="filter()">Search</button>
+                                <button class="clear" (click)="clear()">Clear</button>
+
+
+                            </div>
+
+                        </div>
+                        <!-- [value]="customers" -->
+                        <p-table [value]="sectionService.filterTraineeSection" class="px-5" [scrollable]="true"
+                            scrollHeight="400px">
+                            <ng-template pTemplate="header">
+                                <tr>
+                                    <th style="min-width:50px">Trainee Id</th>
+                                    <th style="min-width:50px">Trainee Name</th>
+                                    
+                                    <th style="min-width:50px"> IsPresent</th>
+                                    <!-- <th style="min-width:200px">Representative</th> -->
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-trainee>
+                                <tr>
+                                    <td style="min-width:50px">{{trainee.traineeId}}</td>
+                                    <td style="min-width:50px">{{trainee.traineeName}}</td>
+                                    <td style="min-width:50px" ><div >
+                                        <label>
+                                            <input type="checkbox"  (change)="onCheckboxChange($event)" />
+                                         
+                                          </label>
+                                        </div>
+                                    </td>
+                                    <!-- <td style="min-width:200px">{{trainee.representative.name}}</td> 
+                                        <div *ngFor="let web of sectionService.arr">
+                                            [value]="web.isPresent"
+                                     <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>-->
+                                </tr>
+                               
+                                <button class="btn btn-primary" style="margin-right: 5px;" type="submit" style="background-color:rgb(185, 40, 40)">Submit</button>
+                            </ng-template>
+                        </p-table>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
