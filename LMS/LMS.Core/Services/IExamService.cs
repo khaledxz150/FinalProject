@@ -15,7 +15,7 @@ namespace LMS.Core.Services
         public bool InsertExam(Exam exam);
         public bool UpdateExam(Exam exam);
         public bool DeleteExam(int examId);
-
+       
         public bool AddTraineeSectionExam(TraineeSectionExam traineeSectionExam);
 
 

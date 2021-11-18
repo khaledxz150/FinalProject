@@ -72,7 +72,7 @@ namespace LMS.Core.Repository
 
 
         //ReturnSolutionOfTask
-        public List<TaskSolutionDTO> ReturnSolutionOfTask(int taskId, int sectionId);
-
+        public List<TaskSolDTO> ReturnTraineeSolutionOfTask(int taskId, int sectionId);
+       
     }
 }

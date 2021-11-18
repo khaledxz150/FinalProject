@@ -22,6 +22,7 @@ export class SectionService {
    status: any[]=[{}];
    SelectedSection:any|undefined;
    tasks:any[]=[];
+   tasksAnswers:any=[]=[];
 
 
 
@@ -236,5 +237,11 @@ deleteSection(sectionId:number){
   .subscribe((res:any)=>{
      this.tasks=res;
   })
+ }
+
+ GetTraineeSectionTaskAnswer(){
+   this.http.post('http://localhost:54921/api/Section/ReturnSolutionOfTask?taskId=1&sectionId=1',null).subscribe((res:any)=>{
+     this.tasksAnswers=res;
+   })
  }
 }

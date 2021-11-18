@@ -21,6 +21,7 @@ export class TaskComponent implements OnInit {
     this.sections.GetTrainerSectionTask();
   }
   DeleteExam(sectionId: number){};
-
-
+  GetSolution(){
+    this.router.navigate(['trainer','solution'])
+  }
 }

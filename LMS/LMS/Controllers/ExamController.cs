@@ -20,8 +20,6 @@ namespace LMS.Controllers
             this.examService = examService;
 
         }
-
-
         [HttpPost]
         [Route("[action]/{queryCode}")]
         public List<Exam> ReturnExam(int queryCode)

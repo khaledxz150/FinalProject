@@ -1,0 +1,44 @@
+<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+
+					<div class="table-wrap">
+						<table class="table">
+					    <thead class="" style="background-color: #af1a2d; color: white;">
+					      <tr>
+					        <th>Trainee Name</th>
+					        <th>Notes</th>
+					        <th>Get Answer</th>
+					        <th>Insert Mark</th>
+					      </tr>
+					    </thead>
+					    <tbody>
+					      <tr *ngFor="let data of sections.tasksAnswers">
+
+					         <td>{{data.traineeName}}</td>
+					         <td>{{data.note}}</td>
+					         <td>
+                    <button class="btn btn-outline-info" (click)="OpenPdf(data.fileUrl)">
+                      Get Answer
+                    </button>
+                   </td>
+					         <td>
+                    <button class="btn btn-outline-success">
+                      Insert Mark
+                    </button>
+                   </td>
+
+					      </tr>
+					    </tbody>
+					  </table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+

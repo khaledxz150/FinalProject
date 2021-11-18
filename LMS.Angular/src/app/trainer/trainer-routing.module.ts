@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ExamInfoComponent } from './exam/exam-info/exam-info.component';
 import { ExamComponent } from './exam/exam.component';
 import { SectionComponent } from './section/section.component';
+import { TaskSoultionsComponent } from './task/task-soultions/task-soultions.component';
 import { UnitComponent } from './unit/unit.component';
 
 const routes: Routes = [
@@ -17,7 +18,10 @@ const routes: Routes = [
 {path:'exam',
 component:ExamComponent},
 {path:'examInfo',
- component:ExamInfoComponent}
+ component:ExamInfoComponent},{
+   path:'solution',
+   component:TaskSoultionsComponent
+ }
 ];
 
 @NgModule({

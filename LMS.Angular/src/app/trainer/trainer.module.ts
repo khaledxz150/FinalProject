@@ -20,6 +20,7 @@ import { ExamInfoComponent } from './exam/exam-info/exam-info.component';
 import { TaskComponent } from './task/task.component';
 import { CreateTaskComponent } from './task/create-task/create-task.component';
 import { EditTaskComponent } from './task/edit-task/edit-task.component';
+import { TaskSoultionsComponent } from './task/task-soultions/task-soultions.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { EditTaskComponent } from './task/edit-task/edit-task.component';
     TaskComponent,
     CreateTaskComponent,
     EditTaskComponent,
+    TaskSoultionsComponent,
     
     ],
   imports: [

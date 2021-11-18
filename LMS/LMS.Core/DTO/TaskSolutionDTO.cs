@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LMS.Core.DTO
 {
-    public class TaskSolutionDTO
+    public class TaskSolDTO
     {
         public int TraineeSectionTaskId { get; set; }
         public int TraineeSectionId { get; set; }

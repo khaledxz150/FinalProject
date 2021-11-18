@@ -22,7 +22,6 @@ namespace LMS.Infra.Services
         {
             return sectionRepository.ReturnStudentCount(sectionId);
         }
-
         //// Section
         ///Start
                 //Status
@@ -158,15 +157,14 @@ namespace LMS.Infra.Services
             return sectionRepository.ReturnTasksOfSection(sectionTrainerId);
         }
 
-        public List<TaskSolutionDTO> ReturnSolutionOfTask(int taskId, int sectionId)
-        {
-            return sectionRepository.ReturnSolutionOfTask(taskId, sectionId);
-        }
+
 
         public List<Section> GetAllSection()
         {
             return sectionRepository.GetAllSection();
         }
+
+
 
 
     }
