@@ -20,6 +20,7 @@ export class CourseService {
   courseComment:any[]=[];
   courseSection:any[]=[];
   singleCourse:any={};
+  sectionStudents:any[]=[];
   coursesActualRating:any[]=[];
   coursesSumationOfReview:any[]=[]
   finalRate:number=0;
@@ -440,8 +441,16 @@ export class CourseService {
      GetCourseSections(P_courseId:number|undefined){
        this.http.post('http://localhost:54921/api/Section/ReturnSectionByCourseId/'+P_courseId,null).subscribe((res:any)=>{
          this.courseSection=res;
+         for(let section of res ){
+          this.GetStudentCountInSection(section.sectionId)
+        }
        })
      }
+     GetStudentCountInSection(sectionId:number){
+      this.http.post('http://localhost:54921/api/Section/ReturnStudentCount/'+sectionId,null).subscribe((res:any)=>{
+       this.sectionStudents.push(res.student)
+      })
+    }
      GetAvailableCartId(traineeId:number){
       this.http.post('http://localhost:54921/api/Customer/ReturnCart?queryCode=1&trineeId='+traineeId,null)
       .subscribe((res:any)=>{
