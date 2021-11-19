@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { SectionService } from 'src/app/Service/section.service';
 
 @Component({
   selector: 'app-task-mark',
@@ -7,13 +9,27 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./task-mark.component.css']
 })
 export class TaskMarkComponent implements OnInit {
+  currentTaskId:number|undefined;
   formGroup: FormGroup = new FormGroup({
+
     Note: new FormControl(''),
     Mark: new FormControl('', [Validators.required]),
   });
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,public Mysections:SectionService) { }
 
   ngOnInit(): void {
+    this.currentTaskId=this.data
+  }
+
+
+  Create(){
+    const obj={
+      traineeSectionTaskId:  this.currentTaskId,
+      mark: this.formGroup.value.Mark,
+      trainerNote:this.formGroup.value.Note
+   }
+   this.Mysections.InsertTaskMarkForTrainee(obj)
+
   }
 
 }

@@ -32,17 +32,15 @@ export class QuestionsComponent implements OnInit {
   FinshExam(){
    console.log(this.userAnswer)
     for(let ans=0;ans< this.exam.QuestionAnswer.length;ans++){
-      for(let i of this.exam.QuestionAnswer[ans]){
-        if(1==this.userAnswer[ans] && i.isCorrect){
+
+        if(this.exam.QuestionAnswer[ans].correctAnswer==this.userAnswer[ans]){
           ++ this.result;
         }
-      }
+
     }
+
     console.log(this.result)
-
-    
-
-    this.router.navigate(['client','sections'])
+    this.exam.InsertExamResult(this.result)
   }
 
 }

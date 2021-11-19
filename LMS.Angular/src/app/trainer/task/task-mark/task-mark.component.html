@@ -4,12 +4,12 @@
 
   <div class="form" style="margin-top:50px">
     <form [formGroup]="formGroup">
-     
 
-     
+
+
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Mark </mat-label>
-        <input type="email" matInput formControlName="Mark">
+        <input type="number" matInput formControlName="Mark">
         <mat-error *ngIf="formGroup.controls.Mark.hasError('required')">
           Mark is <strong>required</strong>
       </mat-error>
@@ -18,9 +18,10 @@
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Note</mat-label>
-        <input type="text" matInput formControlName="Weight">
+        <input type="text" matInput formControlName="Note">
 
-        
+
+
       </mat-form-field>
 
 

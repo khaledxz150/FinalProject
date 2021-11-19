@@ -1,0 +1,32 @@
+<div class="container" >
+    <div id="content" class="px-3 p-md-5 pt-5 mt-5">
+    <app-trainer-side-bar></app-trainer-side-bar>
+    <div style="text-align:center;">
+
+                    <table class="table">
+                            <thead class="thead-dark">
+                                <tr class="row100 head Head">
+                                    <th >s.No</th>
+                                    <th >Trainee Email</th>
+                                    <th >Trainee Name</th>
+                                    <th >Mark</th>
+
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let data of examService.TraineeMarks;let i =index;" class="tbody">
+                                <tr>
+                                    <th scope="row">i</th>
+                                    <td>{{data.traineeName}}</td>
+                                    <td >{{data.email}}</td>
+                                    <td >{{data.traineeMark}}</td>
+                                </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
