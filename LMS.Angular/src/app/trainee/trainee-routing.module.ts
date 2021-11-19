@@ -39,9 +39,6 @@ const routes: Routes = [
     path:'purchase',
     component:PurchaseComponent
   },{
-    path:'video',
-    component:VideosComponent
-  },{
     path:'info',
     component:ExamInfoComponent
   },{

@@ -186,11 +186,16 @@
                                 <mat-icon>desktop_windows</mat-icon>
                                 Meetings
                               </ng-template>
-                                <div class="row" style="margin-top: 15px;">
-                                  <img src="../../../assets/image/teams.png" class="offset-3" style="width: 30px; height: 30px; margin-bottom: 30px;" alt="">
-                                  <h6 class="col-2 text-center">Join To Lecture</h6>
-                                  <a href="this.mySectionService.singleSectionInfo.meetingUrl" class="col-4">Click Here To Join Meeting</a>
-                                </div>
+                              <ng-container >
+                                <div class="review-item d-flex">
+                                  <div class="text-center mr-2">
+                                    <img  class="person-image" src="../../../assets/image/teammmat.png">
+                                  </div>
+                                  <div >
+                                    <div class="review-writer mt-2">
+                                        Microsoft Teams</div>
+                                    <div  class="review-comment"><p _ngcontent-c19="" class="mb-0"><a _ngcontent-c19="" class="color-red" target="_blank" href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_N2U4MjgzZGQtYTgzYS00NDBmLWE4MDgtZTBhZDhkMzQ1YmRj%40thread.v2/0?context=%7b%22Tid%22%3a%22fb4eb8f6-03cd-4fc7-a165-2f10f0955f17%22%2c%22Oid%22%3a%22472247f0-cd24-4830-8a1c-b28be940fc57%22%7d"> Click Here  </a>To Join Meeting </p></div></div></div>
+                              </ng-container>
 
                             </mat-tab>
 
@@ -221,10 +226,15 @@
                           <summary>Units</summary>
                           <ul>
                               <li *ngFor="let unit of this.mySectionService.sectionUnits">
-                                <span>{{unit.filePath}}</span>
-                                <button class="downloadButton">
-                                  <mat-icon>assignment_returned</mat-icon>
-                                </button>
+                                <div class="document-info w-100 px-2">
+                                  <div  class="document-name">
+                                    <span _>LMS.pdf</span>
+                                  </div>
+                                  <div class="d-flex justify-content-between">
+                                    <span  class="document-type color-red font-small"> [File] </span>
+                                    <mat-icon>cloud_download</mat-icon>
+                                  </div>
+                                </div>
                               </li>
                           </ul>
                        </details>
