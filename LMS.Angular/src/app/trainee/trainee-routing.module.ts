@@ -25,7 +25,7 @@ const routes: Routes = [
     path:'learning',
     component:MyLeaningComponent
   },{
-    path:'sections'
+    path:'sections/:id'
     ,component:MySectionsComponent
   },{
     path:'questions',

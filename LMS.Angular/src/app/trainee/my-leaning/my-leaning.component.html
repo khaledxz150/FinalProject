@@ -94,8 +94,7 @@
                             <ng-container >
 
                               <div class="course-card" *ngFor="let course of this.learningService.myNewestCourses"
-                              (click)="DisplayCourseInfo(course.courseID)"
-                              >
+                              (click)="DisplayCourseInfo(course.courseID)">
                                 <div class="card">
                               <div class="row no-gutters">
                               <div class="col-md-4">
@@ -105,7 +104,7 @@
                                <div class="card-body">
                                  <h5 class="card-title">{{course.courseName}}</h5>
                                  <br>
-                                 <h6 style=""> Book Your Seat Now </h6>
+                                 <h6 > Book Your Seat Now </h6>
                                  <h6> And Start Your Learning Journiy</h6>
 
                                  <h6></h6>
@@ -134,7 +133,7 @@
 
                             <ng-container >
 
-                              <div class="course-card" (click)="MovingToLiveCourses()" *ngFor="let course of this.learningService.myLiveSections">
+                              <div class="course-card" (click)="GetMySectionInfo(course.sectionId)"  *ngFor="let course of this.learningService.myLiveSections">
                                 <div class="card">
                               <div class="row no-gutters">
                               <div class="col-md-4">
@@ -171,6 +170,7 @@
                               </div>
                             </ng-container>
                           </mat-tab>
+                          <!--
                           <mat-tab>
                             <ng-template mat-tab-label>
                               <mat-icon>play_circle_outline</mat-icon>
@@ -211,6 +211,7 @@
                               </div>
                             </ng-container>
                           </mat-tab>
+                          -->
                         </mat-tab-group>
 
                     </div> <!-- corses singel left -->

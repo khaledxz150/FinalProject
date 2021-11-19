@@ -89,7 +89,7 @@ export class HomeComponent implements OnInit {
      let traineeId=JSON.parse(this.loggedIn)
      this.loggedIn=traineeId.traineeId
      console.log(this.loggedIn)
-
+    
   }
 
 }

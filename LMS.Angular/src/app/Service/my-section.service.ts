@@ -10,10 +10,12 @@ export class MySectionService {
   sectionUnits:any[]=[];
   sectionTask:any[]=[];
   sectionExam:any[]=[]
+  sectionComment:any[]=[];
   sectionId:number=0;
   traineeId:number=0;
   courseId:number=0;
   comment:string='';
+  singleSectionInfo:any;
   taskInfo:any;
   singleSectionExam:any;
   constructor(private http:HttpClient,public tostar:ToastrService) { }
@@ -42,11 +44,11 @@ export class MySectionService {
     })
   }
 
-  GetSectionTask(){
-    this.http.get('http://localhost:54921/api/Section/SelectTraineeSectionTaskId')
+  GetSectionTask(sectionId:number|undefined){
+    this.http.get('http://localhost:54921/api/Section/SelectTraineeSectionTaskId?sectionId='+sectionId)
     .subscribe((res:any)=>{
-
       this.sectionTask=res;
+
     })
   }
   GetSectionInfoById(taskId:number){
@@ -62,8 +64,8 @@ export class MySectionService {
       }
     })
   }
-  GetSectionExam(){
-    this.http.post('http://localhost:54921/api/Exam/ReturnExam/1',null)
+  GetSectionExam(sectionId:number|undefined){
+    this.http.post('http://localhost:54921/api/Exam/ReturnExam?queryCode=1&sectionId='+sectionId,null)
     .subscribe((res:any)=>{
       this.sectionExam=res;
     })
@@ -111,6 +113,17 @@ export class MySectionService {
           this.tostar.success('Added Success')
         }
        })
+  }
+  GetSectionComment(sectionId:number|undefined){
+    this.http.post('http://localhost:54921/api/Section/ReturnAllComments/'+sectionId,null)
+    .subscribe((res:any)=>{
+      this.sectionComment=res;
+    })
+  }
+  GetSingleSectionInformation(sectionId:number|undefined){
+      this.http.post('http://localhost:54921/api/Section/GetSingleSection/'+sectionId,null).subscribe((res:any)=>{
+        this.singleSectionInfo=res
+      })
   }
 
 

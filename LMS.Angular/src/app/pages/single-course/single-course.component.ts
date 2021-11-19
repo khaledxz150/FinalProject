@@ -17,7 +17,7 @@ export class SingleCourseComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute,
     public router:Router,
     public courseService:CourseService ) { }
-
+    loggedIn:any|undefined;
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
      if(id !=null){
@@ -25,6 +25,10 @@ export class SingleCourseComponent implements OnInit {
      this.courseService.GetCourseTopic(parseInt(id));
      this.courseService.GetCourseComments(parseInt(id));
      this.courseService.GetCourseSections(parseInt(id));
+     this.loggedIn=localStorage.getItem("user")
+     let traineeId=JSON.parse(this.loggedIn)
+     this.loggedIn=traineeId.traineeId
+     console.log(this.loggedIn)
      }
      //kkm
 

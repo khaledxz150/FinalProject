@@ -16,11 +16,15 @@ export class CoursesComponent implements OnInit {
 
 
   constructor(public courseService:CourseService,public router:Router) { }
-
+  loggedIn:any|undefined;
   ngOnInit(): void {
     this.courseService.GetAvailableCartId(2)
     this.courseService.getAllAvailableCourse()
     this.courseService.GetAvailableWishListId(2)
+    this.loggedIn=localStorage.getItem("user")
+    let traineeId=JSON.parse(this.loggedIn)
+    this.loggedIn=traineeId.traineeId
+    console.log(this.loggedIn)
   }
   getLink(coureId:number|undefined){
     navigator.clipboard.writeText

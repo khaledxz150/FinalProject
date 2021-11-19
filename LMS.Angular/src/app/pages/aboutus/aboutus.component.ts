@@ -11,9 +11,13 @@ export class AboutusComponent implements OnInit {
   constructor(
     public trainerService: TrainerService
   ) { }
-
-  ngOnInit(): void {
+  loggedIn:any|undefined;
+     ngOnInit(): void {
     this.trainerService.getTrainer();
+    this.loggedIn=localStorage.getItem("user")
+    let traineeId=JSON.parse(this.loggedIn)
+    this.loggedIn=traineeId.traineeId
+    console.log(this.loggedIn)
 
   }
 

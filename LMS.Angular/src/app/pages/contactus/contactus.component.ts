@@ -13,8 +13,12 @@ export class ContactusComponent implements OnInit {
 
 
   constructor(public contactUsService: ContactusService) { }
-
+  loggedIn:any|undefined;
   ngOnInit(): void {
+    this.loggedIn=localStorage.getItem("user")
+    let traineeId=JSON.parse(this.loggedIn)
+    this.loggedIn=traineeId.traineeId
+    console.log(this.loggedIn)
   }
 
   send(){

@@ -29,7 +29,7 @@ export class PurchaseComponent implements OnInit {
     //  }
 
     this.stripePaymentGateway();
-    this.purchesService.GetMyPurshes();
+    this.purchesService.GetMyPurshes(parseInt(trainee.TraineeId));
     this.purchesService.GetMyRefunds(parseInt(trainee.TraineeId));
     this.traineeService.getMyCartItem2(parseInt(trainee.TraineeId))
     this.traineeService.getMyWishListItem(parseInt(trainee.TraineeId))

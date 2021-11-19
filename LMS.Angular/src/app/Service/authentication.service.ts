@@ -34,8 +34,6 @@ export class AuthenticationService {
 
   this.spinner.show();
   this.http.post('http://localhost:54921/api/User/Authentiaction/',body,{ responseType: 'text' }).subscribe((res:any)=>{
-
-    debugger
   response1 = res;
   const response = {
     token:response1.toString()
@@ -49,7 +47,7 @@ export class AuthenticationService {
      localStorage.setItem('user',JSON.stringify({...data}))
 
 
-     
+
      if(data.role == 'Admin'){
       this.toastr.success('logged in');
       this.router.navigate(['admin']);
@@ -61,11 +59,14 @@ export class AuthenticationService {
      }
       else if(data.role == 'Trainee'){
       this.toastr.success('Logged in');
-      this.router.navigate(['trainee']);
+      this.router.navigate(['client','']);
      }
      else if(data.role == 'Trainer'){
       this.toastr.success('logged in');
       this.router.navigate(['trainer']);
+     }else{
+      this.toastr.success('Logged in');
+      this.router.navigate(['client']);
      }
 
 

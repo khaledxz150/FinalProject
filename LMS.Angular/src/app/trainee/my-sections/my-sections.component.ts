@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AboutusComponent } from 'src/app/pages/aboutus/aboutus.component';
 import { CourseService } from 'src/app/Service/course.service';
@@ -22,23 +22,26 @@ export class MySectionsComponent implements OnInit {
 
   constructor(public dialog:MatDialog,private router:Router,
     private toastr:ToastrService,public mySectionService:MySectionService,
-    public courseService:CourseService
+    public courseService:CourseService,private activatedRoute:ActivatedRoute
     ) { }
 
   ngOnInit(): void {
+ const id = this.activatedRoute.snapshot.paramMap.get('id');
+    if(id !=null){
+      let user:any = localStorage.getItem('user');
+      let trainee = JSON.parse(user);
 
-    let user:any = localStorage.getItem('user');
-    let trainee = JSON.parse(user);
+      this.mySectionService.GetMySectionInfo(parseInt(trainee.TraineeId));
+      this.mySectionService.GetSectionUnit(parseInt(id));
+      this.mySectionService.GetSectionTask(parseInt(id))
+      this.mySectionService.GetSectionExam(parseInt(id))
+      this.mySectionService.GetSingleSectionInformation(parseInt(id));
+    }
+
     //  if(traineeId){
     //  }
-
-    this.mySectionService.GetMySectionInfo(parseInt(trainee.TraineeId));
-    this.mySectionService.GetSectionUnit(1);
-    this.mySectionService.GetSectionTask()
-    this.mySectionService.GetSectionExam()
-    this.courseService.GetCourseComments(1);
   }
-  
+
   RateCourse(){
    this.dialog.open(RateBoxComponent);
   }

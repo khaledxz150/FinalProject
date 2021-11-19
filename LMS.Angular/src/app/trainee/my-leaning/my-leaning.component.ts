@@ -43,9 +43,9 @@ export class MyLeaningComponent implements OnInit {
   MoveToRecordingCourses(){
     this.router.navigate(['client','video'])
   }
-
-  MovingToLiveCourses(){
-    this.router.navigate(['client','sections'])
+   GetMySectionInfo(sectionId:number){
+    this.router.navigate(['client','sections',sectionId])
   }
+
 
 }

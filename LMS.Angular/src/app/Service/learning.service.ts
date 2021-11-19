@@ -15,18 +15,18 @@ export class LearningService {
     this.http.post('http://localhost:54921/api/Customer/ReturnEnrollmentCourses/'+traineeId,null).subscribe((res:any)=>{
       this.myEnrollment=res;
       console.log(res);
-      this.GetNewsetCoursesAndOnline(res)
+      this.GetNewsetCoursesAndOnline(res,traineeId)
     })
   }
 
-  GetNewsetCoursesAndOnline(array:any){
+  GetNewsetCoursesAndOnline(array:any,traineeId:number|undefined){
     this.myLiveSections=[];
     this.myNewestCourses=[];
     this.myOnlineCourses=[];
     for(let course of array){
       console.log(course)
 
-     this.http.post('http://localhost:54921/api/Customer/ReturnSectionCount?traineeId='+2+'&courseId='+course.courseID,null).subscribe((res:any)=>{
+     this.http.post('http://localhost:54921/api/Customer/ReturnSectionCount?traineeId='+traineeId+'&courseId='+course.courseID,null).subscribe((res:any)=>{
         if(res.sectionCount==0&&course.typeName!="Online"){
           console.log("New Course Need To Book Seat In Section")
           this.myNewestCourses.push(course)
@@ -35,12 +35,16 @@ export class LearningService {
         }else if(course.typeName=="Online"){
           this.myOnlineCourses.push(course)
 
-        }else{
-          this.myLiveSections.push(course)
         }
 
 
       })
    }
+  }
+
+  GetLiveCourses(traineeId:number|undefined){
+    this.http.post('http://localhost:54921/api/Customer/ReturnLiveCourses/'+traineeId,null).subscribe((res:any)=>{
+      this.myLiveSections=res;
+    })
   }
 }

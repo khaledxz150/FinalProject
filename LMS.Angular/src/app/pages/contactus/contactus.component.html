@@ -1,4 +1,6 @@
-<app-navbar></app-navbar>
+<app-navbar *ngIf="loggedIn==undefined"></app-navbar>
+<app-trainee-nav *ngIf="loggedIn!=undefined"></app-trainee-nav>
+
 
 
 <section id="page-banner" class="pt-105 pb-130 bg_cover " data-overlay="8" style=" background-image: url(../../assets/image/page-banner-6.jpg);">
@@ -149,4 +151,4 @@
 </div> <!-- container -->
 </section>
 
-<app-footer></app-footer> 
+<app-footer></app-footer>

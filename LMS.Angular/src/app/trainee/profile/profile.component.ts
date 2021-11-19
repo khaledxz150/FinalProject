@@ -16,10 +16,13 @@ export class ProfileComponent implements OnInit {
   constructor(public profileService:ProfileService) { }
 
   ngOnInit(): void {
+    debugger
     let user:any = localStorage.getItem('user');
     let trainee = JSON.parse(user);
+    var trainerId = parseInt(trainee.TraineeId)
     //  if(traineeId){
     //  }
+    debugger
     this.profileService.GetMyProfile(parseInt(trainee.TraineeId))
   }
   FileSrc: string | undefined;
@@ -33,7 +36,7 @@ export class ProfileComponent implements OnInit {
       reader.onload = () => {
         this.FileSrc = reader.result as string;
         console.log(this.FileSrc)
-       
+
 
 
     }

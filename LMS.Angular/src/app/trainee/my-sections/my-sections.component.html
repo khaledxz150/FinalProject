@@ -6,39 +6,23 @@
               <div class="row">
                   <div class="col-lg-9">
                       <div class="events-left">
-                          <h3 style="margin-left: 65px;">{{this.mySectionService.mySections[0].courseName}}</h3>
+                          <h3 style="margin-left: 65px;">{{this.mySectionService.singleSectionInfo.courseName}}</h3>
                           <a href="#" style="margin-left: 55px;"><span><mat-icon>event_note</mat-icon> 2 December 2018</span></a>
-                          <a href="#" style="margin-left: 55px;"><span> <mat-icon>watch_later</mat-icon> Start : {{this.mySectionService.mySections[0].sectionTimeStart}} - End :
-                            {{this.mySectionService.mySections[0].sectionTimeEnd}}
+                          <a href="#" style="margin-left: 55px;"><span> <mat-icon>watch_later</mat-icon> Start : {{this.mySectionService.singleSectionInfo.sectionTimeStart}} - End :
+                            {{this.mySectionService.singleSectionInfo.sectionTimeEnd}}
                           </span></a>
                           <a href="#" style="margin-left: 55px;"><span><mat-icon>tv</mat-icon>
 
-                            {{this.mySectionService.mySections[0].typeName}}
+                            {{this.mySectionService.singleSectionInfo.typeName}}
                           </span></a>
                           <div class="corses-singel-image">
                             <div class="course-image">
-                              <img  class="image" [src]="this.mySectionService.mySections[0].image"  alt="Courses">
+                              <img  class="image" src="../../../assets/image/myLearning.jpg"  alt="Courses">
                             </div>
                           </div> <!-- corses singel image -->
                           <mat-tab-group style="margin-left: 15px;">
 
-
-                            <mat-tab>
-                              <ng-template mat-tab-label>
-                                <mat-icon>bookmark</mat-icon>
-                                Description
-                              </ng-template>
-                              <div class="container height-100" style="margin-top: 10px;">
-                                <div class="form-floating w-100">
-                                   <textarea class="form-control" readonly placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px">
-                                    {{this.mySectionService.mySections[0].courseDescription}}
-
-                                   </textarea>
-                                </div>
-                            </div>
-                            </mat-tab>
-
-                            <mat-tab>
+                           <mat-tab>
                               <ng-template mat-tab-label>
                                 <mat-icon> message</mat-icon>
                                 Comments
@@ -67,7 +51,7 @@
 
                                       <hr class="my-0" style="height: 1px;" />
 
-                                      <div class="card-body p-4" *ngFor="let comment of this.courseService.courseComment">
+                                      <div class="card-body p-4" *ngFor="let comment of this.mySectionService.sectionComment">
                                         <div class="d-flex flex-start">
                                           <img
                                             class="rounded-circle shadow-1-strong me-3"
@@ -199,17 +183,27 @@
                             </mat-tab>
                             <mat-tab>
                               <ng-template mat-tab-label>
-                                <mat-icon>video</mat-icon>
+                                <mat-icon>desktop_windows</mat-icon>
                                 Meetings
                               </ng-template>
-                                <div class="row" style="padding: 10px; margin-top: 15px;">
-                                  <img src="" class="col-3" alt="">
-                                  <h6 class="col-4">Join To Lecture</h6>
-                                  <a href="" class="col-4">Click Here To Join Meeting</a>
+                                <div class="row" style="margin-top: 15px;">
+                                  <img src="../../../assets/image/teams.png" class="offset-3" style="width: 30px; height: 30px; margin-bottom: 30px;" alt="">
+                                  <h6 class="col-2 text-center">Join To Lecture</h6>
+                                  <a href="this.mySectionService.singleSectionInfo.meetingUrl" class="col-4">Click Here To Join Meeting</a>
                                 </div>
 
                             </mat-tab>
+
+                            <mat-tab>
+                              <ng-template mat-tab-label>
+                                <mat-icon>chat</mat-icon>
+                                  Section Chat
+                              </ng-template>
+                              <app-chat></app-chat>
+                            </mat-tab>
                           </mat-tab-group>
+
+
                       </div> <!-- events left -->
                   </div>
                   <div class="col-lg-3">
@@ -234,9 +228,11 @@
                               </li>
                           </ul>
                        </details>
-<app-chat></app-chat>
+
                   </div>
+
               </div> <!-- row -->
+
           </div> <!-- events-area -->
       </div> <!-- container -->
   </section>

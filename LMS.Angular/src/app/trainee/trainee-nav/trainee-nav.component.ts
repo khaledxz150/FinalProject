@@ -17,6 +17,7 @@ export class TraineeNavComponent implements OnInit {
     let user:any = localStorage.getItem('user');
     let trainee = JSON.parse(user);
     //  if(traineeId){
+    //parseInt(trainee.TraineeId) inside method
     //  }
      this.traineeService.getMyCartItem2(parseInt(trainee.TraineeId))
      this.traineeService.getMyWishListItem(parseInt(trainee.TraineeId))
@@ -52,6 +53,7 @@ export class TraineeNavComponent implements OnInit {
     }
     Logout(){
       this.router.navigate(['pages',''])
+      localStorage.clear()
     }
     Learning(){
       this.router.navigate(['client','learning'])

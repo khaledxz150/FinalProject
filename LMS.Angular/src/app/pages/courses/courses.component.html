@@ -1,4 +1,6 @@
-<app-navbar></app-navbar>
+<app-navbar *ngIf="loggedIn==undefined"></app-navbar>
+<app-trainee-nav *ngIf="loggedIn!=undefined"></app-trainee-nav>
+
 
 
 
@@ -49,7 +51,7 @@
                   </div> <!-- courses top search -->
               </div>
 
-          </div>                 
+          </div>
           <!-- row -->
           <div class="tab-content" id="myTabContent">
             <div class="" id="courses-grid" role="" aria-labelledby="courses-grid-tab">
