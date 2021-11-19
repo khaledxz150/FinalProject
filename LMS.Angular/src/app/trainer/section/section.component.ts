@@ -92,8 +92,10 @@ export class SectionComponent implements OnInit {
   CreateMeeting(Section:any){
    this.dialog.open(CreateLectureComponent,{data : Section});
   }
+  
 
   CreateTask(sectionId:any){
+    debugger
     this.dialog.open(CreateTaskComponent, {data : sectionId});
   }
   

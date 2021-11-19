@@ -12,7 +12,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 })
 export class CreateTaskComponent implements OnInit {
 
-
+ sectionTrainerId:any|undefined;
   selectedFile: File|null=null;
    formGroup: FormGroup = new FormGroup({
     FilePath: new FormControl('', [Validators.required]),
@@ -34,7 +34,14 @@ export class CreateTaskComponent implements OnInit {
 
 
   ngOnInit(): void {
-
+    let user:any = localStorage.getItem('user');
+    let trainerId = JSON.parse(user);
+    debugger
+   this.sectionService.ReturnAllTrainerSections(2);
+   const current= this.sectionService.TrainerSection.find(x=>x.sectionId == this.data);
+   debugger
+   this.sectionTrainerId=current.trainerSectionId;
+   debugger
   }
   CreateTask(){
     const taskData=
@@ -46,10 +53,11 @@ export class CreateTaskComponent implements OnInit {
       fileUrl: this.FileSrc,
       date: "2021-11-18T17:06:19.320Z",
       deadline: "2021-11-18T17:06:19.320Z",
-      sectionTrainerId: 2,
+      sectionTrainerId: this.sectionTrainerId,
       isActive: true,
       creationDate: "2021-11-18T17:06:19.320Z"
     }
+  
     console.log(taskData);
     this.sectionService.CreateNewTaskForSection(taskData);
   }
