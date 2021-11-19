@@ -2,6 +2,7 @@ import { Component, Input, NgZone, OnInit } from '@angular/core';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { Message } from 'src/app/models/Message';
 import { ChatService } from 'src/app/Service/chat.service';
+import { SectionService } from 'src/app/Service/section.service';
 import { TraineeService } from 'src/app/Service/trainee.service';
 import { TrainerService } from 'src/app/Service/trainer.service';
 
@@ -13,7 +14,8 @@ import { TrainerService } from 'src/app/Service/trainer.service';
 export class ChatComponent implements OnInit {
   
   faPaperPlane = faPaperPlane
-  constructor(public chatService: ChatService, public trainerService:TrainerService, public traineeService: TraineeService) {}
+  constructor(public chatService: ChatService, public trainerService:TrainerService, public traineeService: TraineeService,
+    public sectionService:SectionService) {}
   msgDto:any;
   Userid =2;
   ngOnInit(): void {
@@ -31,15 +33,19 @@ export class ChatComponent implements OnInit {
     let trainer = this.trainerService.employee.find(i=>i.employeeId == parseInt(trainerId.EmployeeId))
 if(trainer){
     const currentElememnt = document.getElementById("inputbox");
+
    const message :Message= {
-     userId: parseInt(trainerId.EmployeeId),
+     userId:2, //parseInt(trainerId.EmployeeId),
      message: this.msgDto,
-     traineeName: trainer.fName,
+     traineeName: "ahmad",// trainer.fName,
      date: new Date(),
-     sectionId:this.traineeService.CurrentTraineeSection
+     sectionId: 60//this.traineeService.CurrentTraineeSection
   }
+
    this.chatService.SendMessage(message);
+   
   this.msgDto = '';
+
   }
 
 

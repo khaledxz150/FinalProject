@@ -22,6 +22,7 @@ import { CreateTaskComponent } from './task/create-task/create-task.component';
 import { EditTaskComponent } from './task/edit-task/edit-task.component';
 import { TaskSoultionsComponent } from './task/task-soultions/task-soultions.component';
 import { DeleteExamComponent } from './exam/delete-exam/delete-exam.component';
+import { TraineeMarkComponent } from './exam/trainee-mark/trainee-mark.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { DeleteExamComponent } from './exam/delete-exam/delete-exam.component';
     EditTaskComponent,
     TaskSoultionsComponent,
     DeleteExamComponent,
+    TraineeMarkComponent,
 
     ],
   imports: [

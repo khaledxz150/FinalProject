@@ -24,8 +24,12 @@ namespace LMS.Infra.Services
         }
         //// Section
         ///Start
-                //Status
+        //Status
 
+        public SectionByCourseDTO GetSingleSection(int sectionId)
+        {
+            return sectionRepository.GetSingleSection(sectionId);
+        }
         public List<Status> GetAllStatus()
         {
             return sectionRepository.GetAllStatus();
@@ -147,9 +151,9 @@ namespace LMS.Infra.Services
         }
 
 
-        public List<Tasks> SelectTraineeSectionTaskId()
+        public List<Tasks> SelectTraineeSectionTaskId(int sectionId)
         {
-            return sectionRepository.SelectTraineeSectionTaskId();
+            return sectionRepository.SelectTraineeSectionTaskId(sectionId);
         }
 
         public List<Tasks> ReturnTasksOfSection(int sectionTrainerId)
