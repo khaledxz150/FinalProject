@@ -11,6 +11,9 @@ import { SharedModule } from '../shared/shared.module';
 import { CategoryCardComponent } from './home/category-card/category-card.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
+import { TraineeModule } from '../trainee/trainee.module';
+
+
 
 @NgModule({
   declarations: [
@@ -28,6 +31,7 @@ import { FooterComponent } from '../footer/footer.component';
     CommonModule,
     PagesRoutingModule,
     SharedModule,
+    TraineeModule
 
   ]
 })

@@ -18,5 +18,23 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.profileService.GetMyProfile()
   }
+  FileSrc: string | undefined;
+  Uploadfile(event: any ) {
+    const reader = new FileReader();
+     console.log(event.target.value)
+    if (event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+        this.FileSrc = reader.result as string;
+        console.log(this.FileSrc)
+       
+
+
+    }
+
+  }
+   }
 
 }
