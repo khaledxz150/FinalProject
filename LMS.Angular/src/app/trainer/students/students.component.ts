@@ -17,9 +17,6 @@ export class StudentsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-
-
     this.sectionService.getSections(0);
     this.courseService.getCourses();
 

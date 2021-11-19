@@ -39,7 +39,7 @@ import { EditTaskComponent } from './task/edit-task/edit-task.component';
     ExamInfoComponent,
     TaskComponent,
     CreateTaskComponent,
-    EditTaskComponent,
+    EditTaskComponent
     
     ],
   imports: [
