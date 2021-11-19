@@ -39,12 +39,11 @@ reloadComponent() {
            {
              this.units =null;
           }
-           else{
+          else{
               this.units = res;
-            }
-    this.spinner.hide(); this.reloadComponent();
+          }
+    this.spinner.hide(); 
     },err=>{
-    this.spinner.hide(); this.reloadComponent();
       this.toastr.warning('Something wrong');
     })
   }
@@ -62,7 +61,5 @@ reloadComponent() {
     })
   }
 
-  uploadFile(selectedFile: File) {
-    throw new Error('Method not implemented.');
-  }
+
 }

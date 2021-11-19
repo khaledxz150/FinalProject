@@ -42,7 +42,7 @@ namespace LMS.Controllers
             return examService.UpdateExam(exam);
         }
 
-        [HttpPut]
+        [HttpDelete]
         [Route("[action]/{examId}")]
         public bool DeleteExam(int examId)
         {

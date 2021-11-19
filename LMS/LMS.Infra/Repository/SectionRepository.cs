@@ -122,12 +122,20 @@ namespace LMS.Infra.Repository
         public bool UpdateTraineeSection(TraineeSection traineeSection)
         {
             var parm = new DynamicParameters();
-           
             parm.Add("@P_TraineeId", traineeSection.TraineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parm.Add("@P_TotalMark", traineeSection.TotalMark, dbType: DbType.Double, direction: ParameterDirection.Input);
-
             var result = dBContext.Connection.ExecuteAsync("", parm, commandType: CommandType.StoredProcedure);
             return true;
+        }
+
+
+        public List<TraineeNameDTO> ReturnTraineeInSection(int sectionId)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@P_SectionId", sectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            IEnumerable<TraineeNameDTO> result = dBContext.Connection.Query<TraineeNameDTO>("ReturnTraineeBySectionId", parm, commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
 
         public bool InsertTraineeTask(TraineeSectionTask traineeSectionTask)

@@ -16,6 +16,7 @@ import { Attendance } from '../models/Attendance';
 })
 export class SectionService {
   myBase64!: SafeResourceUrl;
+  CurrentLecture: any;
 
    section: any[]=[{}];
    TrainerSection : any[]=[{}];
@@ -25,6 +26,7 @@ export class SectionService {
    tasks:any[]=[];
    tasksAnswers:any=[]=[];
   TrainerSectionId: any;
+  currentsectionforLecture: any;
 
 
 
@@ -210,8 +212,6 @@ deleteSection(sectionId:number){
    // console.log( "test",this.courses)
    window.location.reload();
    this.toastr.success('Data Retrived !!!');
-
-
  },err=>{
    // this.spinner.hide();
    this.toastr.warning('Something wrong');
@@ -282,21 +282,36 @@ debugger
      this.tasksAnswers=res;
    })
  }
+
  studentsInfoAttend:any[]=[];
  studentsAttendenceArray:any[]=[];
- GetTraineeInSpecificSection(){
-   console.log('fetch')
-   this.http.post('http://localhost:54921/api/Section/ReturnTraineeInSection?sectionId=1',null).subscribe((res:any)=>{
+ ReturnLectureBySectionId(SectionId:number){
+  this.http.post(`http://localhost:54921/api/Section/ReturnLectureBySectionId=${SectionId}`,null).subscribe((res:any)=>{
+  
+this.CurrentLecture= res;
+this.CurrentLecture = this.CurrentLecture.filter(((x: { sectionId: number; })=>x.sectionId==SectionId));
+var LectureMax = 0;
+for(let data of this.CurrentLecture){
+if(data.lectureId >= LectureMax)
+LectureMax = data.lectureId;
+}
+this.CurrentLecture = LectureMax;
+  })
+
+
+
+ }
+ 
+ GetTraineeInSpecificSection(SectionId:number){
+  this.http.post(`http://localhost:54921/api/Section/ReturnTraineeInSection?sectionId=${SectionId}`,null).subscribe((res:any)=>{
      this.studentsInfoAttend=res
      for(let i of this.studentsInfoAttend){
       const attendanceObject={
         studentId:i.trineeId,
         studentName:i.traineeName,
         isPresent:false,
-        lectureId:1
-      }
+        lectureId:this.CurrentLecture}
       this.studentsAttendenceArray.push(attendanceObject)
-
     }
    })
  }
@@ -306,8 +321,7 @@ debugger
     const attend={
       traineeId: i.studentId,
       isPresent: i.isPresent,
-
-      lectureId: i.lectureId,
+      lectureId: this.CurrentLecture,
       createdBy: 1,
     }
     this.http.post('http://localhost:54921/api/Section/InsertTraineeAttendance',attend).subscribe((res)=>{

@@ -27,6 +27,9 @@ namespace LMS.Core.Services
 
         public List<TraineeSectionDTO> ReturnTraineeSection(int trainerId);
 
+        public List<TraineeNameDTO> ReturnTraineeInSection(int sectionId);
+
+
 
         //Trainee Section Task
         public bool InsertTraineeTask(TraineeSectionTask traineeSectionTask);

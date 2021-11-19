@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CourseService } from 'src/app/Service/course.service';
 import { SectionService } from 'src/app/Service/section.service';
 
@@ -10,29 +12,26 @@ import { SectionService } from 'src/app/Service/section.service';
 })
 export class AttendanceComponent implements OnInit {
 
-  checkValue(event: any){
-    console.log(event);
- }
+  section:any| undefined;
 
 
 
 
   constructor(public sectionService:SectionService,
-     public courseService:CourseService) {
+     public courseService:CourseService,  private route: ActivatedRoute,
+     private router: Router) {
+      this.section = this.sectionService.currentsectionforLecture;
 
     }
-
     ngOnInit(): void {
-
-      this.sectionService.GetTraineeInSpecificSection()
-
+      this.section = this.sectionService.currentsectionforLecture;
+      this.sectionService.GetTraineeInSpecificSection(this.section);
     }
-
-
   RegisterAttendence(index:number,IsPresent:boolean){
     this.sectionService.studentsAttendenceArray[index].isPresent=IsPresent;
   }
   SaveAttendence(){
+    this.sectionService.ReturnLectureBySectionId(this.section);
     this.sectionService.SaveAttendenceReport()
   }
 

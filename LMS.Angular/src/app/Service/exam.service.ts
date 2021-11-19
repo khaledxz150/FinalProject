@@ -9,29 +9,26 @@ import { ToastrService } from 'ngx-toastr';
 })
 //Update Jasser
 export class ExamService {
-  fetchQuestion:any[]=[];
-  QuestionsAnswer:any[]=[];
+  QuestionAnswer:any[]=[];
+  CurrentExam:any|undefined;
     constructor(  private http: HttpClient,
        private spinner:NgxSpinnerService,
        private toastr:ToastrService,
        private router:Router) {
      }
-   GetQuestionFromDataBase(){
+   GetQuestionFromDataBase(ExamId:any){
      this.spinner.show();
-     this.QuestionsAnswer=[];
-     this.fetchQuestion=[];
-     this.http.post('http://localhost:54921/api/Exam/ReturnExamQuestion?queryCode=0&courseId=1',null)
-     .subscribe((res:any)=>{
-       this.fetchQuestion=res;
-       for(let q of res){
-         this.http.post('http://localhost:54921/api/Exam/ReturnExamOption?queryCode=0&questionId='+q.questionId,null).subscribe((res3:any)=>{
-            this.QuestionsAnswer.push(res3)
-            console.log(q.description)
-            console.log(res3)
-         })
-       }
-     })
-   }
+    
+     this.http.post(`http://localhost:54921/api/Exam/ReturnExamQuestionAnswer/${ExamId}`,null)
+     .subscribe((res:any)=>{   
+      this.QuestionAnswer = res;
+      console.log(this.QuestionAnswer);
+      this.spinner.hide();
+   })
+  
+  }
+
+
    InsertExamResult(result:any){
 
    }

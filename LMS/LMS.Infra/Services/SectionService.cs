@@ -174,6 +174,10 @@ namespace LMS.Infra.Services
             return sectionRepository.ReturnTraineeSolutionOfTask( taskId,  sectionId);
         }
 
+        public List<TraineeNameDTO> ReturnTraineeInSection(int sectionId)
+        {
+            return sectionRepository.ReturnTraineeInSection(sectionId);
+        }
 
     }
 }

@@ -8,15 +8,33 @@
         <div class="mm-survey-container">
 
           <div class="mm-survey-page active  border-right" data-page="1">
-            <div class="mm-survery-content">
-              <div class="mm-survey-question">
-                <p>{{this.exam.fetchQuestion[this.examIndex].description}}</p>
+            <div class="mm-survery-content" *ngFor="let a of this.exam.QuestionAnswer;let i=index;">
+              <div class="mm-survey-question" >
+                <p>{{a.description}}</p>
               </div>
-              <div class="mm-survey-item" *ngFor="let a of this.exam.QuestionsAnswer[this.examIndex];let i=index;">
+              <div class="mm-survey-item" >
 
-                <input type="radio" id="{{i}}" data-item="1" name="radio1" value="red"
-                (change)="handleInput(a.description)" />
-                <label for="{{i}}"><span></span><p>{{a.description}}</p></label>
+                <input type="radio" id="{{a.correctAnswer}}" data-item="1" name="radio1" value="red"
+                (change)="handleInput(a.correctAnswer)" />
+                <label for="{{a.correctAnswer}}"><span></span><p>{{a.correctAnswer}}</p></label>
+              </div>
+              <div class="mm-survey-item" >
+
+                <input type="radio" id="{{a.option1+1}}" data-item="1" name="radio1" value="red"
+                (change)="handleInput(a.option1)" />
+                <label for="{{a.option1+1}}"><span></span><p>{{a.option1}}</p></label>
+              </div>
+              <div class="mm-survey-item" >
+
+                <input type="radio" id="{{a.option2+2}}" data-item="1" name="radio1" value="red"
+                (change)="handleInput(a.option2)" />
+                <label for="{{a.option2+2}}"><span></span><p>{{a.option2}}</p></label>
+              </div>
+              <div class="mm-survey-item" >
+
+                <input type="radio" id="{{a.option3+3}}" data-item="1" name="radio1" value="red"
+                (change)="handleInput(a.option3)" />
+                <label for="{{a.option3+3}}"><span></span><p>{{a.option3}}</p></label>
               </div>
             </div>
             <div class="row">

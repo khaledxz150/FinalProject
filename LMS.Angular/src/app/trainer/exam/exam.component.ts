@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ExamServiceService } from 'src/app/Service/exam-service.service';
 import { SectionService } from 'src/app/Service/section.service';
 import { CreateExamComponent } from './create-exam/create-exam.component';
+import { DeleteExamComponent } from './delete-exam/delete-exam.component';
 import { EditExamComponent } from './edit-exam/edit-exam.component';
 
 @Component({
@@ -18,7 +19,11 @@ export class ExamComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  DeleteExam(sectionId: number){};
+  DeleteExam(sectionId: number){
+
+    this.dialog.open(DeleteExamComponent,{data:sectionId});
+
+  };
   addExam(){
     this.dialog.open(CreateExamComponent);
   }

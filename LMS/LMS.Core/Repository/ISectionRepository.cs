@@ -30,6 +30,9 @@ namespace LMS.Core.Repository
         public bool UpdateTraineeSection(TraineeSection traineeSection);
         public List<TraineeSectionDTO> ReturnTraineeSection(int trainerId);
 
+        public List<TraineeNameDTO> ReturnTraineeInSection(int sectionId);
+
+
 
 
         //Trainee Section Task 

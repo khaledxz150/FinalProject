@@ -11,6 +11,9 @@ import { SectionService } from './section.service';
   providedIn: 'root'
 })
 export class ExamServiceService {
+  deleteExam(data: any) {
+    throw new Error('Method not implemented.');
+  }
 
   Questions: any[]=[{}];
  
@@ -95,6 +98,17 @@ this.ReturnExamQuestion();
      DeleteQuestion(examQuestionAnswer: any) {
       this.spinner.show();
       this.http.delete(environment.apiUrl + 'Exam/DeleteExamQuestionAnswer/'+examQuestionAnswer,examQuestionAnswer).subscribe((res:any)=>{ 
+        this.reloadComponent();
+      this.spinner.hide();
+    },err=>{
+      this.spinner.hide();
+      this.toastr.warning('Something wrong');
+    })
+    }
+
+    DeleteExam(sectionId: any) {
+      this.spinner.show();
+      this.http.delete(environment.apiUrl + 'Exam/DeleteExam/'+sectionId,sectionId).subscribe((res:any)=>{ 
         this.reloadComponent();
       this.spinner.hide();
     },err=>{

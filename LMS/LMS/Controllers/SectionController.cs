@@ -234,7 +234,12 @@ namespace LMS.Controllers
         }
 
 
-
+        [HttpPost]
+        [Route("[action]")]
+        public List<TraineeNameDTO> ReturnTraineeInSection([FromQuery] int sectionId)
+        {
+            return sectionService.ReturnTraineeInSection(sectionId);
+        }
 
 
     }
