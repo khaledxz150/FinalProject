@@ -9,6 +9,12 @@ import { SectionService } from 'src/app/Service/section.service';
   styleUrls: ['./attendance.component.css']
 })
 export class AttendanceComponent implements OnInit {
+  checkValue(event: any){
+    console.log(event);
+ }
+
+ formGroup: FormGroup = new FormGroup({
+
 
   constructor(public sectionService:SectionService,
      public courseService:CourseService) {
@@ -25,9 +31,6 @@ export class AttendanceComponent implements OnInit {
   RegisterAttendence(index:number,IsPresent:boolean){
     this.sectionService.studentsAttendenceArray[index].isPresent=IsPresent;
   }
-
-
-
   SaveAttendence(){
     this.sectionService.SaveAttendenceReport()
   }

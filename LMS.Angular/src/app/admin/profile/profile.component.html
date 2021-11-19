@@ -77,10 +77,10 @@
                     <hr>
                     <div class="row">
                       <div class="col-sm-3">
-                        <h6 class="mb-0">Mobile</h6>
+                        <h6 class="mb-0">SSN</h6>
                       </div>
                       <div class="col-sm-9 text-secondary">
-                        (+962) 792 792 168
+                        {{employee.nationalSecurutiyNumber}}
                       </div>
                     </div>
                     <hr>
@@ -95,7 +95,7 @@
                     <hr>
                     <div class="row">
                       <div class="col-sm-12">
-                        <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills" style="background-color: rgb(153, 23, 23);">Edit</a>
+                        <a class="btn btn-info " target="__blank" (click)="Update()" style="background-color: rgb(153, 23, 23);">Edit</a>
                       </div>
                     </div>
                   </div>

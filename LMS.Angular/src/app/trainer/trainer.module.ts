@@ -42,7 +42,7 @@ import { TaskSoultionsComponent } from './task/task-soultions/task-soultions.com
     CreateTaskComponent,
     EditTaskComponent,
     TaskSoultionsComponent,
-    
+
     ],
   imports: [
     CommonModule,

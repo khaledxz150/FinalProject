@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, VERSION, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faFileExcel, faFilePdf, faSearch, faTrash, faTrashAlt, faUserEdit } from '@fortawesome/free-solid-svg-icons';
 import { AlertDialogComponent } from 'src/app/alert-dialog/alert-dialog.component';
 import { TraineeService } from 'src/app/Service/trainee.service';
 import { AddTrainerComponent } from '../trainer-info/add-trainer/add-trainer.component';
@@ -10,8 +10,12 @@ import { EditTraineeComponent } from './edit-trainee/edit-trainee.component';
 // import * as pdfMake from "pdfmake/build/pdfmake";
 import * as pdfFonts from "pdfmake/build/vfs_fonts";
 import * as pdfMake  from 'pdfmake/build/pdfmake';
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
 const htmlToPdfmake = require("html-to-pdfmake");
 (pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
+
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-trainee-info',
@@ -98,6 +102,54 @@ export class TraineeInfoComponent implements OnInit {
     //    this.homeService.updatecourse(item);
 
   }
+  faSearch = faSearch
+  faFileExcel = faFileExcel
+  faFilePdf = faFilePdf
+  fatrash= faTrash
+  faedit=faUserEdit
+
+  @ViewChild('TABLE', { static: false }) TABLE: ElementRef | undefined;
+   title1 = 'Excel';
+  ExportTOExcel() {
+    if(this.TABLE){
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(this.TABLE.nativeElement);
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    XLSX.writeFile(wb, 'employee.xlsx');
+    }
+  }
+
+
+
+  columns = [
+    { title: "Nationality", dataKey: "nationality" },
+    { title: "Image", dataKey: "image" },
+    { title: "FirstName", dataKey: "firstName" },
+    { title: "LastName", dataKey: "lastName" },
+    { title: "Email", dataKey: "email" },
+    { title: "PhoneNumber", dataKey: "phoneNumber" },
+    // { title: "Salary", dataKey: "BasicSalary" },
+    // { title: "Status", dataKey: "status" },
+   
+  ];
+
+  trainers:any[]=[]
+
+  exportPdf() {
+
+    this.trainers = this.Servicetrainee.trainee
+    const doc = new jsPDF('p','pt');
+
+    autoTable(doc, {
+      columns: this.columns,
+      body: this.trainers,
+      didDrawPage: (dataArg) => {
+       doc.text('employee', dataArg.settings.margin.left, 10);
+      }
+  });
+    doc.save('employee.pdf');
+  }
+
 
 
 

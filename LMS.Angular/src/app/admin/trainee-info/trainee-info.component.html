@@ -13,10 +13,25 @@
               <h2 class="heading-section">Trainee Info</h2>
             </div>
           </div>
-          <button mat-fab color="primary" class="create" (click)="AddTrainee()">
-            <mat-icon>add</mat-icon>
-          </button><button (click)="printPage()">print</button>
-          <button class="btn btn-primary" (click)="downloadAsPDF();">Export To PDF</button>
+      
+          <div class="d-flex justify-content-end">
+            <fa-icon [icon]="faFileExcel"
+              style="font-size: 2rem; margin-bottom: 1rem; margin-right: 20px; color: #115c34;" (click)="ExportTOExcel()">
+            </fa-icon>
+            <fa-icon [icon]="faFilePdf" style="font-size: 2rem; margin-bottom: 1rem;" (click)="exportPdf()"></fa-icon>
+            
+            <button mat-fab color="warning" style="  position: absolute;
+              top:24%;
+              right: 85%;
+              width: 78px;
+              color:cornsilk;
+              background-color: rgb(202, 11, 11);
+              transform: translateY(-50%);" class="create" (click)="AddTrainee()">
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+  
+        
           <!-- <div>
             <input #mindate class="form-control" type="date" [max]="maxDate" (change)="MinDateVal(mindate.value)">
             <input #maxdate class="form-control" type="date" [min]="minDate" (change)="MaxDateVal(maxdate.value)">
@@ -31,8 +46,7 @@
                 </div>
                 <!-- <input type="button" value="Download PDF" class="btn btn-success" (click)="SavePDF()">   -->
                 <table class="table table-responsive-xl"  id="pdfTable" #pdfTable
-                  class="table table-striped table-bordered table-sm row-border hover" datatable
-                  [dtOptions]="dtOptions">
+                  class="table table-striped table-bordered table-sm row-border hover" >
                   <thead>
                     <tr>
                       <th>&nbsp;</th>
@@ -73,7 +87,7 @@
                       </td>
                       <td>
 
-                        <button mat-flat-button
+                        <!-- <button mat-flat-button
                           style="  border-radius: 20%;color:white;background-color :green; width:20%;height: 30%;"
                           (click)="UpdateTrainee(trainee.traineeId)">
                           Edit
@@ -82,7 +96,20 @@
                           style="  border-radius: 20%;color:white;background-color :rgb(202, 29, 29);"
                           (click)="DeleteTrainee(trainee.traineeId)">
                           Delete
-                        </button>
+                        </button> -->
+                        <div>
+
+                          <fa-icon [icon]="faedit" 
+                            style="font-size: 2rem; margin-bottom: 0.5rem; margin-right: 20px; color: #0d4b2a;"
+                            (click)="UpdateTrainee(trainee.traineeId)">
+                          </fa-icon>
+                        </div>
+                        <div>
+                          <fa-icon [icon]="fatrash"
+                            style="font-size: 2rem; margin-bottom: 1rem; margin-right: 20px; color: #881212;"
+                            (click)="DeleteTrainee(trainee.traineeId)">
+                          </fa-icon>
+                        </div>
 
                       </td>
 
