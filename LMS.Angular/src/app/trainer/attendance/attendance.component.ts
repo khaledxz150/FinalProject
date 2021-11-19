@@ -9,11 +9,12 @@ import { SectionService } from 'src/app/Service/section.service';
   styleUrls: ['./attendance.component.css']
 })
 export class AttendanceComponent implements OnInit {
+
   checkValue(event: any){
     console.log(event);
  }
 
- formGroup: FormGroup = new FormGroup({
+
 
 
   constructor(public sectionService:SectionService,
