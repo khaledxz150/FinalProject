@@ -22,7 +22,7 @@ export class SectionService {
    sections: any[]=[{}];
    status: any[]=[{}];
    SelectedSection:any|undefined;
-
+   
 
 
   constructor(private http: HttpClient,private toastr:ToastrService, private spinner: NgxSpinnerService,private router:Router,

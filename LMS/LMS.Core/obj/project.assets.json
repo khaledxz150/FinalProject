@@ -1959,19 +1959,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\user\\.nuget\\packages\\": {}
+    "C:\\Users\\khale\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj",
+      "projectUniqueName": "C:\\Github\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj",
       "projectName": "LMS.Core",
-      "projectPath": "C:\\Users\\user\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj",
-      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Core\\obj\\",
+      "projectPath": "C:\\Github\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj",
+      "packagesPath": "C:\\Users\\khale\\.nuget\\packages\\",
+      "outputPath": "C:\\Github\\FinalProject\\LMS\\LMS.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\khale\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2029,16 +2029,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\user\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Core\\obj\\project.nuget.cache : After parsing a value an unexpected character was encountered: \". Path 'expectedPackageFiles[50]', line 60, position 2."
-    }
-  ]
+  }
 }

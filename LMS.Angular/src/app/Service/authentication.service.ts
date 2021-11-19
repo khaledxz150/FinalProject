@@ -29,8 +29,7 @@ export class AuthenticationService {
         var body ={
             username:this.username.value.toString(),
             password:this.password.value.toString()
-
-        };
+  };
 
 
   this.spinner.show();
@@ -48,6 +47,9 @@ export class AuthenticationService {
 
 
      localStorage.setItem('user',JSON.stringify({...data}))
+
+
+     
      if(data.role == 'Admin'){
       this.toastr.success('logged in');
       this.router.navigate(['admin']);

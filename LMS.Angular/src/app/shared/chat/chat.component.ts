@@ -21,15 +21,11 @@ export class ChatComponent implements OnInit {
     this.trainerService.ReturnEmployeeInfo(0);
   }
   sendMessage(){
-
   }
 
   send(){
-debugger
     let user:any = localStorage.getItem('user');
-
     let trainerId = JSON.parse(user);
-
     //filter
     let trainer = this.trainerService.employee.find(i=>i.employeeId == parseInt(trainerId.EmployeeId))
 if(trainer){
@@ -39,11 +35,9 @@ if(trainer){
      message: this.msgDto,
      traineeName: trainer.fName,
      date: new Date()
-   }
-
+  }
    this.chatService.SendMessage(message);
-debugger
-  this.msgDto = ''
+  this.msgDto = '';
   }
 
 
