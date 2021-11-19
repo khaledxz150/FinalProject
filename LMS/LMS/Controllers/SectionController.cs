@@ -41,7 +41,7 @@ namespace LMS.Controllers
 
         [HttpPost]
         [Route("[action]/{trainerId}")]
-        public Task<bool> AddSection(Section section, int trainerId)
+        public bool AddSection(Section section, int trainerId)
         {
             return sectionService.AddSection(section, trainerId);
         }
@@ -62,7 +62,7 @@ namespace LMS.Controllers
 
         [HttpPut]
         [Route("[action]/{trainerId}")]
-        public Task<bool> UpdateSection(Section section, int trainerId)
+        public bool UpdateSection(Section section, int trainerId)
         {
             return sectionService.UpdateSection(section, trainerId);
         }
@@ -224,6 +224,13 @@ namespace LMS.Controllers
         public List<TraineeSectionDTO> ReturnTraineeSection(int trainerId)
         {
             return sectionService.ReturnTraineeSection(trainerId);
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        public List<SolTaskDTO> ReturnTraineeSolutionOfTask(int taskId, int sectionId)
+        {
+            return sectionService.ReturnTraineeSolutionOfTask(taskId, sectionId);
         }
 
 

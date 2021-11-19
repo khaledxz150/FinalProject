@@ -22,7 +22,7 @@ namespace LMS.Infra.Repository
             _dbContext = dbContext;
         }
 
-        public async Task<bool> AddNewEmployee(EmployeeInfoDTO employee)
+        public bool AddNewEmployee(EmployeeInfoDTO employee)
         {
             var queryParameters = new DynamicParameters();
             queryParameters.Add("@ssn", employee.NationalSecurutiyNumber, dbType: DbType.String, direction: ParameterDirection.Input);
@@ -33,7 +33,7 @@ namespace LMS.Infra.Repository
             queryParameters.Add("@imagepath", employee.EmployeeImage, dbType: DbType.String, direction: ParameterDirection.Input);
             queryParameters.Add("@salary", employee.BasicSalary, dbType: DbType.Double, direction: ParameterDirection.Input);
             //execute proc
-            var result = await _dbContext.Connection.ExecuteAsync("InsertEmployee", queryParameters, commandType: CommandType.StoredProcedure);
+            var result = _dbContext.Connection.ExecuteAsync("InsertEmployee", queryParameters, commandType: CommandType.StoredProcedure);
 
 
 
@@ -45,7 +45,7 @@ namespace LMS.Infra.Repository
             parameters.Add("@P_EmployeeId", employeeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameters.Add("@P_TraineeId", null, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameters.Add("@P_RoleId", employee.RoleId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            var result1 = await _dbContext.Connection.ExecuteAsync("InsertLogin", parameters, commandType: CommandType.StoredProcedure);
+            var result1 = _dbContext.Connection.ExecuteAsync("InsertLogin", parameters, commandType: CommandType.StoredProcedure);
 
             return true;
         }

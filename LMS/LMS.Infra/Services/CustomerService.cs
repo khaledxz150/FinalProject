@@ -129,7 +129,7 @@ namespace LMS.Infra.Services
         }
 
 
-        public Task<bool> InsertTrainee(TraineeInfoDTO trainee)
+        public bool InsertTrainee(TraineeInfoDTO trainee)
         {
             return customerRepository.InsertTrainee(trainee);
         }

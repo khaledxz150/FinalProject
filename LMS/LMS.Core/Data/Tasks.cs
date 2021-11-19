@@ -18,7 +18,9 @@ namespace LMS.Data
         public int SectionTrainerId { get; set; }
         public bool IsActive { get; set; }
         public DateTime CreationDate { get; set; }
-        
+        public string FileType { get; set; }
+
+
 
         public virtual Employee CreatedByNavigation { get; set; }
         public virtual TrainerSection SectionTrainer { get; set; }

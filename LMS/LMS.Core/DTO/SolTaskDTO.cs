@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
 
 namespace LMS.Core.DTO
 {
-    public class TaskSolDTO
+    public class SolTaskDTO
     {
         public int TraineeSectionTaskId { get; set; }
         public int TraineeSectionId { get; set; }

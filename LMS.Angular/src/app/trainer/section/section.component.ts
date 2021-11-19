@@ -105,4 +105,8 @@ export class SectionComponent implements OnInit {
     this.dialog.open(CreateTaskComponent, {data : sectionId});
   }
 
+  ViewTasks(sectionId:number){
+    this.sectionService.GetTrainerSectionTask(sectionId);
+    }
+
 }

@@ -105,18 +105,16 @@
 
                             </mat-expansion-panel>
                             <mat-expansion-panel>
-                              <mat-expansion-panel-header (click)="ViewExam(course.sectionId)">
+                              <mat-expansion-panel-header (click)="ViewTasks(course.sectionId)">
                                 <mat-panel-title>
                                 Tasks
                                 </mat-panel-title>
 
 
                               </mat-expansion-panel-header>
-                              <div >
+                           
                                 <app-task></app-task>
 
-
-                              </div>
 
                               <mat-icon class="pointer fancy-link"  (click)="CreateTask(course.sectionId)">add_circle</mat-icon>
 

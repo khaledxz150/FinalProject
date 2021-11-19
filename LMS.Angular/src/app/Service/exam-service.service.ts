@@ -102,13 +102,10 @@ this.ReturnExamQuestion();
       this.toastr.warning('Something wrong');
     })
     }
-
     reloadComponent() {
       let currentUrl = this.router.url;
           this.router.routeReuseStrategy.shouldReuseRoute = () => false;
           this.router.onSameUrlNavigation = 'reload';
           this.router.navigate([currentUrl]);
       }
-
-    
 }

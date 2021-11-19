@@ -17,6 +17,7 @@ export class ExamService {
        private router:Router) {
      }
    GetQuestionFromDataBase(){
+     this.spinner.show();
      this.QuestionsAnswer=[];
      this.fetchQuestion=[];
      this.http.post('http://localhost:54921/api/Exam/ReturnExamQuestion?queryCode=0&courseId=1',null)

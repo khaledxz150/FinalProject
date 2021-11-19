@@ -30,7 +30,7 @@ namespace LMS.Infra.Services
         {
             return sectionRepository.GetAllStatus();
         }
-        public Task<bool> AddSection(Section section, int trainerId)
+        public bool AddSection(Section section, int trainerId)
         {
             return sectionRepository.AddSection(section, trainerId);
         }
@@ -56,7 +56,7 @@ namespace LMS.Infra.Services
         {
             return sectionRepository.AddTraineeSection(traineeSection);
         }
-        public Task<bool> UpdateSection(Section section, int trainerId)
+        public bool UpdateSection(Section section, int trainerId)
         {
             return sectionRepository.UpdateSection(section, trainerId);
         }
@@ -168,5 +168,12 @@ namespace LMS.Infra.Services
         {
             return sectionRepository.ReturnTraineeSection(trainerId);
         }
+
+        public List<SolTaskDTO> ReturnTraineeSolutionOfTask(int taskId, int sectionId)
+        {
+            return sectionRepository.ReturnTraineeSolutionOfTask( taskId,  sectionId);
+        }
+
+
     }
 }

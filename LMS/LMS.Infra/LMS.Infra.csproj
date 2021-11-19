@@ -4,9 +4,7 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Include="..\LMS.Core\DTO\TaskSolutionDTO.cs" Link="TaskSolutionDTO.cs" />
-  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.90" />

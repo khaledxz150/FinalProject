@@ -22,7 +22,7 @@ namespace LMS.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public Task<bool> AddNewEmployee([FromBody] EmployeeInfoDTO employee)
+        public bool AddNewEmployee([FromBody] EmployeeInfoDTO employee)
         {
             return _employeeService.AddNewEmployee(employee);
         }

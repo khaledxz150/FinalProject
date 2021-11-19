@@ -11,7 +11,7 @@ import { Component, Inject, OnInit } from '@angular/core';
   styleUrls: ['./create-task.component.css']
 })
 export class CreateTaskComponent implements OnInit {
-
+Filetype:any|undefined;
  sectionTrainerId:any|undefined;
   selectedFile: File|null=null;
    formGroup: FormGroup = new FormGroup({
@@ -36,7 +36,7 @@ export class CreateTaskComponent implements OnInit {
   ngOnInit(): void {
     let user:any = localStorage.getItem('user');
     let trainerId = JSON.parse(user);
-   this.sectionService.ReturnAllTrainerSections(2);
+   this.sectionService.ReturnAllTrainerSections(parseInt(trainerId.EmployeeId));
    const current= this.sectionService.TrainerSection.find(x=>x.sectionId == this.data);
    this.sectionTrainerId=current.trainerSectionId;
   }
@@ -48,25 +48,28 @@ export class CreateTaskComponent implements OnInit {
       note: this.formGroup.value.Note,
       weight: this.formGroup.value.Weight,
       fileUrl: this.FileSrc,
-      date: "2021-11-18T17:06:19.320Z",
-      deadline: "2021-11-18T17:06:19.320Z",
+      date: new Date(),
+      deadline:this.formGroup.value.DeadLine,
       sectionTrainerId: this.sectionTrainerId,
       isActive: true,
-      creationDate: "2021-11-18T17:06:19.320Z"
+      creationDate: new Date(),
+      fileType: this.Filetype
     }
   
     console.log(taskData);
+    debugger
     this.sectionService.CreateNewTaskForSection(taskData);
   }
   Uploadfile(event: any ) {
     const reader = new FileReader();
+    const type= event.target.files[0].name.substring(event.target.files[0].name.lastIndexOf('.'));
 
     if (event.target.files && event.target.files.length) {
       const [file] = event.target.files;
       reader.readAsDataURL(file);
       reader.onload = () => {
         this.FileSrc = reader.result as string;
-        console.log(this.FileSrc)
+        this.Filetype = type;
     }
   }
 }

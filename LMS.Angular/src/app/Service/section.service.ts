@@ -24,13 +24,21 @@ export class SectionService {
    SelectedSection:any|undefined;
    tasks:any[]=[];
    tasksAnswers:any=[]=[];
+  TrainerSectionId: any;
 
 
 
   constructor(private http: HttpClient,private toastr:ToastrService, private spinner: NgxSpinnerService,private router:Router,
     private sanitizer: DomSanitizer) { }
 
+    reloadComponent() {
+      let currentUrl = this.router.url;
+          this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+          this.router.onSameUrlNavigation = 'reload';
+          this.router.navigate([currentUrl]);
+      }
 
+      
   ReturnAllTrainerSections(TrainerId:any) {
     this.spinner.show();
    this.http.post(environment.apiUrl + 'Section/ReturnAllTrainerSections/'+TrainerId,TrainerId).subscribe((result:any)=>{
@@ -256,8 +264,14 @@ deleteSection(sectionId:number){
  }
 
 
- GetTrainerSectionTask(){
-  this.http.post('http://localhost:54921/api/Section/ReturnTasksOfSection?sectionTrainerId=1',null)
+ GetTrainerSectionTask(sectionId:any){
+
+  const current= this.TrainerSection.find(x=>x.sectionId == sectionId);
+
+  this.TrainerSectionId=current.trainerSectionId;
+
+debugger
+  this.http.post(`http://localhost:54921/api/Section/ReturnTasksOfSection?sectionTrainerId=${this.TrainerSectionId}`,null)
   .subscribe((res:any)=>{
      this.tasks=res;
   })

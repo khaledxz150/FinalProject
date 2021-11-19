@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace LMS.Core.Services
 {
@@ -13,9 +12,9 @@ namespace LMS.Core.Services
         public StudentCountDTO ReturnStudentCount(int sectionId);
         //Section
 
-        public Task<bool> AddSection(Section section, int trainerId);
+        public bool AddSection(Section section, int trainerId);
 
-        public Task<bool> UpdateSection(Section section, int trainerId);
+        public bool UpdateSection(Section section, int trainerId);
         public bool DeleteSection(int SectionId);
         public List<Section> GetAllSection();
 
@@ -73,7 +72,7 @@ namespace LMS.Core.Services
         public List<Tasks> ReturnTasksOfSection(int sectionTrainerId);
 
 
-        public List<TaskSolutionDTO> ReturnTraineeSolutionOfTask(int taskId, int sectionId);
+        public List<SolTaskDTO> ReturnTraineeSolutionOfTask(int taskId, int sectionId);
 
 
     }
