@@ -18,7 +18,14 @@ export class MyLeaningComponent implements OnInit {
     ,public courseService:CourseService) { }
  //س
   ngOnInit(): void {
-    this.learningService.GetAllEnrollmentCourses(2)
+
+    debugger
+    let user:any = localStorage.getItem('user');
+    let trainee = JSON.parse(user);
+    //  if(traineeId){
+    //  }
+
+    this.learningService.GetAllEnrollmentCourses(parseInt(trainee.TraineeId))
     this.courseService.getAllAvailableCourse()
   }
   DisplayCourseInfo(id:number|undefined){

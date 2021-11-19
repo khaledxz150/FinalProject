@@ -20,8 +20,12 @@ export class SectionInfoComponent implements OnInit {
   ngOnInit(): void {
   }
   InsertTraineeSection(sectionId:number){
+    let user:any = localStorage.getItem('user');
+    let trainee = JSON.parse(user);
+    //  if(traineeId){
+    //  }
     const object:any={
-      traineeId: 2,
+      traineeId: parseInt(trainee.TraineeId),
       sectionId: sectionId,
     }
     this.sectionService.RegisterInSection(object)

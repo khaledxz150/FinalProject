@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Github\\FinalProject\\LMS\\LMS.Infra\\LMS.Infra.csproj": {}
+    "C:\\Users\\user\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Infra\\LMS.Infra.csproj": {}
   },
   "projects": {
-    "C:\\Github\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj": {
+    "C:\\Users\\user\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Github\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj",
         "projectName": "LMS.Core",
-        "projectPath": "C:\\Github\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj",
-        "packagesPath": "C:\\Users\\khale\\.nuget\\packages\\",
-        "outputPath": "C:\\Github\\FinalProject\\LMS\\LMS.Core\\obj\\",
+        "projectPath": "C:\\Users\\user\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\khale\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -72,21 +72,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Github\\FinalProject\\LMS\\LMS.Infra\\LMS.Infra.csproj": {
+    "C:\\Users\\user\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Infra\\LMS.Infra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Github\\FinalProject\\LMS\\LMS.Infra\\LMS.Infra.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Infra\\LMS.Infra.csproj",
         "projectName": "LMS.Infra",
-        "projectPath": "C:\\Github\\FinalProject\\LMS\\LMS.Infra\\LMS.Infra.csproj",
-        "packagesPath": "C:\\Users\\khale\\.nuget\\packages\\",
-        "outputPath": "C:\\Github\\FinalProject\\LMS\\LMS.Infra\\obj\\",
+        "projectPath": "C:\\Users\\user\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Infra\\LMS.Infra.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Infra\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\khale\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -100,8 +100,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Github\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj": {
-                "projectPath": "C:\\Github\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj"
+              "C:\\Users\\user\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj": {
+                "projectPath": "C:\\Users\\user\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj"
               }
             }
           }
@@ -160,7 +160,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

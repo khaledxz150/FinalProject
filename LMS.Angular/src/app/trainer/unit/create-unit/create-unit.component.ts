@@ -13,7 +13,7 @@ import { UnitService } from 'src/app/Service/unit.service';
   styleUrls: ['./create-unit.component.css']
 })
 export class CreateUnitComponent implements OnInit {
-   
+
   selectedFile: File|null=null;
   formGroup: FormGroup = new FormGroup({
     FilePath: new FormControl('', [Validators.required]),
@@ -37,6 +37,17 @@ debugger
 
 
   Uploadfile(event: any ) {
+
+    let trainerID = 1;
+    let user:any = localStorage.getItem('user');
+
+    let trainerId = JSON.parse(user);
+     if(trainerId){
+      trainerID= parseInt(trainerId.EmployeeId);
+     }
+
+
+
     const reader = new FileReader();
 
     if (event.target.files && event.target.files.length) {
@@ -48,7 +59,7 @@ debugger
 
 
         const type= event.target.files[0].name.substring(event.target.files[0].name.lastIndexOf('.'));
-      this.Unit={SectionId: this.data,FilePath: this.FileSrc , isActive: true, CreationDate: new Date(), CreatedBy:1,  Title:this.formGroup.controls['Title'].value,
+      this.Unit={SectionId: this.data,FilePath: this.FileSrc , isActive: true, CreationDate: new Date(), CreatedBy:trainerID,  Title:this.formGroup.controls['Title'].value,
       FileType:type}
       };
 

@@ -14,8 +14,12 @@ export class TraineeNavComponent implements OnInit {
 
   ngOnInit(): void {
 
-     this.traineeService.getMyCartItem2(2)
-     this.traineeService.getMyWishListItem(2)
+    let user:any = localStorage.getItem('user');
+    let trainee = JSON.parse(user);
+    //  if(traineeId){
+    //  }
+     this.traineeService.getMyCartItem2(parseInt(trainee.TraineeId))
+     this.traineeService.getMyWishListItem(parseInt(trainee.TraineeId))
   }
 
   submit(){
