@@ -11,18 +11,17 @@ import { SectionService } from './section.service';
   providedIn: 'root'
 })
 export class ExamServiceService {
-  CreateAnswer(Answer: import("../models/QuestnAnswer").Answer[]) {
-    throw new Error('Method not implemented.');
-  }
+
+  Questions: any[]=[{}];
+ 
   CurrentQuestionId: String | undefined;
-  CreateQuestion(Question: Question) {
-    throw new Error('Method not implemented.');
-  }
+
 
     exam:any[]=[{}];
     SelectedExam:any;
     SelectedExamByID:any[]=[];
     currentExamId:any|undefined;
+    selectedSection:any|undefined;
 
     constructor(  private http: HttpClient,
     private spinner:NgxSpinnerService,
@@ -31,11 +30,10 @@ export class ExamServiceService {
      }
 
      GetExamBySection(sectionId:number){
-      console.log(sectionId)
       this.spinner.show();
       this.http.post(environment.apiUrl + 'exam/ReturnExamBySectionId/'+sectionId,sectionId).subscribe((res:any)=>{
       this.exam = res;
-    
+      this.selectedSection = sectionId;
       this.spinner.hide();
   
     },err=>{
@@ -47,9 +45,10 @@ export class ExamServiceService {
      CreatExam(Exam:any){
       this.spinner.show();
       this.http.post(environment.apiUrl + 'exam/InsertExam',Exam).subscribe((res:any)=>{
+      this.reloadComponent();
+      this.GetExamBySection(this.selectedSection);
       this.exam = res;
       this.spinner.hide();
-  
     },err=>{
       this.spinner.hide();
       this.toastr.warning('Something wrong');
@@ -58,16 +57,58 @@ export class ExamServiceService {
 
      UpdateExam(Exam:any){
       this.spinner.show();
-      
       this.http.put(environment.apiUrl + 'exam/UpdateExam',Exam).subscribe((res:any)=>{
-        
+      this.reloadComponent();
+      this.GetExamBySection(this.selectedSection);
       this.spinner.hide();
-  
     },err=>{
       this.spinner.hide();
       this.toastr.warning('Something wrong');
     })
      }
+
+
+     InsertExamQuestion(Question:any){
+      this.spinner.show();
+      this.http.post(environment.apiUrl + 'Exam/InsertExamQuestionAnswer',Question).subscribe((res:any)=>{ 
+this.ReturnExamQuestion();
+      this.spinner.hide();
+    },err=>{
+      this.spinner.hide();
+      this.toastr.warning('Something wrong');
+    })
+
+     }
+
+
+     ReturnExamQuestion(){
+      this.spinner.show();
+      this.http.post(environment.apiUrl + 'Exam/ReturnExamQuestionAnswer/'+this.currentExamId,this.currentExamId).subscribe((res:any)=>{ 
+        this.Questions = res;
+      this.spinner.hide();
+    },err=>{
+      this.spinner.hide();
+      this.toastr.warning('Something wrong');
+    })
+
+     }
+     DeleteQuestion(examQuestionAnswer: any) {
+      this.spinner.show();
+      this.http.delete(environment.apiUrl + 'Exam/DeleteExamQuestionAnswer/'+examQuestionAnswer,examQuestionAnswer).subscribe((res:any)=>{ 
+        this.reloadComponent();
+      this.spinner.hide();
+    },err=>{
+      this.spinner.hide();
+      this.toastr.warning('Something wrong');
+    })
+    }
+
+    reloadComponent() {
+      let currentUrl = this.router.url;
+          this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+          this.router.onSameUrlNavigation = 'reload';
+          this.router.navigate([currentUrl]);
+      }
 
     
 }

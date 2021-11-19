@@ -13,6 +13,8 @@ export class ExamInfoComponent implements OnInit {
   constructor(public examService:ExamServiceService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.examService.ReturnExamQuestion();
+   
   }
 
 
@@ -21,6 +23,8 @@ export class ExamInfoComponent implements OnInit {
     this.dialog.open(ExamQuestionsAnswersComponent, {data:this.examService.currentExamId});
   }
 
- 
-
+  DeleteQuestion(examQuestionAnswer:any){
+    this.examService.DeleteQuestion(examQuestionAnswer);
+    this.examService.ReturnExamQuestion();
+  }
 }

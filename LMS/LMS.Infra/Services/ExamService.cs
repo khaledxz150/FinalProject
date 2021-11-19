@@ -15,6 +15,7 @@ namespace LMS.Infra.Services
     {
         private readonly IExamRepository examRepository;
 
+
         public ExamService(IExamRepository examRepository)
         {
             this.examRepository = examRepository;
@@ -125,6 +126,21 @@ namespace LMS.Infra.Services
 
         public List<ExamAnswersDTO> GetExamAnswersDTOs(int sectionId) {
             return examRepository.GetExamAnswersDTOs(sectionId);
+        }
+
+        public bool InsertExamQuestionAnswer(ExamQuestionAnswer examQuestionAnswer)
+        {
+            return examRepository.InsertExamQuestionAnswer(examQuestionAnswer);
+        }
+
+        public bool DeleteExamQuestionAnswer(int examId)
+        {
+            return examRepository.DeleteExamQuestionAnswer(examId);
+        }
+
+        public List<ExamQuestionAnswer> ReturnExamQuestionAnswer(int examId)
+        {
+            return examRepository.ReturnExamQuestionAnswer(examId);
         }
     }
 }

@@ -58,7 +58,15 @@ namespace LMS.Core.Repository
         public List<ExamFormDTO>GetExamForm(int sectionId);
 
         public List<ExamAnswersDTO>GetExamAnswersDTOs(int sectionId);
-        
+
+
+        // ExamQuestionANswer
+        public bool InsertExamQuestionAnswer(ExamQuestionAnswer examQuestionAnswer);
+
+        public bool DeleteExamQuestionAnswer(int examId);
+
+        public List<ExamQuestionAnswer> ReturnExamQuestionAnswer(int examId);
+
 
 
     }

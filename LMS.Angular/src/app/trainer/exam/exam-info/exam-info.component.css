@@ -650,7 +650,7 @@ td {
 }
 
 .column1 {
-    padding-left: 25px;
+    padding-left: 50px;
 }
 
 .column2 {
@@ -10887,6 +10887,7 @@ td {
 .ps {
     overflow: hidden !important;
     overflow-anchor: none;
+
     -ms-overflow-style: none;
     touch-action: auto;
     -ms-touch-action: auto;
@@ -11108,7 +11109,7 @@ body {
     font-weight: 400;
     line-height: 1.5;
     color: #212529;
-    background-color: #ffffff
+    background-color: #eee
 }
 
 [tabindex="-1"]:focus {
@@ -11641,29 +11642,7 @@ pre code {
     width: 100%
 }
 
-@media (min-width:576px) {
-    .container {
-        max-width: 540px
-    }
-}
 
-@media (min-width:768px) {
-    .container {
-        max-width: 720px
-    }
-}
-
-@media (min-width:992px) {
-    .container {
-        max-width: 960px
-    }
-}
-
-@media (min-width:1200px) {
-    .container {
-        max-width: 1140px
-    }
-}
 
 .container-fluid {
     width: 100%;
@@ -21471,3 +21450,21 @@ margin-bottom: 50%;
 padding-bottom: 600px;
 text-align: center;
 }
+
+
+.table .thead-dark th{
+
+
+
+    background:#af1a2d;
+}
+
+.tbody tr{
+
+
+    
+    background:#fff;
+}
+
+body > div  {
+background:#eee}
