@@ -2,35 +2,31 @@
     <div id="content" class="px-3 p-md-5 pt-5 mt-5">
     <app-trainer-side-bar></app-trainer-side-bar>
     <div style="text-align:center;">
-              <button (click)="addQuestion()">add question and answers</button>
+
                     <table class="table">
                             <thead class="thead-dark">
                                 <tr class="row100 head Head">
-                                    <th >Question</th>
-                                    <th >Correct answer</th>
-                                    <th >Anser#2</th>
-                                    <th >Answer#3</th>
-                                    <th >Answer#4</th>
-                                    <th >Delete Exam</th>
+                                    <th >s.No</th>
+                                    <th >Trainee Email</th>
+                                    <th >Trainee Name</th>
+                                    <th >Mark</th>
+
                                 </tr>
                             </thead>
-                            <tbody *ngFor="let data of examService.Questions" class="tbody">
-                                <tr *ngIf="data.examId == examService.currentExamId">
-                                    <th scope="row">{{data.description}}</th>
-                                    <td>{{data.correctAnswer}}</td>
-                                    <td >{{data.option1}}</td>
-                                    <td >{{data.option2}}</td>
-                                    <td >{{data.option2}}</td>
-                                    <td >   <mat-icon class="pointer fancy-link" (click)="DeleteQuestion(data.examQuestionAnswerID)">Book</mat-icon></td>
+                            <tbody *ngFor="let data of examService.TraineeMarks;let i =index;" class="tbody">
+                                <tr>
+                                    <th scope="row">i</th>
+                                    <td>{{data.traineeName}}</td>
+                                    <td >{{data.email}}</td>
+                                    <td >{{data.traineeMark}}</td>
                                 </tr>
                             </tbody>
                           </table>
                     </div>
                 </div>
-      
+
             </div>
-    
-    
-    
-      
-    
+
+
+
+

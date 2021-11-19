@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ExamService } from 'src/app/Service/exam.service';
 import { SectionService } from 'src/app/Service/section.service';
+import { TaskMarkComponent } from '../task-mark/task-mark.component';
 
 @Component({
   selector: 'app-task-soultions',
@@ -30,5 +31,12 @@ export class TaskSoultionsComponent implements OnInit {
    });
    linkElement.dispatchEvent(clickEvent);
    }
+  InsertMark(taskId:number){
+     this.dialog.open(TaskMarkComponent,{
+       width:"66%",
+       height:"88%",
+       data:taskId
+     })
+  }
 
 }

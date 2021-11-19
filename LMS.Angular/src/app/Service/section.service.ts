@@ -57,7 +57,11 @@ this.spinner.hide();
   })
 }
 
+InsertTaskMarkForTrainee(obj:any){
+  this.http.put('http://localhost:54921/api/Section/UpdateTraineeTask',obj).subscribe((res)=>{
 
+  })
+}
 
 getSections(courseId:number){
    this.spinner.show();
@@ -282,7 +286,7 @@ debugger
  studentsAttendenceArray:any[]=[];
  ReturnLectureBySectionId(SectionId:number){
   this.http.post(`http://localhost:54921/api/Section/ReturnLectureBySectionId=${SectionId}`,null).subscribe((res:any)=>{
-  
+
 this.CurrentLecture= res;
 this.CurrentLecture = this.CurrentLecture.filter(((x: { sectionId: number; })=>x.sectionId==SectionId));
 var LectureMax = 0;
@@ -296,7 +300,7 @@ this.CurrentLecture = LectureMax;
 
 
  }
- 
+
  GetTraineeInSpecificSection(SectionId:number){
   this.http.post(`http://localhost:54921/api/Section/ReturnTraineeInSection?sectionId=${SectionId}`,null).subscribe((res:any)=>{
      this.studentsInfoAttend=res
