@@ -79,12 +79,16 @@ export class HomeComponent implements OnInit {
   }
 
 
-
+   loggedIn:any|undefined;
   ngOnInit(): void {
     debugger
      this.courseService.getCourses();
      this.testimonialService.getTestimonial();
      this.categoryService.getCategories();
+     this.loggedIn=localStorage.getItem("user")
+     let traineeId=JSON.parse(this.loggedIn)
+     this.loggedIn=traineeId.traineeId
+     console.log(this.loggedIn)
 
   }
 

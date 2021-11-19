@@ -23,6 +23,7 @@ export class SectionService {
    status: any[]=[{}];
    SelectedSection:any|undefined;
    tasks:any[]=[];
+   tasksAnswers:any=[]=[];
 
 
 
@@ -260,5 +261,44 @@ deleteSection(sectionId:number){
   .subscribe((res:any)=>{
      this.tasks=res;
   })
+ }
+
+ GetTraineeSectionTaskAnswer(){
+   this.http.post('http://localhost:54921/api/Section/ReturnSolutionOfTask?taskId=1&sectionId=1',null).subscribe((res:any)=>{
+     this.tasksAnswers=res;
+   })
+ }
+ studentsInfoAttend:any[]=[];
+ studentsAttendenceArray:any[]=[];
+ GetTraineeInSpecificSection(){
+   console.log('fetch')
+   this.http.post('http://localhost:54921/api/Section/ReturnTraineeInSection?sectionId=1',null).subscribe((res:any)=>{
+     this.studentsInfoAttend=res
+     for(let i of this.studentsInfoAttend){
+      const attendanceObject={
+        studentId:i.trineeId,
+        studentName:i.traineeName,
+        isPresent:false,
+        lectureId:1
+      }
+      this.studentsAttendenceArray.push(attendanceObject)
+
+    }
+   })
+ }
+
+ SaveAttendenceReport(){
+  for(let i of this.studentsAttendenceArray){
+    const attend={
+      traineeId: i.studentId,
+      isPresent: i.isPresent,
+
+      lectureId: i.lectureId,
+      createdBy: 1,
+    }
+    this.http.post('http://localhost:54921/api/Section/InsertTraineeAttendance',attend).subscribe((res)=>{
+
+    })
+  }
  }
 }

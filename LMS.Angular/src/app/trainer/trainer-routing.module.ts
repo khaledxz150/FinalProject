@@ -5,8 +5,13 @@ import { AttendanceComponent } from './attendance/attendance.component';
 
 import { ExamComponent } from './exam/exam.component';
 import { SectionComponent } from './section/section.component';
+
+import { TaskSoultionsComponent } from './task/task-soultions/task-soultions.component';
+
 import { StudentsComponent } from './students/students.component';
+
 import { UnitComponent } from './unit/unit.component';
+import { AttendanceComponent } from './attendance/attendance.component';
 
 const routes: Routes = [
 {
@@ -25,9 +30,15 @@ const routes: Routes = [
   {path:'exam',
 component:ExamComponent},
 {path:'examInfo',
- component:ExamInfoComponent},
+ component:ExamInfoComponent},{
+   path:'solution',
+   component:TaskSoultionsComponent
+ },
  {path:'students',
- component:StudentsComponent}
+ component:StudentsComponent},{
+   path:'attend',
+   component:AttendanceComponent
+ }
 ];
 
 @NgModule({

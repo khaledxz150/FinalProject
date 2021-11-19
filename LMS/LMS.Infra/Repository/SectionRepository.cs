@@ -9,7 +9,6 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Tasks = LMS.Data.Tasks;
 
 namespace LMS.Infra.Repository
 {
@@ -284,12 +283,20 @@ namespace LMS.Infra.Repository
             return result.ToList();
         }
 
-        public List<TaskSolutionDTO> ReturnSolutionOfTask(int taskId, int sectionId)
+        /*public List<TaskSolutionDTO> ReturnTraineeSolutionOfTask(int taskId, int sectionId)
         {
             var parm = new DynamicParameters();
             parm.Add("@TaskId", taskId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parm.Add("@SectionId", sectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             IEnumerable<TaskSolutionDTO> result = dBContext.Connection.Query<TaskSolutionDTO>("ReturnSolutionOfTask", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }*/
+        public List<TaskSolDTO> ReturnTraineeSolutionOfTask(int taskId, int sectionId)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@TaskId", taskId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parm.Add("@SectionId", sectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<TaskSolDTO> result = dBContext.Connection.Query<TaskSolDTO>("ReturnSolutionOfTask", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 

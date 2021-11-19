@@ -43,6 +43,8 @@ import { CourseInfoComponent } from './course-info/course-info.component';
     CommonModule,
     TraineeRoutingModule,
     SharedModule
+  ],exports:[
+    TraineeNavComponent
   ]
 })
 export class TraineeModule { }
