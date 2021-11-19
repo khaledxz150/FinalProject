@@ -1,4 +1,5 @@
 ﻿using LMS.Core.Data;
+using LMS.Core.DTO;
 using LMS.Core.Services;
 using LMS.Data;
 using Microsoft.AspNetCore.Http;
@@ -130,6 +131,12 @@ namespace LMS.Controllers
             return examService.ReturnExamBySectionId(sectionId);
         }
 
+        [HttpPost]
+        [Route("[action]")]
+        public List<TraineeExamMarkDTO> GetExamMarkList([FromQuery]int examId)
+        {
+            return examService.GetExamMarkList(examId); 
+        }
 
         [HttpDelete]
         [Route("[action]/{examQuestionAnswerId}")]
@@ -145,8 +152,6 @@ namespace LMS.Controllers
         {
             return examService.InsertExamQuestionAnswer(examQuestionAnswer);
         }
-
-
         [HttpPost]
         [Route("[action]/{examId}")]
         public List<ExamQuestionAnswer> ReturnExamQuestionAnswer(int examId)
