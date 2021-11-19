@@ -73,8 +73,8 @@ namespace LMS.Core.Services
         public List<Tasks> ReturnTasksOfSection(int sectionTrainerId);
 
 
-        //ReturnSolutionOfTask
-        public List<TaskSolutionDTO> ReturnSolutionOfTask(int taskId, int sectionId);
+        public List<TaskSolutionDTO> ReturnTraineeSolutionOfTask(int taskId, int sectionId);
+
 
     }
 }

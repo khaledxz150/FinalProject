@@ -31,10 +31,7 @@ namespace LMS.Infra.Repository
         {
             var parameters = new DynamicParameters();
             parameters.Add("@SectionId", lecture.SectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parameters.Add("@StartAt", lecture.StartAt, dbType: DbType.Time, direction: ParameterDirection.Input);
-            parameters.Add("@EndAt", lecture.EndAt, dbType: DbType.Time, direction: ParameterDirection.Input);
             parameters.Add("@CreatedBy", lecture.CreatedBy, dbType: DbType.Int64, direction: ParameterDirection.Input);
-
             var result = dBContext.Connection.ExecuteAsync("InsertLecture", parameters, commandType: CommandType.StoredProcedure);
             return true;
         }
@@ -62,8 +59,7 @@ namespace LMS.Infra.Repository
             var parameters = new DynamicParameters();
             parameters.Add("@LectureId", lecture.SectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameters.Add("@SectionId", lecture.SectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parameters.Add("@StartAt", lecture.StartAt, dbType: DbType.Time, direction: ParameterDirection.Input);
-            parameters.Add("@EndAt", lecture.EndAt, dbType: DbType.Time, direction: ParameterDirection.Input);
+          
 
             var result = dBContext.Connection.ExecuteAsync("UpdateLecture", parameters, commandType: CommandType.StoredProcedure);
             return true;

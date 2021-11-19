@@ -12,5 +12,6 @@ namespace LMS.Core.Data
         public string traineeName { get; set; }
         public string message { get; set; }
         public DateTime date { get; set; }
+        public int sectionId { get; set; }
     }
 }

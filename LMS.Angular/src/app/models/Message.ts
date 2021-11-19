@@ -3,7 +3,7 @@ export class Message {
     message: String | undefined;
     traineeName: String | undefined;
     date:Date|undefined;
-
+    sectionId:number|undefined;
 }
 
 

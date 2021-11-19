@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LearningService } from 'src/app/Service/learning.service';
 import { CourseService } from 'src/app/Service/course.service';
+import { TraineeNavbarService } from 'src/app/Service/trainee-navbar.service';
+import { TraineeService } from 'src/app/Service/trainee.service';
 
 @Component({
   selector: 'app-my-leaning',
@@ -15,7 +17,7 @@ import { CourseService } from 'src/app/Service/course.service';
 export class MyLeaningComponent implements OnInit {
 
   constructor(public learningService:LearningService,private router:Router
-    ,public courseService:CourseService) { }
+    ,public courseService:CourseService,public traineeService:TraineeService) { }
  //س
   ngOnInit(): void {
 
@@ -34,6 +36,7 @@ export class MyLeaningComponent implements OnInit {
  }
 ///
   MoveToSeeSectionInfo(id:number|undefined){
+   this.traineeService.CurrentTraineeSection = id;
     this.router.navigate(['client','sectionInfo',id])
   }
 

@@ -11,36 +11,17 @@ import { SectionService } from 'src/app/Service/section.service';
   styleUrls: ['./create-lecture.component.css']
 })
 export class CreateLectureComponent implements OnInit {
-  formGroup: FormGroup = new FormGroup({
-    SectionId: new FormControl(this.data.sectionId),
-    StartAt: new FormControl('', [Validators.required]),
-    EndAt: new FormControl('', [Validators.required]),
-    isActive: new FormControl(true),
-    creationDate: new FormControl(new Date()),
-    createdBy: new FormControl(1),
-  });
-
   constructor(public lectureService: LectureService,
      public sectionService:SectionService,
       @Inject(MAT_DIALOG_DATA) public data: any) { }
 
-  ngOnInit(): void {
-    this.formGroup.controls.SectionId.setValue(this.data.sectionId);
-    this.formGroup.controls.StartAt.setValue(this.data.sectionTimeStart);
-    this.formGroup.controls.EndAt.setValue(this.data.sectionTimeEnd);
-  }
-
-  Create(){
-    const values = this.formGroup.value
+  ngOnInit(): void { 
     let user:any = localStorage.getItem('user');
-
     let trainerId = JSON.parse(user);
-     if(trainerId){
-      values.createdBy = parseInt(trainerId.EmployeeId);
-     }
-
-    console.log(values);
-    this.lectureService.CreateLecture(values);
+    const lecture =[{sectionId:this.data, createdby:2}]
+    //trainerId}]
+    this.lectureService.CreateLecture(lecture[0]);
   }
+  
 
 }

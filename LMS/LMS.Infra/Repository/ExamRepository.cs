@@ -21,7 +21,8 @@ namespace LMS.Infra.Repository
             this.dBContext = dBContext;
         }
 
-        public bool DeleteExam(int examId)
+      
+            public bool DeleteExam(int examId)
         {
             var parm = new DynamicParameters();
             parm.Add("@ExamId", examId, dbType: DbType.Int32, direction: ParameterDirection.Input);

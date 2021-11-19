@@ -3,6 +3,7 @@ using LMS.Core.DTO;
 using LMS.Data;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,9 @@ namespace LMS.Core.Repository
 {
     public interface IExamRepository
     {
+
+
+
         public List<Exam> ReturnExam(int queryCode);
         public bool InsertExam(Exam exam);
         public bool UpdateExam(Exam exam);
@@ -19,6 +23,9 @@ namespace LMS.Core.Repository
         //Trainee Section Exam
         public bool AddTraineeSectionExam(TraineeSectionExam traineeSectionExam);
        
+        //insert
+
+         public bool InsertExamAnswerQuestion()
 
 
         //ExamQuestion
