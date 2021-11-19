@@ -21,7 +21,6 @@
         <input type="text" matInput formControlName="Weight">
 
         
-        </mat-error>
       </mat-form-field>
 
 
@@ -32,6 +31,6 @@
 
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="Create()"
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial
     [disabled]="!formGroup.valid">Save</button>
 </mat-dialog-actions>
