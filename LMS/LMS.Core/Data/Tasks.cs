@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace LMS.Data
 {
-    public partial class Task
+    public partial class Tasks
     {
         public int TaskId { get; set; }
         public string TaskTitle { get; set; }

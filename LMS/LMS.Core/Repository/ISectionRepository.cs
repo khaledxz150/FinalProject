@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Task = LMS.Data.Task;
+
 
 namespace LMS.Core.Repository
 {
@@ -59,16 +59,16 @@ namespace LMS.Core.Repository
         //ReturnUnitBySectionId
         public List<Unit> ReturnUnitBySectionId(int sectionId);
 
-        public bool AddTask(Task task);
-        public bool UpdateTask(Task task);
+        public bool InsertTask(Tasks task);
+        public bool UpdateTask(Tasks task);
 
 
-        public List<Task> SelectTraineeSectionTaskId();
+        public List<Tasks> SelectTraineeSectionTaskId();
 
 
 
         //ReturnTasksOfSection
-        public List<Task> ReturnTasksOfSection(int sectionTrainerId);
+        public List<Tasks> ReturnTasksOfSection(int sectionTrainerId);
 
 
         //ReturnSolutionOfTask

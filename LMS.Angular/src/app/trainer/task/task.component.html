@@ -1,0 +1,49 @@
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+				<div class="row">
+					<div class="table-wrap">
+						<table class="table">
+						  <thead class="thead-dark">
+						    <tr>
+						      <th class="col-2">Title</th>
+						      <th class="col-1">Dead Line</th>
+
+						      <th class="col-1">edit</th>
+                  <th class="col-1">Delete</th>
+                  <th class="col-1">Student Answers</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr class="alert" role="alert" *ngFor="let data of sections.tasks">
+						      <td class="col-2">{{data.taskTitle}}</td>
+						      <td class="col-1">{{data.deadline}}</td>
+						      <td class="col-1">
+
+                    <button class="btn btn-outline-info">
+                      Edit
+                    </button>
+				        	</td>
+                  <td class="col-1">
+
+                    <button class="btn btn-outline-danger">
+                      Delete
+                    </button>
+				        	</td>
+                  <td class="col-1">
+                   <button class="btn btn-outline-primary">
+                     Get Answers
+                   </button>
+				        	</td>
+						    </tr>
+						  </tbody>
+						</table>
+					</div>
+				</div>
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+

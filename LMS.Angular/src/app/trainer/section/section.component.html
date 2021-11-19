@@ -5,11 +5,11 @@
 
 
           <div class="container" >
-           
+
               <div id="content" class="px-3 p-md-5 pt-5 mt-5">
 
 
-               
+
               <div clas="card ">
 <div class="card" style="text-align:center;">
                   <h1> Welcome</h1>
@@ -20,7 +20,7 @@
                       <!-- card start -->
 
                       <div class="col-md-12 mt-3"  *ngFor="let course of sectionService.TrainerSection; let i = index;">
-                        
+
                         <mat-accordion >
 
                           <div class="full-withradius border">
@@ -30,7 +30,7 @@
                           <mat-expansion-panel (opened)="panelOpenState = true"
                                                (closed)="panelOpenState = false">
                             <mat-expansion-panel-header>
-                              
+
                               <mat-panel-title>
                                 {{course.courseName}} - {{course.sectionTimeStart | date:'shortTime'}} - {{course.sectionTimeEnd | date:'shortTime'}}
                               </mat-panel-title>
@@ -52,7 +52,7 @@
                                 <mat-panel-title>
                                 Section Capacity
                                 </mat-panel-title>
-                              
+
 
                               </mat-expansion-panel-header>
                               <div class="d-flex" style="justify-content: space-between;">
@@ -60,7 +60,7 @@
                                 <p>Current Trainees number is: {{course.traineeNumber}}</p>
 
 
-                            
+
 
                               </div>
 
@@ -71,16 +71,16 @@
                                 <mat-panel-title>
                                 Exam
                                 </mat-panel-title>
-                              
+
 
                               </mat-expansion-panel-header>
                               <div >
                                 <app-exam [Sectionid]="course.sectionId"></app-exam>
-                                  
+
 
                               </div>
-                            
-                              <mat-icon class="pointer fancy-link"  (click)="CreateExam(course.sectionId)">add_circle</mat-icon>                                
+
+                              <mat-icon class="pointer fancy-link"  (click)="CreateExam(course.sectionId)">add_circle</mat-icon>
 
                             </mat-expansion-panel>
                             <!-- </ng-container> -->
@@ -90,13 +90,13 @@
                                 <mat-panel-title>
                                 Unit
                                 </mat-panel-title>
-                              
+
 
                               </mat-expansion-panel-header>
                               <div >
                                 <app-unit [Sectionid]="course.sectionId"></app-unit>
                                   <div>
-                                    <mat-icon class="pointer fancy-link"  (click)="AddUnit(course.sectionId)">add_circle</mat-icon>                                
+                                    <mat-icon class="pointer fancy-link"  (click)="AddUnit(course.sectionId)">add_circle</mat-icon>
 
 
                                   </div>
@@ -104,12 +104,43 @@
                               </div>
 
                             </mat-expansion-panel>
+
+
+                            <mat-expansion-panel>
+                              <mat-expansion-panel-header (click)="ViewExam(course.sectionId)">
+                                <mat-panel-title>
+                                Tasks
+                                </mat-panel-title>
+
+
+                              </mat-expansion-panel-header>
+                              <div >
+                                <app-task></app-task>
+
+
+                              </div>
+
+                              <mat-icon class="pointer fancy-link"  (click)="CreateTask(course.sectionId)">add_circle</mat-icon>
+
+                            </mat-expansion-panel>
+                             <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        This is the expansion title
+      </mat-panel-title>
+      <mat-panel-description>
+        This is a summary of the content
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>This is the primary content of the panel.</p>
+  </mat-expansion-panel>
+                            <!-- </ng-container> -->
                           </mat-accordion>
                         </ng-container>
                            <!-- topic end -->
 
                           </mat-expansion-panel>
-                          
+
                         </mat-accordion>
                       </div>
 

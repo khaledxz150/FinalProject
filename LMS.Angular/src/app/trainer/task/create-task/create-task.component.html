@@ -1,0 +1,60 @@
+
+<h2 mat-dialog-title>Create exam </h2>
+<mat-dialog-content class="mat-typography">
+
+  <div class="form" style="margin-top:50px">
+    <form [formGroup]="formGroup">
+      <mat-form-field appearance="fill" class="example-form-field">
+
+        <mat-label>Task Dead Line</mat-label>
+        <input matInput [matDatepicker]="datepicker" formControlName="DeadLine">
+        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+        <mat-datepicker #datepicker>
+          <mat-datepicker-actions>
+            <button mat-button matDatepickerCancel>Cancel</button>
+            <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+          </mat-datepicker-actions>
+        </mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Title</mat-label>
+        <input type="text" matInput formControlName="Title">
+        <mat-error *ngIf="formGroup.controls.Title.hasError('required')">
+        Title is <strong>required</strong>
+      </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Notes</mat-label>
+        <input type="text" matInput formControlName="Note">
+
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Mark </mat-label>
+        <input type="number" matInput formControlName="Mark">
+        <mat-error *ngIf="formGroup.controls.Mark.hasError('required')">
+          Mark is <strong>required</strong>
+      </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Weight</mat-label>
+        <input type="number" matInput formControlName="Weight">
+
+        <mat-error *ngIf="formGroup.controls.Weight.hasError('required')">
+          Weight is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+       <div>
+      <button class="btn">Upload a file
+
+        <i class="fa fa-upload"></i>
+        </button>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1"  formControlName="FilePath" (change)="Uploadfile($event)">
+      </div>
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button  (click)="CreateTask()"
+        >Save</button>
+    </form>
+  </div>
+</mat-dialog-content>
+
+

@@ -30,6 +30,18 @@ export class MySectionService {
     })
   }
 
+  UploadTaskSolutionByTrainee(obj :any){
+    this.http.post('http://localhost:54921/api/Section/InsertTraineeTask',obj).subscribe((res)=>{
+       if(res){
+        this.tostar.success('Uploaded Success')
+       }
+
+       },err=>{
+         console.log(err)
+      this.tostar.error('Failed Operaiton')
+    })
+  }
+
   GetSectionTask(){
     this.http.get('http://localhost:54921/api/Section/SelectTraineeSectionTaskId')
     .subscribe((res:any)=>{

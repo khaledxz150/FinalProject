@@ -22,7 +22,8 @@ export class SectionService {
    sections: any[]=[{}];
    status: any[]=[{}];
    SelectedSection:any|undefined;
-   
+   tasks:any[]=[];
+
 
 
   constructor(private http: HttpClient,private toastr:ToastrService, private spinner: NgxSpinnerService,private router:Router,
@@ -53,18 +54,12 @@ this.spinner.hide();
 
 
 getSections(courseId:number){
-
-
    this.spinner.show();
-
    this.http.post(environment.apiUrl + 'Section/ReturnSectionByCourseId/'+courseId,courseId).subscribe((res:any)=>{
-
     debugger
-    console.log(res)
     this.sections = res;
     this.toastr.success('Data Retrived !!!');
     this.spinner.hide();
-
   },err=>{
     // this.spinner.hide();
     // this.toastr.warning('Something wrong');
@@ -97,11 +92,7 @@ getSectionsById(courseId:number){
 
 
 
-  }
-
-
-
-
+}
   getStatus(){
 
     // debugger;
@@ -125,8 +116,6 @@ this.http.get(environment.apiUrl + 'Section/GetAllStatus/').subscribe((res:any)=
 debugger;
 
 }
-
-
 createSection(section:Section,trainerId:number){
 
 
@@ -252,5 +241,24 @@ deleteSection(sectionId:number){
   this.filterTraineeSection =  this.traineeSection.filter(i=>i.sectionId == sectionId.value)
 
   debugger
+ }
+
+ CreateNewTaskForSection(object:any){
+   this.http.post('http://localhost:54921/api/Section/InsertTask',object).subscribe((res)=>{
+     if(res){
+       this.toastr.success('uploaded Success')
+     }else{
+       this.toastr.error('Failed Operation')
+     }
+   })
+   window.location.reload();
+ }
+
+
+ GetTrainerSectionTask(){
+  this.http.post('http://localhost:54921/api/Section/ReturnTasksOfSection?sectionTrainerId=1',null)
+  .subscribe((res:any)=>{
+     this.tasks=res;
+  })
  }
 }

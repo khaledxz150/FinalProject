@@ -18,7 +18,7 @@ namespace LMS.Data
         public DateTime CreationDate { get; set; }
     
 
-        public virtual Task Task { get; set; }
+        public virtual Tasks Task { get; set; }
         public virtual TraineeSection TraineeSection { get; set; }
     }
 }

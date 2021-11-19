@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Task = LMS.Data.Task;
 
 namespace LMS.Infra.Services
 {
@@ -135,26 +134,26 @@ namespace LMS.Infra.Services
             return sectionRepository.ReturnUnitBySectionId(sectionId);
         }
 
-        public bool AddTask(Task task)
+        public bool InsertTask(Tasks task)
         {
-            return sectionRepository.AddTask(task);
+            return sectionRepository.InsertTask(task);
         }
 
 
 
 
-        public bool UpdateTask(Task task)
+        public bool UpdateTask(Tasks task)
         {
             return sectionRepository.UpdateTask(task);
         }
 
 
-        public List<Task> SelectTraineeSectionTaskId()
+        public List<Tasks> SelectTraineeSectionTaskId()
         {
             return sectionRepository.SelectTraineeSectionTaskId();
         }
 
-        public List<Task> ReturnTasksOfSection(int sectionTrainerId)
+        public List<Tasks> ReturnTasksOfSection(int sectionTrainerId)
         {
             return sectionRepository.ReturnTasksOfSection(sectionTrainerId);
         }
@@ -169,6 +168,9 @@ namespace LMS.Infra.Services
             return sectionRepository.GetAllSection();
         }
 
-
+        public List<TraineeSectionDTO> ReturnTraineeSection(int trainerId)
+        {
+            return sectionRepository.ReturnTraineeSection(trainerId);
+        }
     }
 }
