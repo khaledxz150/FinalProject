@@ -32,7 +32,7 @@ export class MySectionsComponent implements OnInit {
     this.mySectionService.GetSectionExam()
     this.courseService.GetCourseComments(1);
   }
-
+  
   RateCourse(){
    this.dialog.open(RateBoxComponent);
   }

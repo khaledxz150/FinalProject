@@ -1,7 +1,8 @@
-import { Component, NgZone, OnInit } from '@angular/core';
+import { Component, Input, NgZone, OnInit } from '@angular/core';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { Message } from 'src/app/models/Message';
 import { ChatService } from 'src/app/Service/chat.service';
+import { TraineeService } from 'src/app/Service/trainee.service';
 import { TrainerService } from 'src/app/Service/trainer.service';
 
 @Component({
@@ -10,9 +11,9 @@ import { TrainerService } from 'src/app/Service/trainer.service';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
-
+  
   faPaperPlane = faPaperPlane
-  constructor(public chatService: ChatService, public trainerService:TrainerService) {}
+  constructor(public chatService: ChatService, public trainerService:TrainerService, public traineeService: TraineeService) {}
   msgDto:any;
   Userid =2;
   ngOnInit(): void {
@@ -34,7 +35,8 @@ if(trainer){
      userId: parseInt(trainerId.EmployeeId),
      message: this.msgDto,
      traineeName: trainer.fName,
-     date: new Date()
+     date: new Date(),
+     sectionId:this.traineeService.CurrentTraineeSection
   }
    this.chatService.SendMessage(message);
   this.msgDto = '';

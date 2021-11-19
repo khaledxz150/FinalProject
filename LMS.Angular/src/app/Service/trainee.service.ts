@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 export class TraineeService {
 //update
   trainee: any[] = [{}]
-
+  CurrentTraineeSection:any;
   constructor(
     private http: HttpClient,
     private toastr: ToastrService

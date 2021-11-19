@@ -17,6 +17,7 @@ export class LectureService {
      Lecture: any[]=[{}];
 
   CreateLecture(Lecture:any) {
+    debugger
     this.spinner.show();
    this.http.post(environment.apiUrl + 'Lecture/InsertLecture',Lecture).subscribe((result:any)=>{
   this.spinner.hide();
