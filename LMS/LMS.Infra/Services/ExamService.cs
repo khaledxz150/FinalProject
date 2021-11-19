@@ -34,9 +34,9 @@ namespace LMS.Infra.Services
             return examRepository.InsertExam(exam);
         }
 
-        public List<Exam> ReturnExam(int queryCode)
+        public List<Exam> ReturnExam(int queryCode, int sectionId)
         {
-            return examRepository.ReturnExam(queryCode);
+            return examRepository.ReturnExam(queryCode, sectionId);
         }
 
         public bool UpdateExam(Exam exam)
@@ -49,7 +49,10 @@ namespace LMS.Infra.Services
         {
             return examRepository.AddTraineeSectionExam(traineeSectionExam);
         }
-
+        public List<TraineeExamMarkDTO> GetExamMarkList(int examId)
+        {
+            return examRepository.GetExamMarkList(examId);
+        }
 
         //ExamQuestion
 

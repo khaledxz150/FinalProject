@@ -21,11 +21,12 @@ namespace LMS.Controllers
             this.examService = examService;
 
         }
+
         [HttpPost]
-        [Route("[action]/{queryCode}")]
-        public List<Exam> ReturnExam(int queryCode)
+        [Route("[action]")]
+        public List<Exam> ReturnExam([FromQuery] int queryCode, [FromQuery] int sectionId)
         {
-            return examService.ReturnExam(queryCode);
+            return examService.ReturnExam(queryCode, sectionId);
         }
 
         [HttpPost]

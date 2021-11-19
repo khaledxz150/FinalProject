@@ -15,7 +15,7 @@ namespace LMS.Core.Repository
 
 
 
-        public List<Exam> ReturnExam(int queryCode);
+        public List<Exam> ReturnExam(int queryCode, int sectionId);
         public bool InsertExam(Exam exam);
         public bool UpdateExam(Exam exam);
         public bool DeleteExam(int examId);

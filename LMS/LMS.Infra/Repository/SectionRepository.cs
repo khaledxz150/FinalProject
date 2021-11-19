@@ -23,6 +23,15 @@ namespace LMS.Infra.Repository
         //Status
         //New Update By Jasser At 9:48
 
+        public SectionByCourseDTO GetSingleSection(int sectionId)
+        {
+            var parm = new DynamicParameters();
+
+            parm.Add("@Section_Id", sectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            SectionByCourseDTO result = dBContext.Connection.QuerySingle<SectionByCourseDTO>("GetSingleSection", parm, commandType: CommandType.StoredProcedure);
+            return result;
+        }
         public List<Status> GetAllStatus()
         {
             
@@ -274,13 +283,15 @@ namespace LMS.Infra.Repository
 
 
 
-      
-        public List<Tasks> SelectTraineeSectionTaskId()
+
+
+        public List<Tasks> SelectTraineeSectionTaskId(int sectionId)
         {
-
-            IEnumerable<Tasks> result = dBContext.Connection.Query<Tasks>("SelectTraineeSectionTaskId", commandType: CommandType.StoredProcedure);
-
+            var parm = new DynamicParameters();
+            parm.Add("@SectionId", sectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<Tasks> result = dBContext.Connection.Query<Tasks>("SelectTraineeSectionTaskId", parm, commandType: CommandType.StoredProcedure);
             return result.ToList();
+
         }
 
         public List<Tasks> ReturnTasksOfSection(int sectionTrainerId)

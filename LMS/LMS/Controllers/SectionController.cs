@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace LMS.Controllers
 {
@@ -23,7 +22,12 @@ namespace LMS.Controllers
 
 
 
-
+        [HttpPost]
+        [Route("[action]/{sectionId}")]
+        public SectionByCourseDTO GetSingleSection(int sectionId)
+        {
+            return sectionService.GetSingleSection(sectionId);
+        }
 
         [HttpPost]
         [Route("[action]/{sectionId}")]
@@ -200,9 +204,9 @@ namespace LMS.Controllers
 
         [HttpGet]
         [Route("[action]")]
-        public List<Tasks> SelectTraineeSectionTaskId()
+        public List<Tasks> SelectTraineeSectionTaskId([FromQuery] int sectionId)
         {
-            return sectionService.SelectTraineeSectionTaskId();
+            return sectionService.SelectTraineeSectionTaskId(sectionId);
         }
 
 

@@ -1,53 +1,19 @@
-  <div class="page-content page-container" id="page-content">
-    <div class="padding">
-        <div class="row container d-flex justify-content-center">
-            <div class="col-md-6">
-                <div class="card card-bordered" style="border: 1px solid #eee;">
-                    <div class="card-header">
-                        <h4 class="card-title"><strong>Chat</strong></h4>
-                         <!-- <a class="btn btn-xs btn-secondary" href="#" data-abc="true">Let's Chat App</a> -->
-                    </div>
-                    <div class="ps-container ps-theme-default ps-active-y" id="chat-content" style="overflow-y: scroll !important; height:400px !important; background-color: #e8e8e836;">
-                        <div class="media media-chat" *ngFor="let mObj of chatService.data" [ngClass]="mObj.userId === Userid ? 'in-msg' : 'ex-msg'">
-                            <div *ngIf="mObj.sectionId==traineeService.CurrentTraineeSection">
-                          <!-- <img class="avatar" src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="..."> -->
-                          <h4>{{mObj.traineeName}} : </h4>
-                            <div class="media-body">
-                                <p>{{mObj.message}}</p>
-                                <p class="meta"><time datetime="2018">{{mObj.date | date:'shortTime'}}</time></p>
-                            </div>
-                        </div>
-                        <div class="media media-chat media-chat-reverse">
-                            <div class="media-body">
-                                <!-- <p>Hiii, I'm good.</p>
-                                <p class="meta"><time datetime="2018">00:06</time></p> -->
-                            </div>
-                        </div>
 
-<div class="ud-body">
+  <div class="ud-body">
     <div class="msg-box">
-      <ul>
-        <li *ngFor="let mObj of chatService.data" [ngClass]="mObj.userId === Userid ? 'in-msg' : 'ex-msg'">{{mObj.traineeName}} :<br /><span class="msg-italic-style">{{mObj.message}}</span></li>
+      <ul *ngFor="let mObj of chatService.data" >
+        <li *ngIf="mObj.sectionId== 60" [ngClass]="mObj.userId === Userid ? 'in-msg rcorners2' : 'ex-msg rcorners1'">
+          <div >
+          {{mObj.date | date:'shortTime'}} &nbsp;
+            {{mObj.traineeName}} :<br />
+            <span class="">{{mObj.message}}</span>
+          </div>    
+        </li>
       </ul>
     </div>
     <div class="ud-flex-row">
       <input type="text" placeholder="Type message here"  id="inputbox" class="msg-input" [(ngModel)]="msgDto"  />
-      <button class="send-btn" (click)= "send()"><i class="fa fa-paper-plane"></i></button>
+      <button class="send-btn" (click)= "send()" (keyup.enter)="send()"><i class="fa fa-paper-plane"></i> send</button>
     </div>
-</div>
+  </div>
 
-
-                        <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
-                            <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
-                        </div>
-                        <div class="ps-scrollbar-y-rail" style="top: 0px; height: 0px; right: 2px;">
-                            <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 2px;"></div>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="publisher bt-1 border-light"> <img class="avatar avatar-xs" src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="..."> <input class="publisher-input" type="text" placeholder="Write something" [(ngModel)]="msgDto" > <span class="publisher-btn file-group"> <i class="fa fa-paperclip file-browser"></i> <input type="file"> </span> <a class="publisher-btn" href="#" data-abc="true"><i class="fa fa-smile"></i></a> <a class="publisher-btn text-info" data-abc="true"><fa-icon [icon]="faPaperPlane"  (click)= "send()"></fa-icon></a> </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>

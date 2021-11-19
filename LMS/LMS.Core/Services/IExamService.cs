@@ -11,7 +11,7 @@ namespace LMS.Core.Services
 {
     public interface IExamService
     {
-        public List<Exam> ReturnExam(int queryCode);
+        public List<Exam> ReturnExam(int queryCode, int sectionId);
         public bool InsertExam(Exam exam);
         public bool UpdateExam(Exam exam);
         public bool DeleteExam(int examId);
@@ -41,6 +41,8 @@ namespace LMS.Core.Services
 
         //SectionExamAnswer
         public bool InsertSectionExamAnswer(SectionExamAnswer sectionExamAnswer);
+        public List<TraineeExamMarkDTO> GetExamMarkList(int examId);
+
 
         // <---------------------- DTO --------------------------------> 
         public List<GetTraineeMarksDTO> GetTraineeMarks(int sectionId);

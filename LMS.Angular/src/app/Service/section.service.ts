@@ -25,11 +25,8 @@ export class SectionService {
    SelectedSection:any|undefined;
    tasks:any[]=[];
    tasksAnswers:any=[]=[];
-  TrainerSectionId: any;
-  currentsectionforLecture: any;
-
-
-
+   TrainerSectionId: any;
+   currentsectionforLecture: any;
   constructor(private http: HttpClient,private toastr:ToastrService, private spinner: NgxSpinnerService,private router:Router,
     private sanitizer: DomSanitizer) { }
 
@@ -39,8 +36,6 @@ export class SectionService {
           this.router.onSameUrlNavigation = 'reload';
           this.router.navigate([currentUrl]);
       }
-
-      
   ReturnAllTrainerSections(TrainerId:any) {
     this.spinner.show();
    this.http.post(environment.apiUrl + 'Section/ReturnAllTrainerSections/'+TrainerId,TrainerId).subscribe((result:any)=>{

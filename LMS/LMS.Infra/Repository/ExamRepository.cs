@@ -46,11 +46,12 @@ namespace LMS.Infra.Repository
             return true;
         }
 
-        public List<Exam> ReturnExam(int queryCode)
+        public List<Exam> ReturnExam(int queryCode, int sectionId)
         {
             var parm = new DynamicParameters();
             parm.Add("@P_CODE", queryCode, dbType: DbType.Int32, direction: ParameterDirection.Input);
-           
+            parm.Add("@P_SectionId", sectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
             IEnumerable<Exam> result = dBContext.Connection.Query<Exam>("ReturnExam", parm, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
@@ -79,6 +80,15 @@ namespace LMS.Infra.Repository
 
             var result = dBContext.Connection.ExecuteAsync("InsertTraineeSectionExam", parm, commandType: CommandType.StoredProcedure);
             return true;
+        }
+
+        public List<TraineeExamMarkDTO> GetExamMarkList(int examId)
+        {
+            var parm = new DynamicParameters();
+            parm.Add("@P_Exam_Id", examId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            IEnumerable<TraineeExamMarkDTO> result = dBContext.Connection.Query<TraineeExamMarkDTO>("ReturnTraineeExamResult", parm, commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
 
 

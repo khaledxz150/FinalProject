@@ -11,6 +11,7 @@ namespace LMS.Core.Repository
     public interface ISectionRepository
     {
         //Section
+        public SectionByCourseDTO GetSingleSection(int sectionId);
         public List<SectionOfTraineeDTO> ReturnSectionOfTrainee(int traineeId, int sectionId);
         public StudentCountDTO ReturnStudentCount(int sectionId);
         public bool AddSection(Section section, int trainerId);
@@ -65,7 +66,7 @@ namespace LMS.Core.Repository
         public bool UpdateTask(Tasks task);
 
 
-        public List<Tasks> SelectTraineeSectionTaskId();
+        public List<Tasks> SelectTraineeSectionTaskId(int sectionId);
 
 
 
