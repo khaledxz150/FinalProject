@@ -20,7 +20,7 @@ namespace LMS.Infra.Services
             _employeeRepository = employeeRepository;
         }
 
-        public Task<bool> AddNewEmployee(EmployeeInfoDTO employee)
+        public bool AddNewEmployee(EmployeeInfoDTO employee)
         {
             return _employeeRepository.AddNewEmployee(employee);
         }

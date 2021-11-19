@@ -256,8 +256,9 @@ namespace LMS.Infra.Repository
             return result.ToList();
         }
 
-
-
-
+        public bool InsertExamAnswerQuestion()
+        {
+            throw new NotImplementedException();
         }
+    }
 }

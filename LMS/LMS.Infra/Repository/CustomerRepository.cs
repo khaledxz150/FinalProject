@@ -226,7 +226,7 @@ namespace LMS.Infra.Repository
 
 
         // Add New Trainee 
-        public async Task<bool> InsertTrainee(TraineeInfoDTO trainee)
+        public bool InsertTrainee(TraineeInfoDTO trainee)
         {
 
             var parm = new DynamicParameters();
@@ -236,7 +236,7 @@ namespace LMS.Infra.Repository
             parm.Add("@P_Nationality", trainee.Nationality, dbType: DbType.String, direction: ParameterDirection.Input);
             parm.Add("@P_Email", trainee.Email, dbType: DbType.String, direction: ParameterDirection.Input);
             parm.Add("@P_ImageName", trainee.ImageName, dbType: DbType.String, direction: ParameterDirection.Input);
-            var result = await dBContext.Connection.ExecuteAsync("InsertTrainee", parm, commandType: CommandType.StoredProcedure);
+            var result = dBContext.Connection.ExecuteAsync("InsertTrainee", parm, commandType: CommandType.StoredProcedure);
 
 
 
@@ -248,7 +248,7 @@ namespace LMS.Infra.Repository
             parameters.Add("@P_EmployeeId", null, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameters.Add("@P_TraineeId", traineeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameters.Add("@P_RoleId", trainee.RoleId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            var result1 = await dBContext.Connection.ExecuteAsync("InsertLogin", parameters, commandType: CommandType.StoredProcedure);
+            var result1 = dBContext.Connection.ExecuteAsync("InsertLogin", parameters, commandType: CommandType.StoredProcedure);
             return true;
         }
 

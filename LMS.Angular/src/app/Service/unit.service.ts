@@ -25,7 +25,12 @@ export class UnitService {
   section:any=[{}];
   units: any=[{}];
 sectionID:any = 0;
-
+reloadComponent() {
+  let currentUrl = this.router.url;
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+      this.router.onSameUrlNavigation = 'reload';
+      this.router.navigate([currentUrl]);
+  }
     getAllTrainerSectionUnit(SectionId:any){
 
       this.spinner.show();
@@ -34,12 +39,11 @@ sectionID:any = 0;
            {
              this.units =null;
           }
-           else{
+          else{
               this.units = res;
-            }
-      this.spinner.hide();
+          }
+    this.spinner.hide(); 
     },err=>{
-      this.spinner.hide();
       this.toastr.warning('Something wrong');
     })
   }
@@ -49,15 +53,13 @@ sectionID:any = 0;
   this.spinner.show();
       this.http.post(environment.apiUrl + 'Section/InsertUnit',unit).subscribe((res:any)=>{
       this.units = res;
-      this.spinner.hide();
+    this.spinner.hide(); this.reloadComponent();
 
     },err=>{
-      this.spinner.hide();
+    this.spinner.hide(); this.reloadComponent();
       this.toastr.warning('Something wrong');
     })
   }
 
-  uploadFile(selectedFile: File) {
-    throw new Error('Method not implemented.');
-  }
+
 }

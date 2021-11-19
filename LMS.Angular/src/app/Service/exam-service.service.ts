@@ -11,6 +11,9 @@ import { SectionService } from './section.service';
   providedIn: 'root'
 })
 export class ExamServiceService {
+  deleteExam(data: any) {
+    throw new Error('Method not implemented.');
+  }
 
   Questions: any[]=[{}];
  
@@ -103,12 +106,20 @@ this.ReturnExamQuestion();
     })
     }
 
+    DeleteExam(sectionId: any) {
+      this.spinner.show();
+      this.http.delete(environment.apiUrl + 'Exam/DeleteExam/'+sectionId,sectionId).subscribe((res:any)=>{ 
+        this.reloadComponent();
+      this.spinner.hide();
+    },err=>{
+      this.spinner.hide();
+      this.toastr.warning('Something wrong');
+    })
+    }
     reloadComponent() {
       let currentUrl = this.router.url;
           this.router.routeReuseStrategy.shouldReuseRoute = () => false;
           this.router.onSameUrlNavigation = 'reload';
           this.router.navigate([currentUrl]);
       }
-
-    
 }

@@ -16,6 +16,7 @@ import { Attendance } from '../models/Attendance';
 })
 export class SectionService {
   myBase64!: SafeResourceUrl;
+  CurrentLecture: any;
 
    section: any[]=[{}];
    TrainerSection : any[]=[{}];
@@ -24,13 +25,22 @@ export class SectionService {
    SelectedSection:any|undefined;
    tasks:any[]=[];
    tasksAnswers:any=[]=[];
+  TrainerSectionId: any;
+  currentsectionforLecture: any;
 
 
 
   constructor(private http: HttpClient,private toastr:ToastrService, private spinner: NgxSpinnerService,private router:Router,
     private sanitizer: DomSanitizer) { }
 
+    reloadComponent() {
+      let currentUrl = this.router.url;
+          this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+          this.router.onSameUrlNavigation = 'reload';
+          this.router.navigate([currentUrl]);
+      }
 
+      
   ReturnAllTrainerSections(TrainerId:any) {
     this.spinner.show();
    this.http.post(environment.apiUrl + 'Section/ReturnAllTrainerSections/'+TrainerId,TrainerId).subscribe((result:any)=>{
@@ -202,8 +212,6 @@ deleteSection(sectionId:number){
    // console.log( "test",this.courses)
    window.location.reload();
    this.toastr.success('Data Retrived !!!');
-
-
  },err=>{
    // this.spinner.hide();
    this.toastr.warning('Something wrong');
@@ -256,8 +264,14 @@ deleteSection(sectionId:number){
  }
 
 
- GetTrainerSectionTask(){
-  this.http.post('http://localhost:54921/api/Section/ReturnTasksOfSection?sectionTrainerId=1',null)
+ GetTrainerSectionTask(sectionId:any){
+
+  const current= this.TrainerSection.find(x=>x.sectionId == sectionId);
+
+  this.TrainerSectionId=current.trainerSectionId;
+
+debugger
+  this.http.post(`http://localhost:54921/api/Section/ReturnTasksOfSection?sectionTrainerId=${this.TrainerSectionId}`,null)
   .subscribe((res:any)=>{
      this.tasks=res;
   })
@@ -268,21 +282,36 @@ deleteSection(sectionId:number){
      this.tasksAnswers=res;
    })
  }
+
  studentsInfoAttend:any[]=[];
  studentsAttendenceArray:any[]=[];
- GetTraineeInSpecificSection(){
-   console.log('fetch')
-   this.http.post('http://localhost:54921/api/Section/ReturnTraineeInSection?sectionId=1',null).subscribe((res:any)=>{
+ ReturnLectureBySectionId(SectionId:number){
+  this.http.post(`http://localhost:54921/api/Section/ReturnLectureBySectionId=${SectionId}`,null).subscribe((res:any)=>{
+  
+this.CurrentLecture= res;
+this.CurrentLecture = this.CurrentLecture.filter(((x: { sectionId: number; })=>x.sectionId==SectionId));
+var LectureMax = 0;
+for(let data of this.CurrentLecture){
+if(data.lectureId >= LectureMax)
+LectureMax = data.lectureId;
+}
+this.CurrentLecture = LectureMax;
+  })
+
+
+
+ }
+ 
+ GetTraineeInSpecificSection(SectionId:number){
+  this.http.post(`http://localhost:54921/api/Section/ReturnTraineeInSection?sectionId=${SectionId}`,null).subscribe((res:any)=>{
      this.studentsInfoAttend=res
      for(let i of this.studentsInfoAttend){
       const attendanceObject={
         studentId:i.trineeId,
         studentName:i.traineeName,
         isPresent:false,
-        lectureId:1
-      }
+        lectureId:this.CurrentLecture}
       this.studentsAttendenceArray.push(attendanceObject)
-
     }
    })
  }
@@ -292,8 +321,7 @@ deleteSection(sectionId:number){
     const attend={
       traineeId: i.studentId,
       isPresent: i.isPresent,
-
-      lectureId: i.lectureId,
+      lectureId: this.CurrentLecture,
       createdBy: 1,
     }
     this.http.post('http://localhost:54921/api/Section/InsertTraineeAttendance',attend).subscribe((res)=>{

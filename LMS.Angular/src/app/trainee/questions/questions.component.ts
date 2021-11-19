@@ -16,7 +16,7 @@ export class QuestionsComponent implements OnInit {
    result:number=0;
    userAnswer:any[]=['','','','','','','','','','','','','','','','','','','','','','','','',''];
    ngOnInit(): void {
-    this.exam.GetQuestionFromDataBase()
+    this.exam.GetQuestionFromDataBase(11);
   }
   Next(){
     ++this.examIndex;
@@ -31,9 +31,9 @@ export class QuestionsComponent implements OnInit {
 
   FinshExam(){
    console.log(this.userAnswer)
-    for(let ans=0;ans< this.exam.QuestionsAnswer.length;ans++){
-      for(let i of this.exam.QuestionsAnswer[ans]){
-        if(i.description==this.userAnswer[ans] && i.isCorrect){
+    for(let ans=0;ans< this.exam.QuestionAnswer.length;ans++){
+      for(let i of this.exam.QuestionAnswer[ans]){
+        if(1==this.userAnswer[ans] && i.isCorrect){
           ++ this.result;
         }
       }

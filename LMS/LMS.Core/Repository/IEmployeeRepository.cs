@@ -20,7 +20,7 @@ namespace LMS.Core.Repository
 
         public Employee GetEmployee(Int64 employeeId);
         public List<TraineeAttendanceDTO> ReturnTrainneeBySectionId(int sectionId);
-        public Task<bool> AddNewEmployee(EmployeeInfoDTO employee);
+        public bool AddNewEmployee(EmployeeInfoDTO employee);
         public bool UpdateEmployee(Employee employee);
         public bool DeleteEmployee(Int64 employeeId);
         public bool DeleteEmployeeFromDatabase(long employeeId);

@@ -15,7 +15,7 @@ namespace LMS.Core.Services
 
         public Employee GetEmployee(Int64 employeeId);
         public bool AddAttendanceTrainee(List<Attendance_Tup> att);
-        public Task<bool> AddNewEmployee(EmployeeInfoDTO employee);
+        public bool AddNewEmployee(EmployeeInfoDTO employee);
         public bool UpdateEmployee(Employee employee);
         public bool DeleteEmployee(Int64 employeeId);
         //Role Type

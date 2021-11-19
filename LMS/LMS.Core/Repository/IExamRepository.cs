@@ -22,10 +22,10 @@ namespace LMS.Core.Repository
 
         //Trainee Section Exam
         public bool AddTraineeSectionExam(TraineeSectionExam traineeSectionExam);
-       
+
         //insert
 
-         public bool InsertExamAnswerQuestion()
+        public bool InsertExamAnswerQuestion();
 
 
         //ExamQuestion

@@ -21,6 +21,7 @@ import { TaskComponent } from './task/task.component';
 import { CreateTaskComponent } from './task/create-task/create-task.component';
 import { EditTaskComponent } from './task/edit-task/edit-task.component';
 import { TaskSoultionsComponent } from './task/task-soultions/task-soultions.component';
+import { DeleteExamComponent } from './exam/delete-exam/delete-exam.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { TaskSoultionsComponent } from './task/task-soultions/task-soultions.com
     CreateTaskComponent,
     EditTaskComponent,
     TaskSoultionsComponent,
+    DeleteExamComponent,
 
     ],
   imports: [
