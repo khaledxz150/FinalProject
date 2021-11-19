@@ -24,7 +24,7 @@ export class CreateLectureComponent implements OnInit {
      public sectionService:SectionService,
       @Inject(MAT_DIALOG_DATA) public data: any) { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.formGroup.controls.SectionId.setValue(this.data.sectionId);
     this.formGroup.controls.StartAt.setValue(this.data.sectionTimeStart);
     this.formGroup.controls.EndAt.setValue(this.data.sectionTimeEnd);
@@ -32,6 +32,13 @@ export class CreateLectureComponent implements OnInit {
 
   Create(){
     const values = this.formGroup.value
+    let user:any = localStorage.getItem('user');
+
+    let trainerId = JSON.parse(user);
+     if(trainerId){
+      values.createdBy = parseInt(trainerId.EmployeeId);
+     }
+
     console.log(values);
     this.lectureService.CreateLecture(values);
   }

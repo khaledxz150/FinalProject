@@ -22,13 +22,19 @@ export class PurchaseComponent implements OnInit {
     ,public courseService:CourseService) { }
     strikeCheckout:any = null;
   ngOnInit(): void {
+
+    let user:any = localStorage.getItem('user');
+    let trainee = JSON.parse(user);
+    //  if(traineeId){
+    //  }
+
     this.stripePaymentGateway();
     this.purchesService.GetMyPurshes();
-    this.purchesService.GetMyRefunds(2);
-    this.traineeService.getMyCartItem2(2)
-    this.traineeService.getMyWishListItem(2)
-    this.courseService.GetAvailableCartId(2)
-    this.courseService.GetAvailableWishListId(2)
+    this.purchesService.GetMyRefunds(parseInt(trainee.TraineeId));
+    this.traineeService.getMyCartItem2(parseInt(trainee.TraineeId))
+    this.traineeService.getMyWishListItem(parseInt(trainee.TraineeId))
+    this.courseService.GetAvailableCartId(parseInt(trainee.TraineeId))
+    this.courseService.GetAvailableWishListId(parseInt(trainee.TraineeId))
   }
   checkout(amount:any) {
     const strikeCheckout = (<any>window).StripeCheckout.configure({
@@ -39,14 +45,14 @@ export class PurchaseComponent implements OnInit {
         alert('Stripe token generated!');
       }
     });
-  
+
     strikeCheckout.open({
       name: 'RemoteStack',
       description: 'Payment widgets',
       amount: amount * 100
     });
   }
-  
+
   stripePaymentGateway() {
     if(!window.document.getElementById('stripe-script')) {
       const scr = window.document.createElement("script");
@@ -64,7 +70,7 @@ export class PurchaseComponent implements OnInit {
           }
         });
       }
-        
+
       window.document.body.appendChild(scr);
     }
   }

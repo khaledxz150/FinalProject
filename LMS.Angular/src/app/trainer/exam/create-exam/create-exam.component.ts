@@ -26,13 +26,21 @@ export class CreateExamComponent implements OnInit {
   constructor(public examService: ExamServiceService, public sectionService:SectionService, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
-    
+
   }
 
   Create(){
+
     const values = this.formGroup.value
+
+    let user:any = localStorage.getItem('user');
+
+    let trainerId = JSON.parse(user);
+     if(trainerId){
+      values.createdBy = parseInt(trainerId.EmployeeId);
+     }
     console.log(values);
-    
+
     this.examService.CreatExam(values);
   }
 }

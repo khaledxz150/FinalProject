@@ -1,4 +1,4 @@
-
+<!--
 <h2 mat-dialog-title>Edit Profile</h2>
 <mat-dialog-content class="mat-typography">
 
@@ -19,7 +19,7 @@
                     <mat-label>SSN</mat-label>
                     <input type="text" matInput formControlName="nationalSecurutiyNumber">
 
-                </mat-form-field>
+
                 </mat-form-field>
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Phone</mat-label>
@@ -42,8 +42,10 @@
 
             <mat-dialog-actions align="end">
                 <button mat-button mat-dialog-close>Cancel</button>
-                <!-- (click) ="Update()"  -->
                 <button mat-button [mat-dialog-close]="true" (click)="Update()" cdkFocusInitial
                     [disabled]="!formGroup.valid">Edit</button>
             </mat-dialog-actions>
         </form>
+
+    </div>
+  </mat-dialog-content> -->

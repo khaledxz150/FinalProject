@@ -26,7 +26,13 @@ export class MySectionsComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.mySectionService.GetMySectionInfo(2);
+
+    let user:any = localStorage.getItem('user');
+    let trainee = JSON.parse(user);
+    //  if(traineeId){
+    //  }
+
+    this.mySectionService.GetMySectionInfo(parseInt(trainee.TraineeId));
     this.mySectionService.GetSectionUnit(1);
     this.mySectionService.GetSectionTask()
     this.mySectionService.GetSectionExam()

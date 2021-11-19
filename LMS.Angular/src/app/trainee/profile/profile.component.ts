@@ -16,7 +16,11 @@ export class ProfileComponent implements OnInit {
   constructor(public profileService:ProfileService) { }
 
   ngOnInit(): void {
-    this.profileService.GetMyProfile()
+    let user:any = localStorage.getItem('user');
+    let trainee = JSON.parse(user);
+    //  if(traineeId){
+    //  }
+    this.profileService.GetMyProfile(parseInt(trainee.TraineeId))
   }
 
 }

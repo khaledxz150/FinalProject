@@ -64,7 +64,13 @@ export class SectionComponent implements OnInit {
 
   sections:any=[{}];
   ngOnInit(): void {
-    this.sectionService.ReturnAllTrainerSections(2);
+    let user:any = localStorage.getItem('user');
+
+    let trainerId = JSON.parse(user);
+     if(trainerId){
+      this.sectionService.ReturnAllTrainerSections(parseInt(trainerId.EmployeeId));
+
+     }
 
     this.http.get('assets/ChatLog/1.txt', { responseType: 'text' }).subscribe(data => {
       const text = data;
@@ -96,5 +102,5 @@ export class SectionComponent implements OnInit {
   CreateTask(sectionId:any){
     this.dialog.open(CreateTaskComponent, {data : sectionId});
   }
-  
+
 }
