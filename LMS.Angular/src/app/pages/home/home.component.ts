@@ -5,6 +5,7 @@ import { Course } from 'src/app/models/course';
 import { faAngleDoubleRight, faShoppingCart, faHeart, faQuoteRight, faStar, faUser, faBook, faTag, faChartLine} from '@fortawesome/free-solid-svg-icons';
 import { TestimonialService } from 'src/app/Service/testimonial.service';
 import { CategoryService } from 'src/app/Service/category.service';
+import { AuthenticationService } from 'src/app/Service/authentication.service';
 
 @Component({
   selector: 'app-home',
@@ -56,7 +57,8 @@ export class HomeComponent implements OnInit {
   constructor(
     public courseService: CourseService,
     public testimonialService: TestimonialService,
-    public categoryService: CategoryService
+    public categoryService: CategoryService,
+    public auth:AuthenticationService
     ) {
     this.responsiveOptions = [
       {
@@ -79,17 +81,14 @@ export class HomeComponent implements OnInit {
   }
 
 
-   loggedIn:any|undefined;
-  ngOnInit(): void {
+
+    ngOnInit(): void {
     debugger
      this.courseService.getCourses();
      this.testimonialService.getTestimonial();
      this.categoryService.getCategories();
-     this.loggedIn=localStorage.getItem("user")
-     let traineeId=JSON.parse(this.loggedIn)
-     this.loggedIn=traineeId.traineeId
-     console.log(this.loggedIn)
-    
+
+
   }
 
 }

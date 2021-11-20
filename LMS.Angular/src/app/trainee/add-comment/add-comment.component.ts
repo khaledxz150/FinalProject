@@ -20,7 +20,6 @@ export class AddCommentComponent implements OnInit {
   }
 
   PostComment(){
-    console.log(this.formGroup.value.comment)
     this.mySection.comment=this.formGroup.value.comment;
     this.mySection.SaveComment();
     window.location.reload()

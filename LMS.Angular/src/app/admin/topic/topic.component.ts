@@ -41,15 +41,16 @@ export class TopicComponent implements OnInit {
     private dialog:MatDialog
     ) {
     this.courseService.getCourses();
-    this.courseService.getAllTopics(0);
-    console.log("Topics = ", this.courseService.getAllTopics(0))
+
 
    }
 
   ngOnInit(): void {
   }
 
-
+  ShowTopic(courseId:number){
+    this.courseService.getAllTopics(courseId);
+  }
   deleteTopic(topicId:number){
 
     let dialogRef = this.dialog.open(AlertDialogComponent);

@@ -13,12 +13,15 @@ import { User } from '../models/User';
   providedIn: 'root'
 })
 export class AuthenticationService {
+  loggedIn=false;
   constructor(    private http:HttpClient,
     public jwtHelper: JwtHelperService,
     private router: Router,
     private toastr:ToastrService,
     private spinner: NgxSpinnerService,
-    ) { }
+    ) {
+
+     }
 
 
   username = new FormControl('', [Validators.required]);
@@ -38,6 +41,7 @@ export class AuthenticationService {
   const response = {
     token:response1.toString()
   };
+
   localStorage.setItem('token',response.token);
   let data:any = jwtDecode(response.token);
   // this.homeService.message ='You are Logged In..'
@@ -47,7 +51,7 @@ export class AuthenticationService {
      localStorage.setItem('user',JSON.stringify({...data}))
 
 
-
+     debugger
      if(data.role == 'Admin'){
       this.toastr.success('logged in');
       this.router.navigate(['admin']);
@@ -57,17 +61,17 @@ export class AuthenticationService {
       this.toastr.success('logged in');
       this.router.navigate(['accountant']);
      }
+
       else if(data.role == 'Trainee'){
+      this.loggedIn=true
       this.toastr.success('Logged in');
-      this.router.navigate(['client','']);
+      this.router.navigate(['client']);
      }
      else if(data.role == 'Trainer'){
       this.toastr.success('logged in');
       this.router.navigate(['trainer']);
-     }else{
-      this.toastr.success('Logged in');
-      this.router.navigate(['client']);
      }
+
 
 
  this.spinner.hide();
@@ -80,6 +84,7 @@ export class AuthenticationService {
 logout() {
   // call api => logout
   localStorage.clear();
+  this.loggedIn=false
   this.router.navigate(['auth/login'])
 }
 

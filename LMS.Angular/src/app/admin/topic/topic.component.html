@@ -33,7 +33,7 @@
 
                           <mat-expansion-panel (opened)="panelOpenState = true"
                                                (closed)="panelOpenState = false">
-                            <mat-expansion-panel-header>
+                            <mat-expansion-panel-header (click)="ShowTopic(course.courseId)">
                               <mat-panel-title>
                                 {{course.courseName}}
                               </mat-panel-title>

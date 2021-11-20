@@ -25,6 +25,7 @@ export class TraineeNavbarService {
     subscribe((res:any)=>{
       this.cartItem=res;
       this.cartItemCount=res.length
+      this.totalPrice=0
       for(let item of res){
         this.totalPrice+=item.coursePrice
       }

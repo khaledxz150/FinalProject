@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ContactUs } from 'src/app/models/contactus';
+import { AuthenticationService } from 'src/app/Service/authentication.service';
 import { ContactusService } from 'src/app/Service/contactus.service';
 
 
@@ -12,7 +13,7 @@ import { ContactusService } from 'src/app/Service/contactus.service';
 export class ContactusComponent implements OnInit {
 
 
-  constructor(public contactUsService: ContactusService) { }
+  constructor(public contactUsService: ContactusService, public auth:AuthenticationService) { }
   loggedIn:any|undefined;
   ngOnInit(): void {
     this.loggedIn=localStorage.getItem("user")

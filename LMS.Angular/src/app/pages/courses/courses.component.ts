@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/Service/authentication.service';
 import { CourseService } from 'src/app/Service/course.service';
+import { TraineeNavbarService } from 'src/app/Service/trainee-navbar.service';
 
 @Component({
   selector: 'app-courses',
@@ -15,7 +17,9 @@ import { CourseService } from 'src/app/Service/course.service';
 export class CoursesComponent implements OnInit {
 
 
-  constructor(public courseService:CourseService,public router:Router) { }
+  constructor(public courseService:CourseService
+    ,public trainee:TraineeNavbarService
+    ,public router:Router ,public auth:AuthenticationService) { }
   loggedIn:any|undefined;
   ngOnInit(): void {
     this.courseService.GetAvailableCartId(2)
@@ -36,20 +40,35 @@ export class CoursesComponent implements OnInit {
   }
 
   AddToCart(courseId:number|undefined){
-    const cartItem:any={
-      cartId: this.courseService.cartId,
-      CourseId: courseId
+    if(this.auth.loggedIn){
+      const cartItem:any={
+        cartId: this.courseService.cartId,
+        CourseId: courseId
+      }
+
+      this.courseService.AddCourseToCart(cartItem)
+      this.trainee.getMyCartItem2
+
+    }else{
+      this.router.navigate(['pages','login'])
     }
 
-    this.courseService.AddCourseToCart(cartItem)
   }
   AddToWishList(courseId:number|undefined){
-    const wishListItem:any={
-      wishListId: this.courseService.wishListId,
-      courseId: courseId,
-      createdBy: "System",
+    if(this.auth.loggedIn){
+      const wishListItem:any={
+        wishListId: this.courseService.wishListId,
+        courseId: courseId,
+        createdBy: "System",
+      }
+      this.courseService.AddCourseToWishList(wishListItem)
+      this.courseService.reloadComponent()
+
+    }else{
+
+      this.router.navigate(['pages','login'])
     }
-    this.courseService.AddCourseToWishList(wishListItem)
+
   }
 
 }

@@ -333,7 +333,6 @@ C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\libman.json
 C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\Microsoft.AspNetCore.SpaServices.Extensions.dll
 C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\System.Net.WebSockets.WebSocketProtocol.dll
-C:\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.csproj.CopyComplete
 C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\libman.json
 C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\appsettings.json
@@ -401,3 +400,4 @@ C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.dll
 C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\ref\LMS.dll
 C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.pdb
 C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.genruntimeconfig.cache
+C:\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.csproj.CopyComplete

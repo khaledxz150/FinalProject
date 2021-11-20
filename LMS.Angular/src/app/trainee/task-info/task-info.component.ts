@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MySectionService } from 'src/app/Service/my-section.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @Component({
   selector: 'app-task-info',

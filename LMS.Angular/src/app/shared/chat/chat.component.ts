@@ -12,7 +12,7 @@ import { TrainerService } from 'src/app/Service/trainer.service';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
-  
+
   faPaperPlane = faPaperPlane
   constructor(public chatService: ChatService, public trainerService:TrainerService, public traineeService: TraineeService,
     public sectionService:SectionService) {}
@@ -35,15 +35,15 @@ if(trainer){
     const currentElememnt = document.getElementById("inputbox");
 
    const message :Message= {
-     userId:2, //parseInt(trainerId.EmployeeId),
+     userId: parseInt(trainerId.EmployeeId),
      message: this.msgDto,
-     traineeName: "ahmad",// trainer.fName,
+     traineeName: trainer.fName,
      date: new Date(),
-     sectionId: 60//this.traineeService.CurrentTraineeSection
+     sectionId: this.traineeService.CurrentTraineeSection
   }
 
    this.chatService.SendMessage(message);
-   
+
   this.msgDto = '';
 
   }

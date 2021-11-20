@@ -133,7 +133,7 @@
 
                             <ng-container >
 
-                              <div class="course-card" (click)="GetMySectionInfo(course.sectionId)"  *ngFor="let course of this.learningService.myLiveSections">
+                              <div class="course-card" (click)="GetMySectionInfo(course.sectionId,course.courseID)"  *ngFor="let course of this.learningService.myLiveSections">
                                 <div class="card">
                               <div class="row no-gutters">
                               <div class="col-md-4">

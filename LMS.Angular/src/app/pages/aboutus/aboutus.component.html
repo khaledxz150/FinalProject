@@ -1,5 +1,5 @@
-<app-navbar *ngIf="loggedIn==undefined"></app-navbar>
-<app-trainee-nav *ngIf="loggedIn!=undefined"></app-trainee-nav>
+<app-navbar *ngIf="this.auth.loggedIn==false"></app-navbar>
+<app-trainee-nav *ngIf="this.auth.loggedIn==true"></app-trainee-nav>
 
 
 <section id="page-banner" class="pt-105 pb-130 bg_cover " data-overlay="8" style=" background-image: url(../../assets/image/page-banner-1.jpg);">

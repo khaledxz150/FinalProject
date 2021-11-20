@@ -14,7 +14,7 @@ export class LearningService {
   GetAllEnrollmentCourses(traineeId:number|undefined){
     this.http.post('http://localhost:54921/api/Customer/ReturnEnrollmentCourses/'+traineeId,null).subscribe((res:any)=>{
       this.myEnrollment=res;
-      console.log(res);
+      
       this.GetNewsetCoursesAndOnline(res,traineeId)
     })
   }

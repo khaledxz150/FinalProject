@@ -36,6 +36,8 @@ export class MySectionsComponent implements OnInit {
       this.mySectionService.GetSectionTask(parseInt(id))
       this.mySectionService.GetSectionExam(parseInt(id))
       this.mySectionService.GetSingleSectionInformation(parseInt(id));
+      this.mySectionService.currentSectionId=parseInt(id);
+      this.mySectionService.currentTraineeId=parseInt(trainee.TraineeId);
     }
 
     //  if(traineeId){

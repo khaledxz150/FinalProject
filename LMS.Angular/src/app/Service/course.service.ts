@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from 'src/environments/environment';
@@ -28,7 +29,9 @@ export class CourseService {
   cartId:number=0;
   wishListId:number=0;
 
-  constructor(private http: HttpClient,private toastr:ToastrService, private spinner:NgxSpinnerService) { }
+  constructor(private http: HttpClient,private toastr:ToastrService,
+    public router:Router,
+    private spinner:NgxSpinnerService) { }
 
 //get course
 
@@ -145,7 +148,12 @@ export class CourseService {
 
 
     //Levels
-
+    reloadComponent() {
+      let currentUrl = this.router.url;
+          this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+          this.router.onSameUrlNavigation = 'reload';
+          this.router.navigate([currentUrl]);
+      }
     level:any[]=[]
     getAllLevels(){
 
@@ -177,11 +185,12 @@ export class CourseService {
 
     topic:Topic[]=[]
     getAllTopics(courseId:number){
-
+      this.spinner.show()
       this.http.post(environment.apiUrl + 'Course/GetCourseTopic/'+courseId,courseId).subscribe((res:any)=>{
 
 
         this.topic = res;
+        this.spinner.hide()
       })
 
     }
@@ -446,9 +455,11 @@ export class CourseService {
         }
        })
      }
+     traineeNumber:number|undefined
      GetStudentCountInSection(sectionId:number){
       this.http.post('http://localhost:54921/api/Section/ReturnStudentCount/'+sectionId,null).subscribe((res:any)=>{
        this.sectionStudents.push(res.student)
+        this.traineeNumber=res.student
       })
     }
      GetAvailableCartId(traineeId:number){

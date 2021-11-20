@@ -42,7 +42,7 @@ reloadComponent() {
           else{
               this.units = res;
           }
-    this.spinner.hide(); 
+    this.spinner.hide();
     },err=>{
       this.toastr.warning('Something wrong');
     })
@@ -50,13 +50,16 @@ reloadComponent() {
 
 
  insertUnit(unit:Unit) {
+   debugger
   this.spinner.show();
       this.http.post(environment.apiUrl + 'Section/InsertUnit',unit).subscribe((res:any)=>{
       this.units = res;
+      debugger
     this.spinner.hide(); this.reloadComponent();
 
     },err=>{
     this.spinner.hide(); this.reloadComponent();
+    debugger
       this.toastr.warning('Something wrong');
     })
   }

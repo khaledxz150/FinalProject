@@ -18,6 +18,10 @@ export class MySectionService {
   singleSectionInfo:any;
   taskInfo:any;
   singleSectionExam:any;
+  currentSectionId:number=0;
+  currentTraineeId:number=0;
+  currentCourseId:number=0;
+
   constructor(private http:HttpClient,public tostar:ToastrService) { }
 
   GetMySectionInfo(traineeId:number|undefined,){
@@ -54,10 +58,8 @@ export class MySectionService {
   GetSectionInfoById(taskId:number){
     this.http.get('http://localhost:54921/api/Section/SelectTraineeSectionTaskId')
     .subscribe((res:any)=>{
-      console.log(res)
-      console.log(taskId)
       for(let section of res){
-        console.log(section)
+       
         if(section.taskId==taskId){
           this.taskInfo=section
         }
@@ -85,14 +87,14 @@ export class MySectionService {
   }
 
   SaveComment(){
-    this.sectionId=1;
-    this.traineeId=4
+    this.sectionId=this.currentSectionId;
+    this.traineeId=this.currentSectionId
 
     const com:any={
-      description: "Taltaen",
-      sectionId: 1,
+      description:this.comment ,
+      sectionId: this.currentSectionId,
       courseId: 1,
-      createdBy: 4,
+      createdBy: this.currentTraineeId,
     }
     this.http.post('http://localhost:54921/api/Course/InsertComment',com).subscribe((res)=>{
       if(res){
@@ -104,8 +106,8 @@ export class MySectionService {
     const rate:any={
       noOfStar:numStar ,
       rateNote:note ,
-      sectionId: 1,
-      traineeId: 4,
+      sectionId: this.currentSectionId,
+      traineeId: this.currentTraineeId,
     }
     this.http.post('http://localhost:54921/api/Course/InsertCourseRate',rate)
        .subscribe((res)=>{

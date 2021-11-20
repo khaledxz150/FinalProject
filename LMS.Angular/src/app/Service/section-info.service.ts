@@ -17,8 +17,16 @@ export class SectionInfoService {
 
      }
 
+    GetFullSectionInfo(sectionId:number){
+      this.http.get('http://localhost:54921/api/Section/GetSectionFullInfo?sectionId='+sectionId).subscribe((res)=>{
+         this.singleSection=res
+      })
+
+     }
   GetSectionInfoById(sectionId:number|undefined){
+    debugger
     for(let section of this.courseService.courseSection){
+      debugger
       if(section.sectionId==sectionId){
         this.singleSection=section;
         console.log(this.singleSection)

@@ -19,7 +19,7 @@ export class ProfileComponent implements OnInit {
     debugger
     let user:any = localStorage.getItem('user');
     let trainee = JSON.parse(user);
-    var trainerId = parseInt(trainee.TraineeId)
+     //parseInt(trainee.TraineeId)
     //  if(traineeId){
     //  }
     debugger

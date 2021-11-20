@@ -141,6 +141,7 @@ createSection(section:Section,trainerId:number){
     // console.log( "test",this.courses)
     this.toastr.success('Data Retrived !!!');
 
+    window.location.reload()
 
   },err=>{
     // this.spinner.hide();

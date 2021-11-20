@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/Service/authentication.service';
 import { CourseService } from 'src/app/Service/course.service';
 
 
@@ -16,7 +17,7 @@ export class SingleCourseComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
     public router:Router,
-    public courseService:CourseService ) { }
+    public courseService:CourseService , public auth:AuthenticationService) { }
     loggedIn:any|undefined;
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.paramMap.get('id');

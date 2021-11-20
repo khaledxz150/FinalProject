@@ -2,12 +2,12 @@
   <div class="ud-body">
     <div class="msg-box">
       <ul *ngFor="let mObj of chatService.data" >
-        <li *ngIf="mObj.sectionId== 60" [ngClass]="mObj.userId === Userid ? 'in-msg rcorners2' : 'ex-msg rcorners1'">
+        <li *ngIf="mObj.sectionId==traineeService.CurrentTraineeSection" [ngClass]="mObj.userId === Userid ? 'in-msg rcorners2' : 'ex-msg rcorners1'">
           <div >
-          {{mObj.date | date:'shortTime'}} &nbsp;
+            {{mObj.date | date:'shortTime'}} &nbsp;
             {{mObj.traineeName}} :<br />
             <span class="">{{mObj.message}}</span>
-          </div>    
+          </div>
         </li>
       </ul>
     </div>

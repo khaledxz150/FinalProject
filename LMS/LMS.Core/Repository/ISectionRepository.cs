@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 
 namespace LMS.Core.Repository
 {
@@ -14,9 +14,11 @@ namespace LMS.Core.Repository
         public SectionByCourseDTO GetSingleSection(int sectionId);
         public List<SectionOfTraineeDTO> ReturnSectionOfTrainee(int traineeId, int sectionId);
         public StudentCountDTO ReturnStudentCount(int sectionId);
-        public bool AddSection(Section section, int trainerId);
+        public  Task<bool> AddSection(Section section, int trainerId);
 
-        public bool UpdateSection(Section section, int trainerId);
+        public  Task<bool> UpdateSection(Section section, int trainerId);
+
+        public SectionByCourseDTO GetSectionFullInfo(int sectionId);
         public bool DeleteSection(int SectionId);
 
         public List<Section> GetAllSection();

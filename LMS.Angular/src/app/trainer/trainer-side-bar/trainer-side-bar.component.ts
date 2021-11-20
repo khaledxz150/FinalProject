@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from 'src/app/Service/authentication.service';
 
 @Component({
   selector: 'app-trainer-side-bar',
@@ -11,20 +12,24 @@ export class TrainerSideBarComponent implements OnInit {
    closeBtn:Element | null = null;
    searchBtn:Element | null = null;
 
-  constructor() { 
-    
+  constructor(public auth:AuthenticationService) {
+
    }
    ngOnInit(): void {
      this.searchBtn = document.querySelector(".bx-search");
      this.closeBtn= document.querySelector("#btn");
      this.sidebar = document.querySelector(".sidebar");
   }
-    
+
+  MoveOut(){
+    this.auth.logout();
+  }
+
   btnclicked(){
     this.sidebar!.classList.toggle("open");
     this.menuBtnChange();
-  }  
-  
+  }
+
   // following are the code to change sidebar button(optional)
   menuBtnChange(this: any) {
    if(this.sidebar.classList.contains("open")){
@@ -33,6 +38,6 @@ export class TrainerSideBarComponent implements OnInit {
      this.closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
    }
   }
-  
+
 
 }

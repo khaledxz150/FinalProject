@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from 'src/app/Service/authentication.service';
 import { TrainerService } from 'src/app/Service/trainer.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { TrainerService } from 'src/app/Service/trainer.service';
 export class AboutusComponent implements OnInit {
 
   constructor(
-    public trainerService: TrainerService
+    public trainerService: TrainerService, public auth:AuthenticationService
   ) { }
   loggedIn:any|undefined;
      ngOnInit(): void {

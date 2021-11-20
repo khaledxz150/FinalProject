@@ -40,7 +40,9 @@ export class SectionComponent implements OnInit {
 // @Input () CreatedBy: number| undefined;
 
 
-  constructor(public sectionService: SectionService, private unitService: UnitService, private dialog:MatDialog,private examservice: ExamServiceService,
+  constructor(public sectionService: SectionService
+    ,public courseSer:CourseService
+    , private unitService: UnitService, private dialog:MatDialog,private examservice: ExamServiceService,
      private http: HttpClient, private examService:ExamServiceService, private sanitizer: DomSanitizer) { }
 
   panelOpenState = false;
@@ -77,7 +79,9 @@ export class SectionComponent implements OnInit {
       console.log(JSON.parse(text));
   });
   }
-
+  GetCount(sectionId:any){
+    this.courseSer.GetStudentCountInSection(sectionId);
+  }
 
   ViewUnit(sectionId:number){
     this.unitService.getAllTrainerSectionUnit(sectionId);
@@ -98,7 +102,7 @@ export class SectionComponent implements OnInit {
   CreateMeeting(Section:any){
    this.dialog.open(CreateLectureComponent,{data : Section});
   }
-  
+
 
   CreateTask(sectionId:any){
     debugger

@@ -42,7 +42,7 @@ const routes: Routes = [
   {
     path:'trainer',
     loadChildren:()=>TrainerModule,
-    //canActivate: [AuthorizationGuard]
+    canActivate: [AuthorizationGuard]
   },
   {
     path:'accountant',

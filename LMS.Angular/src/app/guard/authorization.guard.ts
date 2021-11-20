@@ -44,7 +44,7 @@ export class AuthorizationGuard implements CanActivate {
           else {this.toastr.warning("You ara not Accountant"); return false}
         }
 
-        if(state.url.indexOf('trainee') >= 0){
+        if(state.url.indexOf('client') >= 0){
           let user:any = localStorage.getItem('user');
           if(user){
             user = JSON.parse(user);

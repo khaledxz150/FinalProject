@@ -47,7 +47,7 @@
                            <mat-accordion >
                             <!-- <ng-container  *ngIf="course.courseId == topic.courseId"> -->
                             <mat-expansion-panel>
-                              <mat-expansion-panel-header>
+                              <mat-expansion-panel-header (click)="GetCount(course.sectionId)">
                                 <mat-panel-title>
                                 Section Capacity
                                 </mat-panel-title>
@@ -56,7 +56,7 @@
                               </mat-expansion-panel-header>
                               <div class="d-flex" style="justify-content: space-between;">
                                 <p>Section Capacity is {{course.sectionCapacity}}</p>
-                                <p>Current Trainees number is: {{course.traineeNumber}}</p>
+                                <p>Current Trainees number is: {{this.courseSer.traineeNumber}}</p>
 
 
 
@@ -111,7 +111,7 @@
 
 
                               </mat-expansion-panel-header>
-                           
+
                                 <app-task></app-task>
 
 
@@ -121,7 +121,7 @@
                              <mat-expansion-panel hideToggle>
     <mat-expansion-panel-header>
       <mat-panel-title>
-          CreateLecture    
+          CreateLecture
         </mat-panel-title>
       <mat-panel-description>
       </mat-panel-description>

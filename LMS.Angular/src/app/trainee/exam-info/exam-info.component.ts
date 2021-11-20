@@ -14,7 +14,6 @@ export class ExamInfoComponent implements OnInit {
   ngOnInit(): void {
   }
   StartExam(examId:number){
-    console.log("Start Exam Now ")
     this.router.navigate(['client','questions'])
     this.dialog.closeAll()
   }

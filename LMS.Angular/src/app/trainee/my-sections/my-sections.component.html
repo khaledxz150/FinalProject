@@ -1,5 +1,5 @@
     <!--====== EVENTS PART START ======-->
-
+    <app-trainee-nav></app-trainee-nav>
     <section id="event-singel" class="pt-120  gray-bg">
       <div class="container-fluid">
           <div class="events-area">
@@ -8,12 +8,15 @@
                       <div class="events-left">
                           <h3 style="margin-left: 65px;">{{this.mySectionService.singleSectionInfo.courseName}}</h3>
                           <a href="#" style="margin-left: 55px;"><span><mat-icon>event_note</mat-icon> 2 December 2018</span></a>
-                          <a href="#" style="margin-left: 55px;"><span> <mat-icon>watch_later</mat-icon> Start : {{this.mySectionService.singleSectionInfo.sectionTimeStart}} - End :
-                            {{this.mySectionService.singleSectionInfo.sectionTimeEnd}}
+                          <a href="#" style="margin-left: 55px;"><span> <mat-icon>watch_later</mat-icon>
+                            Start :
+                            {{this.mySectionService.singleSectionInfo.sectionTimeStart | date:'shortTime'}}
+                            - End :
+                            {{this.mySectionService.singleSectionInfo.sectionTimeEnd | date:'shortTime'}}
                           </span></a>
                           <a href="#" style="margin-left: 55px;"><span><mat-icon>tv</mat-icon>
 
-                            {{this.mySectionService.singleSectionInfo.typeName}}
+                            {{this.mySectionService.singleSectionInfo.statusName}}
                           </span></a>
                           <div class="corses-singel-image">
                             <div class="course-image">
@@ -101,7 +104,7 @@
                                         <div class="d-flex justify-content-between align-items-center box-info  justify-content-start">
                                           <div class="d-flex align-items-center course-info">
                                             <div class="mx-1">
-                                              <h6 class="box-title">{{i.taskTitle}}</h6>
+                                              <h6 class="box-title">{{i.taskTitle }}</h6>
                                             </div>
                                           </div>
                                         </div>
@@ -111,7 +114,7 @@
                                               <mat-icon>calendar_today</mat-icon>
                                               <div><b>Date</b>
 
-                                                <div class="font-weight-bold">{{i.date}}</div>
+                                                <div class="font-weight-bold">{{i.date | date:'shortDate'}}</div>
                                               </div>
                                             </div>
                                           </div>
@@ -121,7 +124,7 @@
                                               <mat-icon>access_alarms</mat-icon>
                                               <div><b>Deadline</b>
 
-                                                <div class="font-weight-bold">{{i.deadline}}</div>
+                                                <div class="font-weight-bold">{{i.deadline | date:'fullDate'}}</div>
                                               </div>
                                             </div>
                                           </div>
@@ -142,7 +145,7 @@
                                 *ngFor="let e of this.mySectionService.sectionExam"
                                 (click)="OpenExamInfo(e.examId)">
                                   <div class="item-box-wrapper  d-flex">
-                                    <div class="item-icon alert alert-warning  d-flex align-items-center">
+                                    <div class="item-icon alert alert-primary  d-flex align-items-center">
                                       <!--<mat-icon> beenhere</mat-icon>-->
                                       <mat-icon> live_help</mat-icon>
                                     </div>
@@ -160,7 +163,7 @@
                                               <mat-icon>calendar_today</mat-icon>
                                               <div><b>Date</b>
 
-                                                <div class="font-weight-bold">{{e.startTime}}</div>
+                                                <div class="font-weight-bold">{{e.startTime |date:'fullDate'}}</div>
                                               </div>
                                             </div>
                                           </div>
@@ -170,7 +173,7 @@
                                               <mat-icon>access_alarms</mat-icon>
                                               <div><b>Deadline</b>
 
-                                                <div class="font-weight-bold">{{e.endTime}}</div>
+                                                <div class="font-weight-bold">{{e.endTime |date:'shortTime'}}</div>
                                               </div>
                                             </div>
                                           </div>
@@ -198,14 +201,6 @@
                               </ng-container>
 
                             </mat-tab>
-
-                            <mat-tab>
-                              <ng-template mat-tab-label>
-                                <mat-icon>chat</mat-icon>
-                                  Section Chat
-                              </ng-template>
-                            </mat-tab>
-                            
                           </mat-tab-group>
 
 
@@ -243,9 +238,9 @@
                        <details class="details-example">
                         <summary>Chat</summary>
                         <ul>
-                           
+
                               <app-chat></app-chat>
-                            
+
                         </ul>
                      </details>
 
@@ -256,7 +251,7 @@
               </div> <!-- row -->
 
           </div> <!-- events-area -->
-          
+
       </div> <!-- container -->
   </section>
 

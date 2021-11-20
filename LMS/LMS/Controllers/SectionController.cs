@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace LMS.Controllers
 {
@@ -45,7 +46,7 @@ namespace LMS.Controllers
 
         [HttpPost]
         [Route("[action]/{trainerId}")]
-        public bool AddSection(Section section, int trainerId)
+        public Task<bool> AddSection(Section section, int trainerId)
         {
             return sectionService.AddSection(section, trainerId);
         }
@@ -62,11 +63,16 @@ namespace LMS.Controllers
         {
             return sectionService.GetAllStatus();
         }
-
+        [HttpGet]
+        [Route("[action]")]
+        public SectionByCourseDTO GetSectionFullInfo([FromQuery]int sectionId)
+        {
+            return sectionService.GetSectionFullInfo(sectionId);
+        }
 
         [HttpPut]
         [Route("[action]/{trainerId}")]
-        public bool UpdateSection(Section section, int trainerId)
+        public Task<bool> UpdateSection(Section section, int trainerId)
         {
             return sectionService.UpdateSection(section, trainerId);
         }
