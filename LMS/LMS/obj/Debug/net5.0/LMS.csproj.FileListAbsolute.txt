@@ -400,4 +400,3 @@ C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.dll
 C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\ref\LMS.dll
 C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.pdb
 C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.genruntimeconfig.cache
-C:\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.csproj.CopyComplete

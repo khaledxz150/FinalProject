@@ -50,7 +50,7 @@ export class CoursesComponent implements OnInit {
       this.trainee.getMyCartItem2
 
     }else{
-      this.router.navigate(['pages','login'])
+      this.router.navigate(['auth','login'])
     }
 
   }
@@ -66,7 +66,7 @@ export class CoursesComponent implements OnInit {
 
     }else{
 
-      this.router.navigate(['pages','login'])
+      this.router.navigate(['auth','login'])
     }
 
   }

@@ -329,6 +329,8 @@ namespace LMS.Infra.Repository
             return result.ToList();
         }
 
+
+
         public List<Section> GetAllSection()
         {
             IEnumerable<Section> result = dBContext.Connection.Query<Section>("ReturnAllSection", commandType: CommandType.StoredProcedure);

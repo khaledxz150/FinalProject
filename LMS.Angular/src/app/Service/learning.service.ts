@@ -14,7 +14,7 @@ export class LearningService {
   GetAllEnrollmentCourses(traineeId:number|undefined){
     this.http.post('http://localhost:54921/api/Customer/ReturnEnrollmentCourses/'+traineeId,null).subscribe((res:any)=>{
       this.myEnrollment=res;
-      
+
       this.GetNewsetCoursesAndOnline(res,traineeId)
     })
   }
@@ -43,8 +43,11 @@ export class LearningService {
   }
 
   GetLiveCourses(traineeId:number|undefined){
+    debugger
     this.http.post('http://localhost:54921/api/Customer/ReturnLiveCourses/'+traineeId,null).subscribe((res:any)=>{
-      this.myLiveSections=res;
+    debugger
+    this.myLiveSections=res;
+    console.log(this.myLiveSections)
     })
   }
 }
