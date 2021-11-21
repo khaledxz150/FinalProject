@@ -24,11 +24,14 @@ export class AdminDashboardComponent implements OnInit {
   constructor(public courseService:CourseService) {
 
     this.courseService.returnSoldCourses;
+    this.courseService.returnSoldCourses();
+    this.courseService.getCourses();
    }
 
   ngOnInit(): void {
-    this.courseService.returnSoldCourses();
-    this.courseService.getCourses();
+    
+    // this.courseService.returnSoldCourses();
+    // this.courseService.getCourses();
   }
 
   startDate = new FormControl('');

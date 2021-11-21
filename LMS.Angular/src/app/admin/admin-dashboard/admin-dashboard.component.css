@@ -207,3 +207,12 @@
 .card fa-icon {
   color: #8a1525;
 }
+
+#content{
+  background-color:white;
+  height: 100%;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 4rem;
+ }
+ 

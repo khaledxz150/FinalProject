@@ -45,8 +45,8 @@
 
 
                                   <ul class="shopping-cart-items">
-                                    <li class="clearfix" *ngFor="let item of traineeService.wishList">
-                                      <img src="{{item.courseImage}}" width="40px" height="40px" alt="item" />
+                                    <li class="clearfix" *ngFor="let item of traineeService.wishList"   style="overflow:hidden; padding:5px">
+                                      <img src="{{item.courseImage}}" width="40px" height="40px" alt="item" style = "border-radius:20%;"/>
                                       <span class="item-name">{{item.courseName}}</span>
                                       <span class="item-price">{{item.coursePrice}}</span>
 
@@ -54,7 +54,7 @@
                                         <hr>
                                     </ul>
 
-                                     <a (click)="MyPurches()" routerLinkActive="active" class="button">Go To Wish List</a>
+                                     <a (click)="MyPurches()" routerLinkActive="active" class="button" style="padding-bottom:40px">Go To Wish List</a>
                                   </div>
                               </div>
                             </div>
@@ -81,7 +81,7 @@
                               </ul>
 
 
-                               <a   (click)="MyPurches()" routerLinkActive="active" class="button">Go To Cart</a>
+                               <a   (click)="MyPurches()" routerLinkActive="active" class="button" style="padding-bottom:40px">Go To Cart</a>
                             </div>
 
                               </div>
@@ -92,13 +92,13 @@
                             <div class="dropdown">
                               <img src="../../../assets/image/profile.png" width="40" height="40" alt="te" class="profileImage">
                               <div class="dropdown-content">
-                              <a   (click) ="Profile()" routerLinkActive="active" >My Profile</a>
+                              <a class="nav"  (click) ="Profile()" routerLinkActive="active" >My Profile</a>
                               <hr>
-                              <a   (click) ="Learning()" routerLinkActive="active" >My Learning</a>
+                              <a  class="nav" (click) ="Learning()" routerLinkActive="active" >My Learning</a>
                               <hr>
-                              <a   (click) ="MyPurches()" routerLinkActive="active" >My Purches</a>
+                              <a  class="nav" (click) ="MyPurches()" routerLinkActive="active" >My Purches</a>
                               <hr>
-                              <a    (click) ="Logout()" routerLinkActive="active" class="">Log Out</a>
+                              <a  class="nav"  (click) ="Logout()" routerLinkActive="active">Log Out</a>
                               </div>
                             </div>
                           </li>
