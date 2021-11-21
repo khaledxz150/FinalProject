@@ -109,7 +109,7 @@ export class SalesComponent implements OnInit {
 
   columns = [
     { title: "Id", dataKey: "checkoutId" },
-    { title: "Image", dataKey: "traineeImage" },
+    // { title: "Image", dataKey: "traineeImage" },
     { title: "FirstName", dataKey: "firstName" },
     { title: "LastName", dataKey: "lastName" },
     { title: "PhoneNumber", dataKey: "phoneNumber" },

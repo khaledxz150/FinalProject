@@ -18,6 +18,7 @@ export class CouponComponent implements OnInit {
 faUserTag =faUserTag
 faEdit = faEdit
 faTrashAlt = faTrashAlt
+
   constructor(
     public courseService: CourseService,
     private dialog:MatDialog,

@@ -27,6 +27,7 @@ export class SectionService {
    tasksAnswers:any=[]=[];
    TrainerSectionId: any;
    currentsectionforLecture: any;
+
   constructor(private http: HttpClient,private toastr:ToastrService, private spinner: NgxSpinnerService,private router:Router,
     private sanitizer: DomSanitizer) { }
 
@@ -68,7 +69,7 @@ getSections(courseId:number){
    this.http.post(environment.apiUrl + 'Section/ReturnSectionByCourseId/'+courseId,courseId).subscribe((res:any)=>{
     debugger
     this.sections = res;
-    this.toastr.success('Data Retrived !!!');
+    // this.toastr.success('Data Retrived !!!');
     this.spinner.hide();
   },err=>{
     // this.spinner.hide();
@@ -201,19 +202,16 @@ deleteSection(sectionId:number){
 
 
 
-  debugger
+   this.spinner.show();
+
  this.http.put(environment.apiUrl + 'Section/UpdateSection/'+trainerId,section).subscribe((res:any)=>{
-   // debugger
-   // this.spinner.hide();
-   // this.toastr.success('Send Message successfully, Thank You :)');
-   debugger
 
+   this.spinner.hide();
 
-   // console.log( "test",this.courses)
-   window.location.reload();
-   this.toastr.success('Data Retrived !!!');
+   this.toastr.success('Section Updated Successfully!!');
+
  },err=>{
-   // this.spinner.hide();
+   this.spinner.hide();
    this.toastr.warning('Something wrong');
  })
  debugger;;

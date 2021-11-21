@@ -51,7 +51,7 @@
                               </div>
                               <div class="widget-49-meeting-info">
                                 <span class="widget-49-pro-title"><i class="pi pi-user pr-1" style="color:#af1a2d;"></i>{{section.trainerName}}</span>
-                                  <span class="widget-49-meeting-time">{{section.sectionTimeStart}} to {{section.sectionTimeEnd}}Hrs</span>
+                                  <span class="widget-49-meeting-time">{{section.sectionTimeStart | date:'shortTime'}} to {{section.sectionTimeEnd | date:'shortTime'}}</span>
                               </div>
                           </div>
                           <div class="row pt-3">

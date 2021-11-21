@@ -29,7 +29,7 @@ export class AdminDashboardComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    
+
     // this.courseService.returnSoldCourses();
     // this.courseService.getCourses();
   }
@@ -65,7 +65,6 @@ export class AdminDashboardComponent implements OnInit {
 
   columns = [
     { title: "Id", dataKey: "checkoutId" },
-    { title: "Image", dataKey: "traineeImage" },
     { title: "FirstName", dataKey: "firstName" },
     { title: "LastName", dataKey: "lastName" },
     { title: "PhoneNumber", dataKey: "phoneNumber" },

@@ -118,7 +118,7 @@ export class TrainerInfoComponent implements OnInit {
 
   columns = [
     { title: "SSN", dataKey: "nationalSecurutiyNumber" },
-    { title: "Image", dataKey: "image" },
+    // { title: "Image", dataKey: "image" },
     { title: "FirstName", dataKey: "fname" },
     // { title: "LastName", dataKey: "lname" },
     { title: "Email", dataKey: "email" },
@@ -166,7 +166,7 @@ export class TrainerInfoComponent implements OnInit {
 
         this.dialog.open(EditTrainerComponent, { data: item },
           )
-         
+
       }
     })
   }

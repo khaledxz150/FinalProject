@@ -23,15 +23,15 @@ import * as XLSX from 'xlsx';
   styleUrls: ['./trainee-info.component.css', '../../../assets/css/tstyle.css']
 })
 export class TraineeInfoComponent implements OnInit {
-  
+
   @ViewChild('pdfTable')
   pdfTable!: ElementRef;
   downloadAsPDF() {
     const pdfTable = this.pdfTable.nativeElement;
     var html = htmlToPdfmake(pdfTable.innerHTML);
     const documentDefinition = { content: html };
-    pdfMake.createPdf(documentDefinition).download(); 
-     
+    pdfMake.createPdf(documentDefinition).download();
+
   }
 
   constructor(public Servicetrainee: TraineeService, private dialog: MatDialog) {
@@ -123,14 +123,14 @@ export class TraineeInfoComponent implements OnInit {
 
   columns = [
     { title: "Nationality", dataKey: "nationality" },
-    { title: "Image", dataKey: "image" },
+    // { title: "Image", dataKey: "image" },
     { title: "FirstName", dataKey: "firstName" },
     { title: "LastName", dataKey: "lastName" },
     { title: "Email", dataKey: "email" },
     { title: "PhoneNumber", dataKey: "phoneNumber" },
     // { title: "Salary", dataKey: "BasicSalary" },
     // { title: "Status", dataKey: "status" },
-   
+
   ];
 
   trainers:any[]=[]

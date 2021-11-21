@@ -53,6 +53,7 @@ import {TableModule} from 'primeng/table';
 import {MatNativeDateModule} from '@angular/material/core';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import {ChatComponent } from './chat/chat.component';
+import { DateFormatPipe } from '../Pipeline/date-format.pipe';
 
 
 
@@ -67,7 +68,8 @@ FullCalendarModule.registerPlugins([
   declarations: [
     NavbarComponent,
     FooterComponent,
-    ChatComponent
+    ChatComponent,
+    DateFormatPipe
   ],
   imports: [
     MbscModule,
@@ -150,7 +152,8 @@ FullCalendarModule.registerPlugins([
     MatNativeDateModule,
     InputSwitchModule,
     ChatComponent,
-    MatIconModule
+    MatIconModule,
+    DateFormatPipe
   ]
 })
 export class SharedModule { }
