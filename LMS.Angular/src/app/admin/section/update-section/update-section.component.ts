@@ -62,18 +62,18 @@ export class UpdateSectionComponent implements OnInit {
 
     if (this.data) {
 
-      let _courseId
-      this.courseService.courses.filter(i=>i.courseName == this.data.courseName).map((i =>{
-         const [{courseId}] = this.courseService.courses
-           _courseId = courseId;
-       }));
+      // let _courseId
+      // this.courseService.courses.filter(i=>i.courseName == this.data.courseName).map((i =>{
+      //    const [{courseId}] = this.courseService.courses
+      //      _courseId = courseId;
+      //  }));
       debugger
       // this.formGroup.controls.noLecture.setValue(this.data.noLecture);
       this.formGroup.controls.noLecture.setValue(this.data.noLecture);
       this.formGroup.controls.sectionCapacity.setValue(this.data.sectionCapacity);
       this.formGroup.controls.sectionTimeStart.setValue(this.data.sectionTimeStart);
       this.formGroup.controls.sectionTimeEnd.setValue(this.data.sectionTimeEnd);
-      this.formGroup.controls.trainerId.setValue(this.data.trainerId);
+      this.formGroup.controls.trainerId.setValue(this.data.employeeId);
       this.formGroup.controls.courseId.setValue(this.data.courseId);
       this.formGroup.controls.statusId.setValue(this.data.statusId);
       this.formGroup.controls.meetingURL.setValue(this.data.meetingURL);
@@ -113,6 +113,7 @@ updateSection(){
 
         this.sectionService.updateSection(section,trainerId);
       // window.location.reload();
+      window.location.reload();
 
     }
     })

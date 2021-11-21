@@ -7,9 +7,10 @@ export class Section{
   sectionTimeEnd:string |undefined;
   trainerName:string |undefined;
   courseName:string | undefined;
-  trainerId:number|undefined;
+  employeeId:number|undefined;
   statusId:number|undefined;
-  meetingURL:string|undefined
+  meetingURL:string|undefined;
+  courseId:number|undefined
 }
 /*
         public int SectionId { get; set; }

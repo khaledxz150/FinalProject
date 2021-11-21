@@ -62,29 +62,30 @@ faTimes = faTimes
   ngOnInit(): void {
 
     if (this.data) {
-      let _tagId
-      this.courseService.tag.filter(i=>i.tagName == this.data.tagName).map((i =>{
-         const [{tagId}] = this.courseService.tag
-           _tagId = tagId;
-       }));
+      debugger
+      // let _tagId
+      // this.courseService.tag.filter(i=>i.tagName == this.data.tagName).map((i =>{
+      //    const [{tagId}] = this.courseService.tag
+      //      _tagId = tagId;
+      //  }));
 
-       let _typeId
-       this.courseService.type.filter(i=>i.typeName == this.data.typeName).map((i =>{
-          const [{typeId}] = this.courseService.type
-            _typeId = typeId;
-        }));
+      //  let _typeId
+      //  this.courseService.type.filter(i=>i.typeName == this.data.typeName).map((i =>{
+      //     const [{typeId}] = this.courseService.type
+      //       _typeId = typeId;
+      //   }));
 
-        let _levelId
-        this.courseService.level.filter(i=>i.name == this.data.levelName).map((i =>{
-           const [{levelId}] = this.courseService.level
-             _levelId = levelId;
-         }));
+      //   let _levelId
+      //   this.courseService.level.filter(i=>i.name == this.data.levelName).map((i =>{
+      //      const [{levelId}] = this.courseService.level
+      //        _levelId = levelId;
+      //    }));
 
-         let _categoryId
-         this.categoryService.category.filter(i=>i.name == this.data.categoryName).map((i =>{
-            const [{categoryId}] = this.categoryService.category
-              _categoryId = categoryId;
-          }));
+      //    let _categoryId
+      //    this.categoryService.category.filter(i=>i.name == this.data.categoryName).map((i =>{
+      //       const [{categoryId}] = this.categoryService.category
+      //         _categoryId = categoryId;
+      //     }));
 
       this.formGroup.controls.coursePrice.setValue(this.data.coursePrice);
       this.formGroup.controls.courseName.setValue(this.data.courseName);
@@ -97,7 +98,7 @@ faTimes = faTimes
       this.formGroup.controls.categoryId.setValue(this.data.categoryId);
       // console.log("categoryId = ", this.data.categoryId)
       // console.log("categoryId = ",  this.formGroup.controls.categoryId.value)
-
+debugger
     }
   }
 
@@ -141,7 +142,7 @@ onFileChanged(event: any) {
 
     }
     reader.readAsDataURL(event.target.files[0]);
-    
+
   }
 }
 

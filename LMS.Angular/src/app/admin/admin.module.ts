@@ -24,7 +24,7 @@ import { TraineeInfoComponent } from './trainee-info/trainee-info.component';
 import { AddTraineeComponent } from './trainee-info/add-trainee/add-trainee.component';
 import { EditTraineeComponent } from './trainee-info/edit-trainee/edit-trainee.component';
 import { CreateCouponComponent } from './coupon/create-coupon/create-coupon.component';
-import { DateFormatPipe } from '../Pipeline/date-format.pipe';
+// import { DateFormatPipe } from '../Pipeline/date-format.pipe';
 import { CalenderComponent } from './calender/calender.component';
 import { TestmonialComponent } from './testmonial/testmonial.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -51,7 +51,6 @@ import { EditComponent } from './profile/edit/edit.component';
       AddTraineeComponent,
       EditTraineeComponent,
       CreateCouponComponent,
-      DateFormatPipe,
       CalenderComponent,
       TestmonialComponent,
       ProfileComponent,

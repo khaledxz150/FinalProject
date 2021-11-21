@@ -51,6 +51,7 @@ export class TopicComponent implements OnInit {
   ShowTopic(courseId:number){
     this.courseService.getAllTopics(courseId);
   }
+  
   deleteTopic(topicId:number){
 
     let dialogRef = this.dialog.open(AlertDialogComponent);

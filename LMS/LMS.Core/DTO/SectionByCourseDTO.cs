@@ -15,9 +15,10 @@ namespace LMS.Core.DTO
         public DateTime SectionTimeStart { get; set; }
         public DateTime? SectionTimeEnd { get; set; }
         public string TrainerName { get; set; }
-        public int TrainerId { get; set; }
+        public int EmployeeId { get; set; }
         public string CourseName { get; set; }
         public int StatusId { get; set; }
         public string MeetingURL { get; set; }
+        public int CourseId { get; set; }
     }
 }

@@ -102,7 +102,9 @@ namespace LMS.Infra.Repository
             parm.Add("@P_Status", section.StatusId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parm.Add("@P_MeetingURL", section.MeetingURL, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = await dBContext.Connection.ExecuteAsync("UpdateSection", parm, commandType: CommandType.StoredProcedure);
+
             var parm1 = new DynamicParameters();
+
             parm1.Add("@P_SectionId", section.SectionId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parm1.Add("@P_TrainerId", trainerId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result1 = await dBContext.Connection.ExecuteAsync("UpdateTrainerIdSection", parm1, commandType: CommandType.StoredProcedure);

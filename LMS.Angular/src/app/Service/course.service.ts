@@ -203,11 +203,11 @@ export class CourseService {
 
         this.spinner.hide();
 
-        this.toastr.error('Topic deleted Successfully !');
+        this.toastr.success('Topic deleted Successfully !');
 
       },err=>{
       this.spinner.hide();
-      this.toastr.error('Something Wrong, Try Again!');
+      this.toastr.warning('Something Wrong, Try Again!');
     })
 
     }
