@@ -107,7 +107,7 @@ register(){
   debugger
   const user : User = this.formGroup.value;
   user.username = user.email;
-  user.roleId = 5;
+  user.roleId = 4;
 
   // debugger;
    this.spinner.show();

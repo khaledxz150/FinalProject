@@ -68,7 +68,11 @@
   display: block;
 }
 
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content a:hover { background-color:transparent ;
+  color:#af1a2d!important;
+  border:1px solid #af1a2d!important;
+  /* transition: 0.4s ease-in-out} */
+}
 
 .dropdown:hover .dropdown-content {
   display: block;
@@ -182,16 +186,18 @@ body {
 
 .button {
   background:#af1a2d;
-  color:white;
+  color:white!important;
   height: 30px;
   text-align: center;
   text-decoration: none;
   display: block;
   border-radius: 3px;
+
   font-size: 16px;
 }
 button:hover {
     background: lighten(#6394F8, 3%);
+  
   }
 
 .clearfix{
@@ -209,3 +215,12 @@ cursor: pointer;
 
 
 
+
+.nav {
+  padding: 2px!important;
+  margin: 20px!important;
+  cursor:pointer
+}
+.nav-item{
+  cursor:pointer
+}

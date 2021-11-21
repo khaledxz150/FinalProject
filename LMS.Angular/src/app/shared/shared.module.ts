@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // import { SharedRoutingModule } from './shared-routing.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgxSpinnerModule } from 'ngx-spinner';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {NgxSpinnerModule } from 'ngx-spinner';
+import {MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule } from '@angular/material/input';
+import {MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatCardModule} from '@angular/material/card';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonModule} from '@angular/material/button';
@@ -22,7 +22,7 @@ import { NgImageSliderModule } from 'ng-image-slider';
 import {CarouselModule} from 'primeng/carousel';
 import {ButtonModule} from 'primeng/button';
 import {ToastModule} from 'primeng/toast';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {ImageModule} from 'primeng/image';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -52,7 +52,7 @@ import { SharedRoutingModule } from './shared-routing.module';
 import {TableModule} from 'primeng/table';
 import {MatNativeDateModule} from '@angular/material/core';
 import {InputSwitchModule} from 'primeng/inputswitch';
-import { ChatComponent } from './chat/chat.component';
+import {ChatComponent } from './chat/chat.component';
 
 
 

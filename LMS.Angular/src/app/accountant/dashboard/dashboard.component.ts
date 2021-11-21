@@ -25,7 +25,9 @@ export class DashboardComponent implements OnInit {
   constructor(public contactusService: ContactusService, private dialog:MatDialog, public courseService:CourseService, public trainerService:TrainerService) {
 
     this.courseService.returnSoldCourses();
-
+    this.contactusService.returnAllMessages();
+          this.trainerService.getTrainer();
+          this.courseService.getCourses();
   }
 
   ngOnInit(): void {
