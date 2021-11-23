@@ -240,6 +240,14 @@ namespace LMS.Controllers
             return customerService.DeleteCertificate(certificateId);
         }
 
+
+        [HttpPut]
+        [Route("[action]/{stdId}")]
+         public bool StatusStudent(int stdId)
+        {
+            return customerService.StatusStudent(stdId);
+        }
+
     }
 
 }

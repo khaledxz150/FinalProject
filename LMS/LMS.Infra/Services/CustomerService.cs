@@ -161,6 +161,11 @@ namespace LMS.Infra.Services
         {
             return customerRepository.ReturnTrainee(queryCode);
         }
+
+        public bool StatusStudent(int stdId)
+        {
+            return customerRepository.StatusStudent(stdId);
+        }
     }
 
 }

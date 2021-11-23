@@ -186,9 +186,6 @@ C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.AssemblyI
 C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.csproj.CoreCompileInputs.cache
 C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\staticwebassets\LMS.StaticWebAssets.Manifest.cache
-C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\staticwebassets\LMS.StaticWebAssets.xml
-C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\scopedcss\bundle\LMS.styles.css
 C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.RazorTargetAssemblyInfo.cache
 C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.dll
 C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\ref\LMS.dll
@@ -197,9 +194,6 @@ C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.genruntim
 C:\GitHub\FinalProject\FinalProject\LMS\LMS\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.dll
 C:\GitHub\FinalProject\FinalProject\LMS\LMS\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
 C:\GitHub\FinalProject\FinalProject\LMS\LMS\bin\Debug\net5.0\System.IO.Pipelines.dll
-C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.dll
-C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
-C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\System.IO.Pipelines.dll
 C:\Users\jasse\Desktop\stableVersion\LMS\LMS\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\jasse\Desktop\stableVersion\LMS\LMS\bin\Debug\net5.0\appsettings.json
 C:\Users\jasse\Desktop\stableVersion\LMS\LMS\bin\Debug\net5.0\LMS.exe
@@ -400,3 +394,8 @@ C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.dll
 C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\ref\LMS.dll
 C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.pdb
 C:\Users\user\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.genruntimeconfig.cache
+C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\libman.json
+C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\Microsoft.AspNetCore.SpaServices.Extensions.dll
+C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS\bin\Debug\net5.0\System.Net.WebSockets.WebSocketProtocol.dll
+C:\Users\HP\Documents\GitHub\FinalProject\LMS\LMS\obj\Debug\net5.0\LMS.csproj.CopyComplete

@@ -302,7 +302,10 @@ namespace LMS.Infra.Repository
 
         public bool StatusStudent(int stdId)
         {
-            throw new NotImplementedException();
+            var queryParameters = new DynamicParameters();
+            queryParameters.Add("@traineeId", stdId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = dBContext.Connection.ExecuteAsync("ChangeTraineeStatus", queryParameters, commandType: CommandType.StoredProcedure);
+            return true;
         }
     }
 
