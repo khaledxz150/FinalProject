@@ -15,6 +15,10 @@ export class AddTraineeComponent implements OnInit {
   constructor(public traineeService: TraineeService, private sanitizer: DomSanitizer) { }
 
   formGroup: FormGroup = new FormGroup({
+    userName:new FormControl('',[Validators.required]),
+    password:new FormControl('',[Validators.required]), 
+    roleName:new FormControl('',[Validators.required]),
+    // roleId:new FormControl(0),
 
     imageName: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required]),

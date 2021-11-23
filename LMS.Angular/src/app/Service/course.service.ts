@@ -352,7 +352,7 @@ export class CourseService {
            this.soldCourse = res;
            this.annualSoldCourses = res;
           this.countOfSoldCourses = res.length;
-
+          this.totalSales = 0;
           this.soldCourse.forEach((total) => {
 
            this.totalSales =this.totalSales + total.coursePrice
@@ -378,6 +378,13 @@ export class CourseService {
          // this.soldCourse = this.annualSoldCourses.filter(course => new Date(course.creationDate).getMonth()+1 == month.value)
 
        }
+
+       filterSoldCourseByMonth(month:any){
+        this.soldCourse = this.annualSoldCourses.filter(course => new Date(course.creationDate).getMonth()+1 == month.value)
+        debugger
+
+      }
+
 
        filterSoldCourseBetweenDate(startDate:any, endDate:any){
          this.soldCourse = this.annualSoldCourses.filter(course => new Date(course.creationDate) >= startDate.value && new Date(course.creationDate) <= endDate.value)

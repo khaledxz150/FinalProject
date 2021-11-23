@@ -13,6 +13,27 @@
       </mat-error>
       </mat-form-field>
       <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>userName </mat-label>
+        <input type="text" matInput formControlName="userName">
+        <mat-error *ngIf="formGroup.controls.userName.hasError('required')">
+           UserName  <strong>required</strong>
+      </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>password </mat-label>
+        <input type="text" matInput formControlName="password">
+        <mat-error *ngIf="formGroup.controls.password.hasError('required')">
+          Password  <strong>required</strong>
+      </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>RoleName </mat-label>
+        <input type="text" matInput formControlName="roleName">
+        <mat-error *ngIf="formGroup.controls.roleName.hasError('required')">
+          roleName <strong>required</strong>
+      </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>FirstName </mat-label>
         <input type="text" matInput formControlName="fname">
         <mat-error *ngIf="formGroup.controls.fname.hasError('required')">

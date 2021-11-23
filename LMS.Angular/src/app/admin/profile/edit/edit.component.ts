@@ -57,11 +57,11 @@ export class EditComponent implements OnInit {
     
  
         const emp: any = this.formGroup.value;
-        let user:any = localStorage.getItem('user');
+        // let user:any = localStorage.getItem('user');
 
-        let trainerId = JSON.parse(user);
-         if(trainerId){
-          this.trainerService.ReturnEmployeeInfo(parseInt(trainerId.EmployeeId));}
+        // let trainerId = JSON.parse(user);
+        //  if(trainerId){
+        //   this.trainerService.ReturnEmployeeInfo(parseInt(trainerId.EmployeeId));}
         // emp.employeeId = this.data.employeeId;
         // this.profileService.EditTrainer(emp);
         console.log('IMAGE : ' + emp.image);

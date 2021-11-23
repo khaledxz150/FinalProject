@@ -11,7 +11,7 @@ export class CategoryCardComponent implements OnInit {
   @Input() categoryId:number | undefined;
   @Input() categoryName:string |undefined;
   @Input() categoryImage:string | undefined;
-  @Input() numberOfCourses:number|undefined;
+  // @Input() numberOfCourses:number|undefined;
 
   constructor() { }
 

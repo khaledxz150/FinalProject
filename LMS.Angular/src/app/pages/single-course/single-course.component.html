@@ -43,7 +43,7 @@
                           Topics
                         </ng-template>
                          <ng-container >
-                          <div class="box_content">
+                          <div class="box_content height-100">
                             <ol class="rounded-list">
                                 <li>
                                     <ol>
@@ -64,7 +64,7 @@
                           Comments
                         </ng-template>
 
-                          <ng-container >
+                          <div class="height-100">
 
 
 
@@ -114,7 +114,7 @@
                               </div>
 
 
-                          </ng-container>
+                            </div>
                       </mat-tab>
                       <mat-tab>
                         <ng-template mat-tab-label>
@@ -122,57 +122,60 @@
                           Available Sections
                         </ng-template>
 
-                           <ng-container >
-                            <div
-                            class="ava d-flex flex-wrap px-3 py-2 ng-star-inserted"
-                             *ngFor="let section of this.courseService.courseSection;let indexOfelement=index;">
-                              <div class="section-date col-md-2">
-                                <div class="color-red font-medium">
-                                  <mat-icon>calendar_today</mat-icon>
-                                  <b class="mx-1">Date</b>
-                                </div>
-                            <div >
-                              <span class="time-style">20/11/2021</span>
+                           <ng-container>
+                             <div  class="height-100">
+                              <div
+                              class="ava d-flex flex-wrap px-3 py-2 ng-star-inserted"
+                               *ngFor="let section of this.courseService.courseSection;let indexOfelement=index;">
+                                <div class="section-date col-md-2">
+                                  <div class="color-red font-medium">
+                                    <mat-icon>calendar_today</mat-icon>
+                                    <b class="mx-1">Date</b>
+                                  </div>
+                              <div >
+                                <span class="time-style">20/11/2021</span>
 
 
-                            </div>
-                            </div>
-                            <div class="section-date border-left border-right col-md-3">
-                            <div class="color-red font-medium">
-                              <mat-icon>account_circle</mat-icon>
-                              <b class="mx-1">Trainer</b>
-                            </div>
-                            <div class="d-flex flex-wrap">
+                              </div>
+                              </div>
+                              <div class="section-date border-left border-right col-md-3">
+                              <div class="color-red font-medium">
+                                <mat-icon>account_circle</mat-icon>
+                                <b class="mx-1">Trainer</b>
+                              </div>
+                              <div class="d-flex flex-wrap">
 
-                              <span class="time-style">{{this.section.trainerName}}</span>
-                            </div>
-                            </div>
-                            <div class="section-date col-md-3 border-left">
-                            <div class="color-red font-medium">
-                              <mat-icon>access_time</mat-icon>
-                              <b class="mx-1">Time</b>
-                            </div>
-                            <div>
-                              <span class="time-style">8:00 AM</span>
-                              <span class="time-style color-red"> - </span>
-                              <span class="time-style">2:00 PM</span>
-                            </div>
-                            </div>
-                            <div class="section-date online-offline col-md-2 border-left">
-                            <div class="color-red font-medium">
-                              <mat-icon>turned_in_not</mat-icon>
-                              <b class="mx-1">Status</b>
-                            </div>
-                            <div class="color-green ng-star-inserted"> {{section.statusName}} </div>
-                            </div>
-                            <div class="section-date online-offline col-md-2 border-left">
-                            <div class="color-red font-medium">
-                              <mat-icon>folder_shared</mat-icon>
-                              <b class="mx-1">Capacity</b>
-                            </div>
-                            <div class="color-green">{{this.courseService.sectionStudents[indexOfelement]}} /{{section.sectionCapacity}} </div>
-                            </div>
-                            </div>
+                                <span class="time-style">{{this.section.trainerName}}</span>
+                              </div>
+                              </div>
+                              <div class="section-date col-md-3 border-left">
+                              <div class="color-red font-medium">
+                                <mat-icon>access_time</mat-icon>
+                                <b class="mx-1">Time</b>
+                              </div>
+                              <div>
+                                <span class="time-style">8:00 AM</span>
+                                <span class="time-style color-red"> - </span>
+                                <span class="time-style">2:00 PM</span>
+                              </div>
+                              </div>
+                              <div class="section-date online-offline col-md-2 border-left">
+                              <div class="color-red font-medium">
+                                <mat-icon>turned_in_not</mat-icon>
+                                <b class="mx-1">Status</b>
+                              </div>
+                              <div class="color-green ng-star-inserted"> {{section.statusName}} </div>
+                              </div>
+                              <div class="section-date online-offline col-md-2 border-left">
+                              <div class="color-red font-medium">
+                                <mat-icon>folder_shared</mat-icon>
+                                <b class="mx-1">Capacity</b>
+                              </div>
+                              <div class="color-green">{{this.courseService.sectionStudents[indexOfelement]}} /{{section.sectionCapacity}} </div>
+                              </div>
+                              </div>
+                             </div>
+
 
                            </ng-container>
                       </mat-tab>

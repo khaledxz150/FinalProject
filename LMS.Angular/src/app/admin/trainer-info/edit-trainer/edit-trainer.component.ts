@@ -13,7 +13,9 @@ export class EditTrainerComponent implements OnInit {
 
  
   formGroup: FormGroup = new FormGroup({
-
+    userName:new FormControl(''),
+    roleName:new FormControl(''),
+    password:new FormControl(''),
     image: new FormControl(''),
     email: new FormControl(''),
     fname: new FormControl(''),
@@ -34,6 +36,9 @@ export class EditTrainerComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.data) {
+      this.formGroup.controls.userName.setValue(this.data.userName);
+      this.formGroup.controls.password.setValue(this.data.password);
+      this.formGroup.controls.roleName.setValue(this.data.roleName);
       this.formGroup.controls.image.setValue(this.data.image);
       this.formGroup.controls.email.setValue(this.data.email);
       this.formGroup.controls.fname.setValue(this.data.fname);
