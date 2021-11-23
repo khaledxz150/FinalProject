@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LMS.Controllers
 {       [Route("api/chat")]
-        [ApiController]
+        //[ApiController]
     public class ChatController : Controller
     {
 

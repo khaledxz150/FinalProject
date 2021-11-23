@@ -16,6 +16,9 @@ import { CreateExamComponent } from '../exam/create-exam/create-exam.component';
 import { CreateLectureComponent } from '../create-lecture/create-lecture.component';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { CreateTaskComponent } from '../task/create-task/create-task.component';
+import { TraineeNavbarService } from 'src/app/Service/trainee-navbar.service';
+import { TraineeService } from 'src/app/Service/trainee.service';
+import { ChatComponent } from 'src/app/shared/chat/chat.component';
 
 
 @Component({
@@ -43,7 +46,7 @@ export class SectionComponent implements OnInit {
   constructor(public sectionService: SectionService
     ,public courseSer:CourseService
     , private unitService: UnitService, private dialog:MatDialog,private examservice: ExamServiceService,
-     private http: HttpClient, private examService:ExamServiceService, private sanitizer: DomSanitizer) { }
+     private http: HttpClient, private examService:ExamServiceService, private sanitizer: DomSanitizer, public traineeService: TraineeService) { }
 
   panelOpenState = false;
 
@@ -111,6 +114,11 @@ export class SectionComponent implements OnInit {
 
   ViewTasks(sectionId:number){
     this.sectionService.GetTrainerSectionTask(sectionId);
+    }
+
+    ViewChat(SectionId:number){
+
+      this.traineeService.CurrentTraineeSection=SectionId;
     }
 
 }

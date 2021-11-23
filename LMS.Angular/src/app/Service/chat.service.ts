@@ -27,7 +27,6 @@ export class ChatService {
  // This url must point to your back-end hub
  .withUrl('http://localhost:54921/chatsocke')
  .build();
-
      this.hubConnection
        .start()
        .then(() => console.log('Connection started'))
@@ -39,11 +38,10 @@ export class ChatService {
       this.data.push(message);
      });
    }
-
    SendMessage(msg: Message) {
     this.http.post(environment.apiUrl + 'chat/send',msg).subscribe((res:any)=>{
     },err=>{
-     
+     console.log("no message has been sent")
     })
 
 

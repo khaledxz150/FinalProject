@@ -1,6 +1,6 @@
 
 
-        <div class="wrapper d-flex align-items-stretch"  style="background-color:#eee;">
+        <div class="wrapper d-flex align-items-stretch"  >
           <app-trainer-side-bar></app-trainer-side-bar>
 
 
@@ -127,6 +127,16 @@
       </mat-panel-description>
     </mat-expansion-panel-header>
     <p class="fancy-link" (click)="CreateMeeting(course.sectionId)">Click me to create a Lecture</p>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header (click)="ViewChat(course.sectionId)" [expandedHeight]="'350px'">
+      <mat-panel-title>
+      Section Chat
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    
+    <app-chat></app-chat>
   </mat-expansion-panel>
                             <!-- </ng-container> -->
                           </mat-accordion>

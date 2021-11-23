@@ -8,7 +8,7 @@ namespace LMS.Data
     public partial class Login
     {
         public int LoginId { get; set; }
-        public string Username { get; set; }
+        public string Username { get; set; }    
         public string Password { get; set; }
         public int? TraineeId { get; set; }
         public long? EmployeeId { get; set; }

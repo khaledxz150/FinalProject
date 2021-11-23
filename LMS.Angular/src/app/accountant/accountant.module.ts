@@ -8,8 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 import { CourserefundComponent } from './courserefund/courserefund.component';
 import { PurchaseComponent } from './purchase/purchase.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
-import { ProfileComponent } from './profile copy/profile.component';
-import { EditComponent } from './profile copy/edit/edit.component';
+
 
 
 @NgModule({
@@ -19,8 +18,7 @@ import { EditComponent } from './profile copy/edit/edit.component';
     CourserefundComponent,
     PurchaseComponent,
     SideBarComponent,
-    ProfileComponent,
-    EditComponent,
+ 
     
   ],
   imports: [
