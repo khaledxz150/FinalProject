@@ -15,6 +15,9 @@ export class EditTraineeComponent implements OnInit {
   
   formGroup: FormGroup = new FormGroup({
     // traineeId:new FormControl(''),
+    roleName:new FormControl(''),
+    password:new FormControl(''),
+    UserName:new FormControl(''),
     imageName: new FormControl(''),
     email: new FormControl(''),
     firstName: new FormControl(''),
@@ -36,6 +39,9 @@ export class EditTraineeComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.data) {
+      this.formGroup.controls.password.setValue(this.data.password);
+      this.formGroup.controls.UserName.setValue(this.data.UserName);
+      this.formGroup.controls.roleName.setValue(this.data.roleName);
       this.formGroup.controls.imageName.setValue(this.data.imageName);
       this.formGroup.controls.email.setValue(this.data.email);
       this.formGroup.controls.firstName.setValue(this.data.firstName);

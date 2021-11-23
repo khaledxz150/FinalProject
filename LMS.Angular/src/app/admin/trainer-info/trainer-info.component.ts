@@ -164,7 +164,7 @@ export class TrainerInfoComponent implements OnInit {
         const item = this.trainer.trainer.find(i => i.employeeId == empId);
 
 
-        this.dialog.open(EditTrainerComponent, { data: item },
+        this.dialog.open(EditTrainerComponent,
           )
 
       }

@@ -59,12 +59,12 @@
                   <div class="row">
                       <div class="col-lg-4 col-md-6"
                         *ngFor="let course of this.courseService.availableCourses;let indexOfelement=index;">
-                          <div class="singel-course mt-20">
+                          <div class="singel-course mt-20" style="height: 450px;">
                               <div class="thum">
 
                                   <div class="image">
 
-                                    <span class="tag" ><h4>{{course.tagName}}</h4></span>
+                                    <span class="tag" ><h6>{{course.tagName}}</h6></span>
                                     <img src="{{course.image}}" alt="Course" height="180px" >
                                   </div>
                                   <div class="price">
@@ -78,7 +78,7 @@
                                   </ul>
                                   <span>{{this.courseService.coursesSumationOfReview[indexOfelement]}}  (reviews)</span>
                                   <br>
-                                  <a href="courses-singel.html"><h4>{{course.courseName}}</h4></a>
+                                  <a  (click)="DisplayCourseInfo(course.courseId)" style="cursor: pointer;"><h4>{{course.courseName}}</h4></a>
                                   <div class="course-teacher">
                                       <div class="admin">
                                           <ul>
@@ -123,28 +123,7 @@
                   </div> <!-- row -->
               </div>
           </div> <!-- tab content -->
-          <div class="row">
-              <div class="col-lg-12">
-                  <nav class="courses-pagination mt-50">
-                      <ul class="pagination justify-content-center">
-                          <li class="page-item">
-                              <a href="#" aria-label="Previous">
-                                <mat-icon>fast_rewind</mat-icon>
-                              </a>
-                          </li>
-                          <li class="page-item"><a class="active" href="#">1</a></li>
-                          <li class="page-item"><a href="#">2</a></li>
-                          <li class="page-item"><a href="#">3</a></li>
-                          <li class="page-item">
-                              <a href="#" aria-label="Next">
 
-                                <mat-icon>fast_forward</mat-icon>
-                              </a>
-                          </li>
-                      </ul>
-                  </nav>  <!-- courses pagination -->
-              </div>
-          </div>  <!-- row -->
       </div> <!-- container -->
   </section>
 

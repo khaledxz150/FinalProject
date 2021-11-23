@@ -15,7 +15,9 @@ export class AddTrainerComponent implements OnInit {
 
 
   formGroup: FormGroup = new FormGroup({
-
+    userName:new FormControl('',[Validators.required]),
+    password:new FormControl('',[Validators.required]), 
+    roleName:new FormControl('',[Validators.required]),
     image: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required]),
     fname: new FormControl('', [Validators.required]),

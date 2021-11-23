@@ -4,7 +4,27 @@
     <div class="form" style="margin-top:50px">
         <form [formGroup]="formGroup">
 
-
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>UserName </mat-label>
+                <input type="email" matInput formControlName="userName">
+                <mat-error *ngIf="formGroup.controls.userName.hasError('required')">
+                    UserName is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>password </mat-label>
+                <input type="password" matInput formControlName="password">
+                <mat-error *ngIf="formGroup.controls.password.hasError('required')">
+                    password is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>roleName </mat-label>
+                <input type="text" matInput formControlName="roleName">
+                <mat-error *ngIf="formGroup.controls.roleName.hasError('required')">
+                    roleName is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Nationality </mat-label>
                 <input type="text" matInput formControlName="nationality">
@@ -47,6 +67,7 @@
                 </mat-error>
             </mat-form-field>
 
+           
 
 
             <mat-card>

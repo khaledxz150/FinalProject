@@ -108,7 +108,7 @@ export class TraineeService {
   EditStatus(emp: number) {
 
     debugger
-    this.http.put(environment.apiUrl + 'Customer/ChangeTraineeStatus/' + emp, emp).subscribe((res: any) => {
+    this.http.put(environment.apiUrl + 'Customer/StatusStudent/' + emp, emp).subscribe((res: any) => {
       debugger
       // this.spiner.hide();
       this.toastr.success('Edit Status Trainee successfully !!!');

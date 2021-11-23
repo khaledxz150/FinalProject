@@ -21,11 +21,40 @@ export class AdminDashboardComponent implements OnInit {
   faSearch = faSearch
   faFileExcel = faFileExcel
   faFilePdf = faFilePdf
+
+  availableYears:any[]=[{}]
+  monthList:any[]=[{}]
+
   constructor(public courseService:CourseService) {
 
     this.courseService.returnSoldCourses;
     this.courseService.returnSoldCourses();
     this.courseService.getCourses();
+
+
+    let max = new Date().getFullYear();
+    let min = max - 20;
+      max = max + 1;
+
+    for(var i=min; i<=max; i++){
+    this.availableYears.push({"id":i});
+    }
+
+    this.monthList = [
+      { Value: 1, Text: 'Jan' },
+      { Value: 2, Text: 'Feb' },
+      { Value: 3, Text: 'Mar' },
+      { Value: 4, Text: 'Apr' },
+      { Value: 5, Text: 'May' },
+      { Value: 6, Text: 'June' },
+      { Value: 7, Text: 'July' },
+      { Value: 8, Text: 'Aug' },
+      { Value: 9, Text: 'Sep' },
+      { Value: 10, Text: 'Oct' },
+      { Value: 11, Text: 'Nov' },
+      { Value: 12, Text: 'Dec' }
+  ];
+
    }
 
   ngOnInit(): void {
@@ -44,9 +73,30 @@ export class AdminDashboardComponent implements OnInit {
   }
 
 
+  year = new FormControl('');
+
+  filterSoldCourse(){
+    let selectionYear = this.year;
+    this.courseService.filterSoldCourse(selectionYear);
+
+  }
+  
+  month = new FormControl('');
+
+  filterSoldCourseByMonth(){
+    let selectionMonth = this.month;
+    this.courseService.filterSoldCourseByMonth(selectionMonth);
+
+  }
+
 
   clear(){
     this.courseService.soldCourse = this.courseService.annualSoldCourses;
+    this.month = new FormControl('');
+    this.year = new FormControl('');
+    this.startDate = new FormControl('');
+    this.endDate = new FormControl('');
+
   }
 
 

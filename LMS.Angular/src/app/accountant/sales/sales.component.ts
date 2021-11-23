@@ -27,22 +27,41 @@ export class SalesComponent implements OnInit {
   faFilePdf = faFilePdf
 
   availableYears:any[]=[{}]
+  monthList:any[]=[{}]
+
   constructor( private dialog:MatDialog, public courseService:CourseService) {
 
     let max = new Date().getFullYear();
-    let min = max - 57;
+    let min = max - 20;
       max = max + 1;
 
     for(var i=min; i<=max; i++){
     this.availableYears.push({"id":i});
     }
-    debugger
+
+    this.monthList = [
+      { Value: 1, Text: 'Jan' },
+      { Value: 2, Text: 'Feb' },
+      { Value: 3, Text: 'Mar' },
+      { Value: 4, Text: 'Apr' },
+      { Value: 5, Text: 'May' },
+      { Value: 6, Text: 'June' },
+      { Value: 7, Text: 'July' },
+      { Value: 8, Text: 'Aug' },
+      { Value: 9, Text: 'Sep' },
+      { Value: 10, Text: 'Oct' },
+      { Value: 11, Text: 'Nov' },
+      { Value: 12, Text: 'Dec' }
+  ];
 
 
   }
   ngOnInit(): void {
           this.courseService.returnSoldCourses();
           this.courseService.getCourses();
+
+
+
   }
 
   year = new FormControl('');
@@ -53,6 +72,13 @@ export class SalesComponent implements OnInit {
 
   }
 
+  month = new FormControl('');
+
+  filterSoldCourseByMonth(){
+    let selectionMonth = this.month;
+    this.courseService.filterSoldCourseByMonth(selectionMonth);
+
+  }
 
 
   startDate = new FormControl('');
@@ -93,6 +119,11 @@ export class SalesComponent implements OnInit {
 
   clear(){
     this.courseService.soldCourse = this.courseService.annualSoldCourses;
+    this.month = new FormControl('');
+    this.year = new FormControl('');
+    this.startDate = new FormControl('');
+    this.endDate = new FormControl('');
+
   }
 
   @ViewChild('TABLE', { static: false }) TABLE: ElementRef | undefined;

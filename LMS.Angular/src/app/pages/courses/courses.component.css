@@ -13,7 +13,7 @@
   color: white;
   background-color: red;
 }
-.tag {
+/* .tag {
 	  position: absolute;
     float: left;
     left: 12%;
@@ -28,7 +28,7 @@
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
     transform: translate(-50%,-50%);
-}
+} */
 
 span h3{
         font-size: 12px;
@@ -38,4 +38,22 @@ span h3{
 }
 .star{
   color:  #FFD700;
+}
+
+
+.tag{
+  background: #0c8f39;
+  color: #fff;
+  transform: rotate(-45deg);
+  width: 114px;
+  position: absolute;
+  top: 15px;
+  left: -26px;
+  text-align: center;
+  font-size: .6rem;
+  padding: 5px;
+}
+
+.image{
+  position: relative;
 }
