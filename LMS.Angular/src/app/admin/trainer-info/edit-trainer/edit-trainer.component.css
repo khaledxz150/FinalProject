@@ -1,5 +1,144 @@
- mat-dialog-content {
+ /* mat-dialog-content {
     background-color:whitesmoke;
     width: 800px;
     height: 800px
-}
+} */
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .div-width {
+    width: 50%;
+  }
+  
+  .col img{
+    /* border-radius: 50%; */
+    margin-left: 100px;
+    overflow: hidden;
+  }
+  
+  .mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+  .example-radio-group {
+  
+    margin: 10px 15px 0;
+  
+  }
+  
+  #SelectStatus{
+    margin: 0  0 15px 0;
+    font-size: 16px;
+  }
+  /* .example-radio-button:active{
+    color: red;
+  } */
+  
+  fa-icon{
+    font-size: 1.3rem;
+    color: #af1a2d;
+  
+  }
+  
+  
+  
+  .course-info {
+    color: #414141;
+    font-size: .8rem;
+    margin: 3px 0;
+    word-break: break-word;
+  
+  justify-content: start;
+    align-items: center;
+    width: 25%;
+    min-width: 210px;
+    margin: 0;
+  }
+  
+  .assignmentIcon {
+    font-size: 2.5rem;
+  }
+  
+  /* .assignmentIcon::before {
+  content: "\e90c";
+  } */
+  
+  .course-info b {
+    color: #8c8c8c;
+  }
+  
+  
+  .trainee-course-wrapper .course-info p {
+    margin-bottom: 0;
+    font-weight: 700!important;
+  }
+  
+  
+  
+  
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  
+  textarea {
+    width: 400px;
+    height: 210px;
+  }
+  mat-dialog-actions button:hover{
+    border: 1px solid #af1a2d;
+  
+    padding:5px
+  }
+  
+  
+  mat-dialog-actions button:enabled{
+   background-color: #af1a2d;
+    padding:5px;
+    color:white
+  }
+  
+  /* Upload Image */
+  
+  
+  .dragBox {
+    /* width: 250px;
+    height: 100px; */
+    width: 300px;
+    height: 250px;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    font-weight: bold;
+    line-height: 95px;
+    color: #999;
+    border: 2px dashed #ccc;
+    display: inline-block;
+    transition: transform 0.3s;
+  }
+  .dragBox input[type="file"] {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    top: 0;
+    left: 0;
+  }
+  .draging {
+    transform: scale(1.1);
+  }
+  #preview {
+    text-align: center;
+  }
+  #preview img {
+    max-width: 100%;
+  }
+  
