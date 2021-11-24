@@ -14,6 +14,7 @@ import { User } from '../models/User';
 })
 export class AuthenticationService {
   loggedIn=false;
+  connected = 1;
   constructor(    private http:HttpClient,
     public jwtHelper: JwtHelperService,
     private router: Router,

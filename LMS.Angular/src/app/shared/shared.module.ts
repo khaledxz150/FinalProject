@@ -54,6 +54,8 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import {ChatComponent } from './chat/chat.component';
 import { DateFormatPipe } from '../Pipeline/date-format.pipe';
+import { FlatpickrModule } from 'angularx-flatpickr/flatpickr.module';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -109,7 +111,7 @@ FullCalendarModule.registerPlugins([
     TableModule,
     MatNativeDateModule,
     InputSwitchModule,
-    MatIconModule
+    MatIconModule,
     ],
   exports:[
     FullCalendarModule,

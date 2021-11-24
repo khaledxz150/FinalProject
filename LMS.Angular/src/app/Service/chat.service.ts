@@ -8,6 +8,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from 'src/environments/environment';
 import { DomSanitizer } from '@angular/platform-browser';
+import { HubConnectionState } from '@microsoft/signalr';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class ChatService {
  connection:signalR.HubConnection | undefined;
   data: Message [] = [];
+  connected:any | undefined = 1;
  public hubConnection: signalR.HubConnection | undefined;
 
  constructor(private http: HttpClient,private toastr:ToastrService, private spinner: NgxSpinnerService,private router:Router,
@@ -22,15 +24,22 @@ export class ChatService {
 
    startConnection() {
      this.hubConnection =
-     new
-  signalR.HubConnectionBuilder()
+     new signalR.HubConnectionBuilder()
  // This url must point to your back-end hub
  .withUrl('http://localhost:54921/chatsocke')
  .build();
-     this.hubConnection
-       .start()
-       .then(() => console.log('Connection started'))
-       .catch(err => console.log('Error while starting connection: ' + err))
+
+
+ if(this.hubConnection.state === HubConnectionState.Disconnected && this.connected === 1 ){
+  console.log("this is the state inside f",this.hubConnection.state);
+  this.hubConnection
+  .start()
+  .then(() => console.log('Connection started'))
+  .catch(err => console.log('Error while starting connection: ' + err))
+  this.connected=2;
+ }
+
+    
    }
 
    addDataListener()  {

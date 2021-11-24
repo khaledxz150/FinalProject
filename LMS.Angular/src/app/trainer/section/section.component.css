@@ -122,6 +122,15 @@
     background-color:  #af1a2d;
   
   }
+  .calender{
+    min-width:85%;
+              margin: 47px  10px 50px 0px;
+              box-shadow: 2px 2px 10px #c21f1f7a;
+              height:55%;
+  }
+  .mat-h6, .mat-typography h6{
+    font-size: x-large !important;
+  }
   .border {
     font-size: 1.6rem;
     display: grid;
@@ -330,6 +339,9 @@
     height: 100%;
     border-radius: 5px;
     width: 100%;
+    box-shadow: 2px 2px 10px #c21f1f7a;
+    margin-left:3%
+
   }
   
   /* margin-top: 4
@@ -356,3 +368,32 @@
     margin-left: 8px;
   }
   
+
+
+  /* Accordion with height 600px and panel content width of 400px each */
+.mat-accordion2 {
+  margin-top:290px;
+  display: block;
+  transform-origin: top left;
+  transform: rotate(-90deg) translateX(-600px); /* rotate and position it; translateX value corresponds to panel height */
+  width: 1000px; /* this will be the height of the accordion (inversed due to rotation) */
+  height: 100px;
+  margin-left:3%
+
+}
+
+.mat-expansion-panel2 {
+  max-height: 1000px; /* this will be the width of the panel (inversed due to rotation) */
+  box-shadow: 2px 2px 10px #c21f1f7a;
+
+}
+
+.panel-content2 {
+  transform-origin: top left;
+  transform: rotate(90deg); /* rotate back */
+  margin-left: 100%; /* position it */
+  height: 800px; /* real height of the content */
+  width: 800px; /* real width of the content */
+  box-shadow: 2px 2px 10px #c21f1f7a;
+
+}

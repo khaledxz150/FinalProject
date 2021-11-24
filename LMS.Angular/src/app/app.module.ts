@@ -20,6 +20,11 @@ import { AlertDialogComponent } from './alert-dialog/alert-dialog.component';
 import { DateFormatPipe } from './Pipeline/date-format.pipe';
 
 import { JwtModule, JwtModuleOptions } from '@auth0/angular-jwt';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 const JWT_Module_Options:JwtModuleOptions={
   config:{}
@@ -50,7 +55,18 @@ const JWT_Module_Options:JwtModuleOptions={
     NgHttpLoaderModule.forRoot(),
     ToastrModule.forRoot(),
     CommonModule,
-    JwtModule.forRoot(JWT_Module_Options)
+    JwtModule.forRoot(JWT_Module_Options),
+    NgbModalModule,
+    FlatpickrModule.forRoot(),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    })
+    
+    
+  ],
+  exports: [   FlatpickrModule,
+    CalendarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -24,6 +24,14 @@ import { TaskSoultionsComponent } from './task/task-soultions/task-soultions.com
 import { DeleteExamComponent } from './exam/delete-exam/delete-exam.component';
 import { TraineeMarkComponent } from './exam/trainee-mark/trainee-mark.component';
 import { TaskMarkComponent } from './task/task-mark/task-mark.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
+import { ProfileAccComponent } from './profile-acc/profile-acc.component';
+import { ClockComponent } from './clock/clock.component';
 
 @NgModule({
   declarations: [
@@ -48,13 +56,26 @@ import { TaskMarkComponent } from './task/task-mark/task-mark.component';
     DeleteExamComponent,
     TraineeMarkComponent,
     TaskMarkComponent,
+    CalendarComponent,
+    ProfileAccComponent,
+    ClockComponent
 
     ],
   imports: [
     CommonModule,
     TrainerRoutingModule,
     SharedModule,
-    MatTimepickerModule
+    MatTimepickerModule,
+    NgbModalModule,
+    FlatpickrModule,
+    CalendarModule,
+    FormsModule,
+  ],
+  exports:[
+    NgbModalModule,
+    FlatpickrModule,
+    CalendarModule,
+    FormsModule,
   ]
 })
 export class TrainerModule { }

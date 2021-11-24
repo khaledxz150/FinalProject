@@ -1,18 +1,18 @@
 
 
-        <div class="wrapper d-flex align-items-stretch"  style="max-width: 65%; margin-left:30px;"  >
+        <div class="wrapper d-flex align-items-stretch"  style="max-width: 60%; margin-left:70px;"  >
           <app-trainer-side-bar></app-trainer-side-bar>
 
 
           <div class="container" >
 
-              <div id="content" class="px-3 p-md-5 pt-5 mt-5">
+              <div id="content" class="px-3 p-md-5 mt-5">
 
 
 
               <div clas="card ">
-<div class="card" style="text-align:center;">
-                  <h1> Welcome</h1>
+<div>
+                  <app-clock></app-clock>
 </div>
                   <ng-container  class="container">
                        <div class="row mt-5">
@@ -42,7 +42,6 @@
 
                             </mat-expansion-panel-header>
                            <!-- topic start -->
-
                             <ng-container class="mt-3">
                            <mat-accordion >
                             <!-- <ng-container  *ngIf="course.courseId == topic.courseId"> -->
@@ -51,20 +50,12 @@
                                 <mat-panel-title>
                                 Section Capacity
                                 </mat-panel-title>
-
-
                               </mat-expansion-panel-header>
                               <div class="d-flex" style="justify-content: space-between;">
                                 <p>Section Capacity is {{course.sectionCapacity}}</p>
                                 <p>Current Trainees number is: {{this.courseSer.traineeNumber}}</p>
-
-
-
-
                               </div>
-
                             </mat-expansion-panel>
-
                             <mat-expansion-panel>
                               <mat-expansion-panel-header (click)="ViewExam(course.sectionId)">
                                 <mat-panel-title>
@@ -144,20 +135,23 @@
                            <!-- topic end -->
 
                           </mat-expansion-panel>
-
+                     
                         </mat-accordion>
+
                       </div>
 
 
-
+    
                       <!-- card end -->
                   </div>
+              
+                
                   </ng-container>
-
 
 
               </div>
 
+          
 
 
 
@@ -166,5 +160,44 @@
 
             </div>
             </div>
+
+
+            <mat-accordion  class="mat-accordion2 ">
+              <mat-expansion-panel class="mat-expansion-panel2">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                   Calendar
+                  </mat-panel-title>
+                  <mat-panel-description>  
+                    Calendar
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="panel-content2">
+                  <app-calendar></app-calendar>
+                </div>
+              </mat-expansion-panel>
+ 
+ 
+
+              <mat-expansion-panel class="mat-expansion-panel2">
+                <mat-expansion-panel-header>
+                  <mat-panel-title class="panel-title">
+                   Profile
+                  </mat-panel-title >
+                  <mat-panel-description>  
+                    Profile
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="panel-content2">
+                <app-profile-acc></app-profile-acc>
+                </div>
+              </mat-expansion-panel>
+              </mat-accordion>  
+            <!-- <div class="calender">
+         
+            <app-profile-acc style="min-height:100%; font-size:large;
+            font-weight:900"></app-profile-acc>
+          </div> -->
             </div>
 
+  
