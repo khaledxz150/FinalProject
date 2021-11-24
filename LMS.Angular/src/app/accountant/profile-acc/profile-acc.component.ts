@@ -9,19 +9,12 @@ import { TrainerService } from 'src/app/Service/trainer.service';
 })
 export class ProfileAccComponent implements OnInit {
 
-  
 
   constructor(public trainerService: TrainerService,private dialog:MatDialog ) { }
- 
 //   const item = this.trainer.trainer.find(i => i.employeeId == empId);
-
-
 //   this.dialog.open(EditTrainerComponent, { data: item },
 //     )
-
 // }
-
-
 // UpdateTrainer()
 // {
 //   let user:any = localStorage.getItem('user');

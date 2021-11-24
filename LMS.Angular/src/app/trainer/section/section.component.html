@@ -1,6 +1,6 @@
 
 
-        <div class="wrapper d-flex align-items-stretch"  >
+        <div class="wrapper d-flex align-items-stretch"  style="max-width: 65%; margin-left:30px;"  >
           <app-trainer-side-bar></app-trainer-side-bar>
 
 
@@ -23,7 +23,7 @@
                         <mat-accordion >
 
                           <div class="full-withradius border">
-                            <img src="{{course.courseImage}}"  width="400" height="300" >
+                            <img src="{{course.courseImage}}"  width="400" height="300"  style="border-radius: 60%;">
                           </div>
 
                           <mat-expansion-panel (opened)="panelOpenState = true"
@@ -167,13 +167,4 @@
             </div>
             </div>
             </div>
-          <!-- <p-paginator [rows]="10" [totalRecords]="120" [rowsPerPageOptions]="[10,20,30]"></p-paginator> -->
-
-
-
-          <!-- </div>
-        </div> -->
-
-
-        <!-- p-card -->
 

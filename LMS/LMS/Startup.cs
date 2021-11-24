@@ -52,6 +52,7 @@ namespace LMS
                     WithOrigins("http://localhost:4200");
                 });
             });
+
             services.AddSignalR();
             services.AddControllers();
             services.AddScoped<IDbContext, DbContext>();
