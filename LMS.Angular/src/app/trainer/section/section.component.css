@@ -378,7 +378,9 @@
   transform: rotate(-90deg) translateX(-600px); /* rotate and position it; translateX value corresponds to panel height */
   width: 1000px; /* this will be the height of the accordion (inversed due to rotation) */
   height: 150px;
-     margin-left:2.5%;
+     margin-left:1.5%;
+     margin-bottom: -165px;
+     
 
 
 
@@ -390,8 +392,10 @@
   transform-origin: top left;
   transform: rotate(90deg); /* rotate back */
   margin-left: 100%; /* position it */
-  height: 900px; /* real height of the content */
+  height: 1000px; /* real height of the content */
   width: 800px; /* real width of the content */
   box-shadow: 2px 2px 10px #c21f1f7a;
+  margin-bottom: -175px;
+
 
 }

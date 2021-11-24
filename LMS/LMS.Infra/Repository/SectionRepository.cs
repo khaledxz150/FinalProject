@@ -92,6 +92,16 @@ namespace LMS.Infra.Repository
         }
 
 
+        public bool DeleteTask(int TaskId)
+        {
+                var parm = new DynamicParameters();
+                parm.Add("@P_TaskId", TaskId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+                var result = dBContext.Connection.ExecuteAsync("DeleteTask", parm, commandType: CommandType.StoredProcedure);
+                return true;
+        }
+
+
+
         public async Task<bool> UpdateSection(Section section, int trainerId)
         {
             var parm = new DynamicParameters();

@@ -25,6 +25,11 @@ namespace LMS.Infra.Services
         //// Section
         ///Start
         //Status
+        public bool DeleteTask(int TaskId) {
+
+            return sectionRepository.DeleteTask(TaskId);
+
+        }
 
         public SectionByCourseDTO GetSingleSection(int sectionId)
         {

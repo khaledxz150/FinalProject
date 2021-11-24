@@ -70,12 +70,16 @@ namespace LMS.Controllers
             return sectionService.GetSectionFullInfo(sectionId);
         }
 
+    
+
+
         [HttpPut]
-        [Route("[action]/{trainerId}")]
-        public Task<bool> UpdateSection(Section section, int trainerId)
+        [Route("[action]/{taskId}")]
+        public bool DeleteTask(int taskid)
         {
-            return sectionService.UpdateSection(section, trainerId);
+            return sectionService.DeleteTask(taskid);
         }
+
         /// TraineeSection
         /// Start
         [HttpPost]

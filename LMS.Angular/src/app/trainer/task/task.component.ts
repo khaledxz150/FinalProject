@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ExamService } from 'src/app/Service/exam.service';
 import { SectionService } from 'src/app/Service/section.service';
+import { EditTaskComponent } from './edit-task/edit-task.component';
 
 @Component({
   selector: 'app-task',
@@ -23,7 +24,9 @@ TrainerSectionId:any|undefined;
   ngOnInit(): void {
  
   }
-  DeleteExam(sectionId: number){};
+  Deletetask(taskId:any): void {
+    this.dialog.open(EditTaskComponent,{data:taskId})
+  };
   GetSolution(){
     this.router.navigate(['trainer','solution'])
   }

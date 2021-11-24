@@ -17,36 +17,36 @@
 
       <div formGroupName="Answer">
 
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Mark </mat-label>
+      <mat-form-field class="example-full-width" style="color:green;" appearance="fill">
+        <mat-label>Correct Option is here! </mat-label>
         <input type="email" matInput formControlName="Answer1"  class="correct">
         <mat-error *ngIf="this.formGroup.get('Answer1')?.hasError('required')">
-          Mark is <strong>required</strong>
+          Correct Option <strong>required</strong>
       </mat-error>
       </mat-form-field>  
       
 
        <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Mark </mat-label>
+        <mat-label>False Option #1 </mat-label>
         <input type="email" matInput formControlName="Answer2" class="false">
         <mat-error *ngIf="this.formGroup.get('Answer2')?.hasError('required')">
-          Mark is <strong>required</strong>
+          False Option #1<strong>required</strong>
       </mat-error>
       </mat-form-field>  
       
       <mat-form-field class="example-full-width" appearance="fill" class="false">
-        <mat-label>Mark </mat-label>
+        <mat-label>False Option #2 </mat-label>
         <input type="email" matInput formControlName="Answer3">
         <mat-error *ngIf="this.formGroup.get('Answer3')?.hasError('required')">
-          Mark is <strong>required</strong>
+          False Option #2<strong>required</strong>
       </mat-error>
       </mat-form-field> 
       
       <mat-form-field class="example-full-width" appearance="fill" class="false">
-        <mat-label>Mark </mat-label>
+        <mat-label>False Option #3</mat-label>
         <input type="email" matInput formControlName="Answer4">
         <mat-error *ngIf="this.formGroup.get('Answer4')?.hasError('required')">
-          Mark is <strong>required</strong>
+          False Option #3 <strong>required</strong>
       </mat-error>
       </mat-form-field>
 </div>

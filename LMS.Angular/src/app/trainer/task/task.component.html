@@ -1,52 +1,57 @@
 
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+  
+   
+  <div class="wrap-table100">
+	<div class="table100 ver2 m-b-110">
+		<div class="table100-head">
+			<table>
+				<thead>
+					<tr class="row100 head">
+						<th class="cell100 column4">Title</th> 
+						<th class="cell100 column2">Dead Line</th>   
+						<th class="cell100 column2">Student Answers</th>   
+						<th class="cell100 column2">Delete task</th>   
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="table100-body js-pscroll">
+			<table>
+				<tbody *ngFor="let data of sections.tasks">
+					<tr>
+						<td class="cell100 column4 fancy-link" >{{data.taskTitle}}</td>
+						<td class="cell100 column2 fancy-link" >{{data.deadline}}</td>
 
-				<div class="row">
-					<div class="table-wrap">
-						<table class="table">
-						  <thead class="thead-dark">
-						    <tr>
-						      <th class="col-2">Title</th>
-						      <th class="col-1">Dead Line</th>
+						<td class="cell100 column2 fancy-link" (click)="GetSolution()"><button class="btn btn-outline-primary" >
+							Get Answers
+						  </button></td>
+					   
+						<td class="cell100 column2 fancy-link" (click)="Deletetask(data.taskId)">     <button class="btn btn-outline-danger">
+							Delete
+						  </button></td>   
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 
-						      <th class="col-1">edit</th>
-                  <th class="col-1">Delete</th>
-                  <th class="col-1">Student Answers</th>
-						    </tr>
-						  </thead>
-						  <tbody>
-						    <tr class="alert" role="alert" *ngFor="let data of sections.tasks">
-								<div >
-						      <td class="col-4">{{data.taskTitle}}</td>
-						      <td class="col-2">{{data.deadline}}</td>
-						      <td class="col-1">
+</div>
 
-                    <button class="btn btn-outline-info">
-                      Edit
-                    </button>
-				        	</td>
-                  <td class="col-1">
+	
 
-                    <button class="btn btn-outline-danger">
-                      Delete
-                    </button>
-				        	</td>
-                  <td class="col-1">
-                   <button class="btn btn-outline-primary" (click)="GetSolution()">
-                     Get Answers
-                   </button>
-				        	</td>
-						</div>
-						    </tr>
 
-						  </tbody>
-						</table>
-					</div>
-				</div>
-	<script src="js/jquery.min.js"></script>
-  <script src="js/popper.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/main.js"></script>
+
+<!--===============================================================================================-->
+<script src="../../../assets/jquery/jquery-3.2.1.min.js "></script>
+<!--===============================================================================================-->
+<script src="../../../assets/bootstrap/js/popper.js "></script>
+<script src="../../../assets/bootstrap/js/bootstrap.min.js "></script>
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+
+<!--===============================================================================================-->
+<script src="../../../assets/js/main.js "></script>
+
+
 

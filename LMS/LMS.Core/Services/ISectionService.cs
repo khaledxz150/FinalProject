@@ -39,6 +39,8 @@ namespace LMS.Core.Services
         public bool InsertTraineeTask(TraineeSectionTask traineeSectionTask);
         public bool UpdateTraineeTask(TraineeSectionTask traineeSectionTask);
         public bool DeleteTraineeSectionTask(int traineeSectionTaskId);
+        public bool DeleteTask(int TaskId);
+
 
 
         //Unit

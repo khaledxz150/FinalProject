@@ -50,7 +50,6 @@ reloadComponent() {
 
 
  insertUnit(unit:Unit) {
-   debugger
   this.spinner.show();
       this.http.post(environment.apiUrl + 'Section/InsertUnit',unit).subscribe((res:any)=>{
       this.units = res;
@@ -64,5 +63,22 @@ reloadComponent() {
     })
   }
 
+  DeleteUnit(UnitId:any){
 
+    this.spinner.show();
+    debugger
+    this.http.delete(environment.apiUrl + 'Section/DeleteUnit/'+UnitId,UnitId).subscribe((res:any)=>{
+  this.spinner.hide(); 
+  
+  this.reloadComponent();
+
+  },err=>{
+  this.spinner.hide(); this.reloadComponent();
+  debugger
+    this.toastr.warning('Something wrong');
+  })
 }
+
+
+  }
+

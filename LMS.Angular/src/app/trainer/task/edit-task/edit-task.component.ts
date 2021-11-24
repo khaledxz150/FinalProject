@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { SectionService } from 'src/app/Service/section.service';
 
 @Component({
   selector: 'app-edit-task',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditTaskComponent implements OnInit {
 
-  constructor() { }
+  constructor( @Inject(MAT_DIALOG_DATA) public data: any, public secctionService: SectionService) { }
 
   ngOnInit(): void {
+  }
+
+  Create(){
+    this.secctionService.DeleteTask(this.data);
   }
 
 }

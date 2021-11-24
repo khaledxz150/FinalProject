@@ -327,4 +327,21 @@ this.CurrentLecture = LectureMax;
     })
   }
  }
+ 
+DeleteTask(TaskId:number){
+  this.spinner.show();
+  this.http.put(environment.apiUrl + 'Section/DeleteTask/'+TaskId,TaskId).subscribe((res:any)=>{
+    this.toastr.success('task Deleted successfully !!!');
+    this.reloadComponent();
+    this.spinner.hide();
+
+  },err=>{
+    this.toastr.error('Something Wrong, Try Again!');
+    this.spinner.hide();
+
+  })
+  debugger;
+ }
+
+ 
 }

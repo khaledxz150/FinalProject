@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CourseService } from 'src/app/Service/course.service';
 import { SectionService } from 'src/app/Service/section.service';
 import { UnitService } from 'src/app/Service/unit.service';
@@ -19,10 +20,12 @@ export class EditUnitComponent implements OnInit {
     createdBy: new FormControl('', [Validators.required]),
   });
   constructor(private courseService: CourseService,
-    public sectionService: SectionService, public unitService: UnitService) { }
+    public sectionService: SectionService, public unitService: UnitService, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
   }
-  Create(){}
+  Create(){
+    this.unitService.DeleteUnit(this.data)
+  }
 
 }

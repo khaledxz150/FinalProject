@@ -39,7 +39,7 @@ export class UnitComponent implements OnInit {
 
 
   deleteUnit(UnitId:number) {
-    const dialogRef = this.dialog.open(EditUnitComponent);
+    const dialogRef = this.dialog.open(EditUnitComponent,{data:UnitId});
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
