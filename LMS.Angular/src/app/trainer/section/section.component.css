@@ -377,22 +377,20 @@
   transform-origin: top left;
   transform: rotate(-90deg) translateX(-600px); /* rotate and position it; translateX value corresponds to panel height */
   width: 1000px; /* this will be the height of the accordion (inversed due to rotation) */
-  height: 100px;
-  margin-left:3%
+  height: 150px;
+     margin-left:2.5%;
+
+
 
 }
 
-.mat-expansion-panel2 {
-  max-height: 1000px; /* this will be the width of the panel (inversed due to rotation) */
-  box-shadow: 2px 2px 10px #c21f1f7a;
 
-}
 
 .panel-content2 {
   transform-origin: top left;
   transform: rotate(90deg); /* rotate back */
   margin-left: 100%; /* position it */
-  height: 800px; /* real height of the content */
+  height: 900px; /* real height of the content */
   width: 800px; /* real width of the content */
   box-shadow: 2px 2px 10px #c21f1f7a;
 

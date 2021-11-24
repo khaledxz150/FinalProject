@@ -1,6 +1,6 @@
 
 
-        <div class="wrapper d-flex align-items-stretch"  style="max-width: 60%; margin-left:70px;"  >
+        <div class="wrapper d-flex align-items-stretch"  style="max-width: 50%; margin-left:70px;"  >
           <app-trainer-side-bar></app-trainer-side-bar>
 
 
@@ -162,37 +162,17 @@
             </div>
 
 
-            <mat-accordion  class="mat-accordion2 ">
-              <mat-expansion-panel class="mat-expansion-panel2">
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                   Calendar
-                  </mat-panel-title>
-                  <mat-panel-description>  
-                    Calendar
-                  </mat-panel-description>
-                </mat-expansion-panel-header>
-                <div class="panel-content2">
-                  <app-calendar></app-calendar>
-                </div>
-              </mat-expansion-panel>
- 
+
+            <mat-tab-group mat-align-tabs="center" class="mat-accordion2 ">
+              <mat-tab label="Profile"><div class="panel-content2"><app-profile-acc  ></app-profile-acc></div>
+              </mat-tab>
+              <mat-tab label="Calendar"><div class="panel-content2"><app-calendar></app-calendar></div>
+              </mat-tab>
+            </mat-tab-group>
+
+
  
 
-              <mat-expansion-panel class="mat-expansion-panel2">
-                <mat-expansion-panel-header>
-                  <mat-panel-title class="panel-title">
-                   Profile
-                  </mat-panel-title >
-                  <mat-panel-description>  
-                    Profile
-                  </mat-panel-description>
-                </mat-expansion-panel-header>
-                <div class="panel-content2">
-                <app-profile-acc></app-profile-acc>
-                </div>
-              </mat-expansion-panel>
-              </mat-accordion>  
             <!-- <div class="calender">
          
             <app-profile-acc style="min-height:100%; font-size:large;
