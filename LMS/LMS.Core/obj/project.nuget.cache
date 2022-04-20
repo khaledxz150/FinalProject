@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qqRYOyv8F3aQkL7Oe8ThPk0bnByX9rckfO1K9mRjVLUMKS3cdgUsHc97Fvo09BjaP6GQxTQYGwpBe1cdd72XjQ==",
+  "dgSpecHash": "IdQTeWFDg4d3MMRZPMyPeigLYvOFIndxczzEmHXvHIpeHdjGYU1KPdED1LSG2IbgWR7KzjzbWldjZwUPWxOhRw==",
   "success": true,
-  "projectFilePath": "C:\\Github\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj",
+  "projectFilePath": "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\khale\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\khale\\.nuget\\packages\\microsoft.aspnetcore.authorization\\2.2.0\\microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",

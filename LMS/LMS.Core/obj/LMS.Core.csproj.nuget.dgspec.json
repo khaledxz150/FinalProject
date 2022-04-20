@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Github\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj": {}
+    "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj": {}
   },
   "projects": {
-    "C:\\Github\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj": {
+    "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Github\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj",
+        "projectUniqueName": "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj",
         "projectName": "LMS.Core",
-        "projectPath": "C:\\Github\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj",
+        "projectPath": "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Core\\LMS.Core.csproj",
         "packagesPath": "C:\\Users\\khale\\.nuget\\packages\\",
-        "outputPath": "C:\\Github\\FinalProject\\LMS\\LMS.Core\\obj\\",
+        "outputPath": "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS\\LMS.Core\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\khale\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -72,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

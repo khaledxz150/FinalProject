@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XuQJ+X0Ema9Wpw8HmZgEOdVAtZdtuBu0nWEKcfOTjK5j/H0eGU2dzVB/XfhrOregFPLCUZdd5NQTpnPp+oGKHA==",
+  "dgSpecHash": "2K2c52l+svh46AWsPrAusx+x6Ic1S3zJyV/na38teGJL7p3H3GhSza/tSy8DTvuIQlpRtk35/r5J7YF29GcgvA==",
   "success": true,
-  "projectFilePath": "C:\\Github\\FinalProject\\LMS\\LMS\\LMS.csproj",
+  "projectFilePath": "C:\\Users\\khale\\Documents\\GitHub\\FinalProject\\LMS\\LMS\\LMS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\khale\\.nuget\\packages\\azure.core\\1.6.0\\azure.core.1.6.0.nupkg.sha512",
     "C:\\Users\\khale\\.nuget\\packages\\azure.identity\\1.3.0\\azure.identity.1.3.0.nupkg.sha512",

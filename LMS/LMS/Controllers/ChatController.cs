@@ -20,7 +20,7 @@ namespace LMS.Controllers
             _hubContext = hubContext;
         }
 
-        [Route("send")]                                           //path looks like this: https://localhost:44379/api/chat/send
+        [Route("send")]   //path looks like this: https://localhost:44379/api/chat/send
         [HttpPost]  
         public IActionResult SendRequest([FromBody] Message msg)
         {
